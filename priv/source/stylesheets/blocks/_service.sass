@@ -1,0 +1,24 @@
+.service-container
+  position: relative
+  +at-breakpoint(lap)
+    +padding-left(6)
+
+.service__images
+  position: relative
+  display: flex
+  padding: 6px
+  +vertical-margin(2)
+  +at-breakpoint(lap)
+    +padding(1)
+
+  figure
+    flex: 1 1 auto
+    margin: 6px
+    +at-breakpoint(lap)
+      +margin(1)
+
+    &:nth-child(2)
+      +margin-top(6)
+
+  img
+    border-radius: 10px

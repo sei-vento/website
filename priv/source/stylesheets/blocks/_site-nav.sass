@@ -1,0 +1,92 @@
+.site-nav
+  position: relative
+  height: 50px
+  +at-breakpoint(lap)
+    height: 85px
+
+  &.header--light
+    background-color: white
+
+  & > .wrap
+    height: 100%
+
+.site-nav__content
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  height: 100%
+
+.site-nav__logo
+  background-image: image-url("logo-white.svg")
+  background-repeat: no-repeat
+  display: block
+  height: 40px
+  width: 120px
+  transition: none
+  +at-breakpoint(lap)
+    height: 62px
+    width: 200px
+
+.site-nav__logo--dark
+  @extend .site-nav__logo
+  background-image: image-url("logo.svg")
+
+.site-nav__menu
+  +position(fixed, 0 0 null null)
+  height: 50px
+  width: 50px
+  z-index: 1000
+  +at-breakpoint(lap)
+    height: 85px
+    width: 85px
+  +at-breakpoint(full)
+    right: 7vw
+  &.is-open
+    height: 50px
+    +at-breakpoint(lap)
+      height: 80px
+
+.site-nav__fl
+  display: none
+
+.site-nav__fl__item
+
+.site-nav__fl__link
+
+.site-nav__right
+  display: none
+
++at-breakpoint(desk)
+  .site-nav__fl,
+  .site-nav__right
+    display: block
+
+  .site-nav__menu
+    flex-grow: 2
+    justify-content: flex-start
+    +margin-left(6)
+
+  .site-nav__fl
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: flex-start
+
+  .site-nav__fl__item
+    +margin-right(4)
+
+  .site-nav__fl__link
+    display: block
+    font-weight: bold
+    // +font-size(tau)
+    color: $blue-color
+    border-bottom: 2px solid transparent
+
+    &:hover
+      text-decoration: none
+      color: $black-color
+
+    &.is-active
+      +heading-font-family
+      border-color: $aqua-color

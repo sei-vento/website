@@ -1,0 +1,10 @@
+@mixin opacity($alpha)
+  filter: alpha(opacity= $alpha * 100 )
+  opacity: $alpha
+  zoom: 1
+
+.opacity-75
+  +opacity(.75)
+
+.opacity-50
+  +opacity(.50)

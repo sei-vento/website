@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#ffffff;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#ffffff;}
+</style>
+<g id="Livello_1">
+</g>
+<g id="Livello_2">
+	<g>
+		<g>
+			<path class="st1" d="M19.89,67.11h472.22C502.54,67.11,511,75.57,511,86s-8.46,18.89-18.89,18.89H19.89C9.46,104.89,1,96.43,1,86
+				S9.46,67.11,19.89,67.11z"/>
+		</g>
+		<g>
+			<path class="st1" d="M19.89,237.11h472.22c10.43,0,18.89,8.46,18.89,18.89c0,10.43-8.46,18.89-18.89,18.89H19.89
+				C9.46,274.89,1,266.43,1,256C1,245.57,9.46,237.11,19.89,237.11z"/>
+		</g>
+		<g>
+			<path class="st1" d="M208.78,407.11h283.33c10.43,0,18.89,8.46,18.89,18.89s-8.46,18.89-18.89,18.89H208.78
+				c-10.43,0-18.89-8.46-18.89-18.89S198.35,407.11,208.78,407.11z"/>
+		</g>
+	</g>
+</g>
+</svg>

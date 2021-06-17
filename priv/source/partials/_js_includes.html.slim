@@ -1,0 +1,37 @@
+= javascript_include_tag "application"
+= yield_content :page_js
+
+script[type="text/javascript"]
+  | window.$crisp=[];window.CRISP_WEBSITE_ID="d054e121-08c1-4fb0-8101-c8ff8a94c858";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+
+javascript:
+  (function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);
+
+/ = if environment() == "production" do
+/   script type="plain/text" async="async" class="_iub_cs_activate" data-iub-purposes="4" src="https://www.googletagmanager.com/gtag/js?id=UA-118262650-1"
+/   <script type="plain/text" class="_iub_cs_activate" data-iub-purposes="4">function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-118262650-1");</script>
+
+/ javascript:
+/   var _iub = _iub || [];
+/   _iub.csConfiguration = {"lang":"it","siteId":930950,"cookiePolicyId":8242926,"perPurposeConsent":true,"banner":{ "rejectButtonColor":"#090e17","rejectButtonCaptionColor":"white","textColor":"#090e17","backgroundColor":"white","position":"bottom","fontSize":"16px","acceptButtonDisplay":true,"acceptButtonColor":"#ff0000","acceptButtonCaptionColor":"white","customizeButtonDisplay":true,"customizeButtonColor":"#090e17","customizeButtonCaptionColor":"white" }};
+
+/ script[type="text/javascript" src="//cdn.iubenda.com/cs/ccpa/stub.js"]
+/ script[type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async]
+
+/     !function(f,b,e,v,n,t,s){
+/       if(f.fbq)return;n=f.fbq=function(){
+/         n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+/       };
+/       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+/       n.queue=[];t=b.createElement(e);t.async=!0;
+/       t.src=v;s=b.getElementsByTagName(e)[0];
+/       s.parentNode.insertBefore(t,s)}(window, document,'script',
+/         'https://connect.facebook.net/en_US/fbevents.js');
+/         fbq('init', '2847949035482446');
+/         fbq('track', 'PageView');
+
+/   script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async="async"
+
+/   noscript
+/     img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2847949035482446&ev=PageView&noscript=1"
+

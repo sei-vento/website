@@ -1,0 +1,28 @@
+.quote
+  text-align: center
+
+  i
+    margin: 0 auto
+    +margin-bottom(3)
+    width: 50px
+    height: 50px
+
+.quote__text
+  +font-size(gamma)
+  opacity: .5
+  +margin-bottom(3)
+  +at-breakpoint(lap)
+    +font-size(beta)
+
+
+.quote__name
+  +heading-font-family
+  +font-size(smallprint)
+  letter-spacing: 1.56px
+  color: $red-color
+  text-transform: uppercase
+  +margin-bottom(1)
+  text-align: center
+
+.quote__job
+  letter-spacing: 0.89px

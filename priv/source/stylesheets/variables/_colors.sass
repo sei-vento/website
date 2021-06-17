@@ -1,0 +1,39 @@
+// Bemo variables for Colors variant
+// Use inside blocks, utilities and mixins
+//
+$enable-color-gradients: false !default
+
+// Color variables
+$white-color:    #ffffff !default
+$gray-color:     #8F8F8F !default
+$gray-d-color:   #343434
+$gray-l-color:   #F3F3F3
+$black-color:    #090e17 !default
+$black-l-color:  #282828
+$blue-color:     #311FFF
+$aqua-color:     #7AFFDF
+$aqua-l-color:   #ECFFFA
+$red-color:      #FF004C
+$grid-color:     #A0A0A0
+$border-color:   #5D5C5C
+
+
+// Base map color
+$base-colors: () !default
+$base-colors: map-merge(("white": $white-color, "red": $red-color, "gray": $gray-l-color, "black": $black-color), $base-colors)
+
+// Insert the custom color schema inside the bemo-colors map
+$bemo-colors: () !default
+
+// derived
+$all-colors:    map-merge($base-colors, $bemo-colors)
+
+$base-body-color: $white-color !default
+$base-body-background: $black-color !default
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150 !default
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark:    $black-color !default
+$yiq-text-light:   $white-color !default

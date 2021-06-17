@@ -1,0 +1,55 @@
+.title
+  +heading-font-family
+  font-weight: 800
+  +font-size(beta)
+
+.title--white
+  @extend .title
+  line-height: 0
+  +at-breakpoint(lap)
+    +font-size(alpha)
+    line-height: 0
+
+.title--big
+  @extend .title
+  +font-size(45px)
+  line-height: 50px
+  font-weight: bold
+  color: white
+  .background--white &,
+  .background--gray &
+    color: $black-color
+
+.title--extra-big
+  @extend .title--big
+  color: white
+  position: relative
+  display: inline-block
+  z-index: 0
+  line-height: 14vw
+  .align--center &
+    text-align: center
+  +at-breakpoint(lap)
+    +font-size(90px)
+    line-height: 140px
+
+  &::after
+    content: ""
+    z-index: -1
+    +position(absolute, 62% 100% null 0)
+    height: 40%
+    background-color: darken($red-color, 10%)
+    transition: 0.5s ease
+
+.hover-underline-on-txt
+  +hover
+    .title--extra-big::after
+      right: 0
+
+.title--medium
+  @extend .title
+  font-weight: bold
+
+.title--beta
+  @extend .title
+  +font-size(beta)

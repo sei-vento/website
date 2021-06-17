@@ -1,0 +1,14 @@
+nav.overlay-nav.js-nav-menu.is-hidden aria-hidden="true" aria-labelledby="menu-open menu-close menu-close-inside" role="navigation" data-datocms-noindex=true
+  .wrap--with-flex
+    .overlay-nav__header
+      .overlay-nav__logo
+
+    .overlay-nav__content
+      .overlay-nav__content__item
+        = partial("partials/main-nav",
+          %{html_class: 'overlay-nav__fl'})
+
+    .overlay-nav__footer
+      .overlay-nav__footer__item
+        = partial("partials/footer-nav",
+          %{html_class: 'overlay-footer__fl'})

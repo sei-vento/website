@@ -1,0 +1,141 @@
+- access_key = "2697d88d-7bee-49a2-8fd2-e3d5893dca01"
+- ccmail = "g.squillace@cantierecreativo.net"
+- customer_mail = "g.squillace@cantierecreativo.net"
+
+form.form action="https://api.web3forms.com/submit" method="POST"
+  
+  input type="hidden" name="apikey" value="#{access_key}"
+
+  / Optional: To send the form submission as CC email
+  input type="hidden" name="ccemail" value="#{ccmail}"
+
+  / Optional: default replyto will be "email" (if available), you may overwrite here
+  input type="hidden" name="replyto" value="#{customer_mail}"
+
+  / Required: if submitting without Javascript (because by default web3form outputs json)
+  input type="hidden" name="redirect" value="https://web3forms.com/success"
+
+  / Optional: But Recommended: To Prevent SPAM Submission. Make sure its hidden by default
+  input type="checkbox" name="botcheck" id="" style="display: none;"
+
+  / Google reCaptcha v3: To Prevent SPAM Submission.PRO Plan only
+  input type="hidden" name="recaptcha_response" id="recaptchaResponse"
+
+  .form__title Sono interessato a:
+  .form__subtitle Puoi scegliere una o più categorie
+
+  .form__field
+    input.input--checkbox--hidden type="checkbox" id="web-design" name="web-design"
+    label.form__label-check for="web-design" Web Design
+
+    input.input--checkbox--hidden type="checkbox" id="seo" name="seo"
+    label.form__label-check for="seo" SEO marketing
+
+    input.input--checkbox--hidden type="checkbox" id="ecommerce" name="ecommerce"
+    label.form__label-check for="ecommerce" E-Commerce
+
+    input.input--checkbox--hidden type="checkbox" id="consulenza" name="consulenza" checked="checked"
+    label.form__label-check for="consulenza" Consulenza
+
+    input.input--checkbox--hidden type="checkbox" id="app" name="app"
+    label.form__label-check for="app" app
+
+    input.input--checkbox--hidden type="checkbox" id="uiux" name="uiux"
+    label.form__label-check for="uiux" ui / ux
+
+  .form__title Il mio budget è:
+
+  .form__field
+    input.input--radio--hidden type="radio" id="0-5" name="budget" value="0-5"
+    label.form__label-check for="0-5" Da 1 a 5 k
+
+    input.input--radio--hidden type="radio" id="5-10" name="budget" value="5-10"
+    label.form__label-check for="5-10" Da 5 a 10 k
+
+    input.input--radio--hidden type="radio" id="10-20" name="budget" value="10-20"
+    label.form__label-check for="10-20" Da 10 a 20 k
+
+    input.input--radio--hidden type="radio" id="20" name="budget" value="20" checked="checked"
+    label.form__label-check for="20" >20 k
+
+  .form__title Le mie info sono:
+
+  .flex
+    .flex__item.tab-6-12
+      .form__field
+        input.form__input type="text" name="Nome" placeholder="inserisci il tuo nome" required="required"
+
+    .flex__item.tab-6-12
+      .form__field
+        input.form__input type="text" name="Cognome" placeholder="inserisci il tuo cognome" required="required"
+
+    .flex__item.tab-6-12
+      .form__field
+        input.form__input type="email" name="Email" placeholder="inserisci email" required="required"
+
+    .flex__item.tab-6-12
+      .form__field
+        input.form__input type="text" name="Phone Number" placeholder="inserisci telefono" required="required"
+
+  .margin--bottom-2-on-tab
+    .form__field
+      textarea.form__input name="message" placeholder="inserisci il messaggio" cols="30" rows="5"
+
+  .flex
+    .flex__item.tab-6-12
+      .form__field
+        label.input--checkbox.input--rev.opacity-75
+          input type="checkbox" required="required"
+          .input__label--small
+            = "Letta la"
+            = link_to "Privacy Policy",
+              "https://www.iubenda.com/privacy-policy/876013",
+              class: "iubenda-nostyle no-brand iubenda-embed",
+              title: "Privacy Policy"
+            = ", accetto ai sensi del Regolamento UE 2016/679 (GDPR)"
+
+    .flex__item.tab-6-12
+      .form__actions
+        button.button--rounded type="submit" INVIA
+
+
+/ form.form method="POST" class="js-form-send" data-hook="https://submit-form.com/vZngOGx7dk71Hou4dYa1t"
+/   .form__overlay
+/     .form__overlay__text
+/       .gamma--heading= "Grazie!"
+/       = "Abbiamo ricevuto la tua richiesta. Sarai contattato al più presto."
+
+/   .form__field
+/     label.form__label for="invitation_first_name" Nome
+/     input.form__input type="text" name="first_name" placeholder="Mario" id="invitation_first_name" required="required"
+
+/   .form__field
+/     label.form__label for="invitation_last_name" Cognome
+/     input.form__input type="text" name="last_name" placeholder="Rossi" id="invitation_last_name" required="required"
+
+/   .form__field
+/     label.form__label for="invitation_email" Indirizzo email
+/     input.form__input type="email" name="email" placeholder="mario.rossi@company.com" id="invitation_email" required="required"
+
+/   .form__field
+/     label.form__label for="invitation_phone" Numero di telefono
+/     input.form__input type="text" name="phone" placeholder="+39 345 678 910" id="invitation_phone" required="required"
+
+/   .form__field.vattinne
+/     label.form__label.mannagg for="birth_date" Data di nascita
+/     input.vattinne type="text" name="birth_date" id="birth_date" placeholder="09/09/1932"
+
+/   .form__field
+/     label.input--checkbox.input--rev
+/       input type="checkbox" required="required"
+/       .input__label
+/         = "Letta la"
+/         = link_to "Privacy Policy",
+/           "https://www.iubenda.com/privacy-policy/8242926",
+/           class: "iubenda-nostyle no-brand iubenda-embed",
+/           title: "Privacy Policy"
+/         = ", accetto ai sensi del Regolamento UE 2016/679 (GDPR)"
+
+/   .form__actions
+/     .align--center.align--left-on-desk
+/       button.button--aqua type="submit" Invia la richiesta

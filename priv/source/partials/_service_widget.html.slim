@@ -1,0 +1,14 @@
+- block = params.block
+- i = params.i
+
+.swiper-slide
+  .service__widget
+    .service__widget__header
+      i.icon--extra-big-white data-icon="#{block.icon}" 
+
+      .service__widget__header__counter = "0#{i + 1}"
+    
+    h2.service__widget__title = block.title
+    
+    = block.text
+    

@@ -1,0 +1,14 @@
+- home = params.home
+- rows = home.animatedGallery
+
+section.tiles.tiles--rotated
+  .tiles__wrap
+    = Enum.map Enum.with_index(rows), fn {row, index} ->
+
+      .tiles__line
+        - images = row.images
+        = Enum.map images, fn image ->
+          - current_image = image.responsiveImage
+          .tiles__line-img
+            img.lazyload.img--cover src=image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
+

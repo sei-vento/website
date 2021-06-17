@@ -1,0 +1,59 @@
+
+.site-nav__toggler
+  background-color: transparent
+  +center
+  height: 50%
+  width: 50%
+  display: block
+  border: none
+  -webkit-appearance: none
+  border: none
+  cursor: pointer
+  display: flex
+  flex-direction: column
+  
+  +hover
+    span
+      background: $red-color    
+
+  span
+    background: $red-color
+    border-radius: 10px
+    height: 7px
+    margin: 2.5px 0
+    transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+    +at-breakpoint(lap)
+      height: 3px
+      margin: 5px 0
+
+    &:nth-of-type(1),
+    &:nth-of-type(2)
+      width: 100%
+
+    &:nth-of-type(3)
+      width: 75%
+
+  &.is-open
+
+    span
+      background-color: $black-color
+    
+    span:nth-of-type(1)
+      transform-origin: bottom
+      width: 50%
+      transform: rotatez(45deg) translate(4px,0px) 
+      +at-breakpoint(lap)
+        transform: rotatez(45deg) translate(8px,0px) 
+
+    span:nth-of-type(2)
+      transform-origin: top
+      transform: rotatez(-45deg)      
+
+    span:nth-of-type(3)
+      transform-origin: bottom
+      width: 50%
+      transform: translate(11px, -5px) rotatez(45deg)
+      +at-breakpoint(lap)
+        transform: translate(19px, -7px) rotatez(45deg)
+
+  

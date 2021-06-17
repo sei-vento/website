@@ -1,0 +1,57 @@
+- address = info.address
+- email = info.emailContact
+- phone = info.phone
+- socials = info.social
+
+footer.site-footer.background--white.check-anim data-datocms-noindex=true 
+  .wrap
+
+    .flex 
+      .flex__item.lap-4-12
+
+        .site-footer__title Contatti & Indirizzo
+        .site-footer__text = address
+        = link_to phone,
+          "tel:#{phone}",
+          class: "site-footer__text"
+        = link_to email,
+          "mailto:#{email}",
+          class: "site-footer__text"
+
+
+      .flex__item.lap-3-12
+        .site-footer__title Social
+
+        = Enum.map socials, fn social ->
+          = link_to social.title,
+            social.link,
+            target: "_blank",
+            class: "site-footer__text"        
+
+      .flex__item.lap-3-12
+        .site-footer__title Newsletter
+
+
+    .site-footer__copy
+      = Enum.join(["©#{DateTime.utc_now().year} Cantiere Agency",
+        "P.Iva 05210970488",
+        (link_to "Made with DatoCMS",
+          "https://datocms.com",
+          title: "DatoCMS",
+          class: "site-footer__copy",
+          target: "_blank"),
+        (link_to "Built with Fermo",
+          "https://www.getfermo.com/",
+          title: "Fermo",
+          class: "site-footer__copy",
+          target: "_blank"),
+        (link_to "Privacy Policy",
+          "#",
+          title: "Privacy Policy",
+          class: "site-footer__copy",
+          target: "_blank"),
+        (link_to "Cookie Policy",
+          "#",
+          title: "Cookie Policy",
+          class: "site-footer__copy",
+          target: "_blank")], " - ")

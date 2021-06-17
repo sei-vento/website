@@ -1,0 +1,9 @@
+- block = params.block
+- images = block.images
+
+
+= Enum.map images, fn image ->
+  - current_image = image.responsiveImage
+  .flex__item.tab-6-12.lap-5-12
+    figure class="check-anim image--double"
+      img.lazyload.img--cover src=image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title

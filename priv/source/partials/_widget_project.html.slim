@@ -1,0 +1,20 @@
+- project_index = params.project_index
+- project = params.project
+- image = project.previewImage.responsiveImage
+- services = project.services
+- first_service = hd(services)
+
+.mask.check-anim
+  article.widget data-animation="from-bottom-to-up"
+    = link_to "/#{project_index.slug}/#{project.slug}",
+      title: project.title,
+      class: "widget__link" do
+      figure.widget__image
+        img.lazyload.img--cover src=project.previewImage.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title
+
+      .widget__inner
+
+        h2.widget__title = project.title
+        .widget__subtitle = first_service.title
+
+    

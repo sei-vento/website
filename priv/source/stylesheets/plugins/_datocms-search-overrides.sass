@@ -1,0 +1,61 @@
+.datocms-widget
+  position: relative
+  text-align: left
+  color: $blue-color
+  +font-size(smallprint)
+  z-index: 0
+
+.datocms-widget__search__input
+  margin-bottom: 0
+  box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.25)
+
+  &:focus
+    +focus
+
+.datocms-widget__header
+  border: none
+  margin: 0
+  padding: 0
+  z-index: 1
+
+.datocms-widget__no-results
+  display: none
+
+.datocms-widget__body
+  position: absolute
+  min-height: 0
+  width: 100%
+  margin-top: -5px
+  max-height: 400px
+  overflow-y: scroll
+  z-index: -2
+  border-bottom-left-radius: 5px
+  border-bottom-right-radius: 5px
+  background: $aqua-l-color
+
+.datocms-widget__results
+  +padding-bottom(2)
+
+.datocms-widget__result
+  &:first-child
+    padding-top: 50px
+
+  &:hover
+    border-left-color: $blue-color
+
+.datocms-widget__result__title
+  color: $blue-color
+
+.datocms-widget__footer
+  margin: 0
+  margin-top: -5px
+  padding: 0
+  border: none
+  border-bottom-left-radius: 5px
+  border-bottom-right-radius: 5px
+  background: $aqua-l-color
+  z-index: -1
+
+.datocms-widget__total
+  z-index: 2
+  padding: 10px
