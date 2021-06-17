@@ -1,1 +1,4 @@
 /.envrc.private
+
+# Local Netlify folder
+.netlify
