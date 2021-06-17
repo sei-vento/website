@@ -1,0 +1,84 @@
+// Bemo img classes
+//
+// @example usage:
+//  img.img--cover
+//  img.img--rounded
+
+.img--fluid
+  display: block
+  height: auto
+  max-width: 100%
+
+.img--rounded
+  @extend .img--fluid
+  border-radius: 20px
+
+@supports (object-fit: contain)
+  .img--contain
+    object-fit: contain
+    object-position: 50% 50%
+
+@supports (object-fit: cover)
+  .img--cover
+    object-fit: cover
+    object-position: 50% 50%
+    height: 100%
+    width: 100%
+    transition: .6s
+
+.height-standard
+  position: relative
+  height: 350px
+  width: 100%
+
+  img
+    +position(absolute, 0)
+
+  +at-breakpoint(tab)
+    height: 450px
+  +at-breakpoint(lap)
+    height: 550px
+  +at-breakpoint(desk)
+    height: 650px
+  +at-breakpoint(full)
+    height: 750px
+    
+.img--auto
+  width: 100%
+  height: auto
+
+  .service__images .check-anim &,
+    transform: translateX(100%)
+    opacity: 0
+    transition: 1.4s
+  
+  .service__images .anim &,
+    transform: translateX(0)
+    opacity: 1
+
+  .block-image.check-anim &
+    transform: translateY(100%)
+    opacity: 0
+    transition: 1.4s
+  
+  .block-image.anim &
+    transform: translateY(0)
+    opacity: 1
+
+.img--cover
+  .image--double.check-anim &
+    transform: translateY(100%)
+    opacity: 0
+    transition: 1.4s
+  
+  .image--double.anim &
+    transform: translateY(0)
+    opacity: 1
+
+.image--double
+  height: 380px
+  +margin-bottom(2)
+  +at-breakpoint(lap)
+    height: 56vh
+  +at-breakpoint(desk)
+    height: 72vh

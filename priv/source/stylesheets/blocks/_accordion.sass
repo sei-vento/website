@@ -1,0 +1,107 @@
+.accordion
+  +margin-top(4)
+  z-index: 150
+  position: relative  
+  +at-breakpoint(lap)
+    +horizontal-padding(7)
+    +margin-top(6)
+
+.details
+  background-color: $black-l-color
+  border-radius: 20px
+  +margin-bottom(1)
+  +padding(2)
+  position: relative
+
+  &[open]
+    display: flex
+
+.summary__title
+  cursor: pointer
+  list-style: none
+  +hover
+    color: $red-color
+  &::-webkit-details-marker
+    display: none
+
+  &::before
+    content: "+"
+    +font-size(beta)
+    color: $red-color
+    font-weight: 100
+    +position(absolute, 1rem null null 1rem)
+    transition: .6s
+
+    .details[open] &
+      content: "-"
+      
+.summary__title
+  +heading-font-family
+  +font-size(gamma)
+  -webkit-appearance:none
+  +padding-left(2)
+  +at-breakpoint(lap)
+    max-width: 45%
+
+.summary__content
+  +padding(2)
+  +at-breakpoint(lap)
+    padding-left: 50%
+    +margin-top(-4)
+
+.details
+  max-height: 118px
+  transition: .6s
+
+  &[open]
+    max-height: 400px
+
+
+.details--variant
+  +vertical-padding(2)
+  position: relative
+  border-top: 1px solid $border-color
+
+.summary__title--variant
+  cursor: pointer
+  &::marker
+    content: ""
+
+  &::before
+    content: "+"
+    +font-size(beta)
+    color: $red-color
+    font-weight: 100
+    +position(absolute, 10px 0 null null)
+    transition: .6s
+    +at-breakpoint(tab)
+      top: 16px
+    +at-breakpoint(lap)
+      top: 12px
+
+    .details--variant[open] &
+      content: "-"
+      
+.summary__title--variant
+  +heading-font-family
+  +font-size(delta)
+  -webkit-appearance:none
+  +padding-right(2)
+  &:hover
+    color: $red-color
+
+.summary__content--variant
+  +vertical-padding(2)
+  opacity: .75
+
+.details--variant
+  max-height: 118px
+  transition: .6s
+
+  &[open]
+    max-height: 400px
+
+  &:last-of-type
+    border-bottom: 1px solid $border-color
+
+

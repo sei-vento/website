@@ -1,6 +1,27 @@
 - content = params.content
+- id = params.id
+- locale = params.locale
 
-doctype 5
-html lang=params.locale
-  body
-    main= content
+|
+  <!DOCTYPE html>
+  
+/ html lang=locale 
+/   head = partial "partials/head"
+/   body class="#{class_variant}"
+/     #get-scroll
+/     div data-datocms-noindex=true
+/       = link_to "Vai al contenuto principale",
+/         "#content",
+/         class: "skip-link"
+
+/       = link_to "Vai al footer",
+/         "#footer",
+/         class: "skip-link"
+
+/     = partial("partials/site-nav", %{id: id})
+/     = partial("partials/overlay-nav")        
+
+/     main#content= content
+
+/     = partial("partials/site-footer")
+/     = partial("partials/js_includes")

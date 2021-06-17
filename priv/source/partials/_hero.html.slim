@@ -1,0 +1,6 @@
+- hero = params.hero
+- image = hero.responsiveImage
+
+figure.hero
+  img.lazyload.img--cover src=hero.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title
+

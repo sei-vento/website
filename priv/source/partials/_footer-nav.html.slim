@@ -1,0 +1,33 @@
+- html_class = params.html_class
+- email = info.emailContact
+- phone = info.phone
+- socials = info.social
+
+.mask
+  div class="#{html_class}__title"
+    = "Contatti"
+
+ul class=html_class
+  .mask
+    li class="#{html_class}__item"
+      = link_to phone,
+        "tel:#{phone}",
+        class: "#{html_class}__link"
+  .mask
+    li class="#{html_class}__item"
+      = link_to email,
+        "mailto:#{email}",
+        class: "#{html_class}__link"
+
+.mask
+  div class="#{html_class}__title"
+    = "Social"
+
+ul class=html_class
+  = Enum.map socials, fn social ->
+    .mask
+      li class="#{html_class}__item--inline"
+        = link_to social.title,
+          social.link,
+          target: "_blank",
+          class: "#{html_class}__link"

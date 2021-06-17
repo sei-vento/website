@@ -1,0 +1,48 @@
+// Bemo wrap utilities
+//
+// @example usage:
+//  .wrap
+//    .unwrapped
+//  .wrap--large--on-desk
+
+.unwrapped
+  // margin-left: calc(-50vw + 50%)
+  // margin-right: calc(-50vw + 50%)
+  +horizontal-padding(0)
+
+.wrap
+  +wrap
+  +horizontal-padding(5vw)
+  +at-breakpoint(lap)
+    +horizontal-padding(6vw)
+  +at-breakpoint(full)
+    +horizontal-padding(8vw)
+
+.wrap--full
+  +wrap
+  max-width: 100%
+
+.wrap--with-flex
+  @extend .wrap
+  +at-breakpoint(desk)
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+@each $name, $width in $wrap-widths
+  .wrap--#{$name}
+    +wrap
+    max-width: $width
+
+@each $name in $breakpoint-names
+  .wrap--on-#{$name}
+    +at-breakpoint($name)
+      +wrap
+      max-width: $base-wrap-width
+
+  @each $wrap, $width in $wrap-widths
+    .wrap--#{$wrap}-on-#{$name}
+      +at-breakpoint($name)
+        +wrap
+        max-width: $width
+

@@ -1,0 +1,12 @@
+- tool = params.tool
+- logo = tool.logo
+
+.tool.check-anim
+  
+  figure.tool__image
+    img src="#{logo.url}" class="lazyload img--auto" alt="#{logo.alt}"
+  
+  div
+    h2.tool__title = tool.title
+    .opacity-50 = tool.text
+

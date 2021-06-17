@@ -1,0 +1,58 @@
+$transition: 1.4s
+$transition: 1.4s
+
+.list
+  display: flex
+  flex-direction: column
+  margin-bottom: 0
+  padding-left: 0
+
+.list--horizontal
+  @extend .list
+  flex-direction: row
+
+.list__item
+  +margin-bottom(-1px)
+  +padding(1)
+  background-color: $white-color
+  border: 0.05rem solid $gray-color
+  display: block
+  position: relative
+  .list--horizontal &
+    +margin-right(-1px)
+    flex-basis: 0%
+    flex-grow: 1
+    flex-shrink: 1
+    margin-bottom: 0
+
+.service--list
+  +at-breakpoint(lap)
+    width: 300px
+
+  li
+    +heading-font-family
+    letter-spacing: 1.78px
+    +vertical-padding(1)
+    width: 100%
+    display: block
+    position: static
+    top: 0
+    height: auto
+    overflow: hidden
+    transition: $transition
+
+    &.anim
+      border-bottom: 1px solid $border-color
+
+    span
+      display: block
+      transition: $transition
+      transform: translateY(170%)
+
+    &.anim span
+      transform: translateY(0)    
+
+    &:first-of-type
+      &.anim
+        border-top: 1px solid $border-color
+    

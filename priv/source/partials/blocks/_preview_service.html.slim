@@ -1,0 +1,27 @@
+- service = params.service
+- number = service.position
+- title = service.title
+- description = service.introText
+
+.flex__item.tab-6-12
+  .margin--both-3
+
+    .service-container
+      .mask.check-anim
+        .number data-animation="from-bottom-to-up"
+          = "0#{number}"
+
+      .margin--bottom-1
+        .mask.check-anim
+          h2.title--medium data-animation="from-bottom-to-up"
+            = title
+
+      .mask.check-anim
+        .text--regular data-animation="from-bottom-to-up"
+          = description
+
+      .mask.check-anim
+        .margin--top-2
+          div data-animation="from-bottom-to-up"
+            i.icon--big-red data-icon="plus"
+

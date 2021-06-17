@@ -1,0 +1,5 @@
+@mixin loop-delay
+  @for $i from 1 through 20
+    &:nth-child(#{$i})
+      .partner-card
+        animation-delay: $i * 0.25s

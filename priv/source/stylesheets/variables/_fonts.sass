@@ -1,0 +1,17 @@
+// Bemo variables for font variant
+// use inside blocks, utilities and mixins
+//
+
+$base-font-size:            16px !default
+$base-line-height:          25px !default
+
+$font-sizes:                () !default
+$font-sizes:                map-merge(("alpha": 60px, "beta": 35px, "gamma": 25px, "delta": 20px, "smallprint": 14px, "milli": 12px, "mini": 10px), $font-sizes)
+
+$line-heights:              () !default
+$line-heights:              map-merge(("alpha": 65px, "beta": 45px, "gamma": 35px, "delta": 28px, "smallprint": 18px, "milli": 16px, "mini": 10px), $line-heights)
+
+// derived
+$all-font-sizes:            () !default
+$all-font-sizes:            map-merge(("regular": $base-font-size), $font-sizes)
+$all-line-heights:          map-merge(("regular": $base-line-height), $line-heights)
