@@ -1,0 +1,12 @@
+{application,fermo_helpers,
+             [{applications,[kernel,stdlib,elixir,logger,calendar,deep_merge,
+                             jason,morphix,yaml_elixir]},
+              {description,"Helper functions for the Fermo static site generator"},
+              {modules,['Elixir.FermoHelpers','Elixir.FermoHelpers.Date',
+                        'Elixir.FermoHelpers.DateTime',
+                        'Elixir.FermoHelpers.HTML',
+                        'Elixir.FermoHelpers.Links',
+                        'Elixir.FermoHelpers.String',
+                        'Elixir.FermoHelpers.Text']},
+              {registered,[]},
+              {vsn,"0.12.0"}]}.

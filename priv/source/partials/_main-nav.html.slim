@@ -6,43 +6,43 @@ ul class=html_class
     
     .flex__item.lap-6-12
 
-      .mask
-        li class="#{html_class}__item"
-          = link_to "Home",
-            "/",
-            class: "#{html_class}__link #{if params.id == "home_page", do: "is-active"}"
+    /   .mask
+    /     li class="#{html_class}__item"
+    /       = link_to "Home",
+    /         "/",
+    /         class: "#{html_class}__link #{if params.id == "home_page", do: "is-active"}"
 
-      .mask
-        li class="#{html_class}__item"
-          = link_to "Progetti",
-            "/#{project_index(context.page.path).slug}",
-            class: "#{html_class}__link #{if params.id == "project_index" || String.starts_with?(params.id, "project_page"), do: "is-active"}"
+    /   .mask
+    /     li class="#{html_class}__item"
+    /       = link_to "Progetti",
+    /         "/#{project_index(context.page.path).slug}",
+    /         class: "#{html_class}__link #{if params.id == "project_index" || String.starts_with?(params.id, "project_page"), do: "is-active"}"
 
-      .mask
-        li class="#{html_class}__item"
-          = link_to "Metodo",
-            "/#{work_page(context.page.path).slug}",
-            class: "#{html_class}__link #{if params.id == "work_page", do: "is-active"}"
+    /   .mask
+    /     li class="#{html_class}__item"
+    /       = link_to "Metodo",
+    /         "/#{work_page(context.page.path).slug}",
+    /         class: "#{html_class}__link #{if params.id == "work_page", do: "is-active"}"
 
-    .flex__item.lap-6-12
+    / .flex__item.lap-6-12
 
-      .mask
-        li class="#{html_class}__item"
-          = link_to "Servizi",
-            "/#{service_index(context.page.path).slug}",
-            class: "#{html_class}__link #{if params.id == "service_index", do: "is-active"}"
+    /   .mask
+    /     li class="#{html_class}__item"
+    /       = link_to "Servizi",
+    /         "/#{service_index(context.page.path).slug}",
+    /         class: "#{html_class}__link #{if params.id == "service_index", do: "is-active"}"
 
-      .mask
-        li class="#{html_class}__item"
-          = link_to "FAQ",
-            "/#{faq_page(context.page.path).slug}",
-            class: "#{html_class}__link #{if params.id == "faq_page", do: "is-active"}"
+    /   .mask
+    /     li class="#{html_class}__item"
+    /       = link_to "FAQ",
+    /         "/#{faq_page(context.page.path).slug}",
+    /         class: "#{html_class}__link #{if params.id == "faq_page", do: "is-active"}"
 
-      .mask
-        li class="#{html_class}__item"
-          = link_to "Contatti",
-            "/#{contact_page(context.page.path).slug}",
-            class: "#{html_class}__link #{if params.id == "contact_page", do: "is-active"}"
+    /   .mask
+    /     li class="#{html_class}__item"
+    /       = link_to "Contatti",
+    /         "/#{contact_page(context.page.path).slug}",
+    /         class: "#{html_class}__link #{if params.id == "contact_page", do: "is-active"}"
 
 
 

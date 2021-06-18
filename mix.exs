@@ -7,7 +7,7 @@ defmodule WebsiteBaseAgency.MixProject do
     [
       app: :website_base_agency,
       version: "0.1.0",
-      elixir: "~> 1.9",
+      elixir: "~> 1.11",
       compilers: Mix.compilers() ++ [:fermo],
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -22,10 +22,11 @@ defmodule WebsiteBaseAgency.MixProject do
 
   defp deps do
     [
-      {:fermo, "0.14.3"}  ,
-  {:datocms_graphql_client, "~> 0.14.3"},
-  {:fermo_datocms_graphql_client, "~> 0.14.3"}
-
+      {:fermo, ">= 0.0.0"},
+      {:fermo_helpers, ">= 0.0.0"},
+      {:datocms_graphql_client, ">= 0.0.0"},
+      {:fermo_datocms_graphql_client, ">= 0.0.0"},
+      {:memoize, "~> 1.3"}      
     ]
   end
 end

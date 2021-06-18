@@ -5,7 +5,7 @@ defmodule Helpers do
     quote do
       import I18n.Helpers
       import FermoHelpers.Links
-      import Fermo.DatoCMS.GraphQLClient
+      # import Fermo.DatoCMS.GraphQLClient, only: [query!: 1, query!: 2]
       import DatoCMS.GraphQLClient.MetaTagHelpers, only: [seo_meta_tags_fragment: 0]
       import DatoCMS.GraphQLClient.ImageHelpers
       import DatoCMS.StructuredText
@@ -14,8 +14,12 @@ defmodule Helpers do
       
       import Website.Paths
       def environment, do: System.get_env("BUILD_ENV")
+      use Memoize
 
-      def home_page(locale) do
+      @max_text 24
+      @transform_to_hyphen ~r([‐' ’,&+.#/@!:°])u
+
+      defmemo home_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
             homePage(locale: $locale) {
@@ -23,7 +27,6 @@ defmodule Helpers do
               _updatedAt
               title
               slug
-              menuLabel
               imageHero {
                 responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
                 imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
@@ -59,7 +62,7 @@ defmodule Helpers do
         result[:homePage]
       end
     
-      def blog_index(locale) do
+      defmemo blog_index(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
             blogIndex(locale: $locale) {
@@ -103,7 +106,7 @@ defmodule Helpers do
         result[:blogIndex]
       end
     
-      def blog_posts(locale) do
+      defmemo blog_posts(locale) do
         DatoCMS.GraphQLClient.fetch_all_localized!(
           :allBlogPosts,
           locale,          
@@ -113,7 +116,7 @@ defmodule Helpers do
             _updatedAt
             title
             slug
-            menuLabel
+            id
             imageHero {
               responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
               imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
@@ -147,7 +150,7 @@ defmodule Helpers do
         )    
       end
     
-      def contact_page(locale) do
+      defmemo contact_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
             contactPage(locale: $locale) {
@@ -191,7 +194,7 @@ defmodule Helpers do
         result[:contactPage]
       end
     
-      def info(locale) do
+      defmemo info(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
             info(locale: $locale) {

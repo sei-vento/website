@@ -1,0 +1,10 @@
+- html_class = params.html_class
+
+= if Map.has_key?(params, :page) && Map.has_key?(context.page, :localized_paths) do
+  - localized_paths = get_in(context, [:page, :localized_paths])
+
+  = Enum.map localized_paths, fn {locale, path} ->
+    = if locale != params.locale do
+      = link_to t("switch_locale", params.locale),
+        path,
+        class: html_class

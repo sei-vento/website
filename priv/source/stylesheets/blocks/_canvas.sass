@@ -1,31 +1,257 @@
-// Bemo canvas component
-//
-// @example usage:
-//  .canvas
-//    .canvas__main
-//    .canvas__aside
-
 .canvas
-  overflow: hidden
   position: relative
+  min-height: 100vh
 
-  &.is-shifted
-    +position(fixed, 0 0 0 0)
+.canvas__header__top
+  +position(fixed, 0 0 null 0)
+  background-color: $white-color
+  z-index: $canvas-z-index
+  border-bottom: 1px solid $border-color
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: $canvas-mobile-topbar-height
+  +vertical-padding(1)
+  +horizontal-padding(2)
+
+.canvas__header__logo
+  display: block
+  background-image: image-url("logo.svg")
+  background-repeat: no-repeat
+  background-size: contain
+  text-indent: 100%
+  width: 190px
+  height: 40px
+  white-space: nowrap
+  overflow: hidden
+  transition: none
+
+.canvas__header__top__locale-switcher
+  text-transform: uppercase
+  +font-size(milli)
+  letter-spacing: 1px
+  display: flex
+  align-items: center
+  margin-right: -6px
+  border-left: 1px solid $border-color
+  +padding-left(2)
+  +vertical-padding(1)
+  +margin-left(2)
+
+  &:after
+    +icon
+    content: ""
+    display: block
+    +margin-left(0.5)
+    flex-shrink: 0
+    height: 14px
+    width: 14px
+    background-color: $yellow-color
+    mask-image: image-url("icons/arrow-down.svg")
+    transform: rotate(-90deg)
+
+.canvas__header__top__bottom
+  +position(fixed, null 0 0 0)
+  background-color: $blue-color
+  z-index: $canvas-z-index
+  color: $white-color
+  height: $canvas-mobile-bottombar-height
+  border-top: 1px solid $border-color
+
+.canvas__header__top-nav
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  align-items: stretch
+
+.canvas__header__top-nav__item
+  border-left: 1px solid $border-color
+  flex-grow: 2
+  max-width: 20%
+  text-align: center
+
+  &:first-child
+    border: none
+
+.canvas__header__top-nav__link
+  color: $white-color
+  display: block
+  +padding(0.9)
+
+  span
+    +font-size(8px)
+    letter-spacing: 1px
+    font-weight: bold
+    text-transform: uppercase
+    display: block
+    text-align: center
+    margin-top: -1px
+
+  i
+    display: inline-block
+
+.canvas__header__nav
+  visibility: hidden
+  opacity: 0
+  +position(fixed, $canvas-mobile-topbar-height 0 $canvas-mobile-bottombar-height 0 )
+  z-index: $canvas-z-index
+  background-color: $blue-color
+  overflow-y: auto
+  border-top: 1px solid $border-color
+  border-bottom: 1px solid $border-color
+  +base-transition("material", "base")
+
+  &.is-open
+    visibility: visible
+    opacity: 1
+
+.canvas__nav__fl__item
+  color: $white-color
+  border-bottom: 1px solid $border-color
+
+.canvas__nav__fl__item__buttons
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+
+.canvas__nav__fl__link
+  color: $white-color
+  +heading-font-family
+  +font-size(smallprint)
+  text-transform: uppercase
+  display: block
+  +horizontal-padding(2)
+  +padding-top(1.2)
+  +padding-bottom(0.9)
+  letter-spacing: 1px
+  flex-grow: 2
+
+  &.is-active
+    color: $yellow-color
+
+.canvas__nav__fl__toggler
+  +padding-top(1.2)
+  +padding-bottom(0.9)
+  +horizontal-padding(2)
+  &:after
+    +icon
+    content: ""
+    display: block
+    +margin-left(0.5)
+    flex-shrink: 0
+    height: 14px
+    width: 14px
+    background-color: $white-color
+    mask-image: image-url("icons/arrow-down.svg")
+    +default-transition
+
+.canvas__nav__fl__item--toggable
+  @extend .canvas__nav__fl__item !optional
+
+  &.is-open
+    .canvas__nav__fl__toggler::after
+      transform: rotate(180deg)
+
+    .canvas__nav__sl
+      visibility: visible
+      opacity: 1
+      max-height: 800px
+
+.canvas__nav__sl
+  visibility: hidden
+  opacity: 0
+  max-height: 0
+  +default-transition
+
+.canvas__nav__sl__item
+  border-top: 1px solid $border-color
+
+.canvas__nav__sl__link
+  +heading-font-family
+  color: $white-color
+  background-color: $blue-color
+  display: block
+  +horizontal-padding(2)
+  +vertical-padding(1)
+  +font-size(smallprint)
+    
+  &.is-active
+    color: $yellow-color
 
 .canvas__main
-  +base-transition("material", "advanced")
+  padding-top: $canvas-mobile-topbar-height
+  padding-bottom: $canvas-mobile-bottombar-height
 
-.canvas__aside
-  +position(absolute, 0 null 0 null)
-  background-color: $gray-color
-  box-shadow: 0 0 0 transparent
-  overflow-y: auto
-  transition: transform 0.5s cubic-bezier(.55,0,.1,1), box-shadow 0.5s cubic-bezier(.55,0,.1,1)
-  z-index: 12
++at-breakpoint(tab)
+  .canvas__header__top-nav__link
+    +padding(0.65)
+    span
+      +font-size(10px)
 
-.canvas__aside--left
-  @extend .canvas__aside
-  .canvas.is-shifted &
-    box-shadow: 3px 0 5px rgba($gray-color, 0.5)
++at-breakpoint(desk)
+  .canvas__header__nav
+    +position(fixed, 0 null 0 0)
+    top: $canvas-desk-topbar-height
+    width: $canvas-aside-width
+    background-color: $blue-color
+    border-right: 1px solid $border-color
 
-+canvas-layout(100%, "left")
+  .canvas__main
+    padding-left: $canvas-aside-width
+    padding-top: $canvas-desk-topbar-height
+    padding-bottom: 0
+
+  .canvas__header__top
+    height: $canvas-desk-topbar-height
+
+  .canvas__header__logo
+    height: 55px
+
+  .canvas__header__top__bottom
+    +position(relative, auto auto auto auto)
+    background: none
+    z-index: $canvas-z-index
+    color: $base-body-color
+    height: auto
+
+  .canvas__header__top-nav__item
+    border-left: none
+    max-width: 100%
+    text-align: left
+
+  .canvas__header__top-nav__link
+    color: $base-body-color
+    display: flex
+    align-items: center
+    +vertical-padding(1)
+    +horizontal-padding(2)
+
+    span
+      font-weight: 500
+      letter-spacing: 1px
+      +font-size(milli)
+
+    i
+      +margin-right(1)
+      width: 20px
+      height: 20px
+
+  .canvas__header__nav
+    transition: none
+    visibility: visible
+    opacity: 1
+
+  .canvas__header__top__locale-switcher
+    color: $base-body-color
+    +font-size(smallprint)
+    +padding-left(2)
+    margin-left: 0
+    border-left: 1px solid $border-color
+
+    &:after
+      background-color: $blue-color
+
++at-breakpoint(monitor)
+  .canvas__nav__fl__link
+    +horizontal-padding(2)

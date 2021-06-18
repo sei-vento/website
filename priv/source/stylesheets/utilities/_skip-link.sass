@@ -1,0 +1,13 @@
+.skip-link
+  z-index: $canvas-z-index + 1
+  background: $blue-color
+  color: $white-color
+  font-weight: bold
+  left: 50%
+  +padding(1)
+  position: absolute
+  transform: translateY(-100%) translateX(-50%)
+  transition: transform 0.3s
+
+  &:focus
+    transform: translateY(-0%) translateX(-50%)

@@ -60,6 +60,7 @@ defmodule WebsiteBaseAgency do
           end
         )
 
+        blog_index = blog_index(locale)
         blog_index_path = page_path(blog_index, locale)
         config = page(
           config,
@@ -70,8 +71,9 @@ defmodule WebsiteBaseAgency do
             id: "blog_index"}
         )
 
+        contact_page = contact_page(locale)
         contact_page_path = page_path(contact_page, locale)
-        config = page(
+        _config = page(
           config,
           "/templates/contact_page.html.slim",
           Fermo.Paths.path_to_target(contact_page_path),

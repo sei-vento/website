@@ -1,0 +1,29 @@
+---
+en:
+  iubenda_id: 203034
+  switch_locale: ita
+  nav:
+    home: Homepage Guidelines
+    search: Search
+    menu: Menu
+    login: Login
+    logout: Logout
+
+  content_index: Content index
+  glossary_labels_title: Legend
+  updated_at: "Updated at:"
+  site_nav_label: "Main navigation"
+  main_nav_label: "Section navigation"
+  main_nav_toggler_label: "Open/close main navigation"
+  subpages_nav_label: "Open/close subpages navigation of"
+  search_toggler_label: "Open/close search navigation"
+  search_closer_label: "Cose search navigation"
+  search_close: "Close"
+
+  skiplinks:
+    to_content: Go to main content
+    to_footer: Go to page footer
+
+  cantiere_aria_label: "Link to Cantiere Creativo website (opens in a new window)"
+  fermo_aria_label: "Link to Fermo website (opens in a new window)"
+  datocms_aria_label: "Link to DatoCMS website (opens in a new window)"

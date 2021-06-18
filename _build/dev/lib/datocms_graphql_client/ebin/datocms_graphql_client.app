@@ -1,6 +1,6 @@
 {application,datocms_graphql_client,
-             [{applications,[kernel,stdlib,elixir,logger,httpoison,jason,
-                             eventsource_ex,neuron,memoize]},
+             [{applications,[kernel,stdlib,elixir,logger,httpoison,
+                             eventsource_ex,jason,memoize,neuron]},
               {description,"Helpers for DatoCMS GraphQL access"},
               {modules,['Elixir.DatoCMS.GraphQLClient',
                         'Elixir.DatoCMS.GraphQLClient.Backends.MemoizingClient',

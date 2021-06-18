@@ -1,0 +1,60 @@
+- locale = params.locale
+- homepage = home_page(locale)
+- blog_index = blog_index(locale)
+- contact_page = contact_page(locale)
+
+header.canvas__header data-datocms-noindex=true
+  .canvas__header__top
+    = link_to "",
+      locale_url_prefix(locale),
+      class: "canvas__header__logo",
+      title: t("nav.home", locale)
+
+    / nav.canvas__header__top__bottom aria-label=t("site_nav_label", locale)
+    /   ul.canvas__header__top-nav
+    /     li.canvas__header__top-nav__item
+    /       = link_to "#",
+    /         class: "canvas__header__top-nav__link",
+    /         rel: "noopener noreferrer",
+    /         id: "search_nav_togger",
+    /         "data-a11y-dialog-show": "search-nav",
+    /         "aria-label": t("search_toggler_label", locale) do
+
+    /         i.icon aria-hidden="true" data-icon="search"
+    /         span= t("nav.search", locale)
+
+    /     li.canvas__header__top-nav__item
+    /       = link_to locale_url_prefix(locale),
+    /         class: "canvas__header__top-nav__link" do
+
+    /         i.icon aria-hidden="true" data-icon="public"
+    /         span= public_guidelines_index.menuLabel
+
+    /     li.canvas__header__top-nav__item.hidden--on-desk
+    /       = link_to "#",
+    /         class: "canvas__header__top-nav__link",
+    /         rel: "noopener noreferrer",
+    /         "aria-controls": "main-nav",
+    /         "aria-expanded": "false",
+    /         "aria-label": t("main_nav_toggler_label", locale) do
+
+    /         i.icon aria-hidden="true" data-icon="menu"
+    /         span= t("nav.menu", locale)
+
+    /     li.canvas__header__top-nav__item
+    /       = link_to page_path(private_guidelines_index, locale),
+    /         class: "canvas__header__top-nav__link" do
+
+    /         i.icon aria-hidden="true" data-icon="reserved"
+    /         span= private_guidelines_index.menuLabel
+
+    /     li.canvas__header__top-nav__item
+    /       = link_to page_path(glossary_entries_index, locale),
+    /         class: "canvas__header__top-nav__link" do
+
+    /         i.icon aria-hidden="true" data-icon="glossary"
+    /         span= glossary_entries_index.menuLabel
+
+    / = partial("partials/layout/locale-switcher",
+    /   %{html_class: "canvas__header__top__locale-switcher"})
+

@@ -1,0 +1,29 @@
+---
+it:
+  iubenda_id: 876013
+  switch_locale: eng
+  nav:
+    home: Homepage Guidelines
+    search: Cerca
+    menu: Menu
+    login: Accedi
+    logout: Logout
+
+  content_index: Indice della pagina
+  glossary_labels_title: Legenda
+  updated_at: "Ultimo aggiornamento:"
+  site_nav_label: "Navigazione generale"
+  main_nav_label: "Menù di navigazione sezione"
+  main_nav_toggler_label: "Apri/chiudi il menù di navigazione area"
+  subpages_nav_toggler_label: "Apri/chiudi le sottopagine di"
+  search_toggler_label: "Apri/chiudi la ricerca"
+  search_closer_label: "Chiudi la ricerca"
+  search_close: "Chiudi"
+
+  skiplinks:
+    to_content: Vai al contenuto principale
+    to_footer: Vai al footer
+
+  cantiere_aria_label: "Link al sito web di Cantiere Creativo (apre in una nuova pagina)"
+  fermo_aria_label: "Link al sito web di Fermo (apre in una nuova pagina)"
+  datocms_aria_label: "Link al sito web di DatoCMS (apre in una nuova pagina)"
