@@ -73,7 +73,7 @@ defmodule WebsiteBaseAgency do
 
         contact_page = contact_page(locale)
         contact_page_path = page_path(contact_page, locale)
-        _config = page(
+        config = page(
           config,
           "/templates/contact_page.html.slim",
           Fermo.Paths.path_to_target(contact_page_path),
