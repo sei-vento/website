@@ -29,5 +29,5 @@
                         'Elixir.Mix.Tasks.Fermo.MiddlemanImporter',
                         'Elixir.Webpack.Assets','Elixir.Webpack.DevServer']},
               {registered,[]},
-              {vsn,"0.14.3"},
+              {vsn,"0.14.9"},
               {mod,{'Elixir.Fermo',[]}}]}.

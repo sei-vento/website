@@ -1,3 +1,5 @@
+![Build Status](https://github.com/leanpanda-com/fermo/actions/workflows/elixir.yml/badge.svg?branch=main)
+
 # Fermo
 
 A static site generator, build for speed and flexibility.
@@ -32,13 +34,8 @@ $ mix fermo.live
 
 The live site is available at http://localhost:4001/
 
-When pages are requested,
-the server injects a JS that starts a socket,
-on the Elixir side, the socket registers the path that
-the browser is visiting.
-
-When changes happen to pages that are being visited,
-the browser is told to reload the page via the websocket.
+Page dependencies are monitored and are reloaded in the browser
+when changes are detected.
 
 # Capabilities
 
@@ -56,19 +53,22 @@ the browser is told to reload the page via the websocket.
 |   +-- my_project.ex - See [Configuration](#configuration)
 |   +-- helpers.ex
 +-- mix.exs           - See [Mix configuration](#mix-configuration)
++-- package.json
 +-- priv
-    +-- locales       - See [Localization](#localization)
-    |   +-- en.yml
-    |   +-- ...
-    +-- source
-        +-- javascripts
-        +-- layouts
-        +-- localizable
-        +-- templates
-        +-- partials
-        +-- static
-        +-- stylesheets
-        +-- templates
+|   +-- locales       - See [Localization](#localization)
+|   |   +-- en.yml
+|   |   +-- ...
+|   +-- source
+|       +-- javascripts
+|       +-- layouts
+|       +-- localizable
+|       +-- templates
+|       +-- partials
+|       +-- static
+|       +-- stylesheets
+|       +-- templates
++-- README.md
++-- webpack.config.js
 ```
 
 # Mix Configuration
@@ -88,7 +88,7 @@ defmodule MyProject.MixProject do
 
   defp deps do
     [
-      {:fermo, "~> 0.14.3"}
+      {:fermo, "~> 0.14.9"}
     ]
   end
 end
@@ -99,7 +99,7 @@ end
 Create a module (under lib) with a name matching your MixProject module defined in
 `[mix.exs](#mix-configuration)`.
 
-This module must implement `build/0`, a function that returns an updated
+This module must implement `config/0`, a function that returns an updated
 `[config](#config-object)`.
 
 ```elixir
@@ -110,7 +110,7 @@ defmodule MyProject do
 
   use Fermo
 
-  def build do
+  def config do
     config = initial_config()
 
     {:ok, config}
@@ -260,7 +260,7 @@ defmodule MyProject do
 end
 ```
 
-Then ensure you pass an `:id` and `:locale` in the options parameter
+Then ensure you pass an `:id` and `:locale` in the params
 of your Fermo.page/4 calls:
 
 ```elixir
@@ -295,6 +295,38 @@ the id in the template's frontmatter:
 ---
 id: my-localized-page
 ---
+```
+
+## <a name="webpack-asset-pipeline"></a>Webpack asset pipeline
+
+`mix fermo.build` runs Webpack to produce static assets.
+
+`mix fermo.live` runs Webpack dev server.
+
+It is assumed that you are using Webpack >= 5.
+
+If you are using Webpack <= 4.x, you'll need to add the following to your
+`config/config.exs`:
+
+```elixir
+config :fermo, webpack_dev_server_command: "yarn run webpack serve --watch-stdin"
+```
+
+# Testing
+
+There is a very slow (40s) integration test that builds a project -
+the time is mostly taken up compiling dependencies.
+
+By default integration tests are skipped when you run
+
+```sh
+$ mix test
+```
+
+To run all tests, add the FERMO_RUN_INTEGRATION environment variable:
+
+```sh
+$ FERMO_RUN_INTEGRATION=1 mix test
 ```
 
 # Middleman to Fermo

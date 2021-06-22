@@ -1,26 +1,13 @@
 - locale = params.locale
+- info = info(locale)
 
-footer#footer.padding--top-3.margin--top-1
-  hr
-  .wrap.padding--both-1
-    .formatted-content.smallprint
-      = "®2010-2021"
-      = link_to "Cantiere Creativo",
-        "https://www.cantierecreativo.net",
-        rel: "noopener noreferrer",
-        target: "_blank",
-        "aria-label": t("cantiere_aria_label", locale)
+footer#footer.site-footer
 
-      = "- Made with"
-      = link_to "Fermo",
-        "https://www.getfermo.com",
-        rel: "noopener noreferrer",
-        target: "_blank",
-        "aria-label": t("fermo_aria_label", locale)
+  .site-footer__content
+    .wrap
+      = "Contenuto Footer"
 
-      = "and"
-      = link_to "DatoCMS",
-        "https://www.datocms.com",
-        rel: "noopener noreferrer",
-        target: "_blank",
-        "aria-label": t("datocms_aria_label", locale)
+  .site-footer__copy
+    .wrap
+      p = "®#{DateTime.utc_now().year} -"
+      = info.copyFooter

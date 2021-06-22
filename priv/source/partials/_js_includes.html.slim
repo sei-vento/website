@@ -1,11 +1,11 @@
 = javascript_include_tag "application"
 = yield_content :page_js
 
-script[type="text/javascript"]
-  | window.$crisp=[];window.CRISP_WEBSITE_ID="d054e121-08c1-4fb0-8101-c8ff8a94c858";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
-
 javascript:
   (function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);
+
+script src="js/scrollmagic/uncompressed/ScrollMagic.js"
+script src="js/scrollmagic/uncompressed/plugins/debug.addIndicators.js"
 
 / = if environment() == "production" do
 /   script type="plain/text" async="async" class="_iub_cs_activate" data-iub-purposes="4" src="https://www.googletagmanager.com/gtag/js?id=UA-118262650-1"

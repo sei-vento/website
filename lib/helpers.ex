@@ -5,11 +5,10 @@ defmodule Helpers do
     quote do
       import I18n.Helpers
       import FermoHelpers.Links
-      # import Fermo.DatoCMS.GraphQLClient, only: [query!: 1, query!: 2]
-      import DatoCMS.GraphQLClient.MetaTagHelpers, only: [seo_meta_tags_fragment: 0]
+      import Fermo.DatoCMS.GraphQLClient 
+      import DatoCMS.GraphQLClient.MetaTagHelpers
       import DatoCMS.GraphQLClient.ImageHelpers
       import DatoCMS.StructuredText
-      import DatoCMS.GraphQLClient
       import Enum
       
       import Website.Paths
@@ -23,6 +22,7 @@ defmodule Helpers do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
             homePage(locale: $locale) {
+              #{seo_meta_tags_fragment()}                                                                                  
               _modelApiKey
               _updatedAt
               title
@@ -54,7 +54,6 @@ defmodule Helpers do
                   }
                 }
               }                                          
-              #{seo_meta_tags_fragment()}                                                                                     
             }
           }
           """, %{locale: locale})

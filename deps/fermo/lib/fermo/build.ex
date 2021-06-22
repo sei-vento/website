@@ -6,14 +6,12 @@ defmodule Fermo.Build do
   @callback run(map()) :: {:ok, map()}
   def run(config) do
     # TODO: check if Webpack assets are ready before building HTML
-    # TODO: avoid passing config into tasks - decide the layout beforehand
     config = put_in(config, [:stats, :build_started], Time.utc_now)
 
     {:ok} = Fermo.Assets.build()
     {:ok} = Fermo.I18n.load()
 
-    build_path = get_in(config, [:build_path])
-    File.mkdir(build_path)
+    File.mkdir_p!(config.build_path)
 
     config =
       config
@@ -27,30 +25,30 @@ defmodule Fermo.Build do
       [timeout: :infinity]
     ) |> Enum.to_list
 
-    config = put_in(config, [:stats, :build_pages_completed], Time.utc_now)
+    config = put_in(config, [:stats, :build_completed], Time.utc_now)
 
     {:ok, config}
   end
 
+  def render_page(page) do
+    content = render_body(page.params.module, page)
+
+    if page.params.layout do
+      build_layout_with_content(page.params.layout, content, page)
+    else
+      content
+    end
+  end
+
   defp copy_statics(config) do
-    statics = config[:statics]
-    build_path = get_in(config, [:build_path])
+    statics = Map.get(config, :statics, [])
+    build_path = config.build_path
     Enum.each(statics, fn (%{source: source, target: target}) ->
       source_pathname = Path.join(source_path(), source)
       target_pathname = Path.join(build_path, target)
       Fermo.File.copy(source_pathname, target_pathname)
     end)
     put_in(config, [:stats, :copy_statics_completed], Time.utc_now)
-  end
-
-  def render_page(page) do
-    content = render_body(page.options.module, page)
-
-    if page.options.layout do
-      build_layout_with_content(page.options.layout, content, page)
-    else
-      content
-    end
   end
 
   defp render_cache_and_save(page) do
@@ -63,13 +61,14 @@ defmodule Fermo.Build do
         body = render_page(page)
         Fermo.File.save(cache_pathname, body)
         Fermo.File.save(page.pathname, body)
-      _ ->
+      {:no_key} ->
         body = render_page(page)
         Fermo.File.save(page.pathname, body)
     end
   end
 
-  defp cache_key(%{options: %{surrogate_key: surrogate_key}}) do
+  defp cache_key(%{params: %{surrogate_key: nil}}), do: {:no_key}
+  defp cache_key(%{params: %{surrogate_key: surrogate_key}}) do
     hash = :crypto.hash(:sha256, surrogate_key) |> Base.encode16
     {:ok, hash}
   end
@@ -80,7 +79,7 @@ defmodule Fermo.Build do
   end
 
   defp is_cached?(cached_pathname) do
-    if File.exists?(cached_pathname) do
+    if File.regular?(cached_pathname) do
       {:ok}
     else
       {:build_and_cache, cached_pathname}

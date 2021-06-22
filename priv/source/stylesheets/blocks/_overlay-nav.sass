@@ -1,162 +1,18 @@
+$header-height: 48px
+  
 .overlay-nav
   position: relative
-  height: 50px
   background-color: $white-color
   color: $black-color
   z-index: 250
-  height: 100vh
-  +position(fixed, 0 0 0 0)
+  height: calc(100vh - $header-height)
+  +position(fixed, $header-height 0 0 0)
+  text-align: center
+  +vertical-padding(4)
+  +horizontal-padding(2)
 
   &.is-hidden
     opacity: 0
     visibility: hidden
 
-.overlay-nav__header
-  position: relative
-  height: 50px
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
-  align-items: center
-  width: 100vw
-  +margin-left(-2)
-  +margin-right(-2)
-  +horizontal-padding(2)
-  +at-breakpoint(lap)
-    height: 85px
-  
 
-.overlay-nav__logo
-  background-image: image-url("logo.svg")
-  background-repeat: no-repeat
-  display: block
-  height: 40px
-  width: 120px
-  transition: none
-  +at-breakpoint(lap)
-    height: 62px
-    width: 200px
-
-.overlay-nav__toggler
-  background-color: $black-color
-  +position(fixed, 0 0 null null)
-  height: 50px
-  width: 50px
-  background-size: 40%
-  display: block
-  border: none
-  background-repeat: no-repeat
-  background-position: center
-  -webkit-appearance: none
-  border: none
-  cursor: pointer  
-  background-image: image-url("icons/close.svg")
-  +at-breakpoint(lap)
-    height: 85px
-    width: 85px
-    background-size: 30%
-  +hover
-    background-color: $red-color
-
-.overlay-nav__content
-  +at-breakpoint(lte-lap)
-    +margin-left(3)
-  +at-breakpoint(desk)
-    width: 50%
-    +margin-top(6)
-
-.overlay-nav__fl
-  +vertical-margin(4)
-
-.overlay-nav__fl__item
-  +padding-bottom(.8)
-  .is-hidden &
-    opacity: 0
-    transform: translateY(100px)
-    transition: 1.6s
-    transition-delay: 1s
-  opacity: 1
-  transform: translateY(0px)
-  transition-delay: 1s
-  transition: 1.6s
-  margin-top: 2px
-  +at-breakpoint(lap)
-    +margin-bottom(3)
-
-.overlay-nav__fl__link
-  +heading-font-family    
-  +font-size(gamma)
-  color: $black-color
-  font-weight: bold
-  +at-breakpoint(lap)
-    +font-size(50px)
-
-  &:hover
-    color: $red-color
-
-  &.is-active
-    color: $red-color
-
-.overlay-nav__footer
-  +margin-left(3)
-  +at-breakpoint(desk)
-    +margin-top(5)
-
-.overlay-footer__fl__title
-  +heading-font-family
-  +font-size(milli)
-  color: rgba($black-color, .6)
-  letter-spacing: 1.33px
-  +margin-bottom(1)
-  +margin-top(2)
-  .is-hidden &
-    opacity: 0
-    transform: translateY(100px)
-    transition: 1.6s
-    transition-delay: .5s
-  opacity: 1
-  transform: translateY(0px)
-  transition: 1.6s
-  transition-delay: .5s
-  +at-breakpoint(lap)
-    +font-size(delta)
-    +margin-top(3)
-  +at-breakpoint(desk)
-    +margin-top(5)
-    +margin-bottom(3)
-
-.overlay-footer__fl__item
-  .is-hidden &
-    opacity: 0
-    transform: translateY(100px)
-    transition: 1.6s
-    transition-delay: .5s
-  opacity: 1
-  transform: translateY(0px)
-  transition: 1.6s
-  transition-delay: .5s  
-
-.overlay-footer__fl__item--inline
-  @extend .overlay-footer__fl__item
-  +at-breakpoint(lte-lap)
-    display: inline-block
-    text-transform: uppercase
-    &::after
-      content: "/"
-      +margin-left(.5)
-      +font-size(smallprint)
-    &:last-of-type
-      &::after
-        display: none
-  +margin-right(.5)
-  +font-size(mini)
-
-.overlay-footer__fl__link
-  color: $black-l-color
-  letter-spacing: 0.56px
-  text-decoration: none
-  +font-size(smallprint)
-  +at-breakpoint(lap)
-    +font-size(gamma)
-  +hover
-    color: $red-color

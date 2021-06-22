@@ -1,46 +1,20 @@
-body
-  +at-breakpoint(tab)
-    margin-bottom: 880px
-  +at-breakpoint(lap)
-    margin-bottom: 400px
-  +at-breakpoint(desk)
-    margin-bottom: 450px
-  
 .site-footer
-  +vertical-padding(6)
-  +padding-bottom(8)
-  +at-breakpoint(tab)
-    +position(fixed, null 0 0 0)
-    width: 100%
-    z-index: -1
-    height: 880px
-  +at-breakpoint(lap)
-    height: 400px
-  +at-breakpoint(desk)
-    height: 450px
-  
-.site-footer__title
-  +heading-font-family
-  color: rgba($black-color, .5)
-  +margin-bottom(1.5)
-  +margin-top(3)
-
-.site-footer__text
-  +font-size(delta)
-  letter-spacing: 0.8px
-  color: $black-color
-  display: block
-
-a.site-footer__text
-  +hover
-    color: $red-color
+  background-color: $white-color
 
 .site-footer__copy
-  +margin-top(10)
   text-align: center
   color: $black-color
-  +margin-bottom(-4)
   
 a.site-footer__copy
   +hover
     color: $red-color
+
+.site-footer__copy
+  +vertical-padding(1)
+  p
+    display: inline-block
+
+.site-footer__content
+  background-color: $gray-l-color
+  +vertical-padding(3)
+  text-align: center

@@ -2,14 +2,14 @@ defmodule Fermo.Live.Server do
   import Plug.Conn
   import Mix.Fermo.Paths, only: [app_path: 0]
 
-  live_reload_js_path = Application.app_dir(:fermo, "priv/static/fermo-live.js")
+  live_reload_js_path = Application.app_dir(:fermo, "priv/static/fermo-live.js.eex")
   @external_resource live_reload_js_path
 
-  @live_reload_js """
+  @live_reload_js EEx.eval_string("""
   <script type="text/javascript">
   #{File.read!(live_reload_js_path)}
   </script>
-  """
+  """, env: System.get_env())
 
   def init(_options) do
     []
@@ -42,7 +42,7 @@ defmodule Fermo.Live.Server do
 
   defp serve_static(path, conn) do
     build_path = build_path(path)
-    {:ok, extension} = extension(path)
+    {:ok, extension} = extension(build_path)
     mime_type = mime_type(extension)
     respond_with_file(conn, build_path, mime_type)
   end
@@ -141,6 +141,7 @@ defmodule Fermo.Live.Server do
       "js" -> "application/javascript"
       "css" -> "text/css"
       "html" -> "text/html"
+      "ico" -> "image/vnd.microsoft.icon"
       "jpg" -> "image/jpeg"
       "jpeg" -> "image/jpeg"
       "pdf" -> "application/pdf"

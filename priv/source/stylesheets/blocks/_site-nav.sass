@@ -33,19 +33,12 @@
   background-image: image-url("logo.svg")
 
 .site-nav__menu
-  +position(fixed, 0 0 null null)
+  +position(fixed, 0 .5rem null null)
   height: 50px
   width: 50px
   z-index: 1000
   +at-breakpoint(lap)
-    height: 85px
-    width: 85px
-  +at-breakpoint(full)
-    right: 7vw
-  &.is-open
-    height: 50px
-    +at-breakpoint(lap)
-      height: 80px
+    display: none
 
 .site-nav__fl
   display: none
@@ -57,11 +50,6 @@
   .site-nav__fl,
   .site-nav__right
     display: block
-
-  .site-nav__menu
-    flex-grow: 2
-    justify-content: flex-start
-    +margin-left(6)
 
   .site-nav__fl
     display: flex

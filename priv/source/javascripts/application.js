@@ -7,48 +7,55 @@ import Swiper from 'swiper/bundle';
 // require('../images/favicons/site.webmanifest')
 // require('../images/favicons/browserconfig.xml')
 
-// const handleNavOverlayToggle = () => {
-//   const buttons = document.querySelectorAll('.js-nav-toggler')
-//   const menu = document.querySelector('.js-nav-menu')
-//   const hamburger = document.querySelector('.site-nav__menu')
+const isMotionReduced = () => {
+  if ('matchMedia' in window && window.matchMedia('(prefers-reduced-motion)').matches) {
+    return true;
+  }
+  return false;
+}
 
-//   function expandButtons(expand = true) {
-//     buttons.forEach(button => {
-//       if (expand === true) {
-//         button.setAttribute('aria-expanded', 'true')
-//         button.classList.add('is-open')
-//         hamburger.classList.add('is-open')
-//       } else {
-//         button.setAttribute('aria-expanded', 'false')
-//         button.classList.remove('is-open')
-//         hamburger.classList.remove('is-open')
-//       }
-//     })
-//   }
+const handleNavOverlayToggle = () => {
+  const buttons = document.querySelectorAll('.js-nav-toggler')
+  const menu = document.querySelector('.js-nav-menu')
+  const hamburger = document.querySelector('.site-nav__menu')
 
-//   buttons.forEach(button => {
-//     button.addEventListener('click', () => {
-//       if (menu.getAttribute('aria-hidden') === 'true') {
-//         menu.setAttribute('aria-hidden', 'false')
-//         menu.classList.remove('is-hidden')
-//         expandButtons()
-//       } else {
-//         menu.setAttribute('aria-hidden', 'true')
-//         menu.classList.add('is-hidden')
-//         expandButtons(false)
-//       }
-//     })
-//   })
-// }
+  function expandButtons(expand = true) {
+    buttons.forEach(button => {
+      if (expand === true) {
+        button.setAttribute('aria-expanded', 'true')
+        button.classList.add('is-open')
+        hamburger.classList.add('is-open')
+      } else {
+        button.setAttribute('aria-expanded', 'false')
+        button.classList.remove('is-open')
+        hamburger.classList.remove('is-open')
+      }
+    })
+  }
 
-// const swiper = new Swiper('.swiper-container-partner', {
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (menu.getAttribute('aria-hidden') === 'true') {
+        menu.setAttribute('aria-hidden', 'false')
+        menu.classList.remove('is-hidden')
+        expandButtons()
+      } else {
+        menu.setAttribute('aria-hidden', 'true')
+        menu.classList.add('is-hidden')
+        expandButtons(false)
+      }
+    })
+  })
+}
+
+// const swiper = new Swiper('.swiper-container-custom', {
 //   loop: true,
 //   pagination: {
-//     el: '.swiper-pagination-partner',
+//     el: '.swiper-pagination-custom',
 //   },
 //   navigation: {
-//     nextEl: '.swiper-button-next-partner',
-//     prevEl: '.swiper-button-prev-partner',
+//     nextEl: '.swiper-button-next-custom',
+//     prevEl: '.swiper-button-prev-custom',
 //   },
 //   slidesPerView: 1.4,
 //   spaceBetween: 20,
@@ -64,45 +71,6 @@ import Swiper from 'swiper/bundle';
 //     },
 //     1920: {
 //       slidesPerView: 4.5,
-//       spaceBetween: 40
-//     }
-//   }  
-// });
-
-// const swiperBlockGallery = new Swiper('.swiper-container-block-gallery', {
-//   loop: true,
-//   spaceBetween: 24,
-//   slidesPerView: 'auto',
-//   grabCursor: true,
-//   breakpoints: {
-//     1024: {
-//       spaceBetween: 40
-//     }
-//   }  
-// });
-
-// const swiperProjectsGallery = new Swiper('.swiper-container-projects', {
-//   loop: true,
-//   spaceBetween: 24,
-//   slidesPerView: 'auto',
-//   grabCursor: true,
-//   breakpoints: {
-//     1024: {
-//       spaceBetween: 40
-//     }
-//   }  
-// });
-
-// const swiperServicesGallery = new Swiper('.swiper-container-services', {
-//   loop: true,
-//   spaceBetween: 24,
-//   slidesPerView: 'auto',
-//   grabCursor: true,
-//   pagination: {
-//     el: ".swiper-pagination-services",
-//   },  
-//   breakpoints: {
-//     1024: {
 //       spaceBetween: 40
 //     }
 //   }  
@@ -148,8 +116,6 @@ import Swiper from 'swiper/bundle';
 //     }
 //   }
 // });
-
-// handleNavOverlayToggle()
 
 // // Animation scroll
 // var getScroll = document.getElementById("get-scroll");
@@ -201,17 +167,13 @@ import Swiper from 'swiper/bundle';
 //   move(stripe);
 // });
 
+isMotionReduced();
+handleNavOverlayToggle();
 
-// //Animation on work page in title
-// var row = document.querySelectorAll(".scroll-horizontal");
-// function moveVariant(elements) {
-//   var movement = window.scrollY/30
-//   for (i = 0; i < elements.length; i++) {  
-//     var direction = i % 2 == 0 ? "" : "-"
-//     elements[i].style.transform  = "translateX("+ direction + movement +"vw)"
-//   }
-// }
-// document.addEventListener('scroll', function(e) {
-//   moveVariant(row);
-// });
-
+var controller = new ScrollMagic.Controller();
+new ScrollMagic.Scene({
+  duration: 100, // the scene should last for a scroll distance of 100px
+  offset: 50 // start this scene after scrolling for 50px
+})
+  .setPin('#my-sticky-element') // pins the element for the the scene's duration
+  .addTo(controller); // assign the scene to the controller

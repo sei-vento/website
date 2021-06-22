@@ -6,6 +6,12 @@ defmodule Webpack.DevServer do
   """
 
   @webpack_config_path "webpack.config.js"
+  @webpack_dev_server_command_default "yarn run webpack serve --watch-options-stdin"
+  @webpack_dev_server_command Application.get_env(
+    :fermo,
+    :webpack_dev_server_command,
+    @webpack_dev_server_command_default
+  )
 
   def start_link(_opts) do
     if File.exists?(@webpack_config_path) do
@@ -18,15 +24,14 @@ defmodule Webpack.DevServer do
   def init(_args) do
     IO.puts "Starting Webpack dev server..."
     port = Port.open(
-      {:spawn, "yarn run webpack serve"},
-      [{:env, [{'NODE_ENV', 'development'}]}]
+      {:spawn, @webpack_dev_server_command},
+      [:binary, :exit_status, {:env, [{'NODE_ENV', 'development'}]}]
     )
 
     {:ok, port}
   end
 
-  def handle_info({_port, {:data, charlist}}, state) do
-    message = List.to_string(charlist)
+  def handle_info({_port, {:data, message}}, state) do
     if String.match?(message, ~r/manifest.json\s.*?\[emitted\]/) do
       IO.puts "manifest emitted!"
       {:ok} = Webpack.Assets.load_manifest()
