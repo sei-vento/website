@@ -28,11 +28,11 @@ defmodule Helpers do
               title
               slug
               imageHero {
-                responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                responsiveImage(sizes: "(min-width: 1600px) 100vw, 100vw",
+                imgixParams: {auto: [compress,format], fit: crop, w: "2545"}) {
                   #{responsive_image_fragment()}
                 }
-                blurUpThumb
+                blurUpThumb  
               }
               titleHero
               body {

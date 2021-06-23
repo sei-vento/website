@@ -16,7 +16,6 @@
   +at-breakpoint(lap)
     height: $canvas-desk-topbar-height
 
-
 .canvas__header__logo
   display: block
   background-image: image-url("logo.svg")
@@ -67,6 +66,14 @@
   &:first-child
     border: none
     
+.canvas__main
+  main
+    padding-top: $canvas-mobile-topbar-height
+    color: $white-color
+    min-height: 400vh
+    +at-breakpoint(lap)
+      padding-top: $canvas-desk-topbar-height
+
 .canvas__header__top__bottom
   +position(relative, auto auto auto auto)
   background: none
@@ -95,3 +102,30 @@
   display: flex
 
 
+// ----------------------------------------------------------------------
+
+.svg-mask
+  height: 100%
+  width: 100%
+  z-index: 1
+  +position(absolute, 0)
+
+
+.image-to-scroll
+  height: calc(100vh - #{$canvas-desk-topbar-height})
+  +position(fixed, #{$canvas-desk-topbar-height} 0 0 0)
+  z-index: 1
+  .hero
+    height: 100%
+    transition: 2s
+  &.resize
+    .hero
+      transform: scale(.8)
+  &.hide
+    display: none
+
+.image-to-scroll-visible
+  @extend .image-to-scroll
+  position: relative
+  transform: scale(.8)
+  z-index: 0

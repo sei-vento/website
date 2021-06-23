@@ -154,26 +154,41 @@ const handleNavOverlayToggle = () => {
 //   }, 1000);
 // };
 
-// //Animation with row different
-// var stripe = document.querySelectorAll(".tiles__line");
-// function move(elements) {
-//   var movement = window.scrollY/10
-//   for (i = 0; i < elements.length; i++) {  
-//     var direction = i % 2 == 0 ? "-" : ""
-//     elements[i].style.transform  = "translateX("+ direction + movement +"px)"
-//   }
-// }
-// document.addEventListener('scroll', function(e) {
-//   move(stripe);
-// });
+//Animation to start scroll
+var svg_mask = document.querySelectorAll(".image-to-scroll .svg-mask");
+var image = document.querySelectorAll(".image-to-scroll");
+
+function move(elements) {
+  var movement = window.scrollY/100
+  movement = movement + 1
+  var i = 0
+  for (i = 0; i < elements.length; i++) {  
+    elements[i].style.transform  = "scale("+ movement +")"
+    console.log(window.scrollY)
+    if (window.scrollY > 2000) {
+      elements[i].style.display = "none"
+    }
+  }
+}
+function resize(elements) {
+  var i = 0
+  for (i = 0; i < elements.length; i++) {  
+    if (window.scrollY > 2000) {
+      elements[i].classList.add("resize")
+    }
+    if (window.scrollY > 2200) {
+      window.scrollTo(0,0);
+      elements[i].classList.add("hide")
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  move(svg_mask);
+  resize(image);
+});
 
 isMotionReduced();
 handleNavOverlayToggle();
 
-var controller = new ScrollMagic.Controller();
-new ScrollMagic.Scene({
-  duration: 100, // the scene should last for a scroll distance of 100px
-  offset: 50 // start this scene after scrolling for 50px
-})
-  .setPin('#my-sticky-element') // pins the element for the the scene's duration
-  .addTo(controller); // assign the scene to the controller
