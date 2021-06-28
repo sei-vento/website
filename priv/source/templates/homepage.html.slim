@@ -1,23 +1,7 @@
-- locale = params.locale
 - page = params.page
-- images = page.imageHero
 
 - content_for(:head)
   = dato_meta_tags(params.page)
-
-.image-to-scroll  
-  = Enum.map images, fn image ->
-    - current_image = image.responsiveImage
-    figure.hero
-      img.lazyload.img--cover src=image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
-
-  img class="svg-mask" src="https://www.datocms-assets.com/49369/1624376281-mask-hero.svg"
-
-.image-to-scroll-visible  
-  = Enum.map images, fn image ->
-    - current_image = image.responsiveImage
-    figure.hero
-      img.lazyload.img--cover src=image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
 
 .body-text style="text-align:center; font-size:10rem; color:white"
   |lorem ipsum dolor sit amet, consect

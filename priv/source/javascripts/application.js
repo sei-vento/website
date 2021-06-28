@@ -183,7 +183,6 @@ function resize(elements) {
   }
 }
 
-
 document.addEventListener('scroll', function(e) {
   move(svg_mask);
   resize(image);

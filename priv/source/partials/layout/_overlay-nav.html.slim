@@ -1,27 +1,27 @@
-- locale = params.locale
-- homepage = home_page(locale)
-- blog_index = blog_index(locale)
-- contact_page = contact_page(locale)
+/ - locale = params.locale
+/ - homepage = home_page(locale)
+/ - blog_index = blog_index(locale)
+/ - contact_page = contact_page(locale)
 
-ul.overlay-nav__menu
+/ ul.overlay-nav__menu
 
-  li.overlay-nav__menu__item
-    = link_to locale_url_prefix(locale),
-      class: "overlay-nav__menu__link" do
+/   li.overlay-nav__menu__item
+/     = link_to locale_url_prefix(locale),
+/       class: "overlay-nav__menu__link" do
 
-      span= "Homepage"
+/       span= "Homepage"
 
-  li.overlay-nav__menu__item
-    = link_to page_path(blog_index, locale),
-      class: "overlay-nav__menu__link" do
+/   li.overlay-nav__menu__item
+/     = link_to page_path(blog_index, locale),
+/       class: "overlay-nav__menu__link" do
 
-      span= blog_index.menuLabel
+/       span= blog_index.menuLabel
 
-  li.overlay-nav__menu__item
-    = link_to page_path(contact_page, locale),
-      class: "overlay-nav__menu__link" do
+/   li.overlay-nav__menu__item
+/     = link_to page_path(contact_page, locale),
+/       class: "overlay-nav__menu__link" do
 
-      span= contact_page.menuLabel
+/       span= contact_page.menuLabel
 
-= partial("partials/layout/locale-switcher",
-  %{html_class: "canvas__header__top__locale-switcher"})
+/ = partial("partials/layout/locale-switcher",
+/   %{html_class: "canvas__header__top__locale-switcher"})

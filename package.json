@@ -1,7 +1,7 @@
 {
-  "name": "website_base_agency",
+  "name": "vento",
   "version": "0.1.0",
-  "description": "Webpack pipeline for website_base_agency",
+  "description": "Webpack pipeline for vento",
   "main": "all.js",
   "repository": "TODO",
   "author": "Cantiere-Agency",

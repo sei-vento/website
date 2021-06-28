@@ -1,11 +1,11 @@
-defmodule WebsiteBaseAgency.MixProject do
+defmodule Vento.MixProject do
   @moduledoc false
 
   use Mix.Project
 
   def project do
     [
-      app: :website_base_agency,
+      app: :vento,
       version: "0.1.0",
       elixir: "~> 1.11",
       compilers: Mix.compilers() ++ [:fermo],

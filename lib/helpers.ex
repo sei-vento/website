@@ -11,7 +11,7 @@ defmodule Helpers do
       import DatoCMS.StructuredText
       import Enum
       
-      import Website.Paths
+      import Vento.Paths
       def environment, do: System.get_env("BUILD_ENV")
       use Memoize
 
@@ -26,6 +26,7 @@ defmodule Helpers do
               _modelApiKey
               _updatedAt
               title
+              menuLabel
               slug
               imageHero {
                 responsiveImage(sizes: "(min-width: 1600px) 100vw, 100vw",
@@ -35,25 +36,41 @@ defmodule Helpers do
                 blurUpThumb  
               }
               titleHero
-              body {
-                blocks {
-                  ... on GalleryBlockRecord {
-                    id
+              service {
+                ... on ContactBlockRecord {
+                  id
+                  prefix
+                  text
+                  cta
+                  _modelApiKey
+                }
+                ... on DateTitleSubtitleCtaDescriptionRecord {
+                  id
+                  _modelApiKey
+                  title
+                  subtitle
+                  link {
+                    ... on ApplicationPageRecord {
+                      id
+                      slug
+                      title
+                    }
+                    ... on ProgramPageRecord {
+                      id
+                      slug
+                      title
+                    }
                   }
-                  ... on ImageBlockRecord {
+                  widget {
                     id
-                  }
-                  ... on TextBlockRecord {
-                    id
-                  }
-                  ... on TextImageBlockRecord {
-                    id
-                  }
-                  ... on VideoBlockRecord {
-                    id
+                    icon {
+                      url
+                    }
+                    position
+                    title
                   }
                 }
-              }                                          
+              }
             }
           }
           """, %{locale: locale})
@@ -61,10 +78,86 @@ defmodule Helpers do
         result[:homePage]
       end
     
-      defmemo blog_index(locale) do
+      defmemo program_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
-            blogIndex(locale: $locale) {
+            programPage(locale: $locale) {
+              _modelApiKey
+              _updatedAt
+              title
+              slug
+              menuLabel
+              titleHero
+              body {
+                ... on BigTitlePrefixImageTitleDescriptionRecord {
+                  id
+                  _modelApiKey
+                  bigTitle
+                  buttonApply
+                  createdAt
+                  description
+                  title
+                  when
+                  where
+                }
+                ... on ContactBlockRecord {
+                  id
+                  _modelApiKey
+                  cta
+                  prefix
+                  text
+                }
+              }              
+              #{seo_meta_tags_fragment()}                                                                                     
+            }
+          }
+          """, %{locale: locale})
+        
+        result[:programPage]
+      end
+    
+      defmemo application_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            applicationPage(locale: $locale) {
+              _modelApiKey
+              _updatedAt
+              title
+              slug
+              menuLabel
+              titleHero
+              body {
+                ... on BigTitlePrefixImageTitleDescriptionRecord {
+                  id
+                  _modelApiKey
+                  bigTitle
+                  buttonApply
+                  createdAt
+                  description
+                  title
+                  when
+                  where
+                }
+                ... on ContactBlockRecord {
+                  id
+                  _modelApiKey
+                  cta
+                  prefix
+                  text
+                }
+              }              
+              #{seo_meta_tags_fragment()}                                                                                     
+            }
+          }
+          """, %{locale: locale})
+        
+        result[:applicationPage]
+      end
+    
+      defmemo walf_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            walfPage(locale: $locale) {
               _modelApiKey
               _updatedAt
               title
@@ -78,81 +171,57 @@ defmodule Helpers do
                 blurUpThumb
               }
               titleHero
-              body {
-                blocks {
-                  ... on GalleryBlockRecord {
-                    id
+              descriptionHero
+              bodyTop {
+                _modelApiKey
+                id
+                direction
+                description
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                    #{responsive_image_fragment()}
                   }
-                  ... on ImageBlockRecord {
-                    id
-                  }
-                  ... on TextBlockRecord {
-                    id
-                  }
-                  ... on TextImageBlockRecord {
-                    id
-                  }
-                  ... on VideoBlockRecord {
-                    id
-                  }
+                  blurUpThumb    
                 }
+                title
+              }
+              bigTitleFounder
+              descriptionFounder
+              titleFounder
+              bodyBottom {
+                _modelApiKey
+                id
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb    
+                }
+                title
+                description
+              }
+              textApply
+              bodyFooter {
+                _modelApiKey
+                id
+                cta
+                prefix
+                text
               }                                          
               #{seo_meta_tags_fragment()}                                                                                     
             }
           }
           """, %{locale: locale})
         
-        result[:blogIndex]
+        result[:walfPage]
       end
     
-      defmemo blog_posts(locale) do
-        DatoCMS.GraphQLClient.fetch_all_localized!(
-          :allBlogPosts,
-          locale,          
-          """
-          {
-            _modelApiKey
-            _updatedAt
-            title
-            slug
-            id
-            imageHero {
-              responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-              imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
-                #{responsive_image_fragment()}
-              }
-              blurUpThumb
-            }
-            titleHero
-            body {
-              blocks {
-                ... on GalleryBlockRecord {
-                  id
-                }
-                ... on ImageBlockRecord {
-                  id
-                }
-                ... on TextBlockRecord {
-                  id
-                }
-                ... on TextImageBlockRecord {
-                  id
-                }
-                ... on VideoBlockRecord {
-                  id
-                }
-              }
-            }                                          
-            #{seo_meta_tags_fragment()}                                                                                     
-          }
-          """
-        )    
-      end
-    
-      defmemo contact_page(locale) do
+      defmemo about_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
-            contactPage(locale: $locale) {
+            aboutPage(locale: $locale) {
               _modelApiKey
               _updatedAt
               title
@@ -166,32 +235,121 @@ defmodule Helpers do
                 blurUpThumb
               }
               titleHero
-              body {
-                blocks {
-                  ... on GalleryBlockRecord {
-                    id
+              blockManifesto {
+                _modelApiKey
+                id
+                text
+                title
+              }
+              titleManifesto
+              blockAdvisor {
+                _modelApiKey
+                id
+                link
+                name
+                role
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                    #{responsive_image_fragment()}
                   }
-                  ... on ImageBlockRecord {
-                    id
-                  }
-                  ... on TextBlockRecord {
-                    id
-                  }
-                  ... on TextImageBlockRecord {
-                    id
-                  }
-                  ... on VideoBlockRecord {
-                    id
-                  }
+                  blurUpThumb  
                 }
-              }                                          
+              }
+              titleAdvisor
+              blockTeam {
+                _modelApiKey
+                id
+                link
+                name
+                role
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb  
+                }
+              }
+              titleTeam
               #{seo_meta_tags_fragment()}                                                                                     
             }
           }
-          """, %{locale: locale})    
+          """, %{locale: locale})
         
-        result[:contactPage]
+        result[:aboutPage]
       end
+    
+      defmemo network_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            networkPage(locale: $locale) {
+              _modelApiKey
+              _updatedAt
+              title
+              slug
+              menuLabel
+              imageHero {
+                responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
+                imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                  #{responsive_image_fragment()}
+                }
+                blurUpThumb
+              }
+              titleHero
+              titleStake
+              blockStake {
+                _modelApiKey                
+                id
+                numberText
+                prefix
+                when
+                description
+              }
+              titleEco
+              blockEco {
+                image {
+                  url
+                }                
+              }
+              #{seo_meta_tags_fragment()}                                                                                     
+            }
+          }
+          """, %{locale: locale})
+        
+        result[:networkPage]
+      end
+    
+      defmemo faq_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            faqPage(locale: $locale) {
+              _modelApiKey
+              _updatedAt
+              id
+              title
+              slug
+              menuLabel
+              ctaApply
+              titleApply
+              prefixApply
+              body {
+                titleAccordion
+                accordion {
+                  _modelApiKey
+                  id
+                  question
+                  answer
+                }
+              }
+              #{seo_meta_tags_fragment()}                                                                                     
+            }
+          }
+          """, %{locale: locale})
+        
+        result[:faqPage]
+      end
+    
     
       defmemo info(locale) do
         result = query!("""
@@ -219,7 +377,8 @@ defmodule Helpers do
               }
               tertiaryColor {
                 hex
-              }          
+              }
+              applyLink          
             }
           }
           """, %{locale: locale})    
@@ -323,7 +482,6 @@ defmodule Helpers do
 
       def page_ancestor(page, locale) do
         case page._modelApiKey do
-          "blog_post" -> blog_index(locale)
           _ -> ""
         end
       end
