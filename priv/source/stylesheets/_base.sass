@@ -30,7 +30,7 @@ html
 ::-moz-selection,
 ::selection
   color: white
-  background: $red-color
+  background: $green-color
 
 body
   +body-font-family
@@ -100,7 +100,7 @@ input[type=week], textarea
   outline: 0
 
 *:focus-visible
-  outline: 2px solid $red-color
+  outline: 2px solid $green-color
 
 input[type=number]::-ms-tooltip
   display: none
@@ -136,7 +136,7 @@ input[type="checkbox"]
   margin-right: 0.4em
 
 pre, code
-  +monospaced-font-family
+  +body-font-family
 
 hr
   border: none
@@ -155,14 +155,6 @@ img
 
 legend
   color: $gray-color
-
-.relative
-  position: relative
-  height: 230px
-  +at-breakpoint(lap)
-    height: 300px
-  +at-breakpoint(desk)
-    height: 380px
 
 .overflow--hidden
   overflow: hidden

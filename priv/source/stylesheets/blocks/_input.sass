@@ -48,7 +48,7 @@
 
   .input__label::after
     +position(absolute, 4px null null 4px)
-    background: $red-color
+    background: $green-color
     border-radius: 100%
     content: ""
     height: 10px
@@ -86,7 +86,7 @@
     height: 8px
     width: 8px
     border-radius: 8px
-    background-color: $red-color
+    background-color: $green-color
     opacity: 0
     transition: all 0.2s ease
 
@@ -94,7 +94,7 @@
     opacity: 1
 
 .form__label-check
-  background-color: $gray-d-color
+  background-color: $gray-color
   border-radius: 36px
   text-transform: uppercase
   +font-size(smallprint)
@@ -109,7 +109,7 @@
   opacity: 0
   position: absolute
   &:checked + .form__label-check
-    background-color: $red-color
+    background-color: $green-color
     
 .input--radio--hidden
   @extend .input--checkbox--hidden

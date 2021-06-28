@@ -7,7 +7,7 @@
     +margin-top(6)
 
 .details
-  background-color: $black-l-color
+  background-color: $black-color
   border-radius: 20px
   +margin-bottom(1)
   +padding(2)
@@ -20,14 +20,14 @@
   cursor: pointer
   list-style: none
   +hover
-    color: $red-color
+    color: $green-color
   &::-webkit-details-marker
     display: none
 
   &::before
     content: "+"
     +font-size(beta)
-    color: $red-color
+    color: $green-color
     font-weight: 100
     +position(absolute, 1rem null null 1rem)
     transition: .6s
@@ -70,7 +70,7 @@
   &::before
     content: "+"
     +font-size(beta)
-    color: $red-color
+    color: $green-color
     font-weight: 100
     +position(absolute, 10px 0 null null)
     transition: .6s
@@ -88,7 +88,7 @@
   // -webkit-appearance:none
   +padding-right(2)
   &:hover
-    color: $red-color
+    color: $green-color
 
 .summary__content--variant
   +vertical-padding(2)
