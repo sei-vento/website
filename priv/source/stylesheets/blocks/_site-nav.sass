@@ -1,44 +1,8 @@
-.site-nav
-  position: relative
-  height: 50px
-  +at-breakpoint(lap)
-    height: 85px
-
-  &.header--light
-    background-color: white
-
-  & > .wrap
-    height: 100%
-
-.site-nav__content
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
-  align-items: center
-  height: 100%
-
-.site-nav__logo
-  background-image: image-url("logo-white.svg")
-  background-repeat: no-repeat
-  display: block
-  height: 40px
-  width: 120px
-  transition: none
-  +at-breakpoint(lap)
-    height: 62px
-    width: 200px
-
-.site-nav__logo--dark
-  @extend .site-nav__logo
-  background-image: image-url("logo.svg")
-
-.site-nav__menu
-  +position(fixed, 0 .5rem null null)
+.canvas__header__top__right__hamburger
   height: 50px
   width: 50px
   z-index: 1000
-  +at-breakpoint(lap)
-    display: none
+  position: relative
 
 .site-nav__fl
   display: none

@@ -10,16 +10,16 @@ html, body
   width: 100%
 
 html
-  // scroll-behavior: smooth
+  scroll-behavior: smooth
   @media screen and (prefers-reduced-motion: reduce)
     scroll-behavior: auto  
   +rem-html-reset(1)
   -webkit-tap-highlight-color: transparent
-  font-size: 4.2vw
+  font-size: 4.3vw
   +at-breakpoint(tab)
-    font-size: 2.6vw
+    font-size: 2.8vw
   +at-breakpoint(lap)
-    font-size: 1.4vw
+    font-size: 1.3vw
   +at-breakpoint(desk)
     font-size: 1.2vw
   +at-breakpoint(full)
@@ -44,9 +44,9 @@ body
   -moz-osx-font-smoothing: grayscale
   overflow-x: hidden
   height: 100%
+  background-image: url('https://www.datocms-assets.com/50154/1624886121-pattern.jpeg')
 
 main
-  background-color: $base-body-background
   min-height: 91vh
 
 .body--light

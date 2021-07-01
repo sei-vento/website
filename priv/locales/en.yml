@@ -3,7 +3,8 @@ en:
   iubenda_id: 203034
   switch_locale: ita
   nav:
-    home: Homepage Guidelines
+    home: Homepage Vento
+    apply: "External Link to Apply (open in new window)"
     search: Search
     menu: Menu
     login: Login

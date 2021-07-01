@@ -15,66 +15,66 @@ const isMotionReduced = () => {
 }
 
 const handleNavOverlayToggle = () => {
-  const buttons = document.querySelectorAll('.js-nav-toggler')
+  const toggler = document.querySelectorAll('.js-nav-toggler')
+  const button_menu = document.querySelectorAll('.button--menu')
   const menu = document.querySelector('.js-nav-menu')
-  const hamburger = document.querySelector('.site-nav__menu')
+  const hamburger = document.querySelector('.canvas__header__top__right__hamburger')
+  const button_apply = document.querySelector('.button--rounded')
+  const button_menu_label = document.querySelector('.button--menu__label')
+
 
   function expandButtons(expand = true) {
-    buttons.forEach(button => {
+    toggler.forEach(button => {
       if (expand === true) {
         button.setAttribute('aria-expanded', 'true')
         button.classList.add('is-open')
-        hamburger.classList.add('is-open')
       } else {
         button.setAttribute('aria-expanded', 'false')
         button.classList.remove('is-open')
-        hamburger.classList.remove('is-open')
       }
     })
   }
-
-  buttons.forEach(button => {
+  
+  button_menu.forEach(button => {
     button.addEventListener('click', () => {
       if (menu.getAttribute('aria-hidden') === 'true') {
         menu.setAttribute('aria-hidden', 'false')
         menu.classList.remove('is-hidden')
+        button_apply.classList.add('background-with-gradient')
+        button_menu_label.innerHTML = "Close"
+        hamburger.classList.add('is-open')
         expandButtons()
       } else {
         menu.setAttribute('aria-hidden', 'true')
         menu.classList.add('is-hidden')
+        button_apply.classList.remove('background-with-gradient')
+        button_menu_label.innerHTML = "Menu"
+        hamburger.classList.remove('is-open')
         expandButtons(false)
       }
     })
   })
 }
 
-// const swiper = new Swiper('.swiper-container-custom', {
-//   loop: true,
-//   pagination: {
-//     el: '.swiper-pagination-custom',
-//   },
-//   navigation: {
-//     nextEl: '.swiper-button-next-custom',
-//     prevEl: '.swiper-button-prev-custom',
-//   },
-//   slidesPerView: 1.4,
-//   spaceBetween: 20,
-//   centeredSlides: true,
-//   breakpoints: {
-//     768: {
-//       slidesPerView: 2.5,
-//       spaceBetween: 20
-//     },
-//     1024: {
-//       slidesPerView: 3.6,
-//       spaceBetween: 40
-//     },
-//     1920: {
-//       slidesPerView: 4.5,
-//       spaceBetween: 40
-//     }
-//   }  
-// });
+const swiper = new Swiper('.swiper-program', {
+  pagination: {
+    el: '.swiper-pagination--program',
+  },
+  slidesPerView: 1,
+  centeredSlides: true,
+  breakpoints: {
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 24,
+      initialSlide: 1
+    },
+    1300: {
+      slidesPerView: 3,
+      spaceBetween: 48,
+      initialSlide: 1
+    }
+  }  
+});
 
 // // tab
 // var links = document.querySelectorAll('.tab__item__link');

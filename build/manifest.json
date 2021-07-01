@@ -2,6 +2,7 @@
   "application.js": "/javascripts/application.js",
   "style.css": "/stylesheets/style.css",
   "style.js": "/javascripts/style.js",
+  "images/logo.png": "/images/logo.png",
   "images/favicons/apple-touch-icon.png": "/images/favicons/apple-touch-icon.png",
   "images/favicons/favicon.ico": "/images/favicons/favicon.ico",
   "images/favicons/mstile-150x150.png": "/images/favicons/mstile-150x150.png",
@@ -14,11 +15,8 @@
   "images/icons/ballon.svg": "/images/icons/ballon.svg",
   "images/favicons/favicon-16x16.png": "/images/favicons/favicon-16x16.png",
   "images/icons/arrow-back.svg": "/images/icons/arrow-back.svg",
-  "images/icons/menu.svg": "/images/icons/menu.svg",
   "images/icons/close.svg": "/images/icons/close.svg",
   "images/icons/arrow-down.svg": "/images/icons/arrow-down.svg",
   "images/icons/arrow-right.svg": "/images/icons/arrow-right.svg",
-  "images/icons/quote.svg": "/images/icons/quote.svg",
-  "images/icons/minus.svg": "/images/icons/minus.svg",
-  "images/icons/plus.svg": "/images/icons/plus.svg"
+  "images/icons/quote.svg": "/images/icons/quote.svg"
 }

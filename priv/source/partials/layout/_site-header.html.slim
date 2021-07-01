@@ -1,49 +1,35 @@
-/ - locale = params.locale
-/ - homepage = home_page(locale)
-/ - blog_index = blog_index(locale)
-/ - contact_page = contact_page(locale)
+- locale = params.locale
+- homepage = home_page(locale)
+- info = info(locale)
+- page = params.page
 
-/ header.canvas__header data-datocms-noindex=true
+header.canvas__header data-datocms-noindex=true
   
-/   .canvas__header__top
-/     = link_to "",
-/       locale_url_prefix(locale),
-/       class: "canvas__header__logo",
-/       title: t("nav.home", locale)
+  .canvas__header__top
+    = link_to "",
+      locale_url_prefix(locale),
+      class: "canvas__header__logo",
+      title: t("nav.home", locale)
 
-/     .canvas__header__menu-and-switcher
+    .canvas__header__top__right
 
-/       nav.canvas__header__top__bottom aria-label=t("site_nav_label", locale)
-/         ul.canvas__header__top-nav
+      = link_to "#{info.applyLink}",
+        class: "button--rounded",
+        target: "_blank",
+        title: t("nav.apply", locale) do
 
-/           li.canvas__header__top-nav__item
-/             = link_to locale_url_prefix(locale),
-/               class: "canvas__header__top-nav__link" do
+        span= "Apply now"
 
-/               span= "Homepage"
+      .button--menu
+        nav.canvas__header__top__right__hamburger
+          button#menu-open.site-nav__toggler.js-nav-toggler rel="noopener noreferrer" aria-label="#{t("main_nav_toggler_label", locale)}" aria-expanded="false" aria-controls="menu"
+            span
+            span
+        
+        .button--menu__label
+          = "menu"
 
-/           li.canvas__header__top-nav__item
-/             = link_to page_path(blog_index, locale),
-/               class: "canvas__header__top-nav__link" do
+  nav.overlay-nav.js-nav-menu.is-hidden aria-hidden="true" aria-label=t("main_nav_label", locale) role="navigation" data-datocms-noindex=true
+    = partial("partials/layout/overlay-nav")
 
-/               span= blog_index.menuLabel
-
-/           li.canvas__header__top-nav__item
-/             = link_to page_path(contact_page, locale),
-/               class: "canvas__header__top-nav__link" do
-
-/               span= contact_page.menuLabel
-
-/         nav.site-nav__menu
-/           button#menu-open.site-nav__toggler.js-nav-toggler rel="noopener noreferrer" aria-label="#{t("main_nav_toggler_label", locale)}" aria-expanded="false" aria-controls="menu"
-/             span
-/             span
-/             span      
-
-/       .visible--on-lap
-/         = partial("partials/layout/locale-switcher",
-/           %{html_class: "canvas__header__top__locale-switcher"})
-
-/   nav.overlay-nav.js-nav-menu.is-hidden aria-hidden="true" aria-label=t("main_nav_label", locale) role="navigation" data-datocms-noindex=true
-/     = partial "partials/layout/overlay-nav"
-
+  

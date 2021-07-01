@@ -1,4 +1,23 @@
-/ - page = params.page
+- page = params.page
+- block_service = page.service
 
-/ - content_for(:head)
-/   = dato_meta_tags(params.page)
+- content_for(:head)
+  = dato_meta_tags(params.page)
+
+header.hero--homepage
+  .wrap
+    = partial("partials/hero-homepage",
+      %{page: page})
+
+section
+  .wrap
+    = Enum.map block_service, fn block ->
+      = if block._modelApiKey == "date_title_subtitle_cta_description" do    
+        = partial("partials/blocks/date_title_subtitle_cta_description",
+          %{block: block})
+      = if block._modelApiKey == "prefix_title_link_image" do    
+        = partial("partials/blocks/prefix_title_link_image",
+          %{block: block})
+      = if block._modelApiKey == "contact_block" do    
+        = partial("partials/blocks/contact_block",
+          %{block: block})

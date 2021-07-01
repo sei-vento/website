@@ -25,9 +25,11 @@ defmodule Helpers do
               #{seo_meta_tags_fragment()}                                                                                  
               _modelApiKey
               _updatedAt
+              id
               title
               menuLabel
               slug
+              cta
               imageHero {
                 responsiveImage(sizes: "(min-width: 1600px) 100vw, 100vw",
                 imgixParams: {auto: [compress,format], fit: crop, w: "2545"}) {
@@ -39,16 +41,19 @@ defmodule Helpers do
               service {
                 ... on ContactBlockRecord {
                   id
+                  _modelApiKey
                   prefix
                   text
                   cta
-                  _modelApiKey
                 }
                 ... on DateTitleSubtitleCtaDescriptionRecord {
                   id
                   _modelApiKey
+                  date
                   title
                   subtitle
+                  description
+                  cta
                   link {
                     ... on ApplicationPageRecord {
                       id
@@ -68,8 +73,30 @@ defmodule Helpers do
                     }
                     position
                     title
+                    description
                   }
                 }
+                ... on PrefixTitleLinkImageRecord {
+                  id
+                  _modelApiKey
+                  image {
+                    url
+                  }
+                  link {
+                    ... on AboutPageRecord {
+                      id
+                      slug
+                    }
+                    ... on NetworkPageRecord {
+                      id
+                    }
+                    ... on WalfPageRecord {
+                      id
+                    }
+                  }
+                  prefix
+                  title
+                }                
               }
             }
           }
@@ -84,6 +111,7 @@ defmodule Helpers do
             programPage(locale: $locale) {
               _modelApiKey
               _updatedAt
+              id
               title
               slug
               menuLabel
@@ -125,6 +153,7 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              id
               titleHero
               body {
                 ... on BigTitlePrefixImageTitleDescriptionRecord {
@@ -161,6 +190,7 @@ defmodule Helpers do
               _modelApiKey
               _updatedAt
               title
+              id
               slug
               menuLabel
               imageHero {
@@ -224,6 +254,7 @@ defmodule Helpers do
             aboutPage(locale: $locale) {
               _modelApiKey
               _updatedAt
+              id
               title
               slug
               menuLabel
@@ -286,6 +317,7 @@ defmodule Helpers do
             networkPage(locale: $locale) {
               _modelApiKey
               _updatedAt
+              id
               title
               slug
               menuLabel
@@ -365,9 +397,6 @@ defmodule Helpers do
               social {
                 link
                 title
-                icon {
-                  url
-                }
               }
               primaryColor {
                 hex

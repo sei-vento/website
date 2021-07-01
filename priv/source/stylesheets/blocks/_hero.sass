@@ -13,6 +13,7 @@
 .hero
   position: relative
   height: 340px
+  background: $background-l
   +at-breakpoint(lap)
     min-height: 420px
     height: 60vh
@@ -25,6 +26,12 @@
       color: color-invert($value)
       @supports (--css: variables)
         background-color: var(--color-#{$color})
+
+.hero--homepage
+  @extend .hero
+  height: 100vh
+  overflow-y: hidden
+  +padding-top(8)
 
 .hero__body
   display: table
@@ -51,3 +58,12 @@
 
 .hero__actions
   +margin-top(2)
+
+.hero--homepage__image
+  +margin-top(4)
+  mix-blend-mode: lighten
+  +at-breakpoint(lap)
+    +margin-top(0)
+  +at-breakpoint(desk)
+    height: calc(100vh - 6rem)
+    position: relative

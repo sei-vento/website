@@ -1,16 +1,8 @@
 .prefix
-  letter-spacing: 0.88px
-  +font-size(smallprint)
-  opacity: .5  
-  .background--white &
-    color: $black-color
-
-.prefix--medium
-  @extend .prefix
-  +font-size(regular)
-  letter-spacing: 1.78px
-  +margin-bottom(2)
-
-.prefix--black
-  @extend .prefix
-  opacity: 1
+  +heading-font-family
+  color: $white-color
+  text-transform: uppercase
+  letter-spacing: 1.33px
+  +font-size(milli)
+  +at-breakpoint(lap)
+    +font-size(smallprint)

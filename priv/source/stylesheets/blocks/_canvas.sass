@@ -4,49 +4,45 @@
 
 .canvas__header__top
   +position(fixed, 0 0 null 0)
-  background-color: $white-color
   z-index: $canvas-z-index
-  border-bottom: 1px solid $border-color
   display: flex
   justify-content: space-between
   align-items: center
   height: $canvas-mobile-topbar-height
-  +vertical-padding(1)
-  +horizontal-padding(1)
+  +horizontal-padding(5vw)
+  // background: $background-l
   +at-breakpoint(lap)
     height: $canvas-desk-topbar-height
+    +horizontal-padding(6vw)
+  +at-breakpoint(full)
+    +horizontal-padding(8vw)    
 
 .canvas__header__logo
   display: block
-  background-image: image-url("logo.svg")
+  background-image: image-url("logo.png")
   background-repeat: no-repeat
   background-size: contain
   text-indent: 100%
-  width: 190px
+  width: 130px
   height: 40px
   white-space: nowrap
   overflow: hidden
   transition: none
+  +at-breakpoint(tab)
+    width: 150px
+    height: 60px
   +at-breakpoint(lap)
-    height: 55px  
 
-.canvas__header__top__locale-switcher
-  text-transform: uppercase
-  +font-size(milli)
-  letter-spacing: 1px
-  text-align: center
-  +vertical-padding(1)
-  +margin-top(2)
-  display: block
-  color: $green-color
-  
+.canvas__header__top__right
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 50vw
+  +at-breakpoint(tab)
+    width: 30vw
   +at-breakpoint(lap)
-    border-left: 1px solid $border-color
-    +margin-top(0)
-    +font-size(smallprint)
-    +padding-left(2)
-    margin-left: 0
-    border-left: 1px solid $border-color  
+    width: 33.3333%
+    +horizontal-padding(1)
 
 .canvas__header__top-nav
   display: none
@@ -68,11 +64,7 @@
     
 .canvas__main
   main
-    padding-top: $canvas-mobile-topbar-height
     color: $white-color
-    min-height: 400vh
-    +at-breakpoint(lap)
-      padding-top: $canvas-desk-topbar-height
 
 .canvas__header__top__bottom
   +position(relative, auto auto auto auto)
@@ -101,31 +93,3 @@
 .canvas__header__menu-and-switcher
   display: flex
 
-
-// ----------------------------------------------------------------------
-
-.svg-mask
-  height: 100%
-  width: 100%
-  z-index: 1
-  +position(absolute, 0)
-
-
-.image-to-scroll
-  height: calc(100vh - #{$canvas-desk-topbar-height})
-  +position(fixed, #{$canvas-desk-topbar-height} 0 0 0)
-  z-index: 1
-  .hero
-    height: 100%
-    transition: 2s
-  &.resize
-    .hero
-      transform: scale(.8)
-  &.hide
-    display: none
-
-.image-to-scroll-visible
-  @extend .image-to-scroll
-  position: relative
-  transform: scale(.8)
-  z-index: 0

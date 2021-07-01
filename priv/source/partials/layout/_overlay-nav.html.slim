@@ -1,27 +1,102 @@
-/ - locale = params.locale
-/ - homepage = home_page(locale)
-/ - blog_index = blog_index(locale)
-/ - contact_page = contact_page(locale)
+- locale = params.locale
+- homepage = home_page(locale)
+- program_page = program_page(locale)
+- application_page = application_page(locale)
+- walf_page = walf_page(locale)
+- about_page = about_page(locale)
+- network_page = network_page(locale)
+- faq_page = faq_page(locale)
+- current_page = params.page
+- info = info(locale)
+- socials = info.social
+- phones = info.phone
 
-/ ul.overlay-nav__menu
+.wrap
 
-/   li.overlay-nav__menu__item
-/     = link_to locale_url_prefix(locale),
-/       class: "overlay-nav__menu__link" do
+  .flex--align-center.margin--top-6-on-lap
 
-/       span= "Homepage"
+    .flex__item.lap-8-12
 
-/   li.overlay-nav__menu__item
-/     = link_to page_path(blog_index, locale),
-/       class: "overlay-nav__menu__link" do
+      ul.overlay-nav__menu
 
-/       span= blog_index.menuLabel
+        li.overlay-nav__menu__item
+          = link_to locale_url_prefix(locale),
+            class: "overlay-nav__menu__link #{if params.id == "home_page", do: "is-active"}" do
+            span= "Homepage"
 
-/   li.overlay-nav__menu__item
-/     = link_to page_path(contact_page, locale),
-/       class: "overlay-nav__menu__link" do
+        li.overlay-nav__menu__item
+          = link_to page_path(program_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "program_page", do: "is-active"}" do
 
-/       span= contact_page.menuLabel
+            span= program_page.menuLabel
 
-/ = partial("partials/layout/locale-switcher",
-/   %{html_class: "canvas__header__top__locale-switcher"})
+        li.overlay-nav__menu__item
+          = link_to page_path(application_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "application_page", do: "is-active"}" do
+
+            span= application_page.menuLabel
+
+        li.overlay-nav__menu__item
+          = link_to page_path(walf_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "walf_page", do: "is-active"}" do
+
+            span= walf_page.menuLabel
+
+        li.overlay-nav__menu__item
+          = link_to page_path(about_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "about_page", do: "is-active"}" do
+
+            span= about_page.menuLabel
+
+        li.overlay-nav__menu__item
+          = link_to page_path(network_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "network_page", do: "is-active"}" do
+
+            span= network_page.menuLabel
+
+        li.overlay-nav__menu__item
+          = link_to page_path(faq_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "faq_page", do: "is-active"}" do
+
+            span= faq_page.menuLabel
+
+    .flex__item.lap-4-12
+
+      .flex
+        .flex__item.lte-tab-6-12
+          .overlay-nav__menu__title 
+            = "Social media"
+
+          ul.overlay-nav__menu--small  
+            = Enum.map socials, fn social ->
+              li.overlay-nav__menu__item--small
+                = link_to social.link,
+                  class: "overlay-nav__menu__link--small",
+                  title: "Link to #{social.title} (open in new window)",
+                  rel: "noopener noreferrer",
+                  target: "_blank" do
+
+                  span= social.title
+
+        .flex__item.lte-tab-6-12
+          .overlay-nav__menu__title 
+            = "Contact"
+
+          ul.overlay-nav__menu--small
+            li.overlay-nav__menu__item--small
+              = link_to "mailto:#{info.email}",
+                class: "overlay-nav__menu__link--small",
+                title: "Send email",
+                rel: "noopener noreferrer" do
+
+                span= info.email
+
+            = Enum.map phones, fn phone ->
+
+              li.overlay-nav__menu__item--small
+                = link_to "tel:39#{phone.number}",
+                  class: "overlay-nav__menu__link--small",
+                  title: "Send email",
+                  rel: "noopener noreferrer" do
+
+                  span= phone.label

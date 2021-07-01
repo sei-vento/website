@@ -1,64 +1,27 @@
-.swiper-container-block-gallery
-  +vertical-margin(4)
-  margin-left: 5vw
-  +at-breakpoint(lap)
-    +vertical-margin(8)
-    margin-left: 13vw
-  +at-breakpoint(full)
-    margin-left: 15vw
-
-  .swiper-slide
-    width: 220px
-    height: 220px
-    +at-breakpoint(tab)
-      width: 320px
-      height: 320px
-    +at-breakpoint(lap)
-      width: 380px
-      height: 380px
-    +at-breakpoint(desk)
-      width: 430px
-      height: 430px
-
-.swiper-container-projects
-  @extend .swiper-container-block-gallery
-  +vertical-margin(0)
-  
-  .swiper-slide
-    width: 270px
-    height: auto
-    +at-breakpoint(tab)
-      width: 300px
-    +at-breakpoint(lap)
-      width: 380px
-    +at-breakpoint(desk)
-      width: 430px
-
-.swiper-container-services
-  @extend .swiper-container-block-gallery
-  +vertical-margin(0)
-  
-  .swiper-slide
-    width: 270px
-    height: auto
-    +at-breakpoint(tab)
-      width: 80vw
-    +at-breakpoint(lap)
-      width: 45vw
-    +at-breakpoint(desk)
-      width: 40vw
-
-
-.swiper-pagination-services
+.swiper-program
   +margin-top(4)
-  .swiper-pagination-bullet
-    width: 14px
-    height: 14px
-    background: rgba(white, 28%)
-    margin: 0 8px!important
-  .swiper-pagination-bullet-active
-    background: $green-color
+  +at-breakpoint(lap)
+    +margin-top(8)
 
-.swiper-container-partner
   .swiper-slide
-    @include loop-delay
+    &:nth-child(2)
+      +margin-top(3)  
+    &:nth-child(3)
+      +margin-top(6)  
+
+.swiper-pagination.swiper-pagination--program  
+  position: relative
+  bottom: auto
+  +margin-top(3)
+  z-index: 10
+  .swiper-pagination-bullet
+    background: $white-color
+  .swiper-pagination-bullet-active
+    background: $yellow-color
+  +at-breakpoint(lap)
+    display: none
+
+.swiper-pagination-bullet
+  width: 10px!important
+  height: 10px!important
+  opacity: 1!important

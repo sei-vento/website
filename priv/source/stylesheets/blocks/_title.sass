@@ -1,55 +1,24 @@
 .title
-  +heading-font-family
-  font-weight: 800
-  +font-size(beta)
-
-.title--white
-  @extend .title
-  line-height: 0
+  +body-font-family
+  +font-size(zeta)
   +at-breakpoint(lap)
-    +font-size(alpha)
-    line-height: 0
+    +font-size(gamma)
+
+.title--gradient
+  @extend .title
+  +heading-font-family
+  +font-size(epsilon)
+  text-transform: uppercase
+  letter-spacing: 4px
+  +gradient-text
+  display: inline-block
+  +at-breakpoint(lap)
+    +font-size(gamma)
 
 .title--big
   @extend .title
-  +font-size(45px)
-  line-height: 50px
-  font-weight: bold
-  color: white
-  .background--white &,
-  .background--gray &
-    color: $black-color
-
-.title--extra-big
-  @extend .title--big
-  color: white
-  position: relative
-  display: inline-block
-  z-index: 0
-  line-height: 14vw
-  .align--center &
-    text-align: center
+  +font-size(delta)
   +at-breakpoint(lap)
-    +font-size(90px)
-    line-height: 140px
-
-  &::after
-    content: ""
-    z-index: -1
-    +position(absolute, 62% 100% null 0)
-    height: 40%
-    background-color: darken($green-color, 10%)
-    transition: 0.5s ease
-
-.hover-underline-on-txt
-  +hover
-    .title--extra-big::after
-      right: 0
-
-.title--medium
-  @extend .title
-  font-weight: bold
-
-.title--beta
-  @extend .title
-  +font-size(beta)
+    +font-size(beta)
+  +at-breakpoint(desk)
+    +font-size(alpha)

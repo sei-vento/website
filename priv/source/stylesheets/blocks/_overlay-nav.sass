@@ -1,18 +1,65 @@
-$header-height: 48px
-  
 .overlay-nav
-  position: relative
-  background-color: $white-color
+  background-color: $black-color
   color: $black-color
   z-index: 250
-  height: calc(100vh - $header-height)
-  +position(fixed, $header-height 0 0 0)
+  height: 100vh
+  +position(fixed, 0 0 0 0)
   text-align: center
   +vertical-padding(4)
-  +horizontal-padding(2)
 
   &.is-hidden
     opacity: 0
     visibility: hidden
 
+.overlay-nav__menu
+  text-align: left
+  +at-breakpoint(lte-lap)
+    +vertical-padding(4)
 
+.overlay-nav__menu--small
+  @extend .overlay-nav__menu
+  +vertical-padding(1)
+  +at-breakpoint(lap)
+    +vertical-padding(3)
+
+.overlay-nav__menu__item
+  +vertical-margin(1.2)
+  +at-breakpoint(lap)
+    +vertical-margin(3)
+
+.overlay-nav__menu__item--small
+  @extend .overlay-nav__menu__item
+  +vertical-margin(.2)
+  +at-breakpoint(lap)
+    +vertical-margin(1)
+
+.overlay-nav__menu__link
+  color: $gray-l-color
+  text-transform: uppercase
+  letter-spacing: 3.43px
+  transition: .6s
+  +hover
+    +gradient-text
+  +at-breakpoint(lap)
+    +font-size(epsilon)
+
+  &.is-active
+    color: $white-color
+    font-weight: 600
+
+.overlay-nav__menu__link--small
+  @extend .overlay-nav__menu__link
+  +font-size(mini)
+  letter-spacing: 2.14px
+  +at-breakpoint(lap)
+    +font-size(regular)
+
+.overlay-nav__menu__title
+  +heading-font-family
+  color: $white-color
+  +font-size(mini)
+  letter-spacing: 2.5px
+  text-transform: uppercase
+  +at-breakpoint(lap)
+    +font-size(smallprint)
+    letter-spacing: 3px
