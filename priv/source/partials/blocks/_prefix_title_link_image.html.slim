@@ -1,0 +1,32 @@
+- block = params.block
+- block_link = block.link
+- image = block.image
+- image_responsive = image.responsiveImage
+- direction = block.direction
+
+section.section--standard
+
+  .wrap
+
+    .flex
+
+      div class="flex__item lap-6-12 #{if direction == false, do: "lap-push-6-12"}"
+
+        .prefix.margin--bottom-2.margin--bottom-4-on-lap
+          = block.prefix
+        
+        h2.title.margin--bottom-2.margin--bottom-4-on-lap
+          = block.title
+
+        .margin--bottom-2
+          = link_to "/#{block_link.slug}",
+            class: "button--lowercase" do
+
+            .button--rounded-gradient
+              span = block.cta  
+      
+      div class="flex__item lap-6-12 #{if direction == false, do: "lap-pull-6-12"}"
+
+        figure.image--standard--vectorial
+          img.lazyload.img--contain src=image.blurUpThumb data-srcset=image_responsive.srcSet data-src=image_responsive.src data-sizes=image_responsive.sizes alt=image_responsive.alt title=image_responsive.title
+      

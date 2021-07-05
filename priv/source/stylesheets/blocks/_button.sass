@@ -68,7 +68,7 @@ input[type="button"]
   border-radius: 36px
   color: $black-color
   letter-spacing: 0.85px
-  padding: .9rem 1.5rem
+  padding: .5rem 1.5rem
   z-index: 0
   position: relative
   overflow: hidden
@@ -148,8 +148,11 @@ input[type="button"]
   height: 40px
   text-align: center
   white-space: nowrap
+  padding: 1rem 2.5rem
   +at-breakpoint(eq-tab)
     height: 45px
+  +at-breakpoint(lap)
+    height: 50px
   span
     z-index: 1
   &::after
@@ -158,7 +161,12 @@ input[type="button"]
     background: $black-color
     +center
     width: calc(100% - 4px)
-    height: 38px
+    height: calc(100% - 4px)
     border-radius: 36px
-    +at-breakpoint(lap)
 
+.button--rounded-gradient--fill
+  @extend .button--rounded-gradient
+  color: $black-color
+  transform: scale(1.1)
+  &::after
+    display: none

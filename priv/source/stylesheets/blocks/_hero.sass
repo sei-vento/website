@@ -12,11 +12,11 @@
 
 .hero
   position: relative
-  height: 340px
+  // height: 340px
   background: $background-l
   +at-breakpoint(lap)
-    min-height: 420px
-    height: 60vh
+    // min-height: 420px
+    // height: 60vh
 
 @if $enable-hero-colored
   @each $color, $value in $all-colors
@@ -33,35 +33,29 @@
   overflow-y: hidden
   +padding-top(8)
 
-.hero__body
-  display: table
-  text-align: center
-  width: 100%
+.hero__inner
+  +vertical-padding(8)
+  +at-breakpoint(lap)
+    +padding-top(16)
 
-.hero__body__inner
-  +vertical-padding(4)
-  display: table-cell
-  vertical-align: middle
-
-.hero__heading
-  +font-size(alpha)
-  line-height: 1.2
-  margin-left: auto
-  margin-right: auto
-  max-width: 80rem
-
-.hero__text
+.title__hero
   +margin-top(2)
-  margin-left: auto
-  margin-right: auto
-  max-width: 75rem
+  +font-size(delta)
+  +at-breakpoint(lap)
+    +font-size(80px)
+    line-height: 70px
 
-.hero__actions
-  +margin-top(2)
+.hero__action
+  display: none
+  +at-breakpoint(lap)
+    display: block
+    +margin-top(4)
+  i
+    width: 16px  
+    height: 16px  
 
 .hero--homepage__image
   +margin-top(4)
-  mix-blend-mode: lighten
   +at-breakpoint(lap)
     +margin-top(0)
   +at-breakpoint(desk)

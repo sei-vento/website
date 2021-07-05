@@ -3,6 +3,12 @@ import '../images/**/*.+(gif|ico|jpg|png|svg)'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import Swiper from 'swiper/bundle';
+// import "./blotter.min.js";
+// import "./channelSplitMaterial.js";
+// import "./liquidDistortMaterial.js";
+// import "./rollingDistortMaterial.js";
+// import "./demo.js";
+
 
 // require('../images/favicons/site.webmanifest')
 // require('../images/favicons/browserconfig.xml')
@@ -66,126 +72,30 @@ const swiper = new Swiper('.swiper-program', {
     1024: {
       slidesPerView: 3,
       spaceBetween: 24,
-      initialSlide: 1
+      initialSlide: 1,
+      allowTouchMove: false
     },
     1300: {
       slidesPerView: 3,
       spaceBetween: 48,
-      initialSlide: 1
+      initialSlide: 1,
+      allowTouchMove: false
     }
   }  
 });
 
-// // tab
-// var links = document.querySelectorAll('.tab__item__link');
-// var contents = document.querySelectorAll('.tab__content__item');
-// var i = 0;
-// for (i = 0; i < links.length; i++) {  
-//   links[i].addEventListener('click', function (e) {
-//     e.preventDefault();
-//     var tab_id = this.getAttribute("href");    
-//     for (i = 0; i < links.length; i++) {
-//       links[i].classList.remove('is-active');
-//     }
-//     for (i = 0; i < contents.length; i++) {
-//       contents[i].classList.remove('is-active');
-//     }
-//     this.classList.add('is-active');
-//     var thisContent = document.querySelectorAll(tab_id)
-//     for (i = 0; i < thisContent.length; i++) {
-//       thisContent[i].classList.add('is-active');
-//     }
-//   })  
-// }
-
-// // Add class on click and remove on another click
-// var specifiedElement = document.getElementById('open-dropdown');
-// var thisContent = document.querySelectorAll('.tab__item__container');
-// document.addEventListener('click', function(event) {
-//   if (specifiedElement){
-//     var isClickInside = specifiedElement.contains(event.target);
-//     var i = 0;
-//     if (isClickInside) {
-//       for (i = 0; i < thisContent.length; i++) {
-//         thisContent[i].classList.add('is-open');
-//       }    
-//     } else {
-//       for (i = 0; i < thisContent.length; i++) {
-//         thisContent[i].classList.remove('is-open');
-//       }
-//     }
-//   }
-// });
-
-// // Animation scroll
-// var getScroll = document.getElementById("get-scroll");
-// var elements = document.querySelectorAll(".check-anim");
-// var row = document.querySelectorAll(".service--list li")
-// function checkAnim () {
-//   var getScrollHeight = getScroll.offsetHeight;
-//   for (i = 0; i < elements.length; i++) {    
-//     if (elements[i].getBoundingClientRect().top < getScrollHeight) {
-//       elements[i].classList.add("anim")
-//     } else{
-//       elements[i].classList.remove("anim")
-//     }
-//   }
-//   for (i = 0; i < row.length; i++) {    
-//     if (row[i].getBoundingClientRect().top < getScrollHeight) {
-//       row[i].classList.add("anim")
-//     } else{
-//       row[i].classList.remove("anim")
-//     }
-//   }
-// }
-// checkAnim();
-// document.addEventListener('scroll', function(e) {
-//   checkAnim();
-// });
-// window.addEventListener('resize', function(e) {
-//   checkAnim();
-// });
-
-// //on page load
-// window.onload = function() {
-//   setInterval(function(){
-//     var body = document.body;
-//     body.classList.add("body-loaded");
-//   }, 1000);
-// };
-
-//Animation to start scroll
-var svg_mask = document.querySelectorAll(".image-to-scroll .svg-mask");
-var image = document.querySelectorAll(".image-to-scroll");
-
+// Move elements on scroll
+var ball = document.querySelectorAll(".js-move-on-scroll");
 function move(elements) {
-  var movement = window.scrollY/100
+  var movement = window.scrollY/5
   movement = movement + 1
   var i = 0
   for (i = 0; i < elements.length; i++) {  
-    elements[i].style.transform  = "scale("+ movement +")"
-    console.log(window.scrollY)
-    if (window.scrollY > 2000) {
-      elements[i].style.display = "none"
-    }
+    elements[i].style.transform = "translateY(-"+ movement +"px)"
   }
 }
-function resize(elements) {
-  var i = 0
-  for (i = 0; i < elements.length; i++) {  
-    if (window.scrollY > 2000) {
-      elements[i].classList.add("resize")
-    }
-    if (window.scrollY > 2200) {
-      window.scrollTo(0,0);
-      elements[i].classList.add("hide")
-    }
-  }
-}
-
 document.addEventListener('scroll', function(e) {
-  move(svg_mask);
-  resize(image);
+  move(ball);
 });
 
 isMotionReduced();

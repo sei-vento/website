@@ -1,6 +1,18 @@
-- hero = params.hero
-- image = hero.responsiveImage
+- page = params.page
 
-figure.hero
-  img.lazyload.img--cover src=hero.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title
+.hero__inner
+
+  .prefix--with-gradient.margin--bottom-2
+    = page.title
+
+  h1.title__hero
+    = page.titleHero
+
+  .ball-html.js-move-on-scroll
+
+  .hero__action
+    = link_to "#content",
+      title: "Link internal to content",
+      class: "button__with-arrow" do      
+      i.icon--arrow--gradient data-icon="arrow-down"
 

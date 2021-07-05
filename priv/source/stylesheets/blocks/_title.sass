@@ -1,8 +1,21 @@
 .title
+  color: $gray-l-color
+  strong
+    font-weight: 100
+    color: $white-color
   +body-font-family
   +font-size(zeta)
   +at-breakpoint(lap)
     +font-size(gamma)
+
+  .align--center &
+    text-align: center
+
+.hero__title
+  color: $white-color
+  @extend .title
+  strong
+    font-weight: bold
 
 .title--gradient
   @extend .title
@@ -15,10 +28,26 @@
   +at-breakpoint(lap)
     +font-size(gamma)
 
+.title--gradient--big    
+  @extend .title--gradient
+
+  .block-numbered &
+    +at-breakpoint(lap)
+      display: inline-block
+
 .title--big
   @extend .title
+  color: $gray-l-color
+  strong
+    color: $white-color
+    font-weight: 100
+
   +font-size(delta)
   +at-breakpoint(lap)
     +font-size(beta)
   +at-breakpoint(desk)
     +font-size(alpha)
+
+.title--white
+  @extend .title
+  color: $white-color

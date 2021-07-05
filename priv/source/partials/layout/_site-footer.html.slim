@@ -1,13 +1,129 @@
-/ - locale = params.locale
-/ - info = info(locale)
+- locale = params.locale
+- info = info(locale)
+- phones = info.phone
+- homepage = home_page(locale)
+- program_page = program_page(locale)
+- application_page = application_page(locale)
+- walf_page = walf_page(locale)
+- about_page = about_page(locale)
+- network_page = network_page(locale)
+- faq_page = faq_page(locale)
+- socials = info.social
+- phones = info.phone
 
-/ footer#footer.site-footer
 
-/   .site-footer__content
-/     .wrap
-/       = "Contenuto Footer"
+footer#footer.site-footer
 
-/   .site-footer__copy
-/     .wrap
-/       p = "®#{DateTime.utc_now().year} -"
-/       = info.copyFooter
+  .site-footer__content
+    .wrap
+      .flex
+
+        .flex__item.tab-6-12.lap-3-12
+          .prefix--small.margin--bottom-2
+            = "Vento"
+
+          .site-footer__text.margin--bottom-1
+            = info.address
+
+          .site-footer__text
+            = link_to "mailto:#{info.email}",
+              class: "site-footer__text__link",
+              title: "Send email",
+              rel: "noopener noreferrer" do
+
+              span= info.email
+
+          = Enum.map phones, fn phone ->
+
+            li.site-footer__text
+              = link_to "tel:39#{phone.number}",
+                class: "site-footer__text__link",
+                title: "Send email",
+                rel: "noopener noreferrer" do
+
+                span= phone.label
+
+        .flex__item.tab-6-12.lap-3-12.margin--top-3-on-lte-palm
+          .prefix--small.margin--bottom-2
+            = "Sitemap"
+
+          ul.footer-nav__menu
+
+            li.footer-nav__menu__item
+              = link_to locale_url_prefix(locale),
+                class: "footer-nav__menu__link" do
+                span= "Homepage"
+
+            li.footer-nav__menu__item
+              = link_to page_path(program_page, locale),
+                class: "footer-nav__menu__link" do
+
+                span= program_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(application_page, locale),
+                class: "footer-nav__menu__link" do
+
+                span= application_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(walf_page, locale),
+                class: "footer-nav__menu__link" do
+
+                span= walf_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(about_page, locale),
+                class: "footer-nav__menu__link" do
+
+                span= about_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(network_page, locale),
+                class: "footer-nav__menu__link" do
+
+                span= network_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(faq_page, locale),
+                class: "footer-nav__menu__link" do
+
+                span= faq_page.menuLabel
+
+        .flex__item.tab-6-12.lap-3-12.margin--top-3-on-lte-palm
+          .prefix--small.margin--bottom-2
+            = "Sitemap"
+
+          ul.footer-nav__menu
+            = Enum.map socials, fn social ->
+              li.footer-nav__menu__item
+                = link_to social.link,
+                  class: "footer-nav__menu__link",
+                  title: "Link to #{social.title} (open in new window)",
+                  rel: "noopener noreferrer",
+                  target: "_blank" do
+
+                  span= social.title     
+
+        .flex__item.tab-6-12.lap-3-12.margin--top-3-on-lte-palm
+          .prefix--small.margin--bottom-2
+            = "Legal"
+
+          ul.footer-nav__menu
+
+            li.footer-nav__menu__item
+              = link_to "",
+                class: "footer-nav__menu__link" do
+                span= "Privacy Policy"
+
+            li.footer-nav__menu__item
+              = link_to "",
+                class: "footer-nav__menu__link" do
+                span= "Cookie Policy"
+
+
+
+  .site-footer__copy
+    .wrap
+      p = "®#{DateTime.utc_now().year} -"
+      = info.copyFooter

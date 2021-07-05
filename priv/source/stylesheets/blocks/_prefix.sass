@@ -4,5 +4,25 @@
   text-transform: uppercase
   letter-spacing: 1.33px
   +font-size(milli)
+  display: flex
+  align-items: center
+  .align--center &
+    justify-content: center
+  i
+    +margin-right(1)
   +at-breakpoint(lap)
     +font-size(smallprint)
+
+  .align--center &,
+  .align--center-on-lte-palm &
+    text-align: center
+
+.prefix--small
+  @extend .prefix
+  text-align: center
+  +at-breakpoint(lap)
+    text-align: left  
+
+.prefix--with-gradient
+  @extend .prefix
+  +gradient-text

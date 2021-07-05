@@ -9,15 +9,13 @@ header.hero--homepage
     = partial("partials/hero-homepage",
       %{page: page})
 
-section
-  .wrap
-    = Enum.map block_service, fn block ->
-      = if block._modelApiKey == "date_title_subtitle_cta_description" do    
-        = partial("partials/blocks/date_title_subtitle_cta_description",
-          %{block: block})
-      = if block._modelApiKey == "prefix_title_link_image" do    
-        = partial("partials/blocks/prefix_title_link_image",
-          %{block: block})
-      = if block._modelApiKey == "contact_block" do    
-        = partial("partials/blocks/contact_block",
-          %{block: block})
+= Enum.map block_service, fn block ->
+  = if block._modelApiKey == "date_title_subtitle_cta_description" do    
+    = partial("partials/blocks/date_title_subtitle_cta_description",
+      %{block: block})
+  = if block._modelApiKey == "prefix_title_link_image" do    
+    = partial("partials/blocks/prefix_title_link_image",
+      %{block: block})
+  = if block._modelApiKey == "contact_block" do    
+    = partial("partials/blocks/contact_block",
+      %{block: block})

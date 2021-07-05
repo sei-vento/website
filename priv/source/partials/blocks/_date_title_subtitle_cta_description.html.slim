@@ -1,51 +1,66 @@
 - block = params.block
 - block_link = block.link
 - widgets = block.widget
+- locale = params.locale
+- info = info(locale)
+- image_ball = info.ball
+- ball = image_ball.responsiveImage
 
-.section--standard
+section.section--standard
+
+  = if block.id == "44979949" do
+    .ball--right.js-move-on-scroll
+      img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+    
+  = if block.id == "44979950" do
+    .ball--left.js-move-on-scroll
+      img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+    
+
+  .wrap
   
-  .prefix.margin--bottom-1
-    = block.date
+    .prefix.margin--bottom-1
+      = block.date
 
-  .flex
-    .flex__item--relative.lap-5-12
-      h2.title--gradient.margin--bottom-2
-        = block.title
+    .flex
+      .flex__item--relative.lap-5-12
+        h2.title--gradient.margin--bottom-2
+          = block.title
 
-      .hidden--on-lap
-        h3.title--big.margin--bottom-2
-          = block.description
-      
-      .flex__item--footer
-        .text.margin--bottom-2
-          = block.subtitle
+        .hidden--on-lap
+          h3.title--big.margin--bottom-2
+            = block.description
+        
+        .flex__item--footer
+          .text.margin--bottom-2
+            = block.subtitle
 
-        = link_to "/block_link.slug",
-          class: "button--lowercase" do
+          = link_to "/#{block_link.slug}",
+            class: "button--lowercase" do
 
-          .button--rounded-gradient
-            span = block.cta
+            .button--rounded-gradient
+              span = block.cta
 
-    .flex__item.lap-5-12.lap-push-2-12
-      .hidden--on-lte-tab
-        h3.title--big.margin--bottom-2
-          = block.description
+      .flex__item.lap-5-12.lap-push-2-12
+        .hidden--on-lte-tab
+          h3.title--big.margin--bottom-2
+            = block.description
 
 
-  .swiper-program.swiper-container
-    .swiper-wrapper
-      = Enum.map widgets, fn widget ->
-        .swiper-slide
-          .widget
-            
-            .widget__header
-              - icon = widget.icon
-              img src="#{icon.url}"
-            
-            h2.widget__title 
-              = widget.title
+    .swiper-program.swiper-container
+      .swiper-wrapper
+        = Enum.map widgets, fn widget ->
+          .swiper-slide
+            .widget
+              
+              .widget__header
+                - icon = widget.icon
+                img src="#{icon.url}"
+              
+              h2.widget__title 
+                = widget.title
 
-            .widget__text
-              = widget.description
+              .widget__text
+                = widget.description
 
-    .swiper-pagination--program.swiper-pagination
+      .swiper-pagination--program.swiper-pagination

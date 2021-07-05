@@ -1,20 +1,48 @@
 .site-footer
-  background-color: $white-color
+  +margin-top(8)
 
 .site-footer__copy
   text-align: center
-  color: $black-color
-  
+  +vertical-padding(1)
+  color: $gray-l-color
+  +font-size(milli)
+  p
+    display: inline
+  a
+    color: $gray-l-color
+  +at-breakpoint(lap)
+    +vertical-padding(4)
+    text-align: left
+
 a.site-footer__copy
   +hover
-    color: $green-color
-
-.site-footer__copy
-  +vertical-padding(1)
-  p
-    display: inline-block
+    color: $white-color
 
 .site-footer__content
-  background-color: $gray-color
+  border-top: 1px solid rgba($border-color, .27)
+  border-bottom: 1px solid rgba($border-color, .27)
   +vertical-padding(3)
   text-align: center
+
+.site-footer__text
+  color: $gray-l-color
+  +font-size(smallprint)
+  +at-breakpoint(lap)
+    text-align: left
+  a
+    color: $gray-l-color
+    +hover
+      color: $white-color
+
+.footer-nav__menu__item
+  +margin-bottom(.5)
+  +at-breakpoint(lap)
+    text-align: left
+
+.footer-nav__menu__link
+  +font-size(milli)
+  color: $gray-l-color
+  text-transform: uppercase
+  letter-spacing: 3px
+  +hover
+    color: $white-color

@@ -79,9 +79,16 @@ defmodule Helpers do
                 ... on PrefixTitleLinkImageRecord {
                   id
                   _modelApiKey
+                  direction
                   image {
-                    url
+                    responsiveImage(sizes: "(min-width: 1600px) 50vw, 100vw",
+                    imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
+                      #{responsive_image_fragment()}
+                    }
+                    blurUpThumb  
                   }
+                  prefix
+                  title
                   link {
                     ... on AboutPageRecord {
                       id
@@ -89,13 +96,14 @@ defmodule Helpers do
                     }
                     ... on NetworkPageRecord {
                       id
+                      slug
                     }
                     ... on WalfPageRecord {
                       id
+                      slug
                     }
                   }
-                  prefix
-                  title
+                  cta
                 }                
               }
             }
@@ -127,6 +135,13 @@ defmodule Helpers do
                   title
                   when
                   where
+                  image {
+                    responsiveImage(sizes: "(min-width: 1600px) 50vw, 100vw",
+                    imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
+                      #{responsive_image_fragment()}
+                    }
+                    blurUpThumb  
+                  }
                 }
                 ... on ContactBlockRecord {
                   id
@@ -166,6 +181,13 @@ defmodule Helpers do
                   title
                   when
                   where
+                  image {
+                    responsiveImage(sizes: "(min-width: 1600px) 50vw, 100vw",
+                    imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
+                      #{responsive_image_fragment()}
+                    }
+                    blurUpThumb  
+                  }
                 }
                 ... on ContactBlockRecord {
                   id
@@ -389,6 +411,7 @@ defmodule Helpers do
             info(locale: $locale) {
               copyFooter
               email
+              address
               emailForm
               phone {
                 number
@@ -407,7 +430,14 @@ defmodule Helpers do
               tertiaryColor {
                 hex
               }
-              applyLink          
+              applyLink
+              ball {
+                responsiveImage(sizes: "(min-width: 600px) 50vw, 100vw",
+                imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
+                  #{responsive_image_fragment()}
+                }
+                blurUpThumb  
+              }              
             }
           }
           """, %{locale: locale})    

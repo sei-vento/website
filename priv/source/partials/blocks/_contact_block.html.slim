@@ -1,0 +1,25 @@
+- block = params.block
+- locale = params.locale
+- info = info(locale)
+
+section.background--light
+
+  .wrap
+
+    .flex--justify-center
+      .flex__item.lap-10-12
+
+        .align--center
+
+          .prefix.margin--bottom-3.margin--bottom-6-on-lap
+            = block.prefix
+
+          .title.margin--bottom-3.margin--bottom-6-on-lap
+            = block.text
+
+          .action
+            = link_to "mailto:#{info.email}",
+              class: "button--lowercase" do
+
+              .button--rounded-gradient
+                span = block.cta  
