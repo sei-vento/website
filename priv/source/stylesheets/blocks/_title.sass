@@ -53,6 +53,13 @@
   +at-breakpoint(desk)
     +font-size(alpha)
 
+.title--medium
+  @extend .title--big
+  +at-breakpoint(lap)
+    +font-size(gamma)
+  +at-breakpoint(desk)
+    +font-size(beta)
+
 .title--white
   @extend .title
   color: $white-color

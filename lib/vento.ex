@@ -26,7 +26,7 @@ defmodule Vento do
       config,
       "/templates/404.html.slim",
       "/404.html",
-      %{locale: :en,
+      %{locale: "en",
         id: "error_page"}
     )
 
