@@ -11,6 +11,8 @@
                         'Elixir.Fermo.Template.Partials.Blocks.DateTitleSubtitleCtaDescription',
                         'Elixir.Fermo.Template.Partials.Blocks.GalleryBlock',
                         'Elixir.Fermo.Template.Partials.Blocks.ImageBlock',
+                        'Elixir.Fermo.Template.Partials.Blocks.ImageTitleDescription',
+                        'Elixir.Fermo.Template.Partials.Blocks.ImageTitleTextDirection',
                         'Elixir.Fermo.Template.Partials.Blocks.PrefixTitleLinkImage',
                         'Elixir.Fermo.Template.Partials.ButtonContact',
                         'Elixir.Fermo.Template.Partials.ContactUs',

@@ -32,9 +32,28 @@
 .ball-html
   display: none
   +position(absolute, 45% -300px null auto)
+  z-index: -1
   +at-breakpoint(lap)
     display: block
     width: 400px
     height: 400px
     border-radius: 400px
     background: $gradient
+    animation: moveX 16s linear 0s infinite alternate, moveY 8s linear 0s infinite alternate
+
+
+@keyframes moveX
+  from 
+    left: -20vw
+    transform: rotate(0deg)
+  to 
+    transform: rotate(360deg)
+    left: 95vw
+
+@keyframes moveY 
+  from 
+    transform: rotate(0deg)
+    top: -350px
+  to 
+    transform: rotate(360deg)
+    top: 50vh

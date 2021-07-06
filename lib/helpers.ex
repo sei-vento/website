@@ -228,19 +228,19 @@ defmodule Helpers do
                 _modelApiKey
                 id
                 direction
+                title
                 description
                 image {
                   responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
                     #{responsive_image_fragment()}
                   }
                   blurUpThumb    
                 }
-                title
               }
               bigTitleFounder
-              descriptionFounder
               titleFounder
+              descriptionFounder
               bodyBottom {
                 _modelApiKey
                 id

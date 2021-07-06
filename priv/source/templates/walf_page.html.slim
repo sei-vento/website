@@ -1,0 +1,43 @@
+- page = params.page
+- locale = params.locale
+- info = info(locale)
+/ - image_ball = info.ball
+/ - ball = image_ball.responsiveImage
+- blocks_top = page.bodyTop
+- blocks_bottom = page.bodyBottom
+- blocks_footer = page.bodyFooter
+
+header.hero
+  .wrap
+    = partial("partials/hero",
+      %{page: page})
+
+= Enum.map blocks_top, fn block ->
+  = if block._modelApiKey == "image_title_text_direction" do    
+    = partial("partials/blocks/image_title_text_direction",
+      %{block: block})
+
+section.section--standard
+  .wrap
+    .title--gradient.margin--bottom-3
+      = page.bigTitleFounder
+    
+    .flex
+      .flex__item
+        h2.title--big.margin--bottom-2
+          = page.titleFounder
+
+      .flex__item
+        .text--big
+          = page.descriptionFounder
+
+
+= Enum.map blocks_bottom, fn block ->
+  = if block._modelApiKey == "image_title_description" do    
+    = partial("partials/blocks/image_title_description",
+      %{block: block})
+
+= Enum.map blocks_footer, fn block ->
+  = if block._modelApiKey == "contact_block" do
+    = partial("partials/blocks/contact_block",
+      %{block: block})

@@ -1,0 +1,26 @@
+- page = params.page
+- locale = params.locale
+- info = info(locale)
+- image_ball = info.ball
+- ball = image_ball.responsiveImage
+- blocks = page.body
+
+
+.ball--top.js-move-on-scroll
+  img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+
+header.hero
+  .wrap
+    = partial("partials/hero",
+      %{page: page})
+
+= Enum.map blocks, fn block ->
+  = if block._modelApiKey == "big_title_prefix_image_title_description" do    
+    = partial("partials/blocks/big_title_prefix_image_title_description",
+      %{block: block})
+  = if block._modelApiKey == "contact_block" do    
+    = partial("partials/blocks/contact_block",
+      %{block: block})
+
+
+

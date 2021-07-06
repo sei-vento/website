@@ -11,6 +11,11 @@
   .align--center &
     text-align: center
 
+.title--small
+  @extend .title
+  +at-breakpoint(lap)
+    +font-size(delta)
+
 .hero__title
   color: $white-color
   @extend .title

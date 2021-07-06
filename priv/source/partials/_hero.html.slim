@@ -10,6 +10,13 @@
 
   .ball-html.js-move-on-scroll
 
+  = if Map.has_key?(page, :descriptionHero) || page.descriptionHero != nil do
+
+    .flex
+      .flex__item.lap-5-12
+        .hero__text 
+          = page.descriptionHero
+
   .hero__action
     = link_to "#content",
       title: "Link internal to content",
