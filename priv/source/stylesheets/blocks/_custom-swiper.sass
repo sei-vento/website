@@ -9,9 +9,9 @@
     &:nth-child(3)
       +margin-top(6)  
 
-.swiper-pagination.swiper-pagination--program  
-  position: relative
-  bottom: auto
+.swiper-pagination
+  position: relative!important
+  bottom: auto!important
   z-index: 10
   +at-breakpoint(lap)
     +margin-top(3)
@@ -26,3 +26,7 @@
   width: 10px!important
   height: 10px!important
   opacity: 1!important
+
+.swiper-manifesto
+  +at-breakpoint(lap)
+    display: none

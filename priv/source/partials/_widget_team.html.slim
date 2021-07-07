@@ -1,0 +1,28 @@
+- block = params.block
+- image = block.image
+- image_responsive = image.responsiveImage
+
+.flex__item.width-10-12.lte-palm-push-1-12.tab-6-12.lap-3-12
+
+  .margin--bottom-3
+
+    = link_to "#{block.link}",
+      target: "_blank",
+      class: "widget__hover",
+      title: "Open #{block.cta} page in new window" do
+
+      .widget--gradient
+
+        figure.widget__advisor__image
+          img.lazyload.img--cover src=image.blurUpThumb data-srcset=image_responsive.srcSet data-src=image_responsive.src data-sizes=image_responsive.sizes alt=image_responsive.alt title=image_responsive.title
+
+      h2.widget__name
+        = block.name
+
+      = if block.role != nil do
+        .widget__role
+          = block.role
+      
+      .widget__link
+        span = block.cta
+        i.icon--big-blue data-icon="arrow-right" 

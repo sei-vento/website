@@ -1,0 +1,49 @@
+- page = params.page
+- locale = params.locale
+- info = info(locale)
+/ - image_ball = info.ball
+/ - ball = image_ball.responsiveImage
+- blocks_manifesto = page.blockManifesto
+- blocks_advisor = page.blockAdvisor
+- blocks_team = page.blockTeam
+/ = page.titleTeam
+
+header.hero
+  .wrap
+    = partial("partials/hero-with-image",
+      %{page: page})
+
+section.section--light.padding--both-6.padding--both-10-on-lap
+  .wrap
+    .title--gradient.margin--bottom-4.margin--bottom-6-on-lap
+      = page.titleManifesto
+
+    = partial("partials/swiper_manifesto",
+      %{page: page})
+
+    .visible--on-lap
+      = Enum.map blocks_manifesto, fn block ->
+        = partial("partials/row_with_border",
+          %{block: block})
+    
+section.padding--both-6.padding--both-10-on-lap
+  .wrap
+    .title--gradient.margin--bottom-4.margin--bottom-6-on-lap
+      = page.titleAdvisor
+
+    .flex
+      = Enum.map blocks_advisor, fn block ->
+        = partial("partials/widget_advisor",
+          %{block: block})
+    
+section.padding--bottom-6.padding--bottom-10-on-lap
+  .wrap
+    .title--gradient.margin--bottom-4.margin--bottom-6-on-lap
+      = page.titleTeam
+
+    .flex
+      = Enum.map blocks_team, fn block ->
+        = partial("partials/widget_team",
+          %{block: block})
+
+    

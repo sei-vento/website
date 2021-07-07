@@ -73,3 +73,25 @@
     +position(absolute, null null 0 null)
   +at-breakpoint(desk)
     +bottom(4)
+
+.flex--with-border
+  @extend .flex
+  position: relative
+  &::before
+    content: ""
+    border-bottom: 1px solid rgba($border-color, .5)
+    +position(absolute, null 0 0 0)
+    +left(1)
+    +right(1)
+    height: 1px
+  +padding-top(2)
+  +padding-bottom(4)
+  +at-breakpoint(lap)
+    +padding-top(4)
+    +padding-bottom(6)
+  +at-breakpoint(desk)
+    +padding-top(6)
+    +padding-bottom(8)
+  &:last-child
+    &::before
+      display: none

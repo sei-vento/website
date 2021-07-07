@@ -84,6 +84,14 @@ const swiper = new Swiper('.swiper-program', {
   }  
 });
 
+const swiper_manifesto = new Swiper('.swiper-manifesto', {
+  pagination: {
+    el: '.swiper-pagination--manifesto',
+  },
+  slidesPerView: 1,
+  centeredSlides: true
+});
+
 // Move elements on scroll
 var ball = document.querySelectorAll(".js-move-on-scroll");
 function move(elements) {

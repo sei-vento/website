@@ -4,6 +4,42 @@
   +padding(2)
   border-radius: 100px 0
   min-height: 420px
+  overflow: hidden
+
+.widget--black-l
+  @extend .widget
+  border: none
+  background-color: $background-l
+  position: relative
+  min-height: 300px
+  +margin-bottom(1)
+  +at-breakpoint(lap)
+    min-height: 400px
+    +margin-bottom(2)
+
+.widget--gradient
+  @extend .widget--black-l
+  background-color: transparent
+  position: relative
+  +at-breakpoint(lap)
+    min-height: 300px
+  &::after
+    content: ""
+    background: $gradient
+    +position(absolute, 1px)
+    z-index: 0
+    border-radius: 100px 0
+
+.widget__advisor__image
+  +position(absolute, 0)
+  transition: .3s
+  z-index: 1
+
+.widget--no-margin-bottom
+  @extend .widget
+  padding-bottom: 0
+  .image--standard
+    +margin-top(8)
 
 .widget__header
   height: 90px
@@ -25,4 +61,40 @@
 .widget__text
   color: $gray-l-color
   letter-spacing: 0.75px
+
+.widget__name
+  +heading-font-family
+  +font-size(18px)
+  color: $white-color
+  letter-spacing: 1.5px
+  +at-breakpoint(lap)
+    +vertical-margin(1)
+
+.widget__role
+  letter-spacing: 0.75px
+  color: $gray-l-color
+
+.widget__link
+  display: flex
+  align-items: center
+  +at-breakpoint(lap)
+    +margin-top(1)
+  span
+    color: $gray-l-color
+    letter-spacing: 0.75px
+    +margin-right(.5)
+    transition: .3s
+  i
+    width: 15px
+
+.widget__hover
+  +hover
+    span
+      +margin-right(1)
+    .widget__advisor__image
+      mix-blend-mode: luminosity
+    .widget__name
+      // +gradient-text
+
+    
 

@@ -1,0 +1,34 @@
+- page = params.page
+- locale = params.locale
+- info = info(locale)
+- image_ball = info.ball
+- ball = image_ball.responsiveImage
+- hero = page.imageHero
+- image = hero.responsiveImage
+
+
+.ball--top.js-move-on-scroll
+  img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+
+.hero__inner
+
+  .prefix--with-gradient.margin--bottom-2
+    = page.title
+
+  h1.title__hero--small
+    = page.titleHero
+
+  .ball-html.js-move-on-scroll
+
+  .hero__action
+    = link_to "#content",
+      title: "Link internal to content",
+      class: "button__with-arrow" do
+      
+      .background--gradient
+        .background--black      
+          i.icon--arrow--gradient data-icon="arrow-down"
+
+figure.hero__image
+  img.lazyload.img--auto src=hero.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title
+

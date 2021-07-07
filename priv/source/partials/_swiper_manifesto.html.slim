@@ -1,0 +1,14 @@
+- page = params.page
+- blocks_manifesto = page.blockManifesto
+
+.swiper-manifesto.swiper-container
+  .swiper-wrapper
+    = Enum.map blocks_manifesto, fn block ->
+      .swiper-slide
+        .manifesto              
+          h2.prefix--big.margin--bottom-2
+            = block.title
+          .text--gray-l.margin--bottom-2
+            = block.text
+
+  .swiper-pagination--manifesto.swiper-pagination

@@ -21,8 +21,18 @@
   @extend .prefix
   text-align: center
   +at-breakpoint(lap)
-    text-align: left  
+    text-align: left
+
+  .site-footer__content &
+    +at-breakpoint(lte-tab)
+      justify-content: center
 
 .prefix--with-gradient
   @extend .prefix
   +gradient-text
+
+.prefix--big
+  @extend .prefix
+  +font-size(regular)
+  +at-breakpoint(lap)
+    +font-size(zeta)

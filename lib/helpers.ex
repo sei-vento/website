@@ -246,7 +246,7 @@ defmodule Helpers do
                 id
                 image {
                   responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
                     #{responsive_image_fragment()}
                   }
                   blurUpThumb    
@@ -282,7 +282,7 @@ defmodule Helpers do
               menuLabel
               imageHero {
                 responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
                   #{responsive_image_fragment()}
                 }
                 blurUpThumb
@@ -302,8 +302,8 @@ defmodule Helpers do
                 name
                 role
                 image {
-                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                  responsiveImage(sizes: "(min-width: 1024px) 33vw, 90vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
                     #{responsive_image_fragment()}
                   }
                   blurUpThumb  
@@ -316,9 +316,10 @@ defmodule Helpers do
                 link
                 name
                 role
+                cta
                 image {
-                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                  imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                  responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
                     #{responsive_image_fragment()}
                   }
                   blurUpThumb  

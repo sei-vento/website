@@ -22,6 +22,15 @@
   strong
     font-weight: bold
 
+.title__hero--small
+  @extend .title__hero
+  +font-size(zeta)
+  +at-breakpoint(lap)
+    +font-size(delta)
+    max-width: 70%
+    +margin-top(4)
+    +margin-bottom(4)
+
 .title--gradient
   @extend .title
   +heading-font-family
