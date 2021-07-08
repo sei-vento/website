@@ -5,7 +5,20 @@
 .text--gray-l
   @extend .text
   color: $gray-l-color
+  strong
+    color: $white-color
 
 .text--big
   @extend .text--gray-l
   +font-size(zeta)
+
+.text-number
+  +heading-font-family
+  +font-size(milli)
+  text-transform: uppercase
+  span
+    +font-size(epsilon)
+    display: block
+    +margin-top(1)
+
+

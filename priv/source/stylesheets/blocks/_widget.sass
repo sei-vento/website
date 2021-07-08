@@ -17,6 +17,15 @@
     min-height: 400px
     +margin-bottom(2)
 
+
+.widget--black-l--with-icon
+  @extend .widget--black-l
+  +at-breakpoint(lap)
+    min-height: 300px
+  img
+    +center
+    width: 150px
+
 .widget--gradient
   @extend .widget--black-l
   background-color: transparent

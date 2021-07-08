@@ -1,0 +1,35 @@
+- page = params.page
+- locale = params.locale
+- info = info(locale)
+- blocks_stake = page.blockStake
+- blocks_eco = page.blockEco
+- image_ball = info.ball
+- ball = image_ball.responsiveImage
+
+header.hero
+  .wrap 
+    = partial("partials/hero-with-image",
+      %{page: page})
+
+section.section--standard
+  .wrap.margin--bottom-8-on-lap
+    h2.title--gradient--big
+      = page.titleStake
+
+section
+  .wrap
+    = Enum.map blocks_stake, fn block ->
+      = if block._modelApiKey == "prefix_image_description_when_number" do    
+        = partial("partials/blocks/prefix_image_description_when_number",
+          %{block: block})
+
+section.section--standard
+  .wrap
+    h2.title--gradient--big.margin--bottom-4.margin--bottom-8-on-lap
+      = page.titleEco
+
+  .wrap
+    = Enum.map blocks_eco, fn block ->
+      = if block._modelApiKey == "gallery_block" do    
+        = partial("partials/blocks/gallery_block",
+          %{block: block})

@@ -13,6 +13,7 @@
                         'Elixir.Fermo.Template.Partials.Blocks.ImageBlock',
                         'Elixir.Fermo.Template.Partials.Blocks.ImageTitleDescription',
                         'Elixir.Fermo.Template.Partials.Blocks.ImageTitleTextDirection',
+                        'Elixir.Fermo.Template.Partials.Blocks.PrefixImageDescriptionWhenNumber',
                         'Elixir.Fermo.Template.Partials.Blocks.PrefixTitleLinkImage',
                         'Elixir.Fermo.Template.Partials.Blocks.SwiperManifesto',
                         'Elixir.Fermo.Template.Partials.ButtonContact',

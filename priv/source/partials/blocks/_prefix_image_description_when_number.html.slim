@@ -1,0 +1,36 @@
+- block = params.block
+- icon = block.image
+- locale = params.locale
+- info = info(locale)
+- image_ball = info.ball
+- ball = image_ball.responsiveImage
+
+
+= if block.id == "44980876" do
+  .ball--right.js-move-on-scroll
+    img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+
+.padding--both-4
+  
+  .flex
+    .flex__item.lap-4-12
+      .align--right
+        .prefix
+          = "a program by"
+
+  .flex.margin--top-2
+    
+    .flex__item.margin--bottom-1.lap-4-12
+      .widget--black-l--with-icon
+        image src="#{icon.url}"
+
+    .flex__item.margin--bottom-3.lap-5-12
+      .text--gray-l
+        = block.description
+
+    .flex__item.lap-2-12.lap-push-1-12
+      .prefix.margin--bottom-2
+        = block.when
+
+      .text-number
+        = block.numberText

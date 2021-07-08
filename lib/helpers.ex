@@ -346,7 +346,7 @@ defmodule Helpers do
               menuLabel
               imageHero {
                 responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
                   #{responsive_image_fragment()}
                 }
                 blurUpThumb
@@ -356,6 +356,9 @@ defmodule Helpers do
               blockStake {
                 _modelApiKey                
                 id
+                image {
+                  url
+                }
                 numberText
                 prefix
                 when
@@ -363,9 +366,15 @@ defmodule Helpers do
               }
               titleEco
               blockEco {
+                _modelApiKey
+                id                
                 image {
-                  url
-                }                
+                  responsiveImage(sizes: "(min-width: 1024px) 33vw, 50vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb  
+                }        
               }
               #{seo_meta_tags_fragment()}                                                                                     
             }
@@ -434,7 +443,7 @@ defmodule Helpers do
               applyLink
               ball {
                 responsiveImage(sizes: "(min-width: 600px) 50vw, 100vw",
-                imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
+                imgixParams: {auto: [compress,format], fit: crop, w: "960"}) {
                   #{responsive_image_fragment()}
                 }
                 blurUpThumb  
