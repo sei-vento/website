@@ -1,6 +1,20 @@
-.wrap
-  header.hero
-    .hero__content
-      .hero__heading
-        h1.hero__title
-          = "Page not found"
+section.padding--both-8.padding--both-14-on-lap
+  .wrap
+
+    .flex
+      .flex__item.lap-8-12
+
+        .margin--bottom-1.margin--bottom-3-on-lap
+          .prefix--with-gradient = "Page not found"
+
+        .margin--bottom-2.margin--bottom-3-on-lap
+          .title
+            = "The address may be misspelled or may not exist."
+          
+        .margin--top-2
+          = link_to "/",
+            title: "Homepage Vento",
+            class: "button--rounded-gradient" do
+
+            span
+              = "Go to the homepage"
