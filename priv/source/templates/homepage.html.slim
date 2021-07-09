@@ -10,7 +10,7 @@ header.hero--homepage
       %{page: page})
 
 = Enum.map block_service, fn block ->
-  = if block._modelApiKey == "date_title_subtitle_cta_description" do    
+  = if block._modelApiKey == "date_title_subtitle_cta_description" do
     = partial("partials/blocks/date_title_subtitle_cta_description",
       %{block: block})
   = if block._modelApiKey == "prefix_title_link_image" do    
