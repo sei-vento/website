@@ -1,63 +1,60 @@
 $tab-border-color: $white-color
 
 .tab
-  +at-breakpoint(lte-palm)
-    +margin-top(6)
-    border-bottom: $tab-border-width solid $tab-border-color
-  +margin-bottom(6)
+  +margin-bottom(2)
   list-style: none
+  +at-breakpoint(lap)
+    +margin-bottom(4)
+
+.tab__item__container
+  display: flex
+  flex-wrap: wrap
+  +at-breakpoint(lte-tab)
+    justify-content: space-between
 
 .tab__item
-  +at-breakpoint(lte-palm)
-    border-bottom: $tab-border-width solid $tab-border-color
-    position: relative
-  margin-top: 0
+  position: relative
+  text-align: center
+  width: 160px
+  height: 40px
+  line-height: 38px
+  +margin-bottom(1)
+  border: 1px solid rgba($border-color, .5)
+  border-radius: 50px
+  +at-breakpoint(lap)
+    +margin-right(2)
 
 .tab__item__link
-  +vertical-padding(2)
-  letter-spacing: 1.78px
-  display: inline-block
-  +at-breakpoint(tab)
-    +vertical-padding(0)
-    +padding-bottom(1)
-    text-transform: uppercase
-    +font-size(smallprint)
+  width: 100%
+  +heading-font-family
+  color: $white-color
+  text-transform: uppercase
+  letter-spacing: 1.33px
+  +font-size(milli)
   +at-breakpoint(lap)
-    +font-size(regular)
-  +hover
-    opacity: .75
+    +font-size(smallprint)
   &.is-active
-    border-bottom: $tab-border-width solid $black-color
-    color: $green-color
-  &::after
-    +at-breakpoint(lte-palm)
-      +heading-font-family
-      content: "+"
-      color: $green-color
-      +font-size(beta)
-      +position(absolute, 30px 0 null null)
-      font-weight: 100
-      line-height: 0
+    &::after
+      border-radius: 50px
+      content: ""
+      +position(absolute, -2px)
+      background: $gradient
+      z-index: -2
+    &::before
+      border-radius: 50px
+      content: ""
+      +position(absolute, 0)
+      background-color: $black-color
+      z-index: -1
+
 
 .tab__content
   display: block
+  +margin-bottom(4)
 
 .tab__content__item
   display: none
   &.is-active
     display: block
     
-.open-dropdown
-  @extend .tab__item__link
-  +at-breakpoint(tab)
-    display: none
 
-.tab__item__container
-  +at-breakpoint(lte-palm)
-    max-height: 0px
-    transition: .3s
-    overflow: hidden
-
-  &.is-open
-    +at-breakpoint(lte-palm)
-      max-height: 200px

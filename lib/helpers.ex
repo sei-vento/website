@@ -217,7 +217,7 @@ defmodule Helpers do
               menuLabel
               imageHero {
                 responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
-                imgixParams: {auto: [compress,format], fit: crop, w: "1024", h: 450}) {
+                imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
                   #{responsive_image_fragment()}
                 }
                 blurUpThumb
@@ -413,8 +413,7 @@ defmodule Helpers do
         
         result[:faqPage]
       end
-    
-    
+        
       defmemo info(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -453,6 +452,19 @@ defmodule Helpers do
           """, %{locale: locale})    
         
         result[:info]
+      end
+    
+      defmemo accordion(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            allAccordions(locale: $locale) {
+              question
+              answer
+            }
+          }
+          """, %{locale: locale})    
+        
+        result[:allAccordions]
       end
 
       def render_link_to_record(item, node) do

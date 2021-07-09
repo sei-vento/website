@@ -1,0 +1,27 @@
+- blocks = params.blocks
+- all_accordions = params.all_accordions
+
+
+.tab
+  .tab__item__container
+    .tab__item
+      a class="tab__item__link is-active" href="#tab"
+        = "All"
+    = Enum.map Enum.with_index(blocks), fn {block, i} ->
+      .tab__item
+        a class="tab__item__link" href="#tab-#{i+1}"
+          = block.titleAccordion
+
+.tab__content
+  div class="tab__content__item is-active" id="tab"
+    = Enum.map all_accordions, fn block ->
+      = partial("partials/blocks/accordion",
+        %{block: block})
+
+  = Enum.map Enum.with_index(blocks), fn {block, i} ->
+    div class="tab__content__item" id="tab-#{i+1}"
+      - accordions = block.accordion
+        = Enum.map Enum.with_index(accordions), fn {block, n} ->
+          = partial("partials/blocks/accordion",
+            %{block: block, n: n})
+

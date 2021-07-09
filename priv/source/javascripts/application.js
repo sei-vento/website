@@ -106,6 +106,28 @@ document.addEventListener('scroll', function(e) {
   move(ball);
 });
 
+// tab
+var links = document.querySelectorAll('.tab__item__link');
+var contents = document.querySelectorAll('.tab__content__item');
+var i = 0;
+for (i = 0; i < links.length; i++) {  
+  links[i].addEventListener('click', function (e) {
+    e.preventDefault();
+    var tab_id = this.getAttribute("href");    
+    for (i = 0; i < links.length; i++) {
+      links[i].classList.remove('is-active');
+    }
+    for (i = 0; i < contents.length; i++) {
+      contents[i].classList.remove('is-active');
+    }
+    this.classList.add('is-active');
+    var thisContent = document.querySelectorAll(tab_id)
+    for (i = 0; i < thisContent.length; i++) {
+      thisContent[i].classList.add('is-active');
+    }
+  })  
+}
+
 isMotionReduced();
 handleNavOverlayToggle();
 

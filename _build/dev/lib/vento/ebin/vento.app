@@ -16,6 +16,7 @@
                         'Elixir.Fermo.Template.Partials.Blocks.PrefixImageDescriptionWhenNumber',
                         'Elixir.Fermo.Template.Partials.Blocks.PrefixTitleLinkImage',
                         'Elixir.Fermo.Template.Partials.Blocks.SwiperManifesto',
+                        'Elixir.Fermo.Template.Partials.Blocks.Tab',
                         'Elixir.Fermo.Template.Partials.ButtonContact',
                         'Elixir.Fermo.Template.Partials.ContactUs',
                         'Elixir.Fermo.Template.Partials.Favicons',
