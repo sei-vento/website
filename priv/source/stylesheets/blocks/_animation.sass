@@ -16,6 +16,14 @@ $transition: 1.4s
     opacity: 1
     transform: translateY(0)
 
+[data-animation="from-right-to-left"]
+  transition: $transition
+  transform: translateX(170%)
+  opacity: 0
+  .anim &
+    opacity: 1
+    transform: translateX(0)
+
 [data-transition="transition--xl"]
   transition: 3s
 

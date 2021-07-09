@@ -50,6 +50,15 @@
     +margin-top(4)
     line-height: 90px
 
+  opacity: 0
+  transform: translateY(100px)
+  transition: all 1s .5s linear
+
+  .body-loaded .hero &
+    opacity: 1
+    transform: translateY(0px)
+
+
 .hero__action
   display: none
   +at-breakpoint(lap)
