@@ -3,15 +3,6 @@ import '../images/**/*.+(gif|ico|jpg|png|svg)'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import Swiper from 'swiper/bundle';
-// import "./blotter.min.js";
-// import "./channelSplitMaterial.js";
-// import "./liquidDistortMaterial.js";
-// import "./rollingDistortMaterial.js";
-// import "./demo.js";
-
-
-// require('../images/favicons/site.webmanifest')
-// require('../images/favicons/browserconfig.xml')
 
 const isMotionReduced = () => {
   if ('matchMedia' in window && window.matchMedia('(prefers-reduced-motion)').matches) {
@@ -46,14 +37,12 @@ const handleNavOverlayToggle = () => {
       if (menu.getAttribute('aria-hidden') === 'true') {
         menu.setAttribute('aria-hidden', 'false')
         menu.classList.remove('is-hidden')
-        button_apply.classList.add('background-with-gradient')
         button_menu_label.innerHTML = "Close"
         hamburger.classList.add('is-open')
         expandButtons()
       } else {
         menu.setAttribute('aria-hidden', 'true')
         menu.classList.add('is-hidden')
-        button_apply.classList.remove('background-with-gradient')
         button_menu_label.innerHTML = "Menu"
         hamburger.classList.remove('is-open')
         expandButtons(false)
@@ -95,7 +84,7 @@ const swiper_manifesto = new Swiper('.swiper-manifesto', {
 // Move elements on scroll
 var ball = document.querySelectorAll(".js-move-on-scroll");
 function move(elements) {
-  var movement = window.scrollY/5
+  var movement = window.scrollY/3
   movement = movement + 1
   var i = 0
   for (i = 0; i < elements.length; i++) {  

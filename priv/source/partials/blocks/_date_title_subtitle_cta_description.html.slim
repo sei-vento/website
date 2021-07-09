@@ -56,11 +56,13 @@ section.section--standard
               .widget__header
                 - icon = widget.icon
                 img src="#{icon.url}"
-              
-              h2.widget__title 
-                = widget.title
 
-              .widget__text
-                = widget.description
+              .widget__body
+              
+                h2.widget__title 
+                  = widget.title
+
+                .widget__text
+                  = widget.description
 
       .swiper-pagination--program.swiper-pagination

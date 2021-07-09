@@ -3,8 +3,21 @@
   width: 99.9%
   +padding(2)
   border-radius: 100px 0
-  min-height: 420px
   overflow: hidden
+  position: relative
+  +at-breakpoint(lap)
+    min-height: 360px
+  +at-breakpoint(desk)
+    min-height: 410px
+  +at-breakpoint(monitor)
+    min-height: 22vw
+
+.widget__body
+  +at-breakpoint(tab)
+    +padding-right(4)
+  +at-breakpoint(lap)
+    +position(absolute, null null 0 null)
+    +bottom(2)
 
 .widget--black-l
   @extend .widget
@@ -16,6 +29,8 @@
   +at-breakpoint(lap)
     min-height: 400px
     +margin-bottom(2)
+  +at-breakpoint(full)
+    min-height: 35vw
 
 
 .widget--black-l--with-icon
@@ -32,6 +47,8 @@
   position: relative
   +at-breakpoint(lap)
     min-height: 300px
+  +at-breakpoint(full)
+    min-height: 25vw    
   &::after
     content: ""
     background: $gradient

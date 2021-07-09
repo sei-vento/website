@@ -6,6 +6,7 @@
   +position(fixed, 0 0 0 0)
   text-align: center
   +vertical-padding(4)
+  transition: all 0.3s ease
 
   &.is-hidden
     opacity: 0
@@ -42,6 +43,8 @@
     +gradient-text
   +at-breakpoint(lap)
     +font-size(epsilon)
+  +at-breakpoint(desk)
+    +font-size(35px)
 
   &.is-active
     color: $white-color
