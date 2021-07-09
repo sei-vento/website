@@ -120,3 +120,40 @@ for (i = 0; i < links.length; i++) {
 isMotionReduced();
 handleNavOverlayToggle();
 
+// Animation on scroll
+var getScroll = document.getElementById("get-scroll");
+var elements = document.querySelectorAll(".check-anim");
+var row = document.querySelectorAll(".service--list li")
+function checkAnim () {
+  var getScrollHeight = getScroll.offsetHeight;
+  for (i = 0; i < elements.length; i++) {    
+    if (elements[i].getBoundingClientRect().top < getScrollHeight) {
+      elements[i].classList.add("anim")
+    } else{
+      elements[i].classList.remove("anim")
+    }
+  }
+  for (i = 0; i < row.length; i++) {    
+    if (row[i].getBoundingClientRect().top < getScrollHeight) {
+      row[i].classList.add("anim")
+    } else{
+      row[i].classList.remove("anim")
+    }
+  }
+}
+checkAnim();
+document.addEventListener('scroll', function(e) {
+  checkAnim();
+});
+window.addEventListener('resize', function(e) {
+  checkAnim();
+});
+
+
+//on page load
+window.onload = function() {
+  setInterval(function(){
+    var body = document.body;
+    body.classList.add("body-loaded");
+  }, 1000);
+};

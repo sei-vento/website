@@ -11,15 +11,18 @@ section.background--light
 
         .align--center
 
-          .prefix.margin--bottom-3.margin--bottom-6-on-lap
-            = block.prefix
+          .margin--bottom-3.margin--bottom-6-on-lap.check-anim
+            .prefix [data-animation="from-bottom-to-up"]
+              = block.prefix
 
-          .title.margin--bottom-3.margin--bottom-6-on-lap
-            = block.text
+          .margin--bottom-3.margin--bottom-6-on-lap.check-anim
+            .title [data-animation="from-bottom-to-up"]
+              = block.text
 
-          .action
-            = link_to "mailto:#{info.email}",
-              class: "button--lowercase" do
+          .check-anim
+            .action [data-animation="from-bottom-to-up"]
+              = link_to "mailto:#{info.email}",
+                class: "button--lowercase" do
 
-              .button--rounded-gradient
-                span = block.cta  
+                .button--rounded-gradient
+                  span = block.cta  

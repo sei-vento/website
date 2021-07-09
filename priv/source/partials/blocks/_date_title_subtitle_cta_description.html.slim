@@ -19,40 +19,44 @@ section.section--standard
 
   .wrap
   
-    .prefix.margin--bottom-1
-      = block.date
+    .margin--bottom-1.check-anim 
+      .prefix data-animation="from-bottom-to-up"
+        = block.date
 
     .flex
       .flex__item--relative.lap-5-12
-        h2.title--gradient.margin--bottom-2
-          = block.title
+        .margin--bottom-2.check-anim
+          h2.title--gradient data-animation="from-bottom-to-up"
+            = block.title
 
         .hidden--on-lap
-          h3.title--big.margin--bottom-2
-            = block.description
+          .check-anim
+            h3.title--big.margin--bottom-2 data-animation="from-bottom-to-up"
+              = block.description
         
-        .flex__item--footer
-          .text.margin--bottom-2
+        .flex__item--footer.check-anim
+          .text.margin--bottom-2 data-animation="from-bottom-to-up"
             = block.subtitle
 
-          = link_to "/#{block_link.slug}",
-            class: "button--lowercase" do
+          .check-anim
+            div data-animation="from-bottom-to-up"
+              = link_to "/#{block_link.slug}",
+                class: "button--lowercase" do
 
-            .button--rounded-gradient
-              span = block.cta
+                .button--rounded-gradient
+                  span = block.cta
 
       .flex__item.lap-5-12.lap-push-2-12
-        .hidden--on-lte-tab
-          h3.title--big.margin--bottom-2
+        .hidden--on-lte-tab.check-anim
+          h3.title--big.margin--bottom-2 data-animation="from-bottom-to-up"
             = block.description
 
 
     .swiper-program.swiper-container
       .swiper-wrapper
         = Enum.map widgets, fn widget ->
-          .swiper-slide
-            .widget
-              
+          .swiper-slide.check-anim
+            .widget data-animation="from-bottom-to-up"
               .widget__header
                 - icon = widget.icon
                 img src="#{icon.url}"

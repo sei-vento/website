@@ -8,24 +8,6 @@ $transition: 1.4s
   height: 90vh
   z-index: -1
 
-.mask
-  width: 100%
-  display: block
-  position: static
-  top: 0
-  height: auto
-  overflow: hidden
-
-.words
-  display: block
-  line-height: normal
-  transition: $transition 
-  transform: translateY(110%)
-  opacity: 0
-  .body-loaded &
-    opacity: 1
-    transform: translateY(0)
-
 [data-animation="from-bottom-to-up"]
   transition: $transition
   transform: translateY(170%)
@@ -34,30 +16,6 @@ $transition: 1.4s
     opacity: 1
     transform: translateY(0)
 
-[data-animation="from-bottom-to-up-and-opacity"]
-  transition: $transition
-  transform: translateY(170%)
-  opacity: 0
-  .anim &
-    opacity: 1
-    transform: translateY(0)
-
-.animation-bottom-to-top
-  transform: translateY(150%)
-  transition: $transition 
-  transition-delay: 1s
-  opacity: 0
-  .body-loaded &
-    opacity: 1
-    transform: translateY(0)
-
-.tiles--rotated
-  transform: translateY(200%)
-  transition-delay: 2s
-  transition: $transition
-  opacity: 0
-  .body-loaded &
-    opacity: 1
-    transform: translateY(0)
-
+[data-transition="transition--xl"]
+  transition: 3s
 
