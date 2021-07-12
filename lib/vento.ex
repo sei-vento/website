@@ -7,7 +7,11 @@ defmodule Vento do
     base_url: Application.fetch_env!(:fermo, :base_url),
     i18n: [:en],
     path_map: true,
-    exclude: ["templates/*", "layouts/*", "javascripts/*", "stylesheets/*"]
+    exclude: ["templates/*", "layouts/*", "javascripts/*", "stylesheets/*"],
+    sitemap: %{
+      default_priority: 0.5,
+      default_change_frequency: "weekly"
+    }
   }
   import Fermo, only: [page: 4]
 
