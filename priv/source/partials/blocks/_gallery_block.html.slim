@@ -1,8 +1,8 @@
 - block = params.block
 - images = block.image
 
-.gallery
-  = Enum.map images, fn image ->
+.gallery.check-anim
+  = Enum.map Enum.with_index(images), fn {image, i} ->
     - current_image = image.responsiveImage
-    figure class="gallery__image"
+    figure class="gallery__image" data-animation="from-bottom-to-up" data-delay="delay-#{i}"
       img.lazyload.img--contain src=image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title

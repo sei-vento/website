@@ -66,7 +66,16 @@
     +margin-top(4)
   i
     width: 16px  
-    height: 16px  
+    height: 16px
+
+  opacity: 0
+  transform: translateY(100px)
+  transition: all 1s 1s linear
+
+  .body-loaded .hero--homepage &,
+  .body-loaded .hero &,
+    opacity: 1
+    transform: translateY(0px)    
 
 .hero--homepage__image
   +margin-top(4)
@@ -89,6 +98,14 @@
   +margin-top(2)
   +at-breakpoint(desk)
     +margin-top(4)
+
+  opacity: 0
+  transform: translateY(100px)
+  transition: all 1s .75s linear
+
+  .body-loaded .hero &
+    opacity: 1
+    transform: translateY(0px)    
 
 .hero__title
   opacity: 0

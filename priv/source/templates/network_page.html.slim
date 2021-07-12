@@ -12,8 +12,8 @@ header.hero
       %{page: page})
 
 section.section--standard
-  .wrap.margin--bottom-8-on-lap
-    h2.title--gradient--big
+  .wrap.margin--bottom-8-on-lap.check-anim
+    h2.title--gradient--big data-animation="from-right-to-left"
       = page.titleStake
 
 section
@@ -24,9 +24,10 @@ section
           %{block: block})
 
 section.section--standard
-  .wrap
-    h2.title--gradient--big.margin--bottom-4.margin--bottom-8-on-lap
-      = page.titleEco
+  .wrap.check-anim
+    .margin--bottom-4.margin--bottom-8-on-lap
+      h2.title--gradient--big data-animation="from-right-to-left"
+        = page.titleEco
 
   .wrap
     = Enum.map blocks_eco, fn block ->

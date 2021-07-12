@@ -17,16 +17,18 @@ header.hero
 
 section.section--standard
   .wrap
-    .title--gradient.margin--bottom-3.margin--bottom-6-on-desk
-      = page.bigTitleFounder
+    .flex
+      .flex__item.check-anim
+        .title--gradient.margin--bottom-3.margin--bottom-6-on-desk data-animation="from-bottom-to-up"
+          = page.bigTitleFounder
     
     .flex
-      .flex__item.lap-5-12
-        h2.title--medium.margin--bottom-2
+      .flex__item.lap-5-12.check-anim
+        h2.title--medium.margin--bottom-2 data-animation="from-bottom-to-up"
           = page.titleFounder
 
-      .flex__item.lap-6-12.lap-push-1-12.desk-push-2-12.desk-5-12
-        .text--big.margin--top-1-on-lap
+      .flex__item.lap-6-12.lap-push-1-12.desk-push-2-12.desk-5-12.check-anim
+        .text--big.margin--top-1-on-lap data-animation="from-bottom-to-up"
           = page.descriptionFounder
 
 
@@ -40,12 +42,12 @@ section.section--standard
   .wrap
     .flex
       
-      .flex__item.margin--bottom-3-on-lte-tab.lap-8-12
-        .title--small
+      .flex__item.margin--bottom-3-on-lte-tab.lap-8-12.check-anim
+        .title--small data-animation="from-bottom-to-up"
           = page.textApply
 
-      .flex__item.lap-4-12
-        .align--right-on-lap
+      .flex__item.lap-4-12.check-anim
+        .align--right-on-lap data-animation="from-bottom-to-up"
           = link_to "#{info.applyLink}",
             class: "button--rounded-gradient--fill",
             target: "_blank",

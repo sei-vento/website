@@ -10,15 +10,15 @@
   .ball--right.js-move-on-scroll
     img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
 
-.padding--both-4
+.padding--both-4.check-anim
   
-  .flex
+  .flex data-animation="from-bottom-to-up"
     .flex__item.lap-4-12
       .align--right
         .prefix
           = "a program by"
 
-  .flex.margin--top-2
+  .flex.margin--top-2 data-animation="from-bottom-to-up"
     
     .flex__item.margin--bottom-1.lap-4-12
       .widget--black-l--with-icon

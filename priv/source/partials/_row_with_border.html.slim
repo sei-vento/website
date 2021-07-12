@@ -1,12 +1,12 @@
 - block = params.block
 
-.flex--with-border
-  .flex__item.lap-5-12
+.flex--with-border.check-anim
+  .flex__item.lap-5-12 data-animation="from-bottom-to-up"
 
     h2.prefix--big.margin--bottom-2
       = block.title
 
-  .flex__item.lap-5-12.lap-push-1-12
+  .flex__item.lap-5-12.lap-push-1-12 data-animation="from-bottom-to-up"
 
     .text--gray-l.margin--bottom-2
       = block.text

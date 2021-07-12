@@ -1,5 +1,8 @@
 $transition: 1.4s
-  
+
+.check-anim--inline
+  display: inline-block
+
 #get-scroll
   position: fixed
   top: 0px
@@ -26,7 +29,21 @@ $transition: 1.4s
       opacity: 1
       transform: translateX(0)
 
+[data-animation="from-left-to-right"]
+  +at-breakpoint(lap)
+    transition: $transition
+    transform: translateX(-170%)
+    opacity: 0
+    .anim &
+      opacity: 1
+      transform: translateX(0)
+
 [data-transition="transition--xl"]
   +at-breakpoint(lap)
     transition: 3s
+
+@for $i from 1 through 20
+  [data-delay="delay-#{$i}"]
+    +at-breakpoint(lap)
+      transition: $transition #{$i / 3}s
 

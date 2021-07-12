@@ -12,8 +12,9 @@ header.hero
 
 section.section--light.padding--both-6.padding--both-10-on-lap
   .wrap
-    .title--gradient.margin--bottom-4.margin--bottom-6-on-lap
-      = page.titleManifesto
+    .margin--bottom-4.margin--bottom-6-on-lap.check-anim    
+      .title--gradient data-animation="from-right-to-left"
+        = page.titleManifesto
 
     = partial("partials/swiper_manifesto",
       %{page: page})
@@ -25,13 +26,14 @@ section.section--light.padding--both-6.padding--both-10-on-lap
     
 section.padding--both-6.padding--both-10-on-lap
   .wrap
-    .title--gradient.margin--bottom-4.margin--bottom-6-on-lap
-      = page.titleAdvisor
+    .margin--bottom-4.margin--bottom-6-on-lap.check-anim
+      .title--gradient data-animation="from-right-to-left"
+        = page.titleAdvisor
 
     .flex
-      = Enum.map blocks_advisor, fn block ->
+      = Enum.map Enum.with_index(blocks_advisor), fn {block, i} ->
         = partial("partials/widget_advisor",
-          %{block: block})
+          %{block: block, i: i})
     
 section.padding--bottom-6.padding--bottom-10-on-lap
   .wrap
@@ -39,8 +41,8 @@ section.padding--bottom-6.padding--bottom-10-on-lap
       = page.titleTeam
 
     .flex
-      = Enum.map blocks_team, fn block ->
+      = Enum.map Enum.with_index(blocks_team), fn {block, i} ->
         = partial("partials/widget_team",
-          %{block: block})
+          %{block: block, i: i})
 
     
