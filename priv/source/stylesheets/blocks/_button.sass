@@ -163,10 +163,16 @@ input[type="button"]
     height: calc(100% - 4px)
     border-radius: 36px
     transition: .6s
+  &::before
+    content: ""
+    z-index: 0
+    background: $gradient
+    +position(absolute,0 100% 0 0)
+    transition: .6s
   +hover
     color: $black-color
-    &::after
-      height: 0
+    &::before
+      right: 0
 
 .button--rounded-gradient--fill
   @extend .button--rounded-gradient

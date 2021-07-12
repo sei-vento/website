@@ -7,14 +7,16 @@
   .flex__item.lap-6-12.lap-push-6-12
     h1.hero__title 
       = page.titleHero
-    .margin--top-2.margin--top-4-on-lap
-      = link_to "/#content-page",
-        class: "button__with-arrow",
-        title: "Go to content of page" do
-        .background--gradient
-          .background--black
-            i.icon--arrow--gradient data-icon="arrow-down"
-        span = page.cta
+    .hero__action
+      .margin--top-2.margin--top-4-on-lap
+        = link_to "/#content-page",
+          class: "button__with-arrow",
+          title: "Go to content of page" do
+          .background--gradient 
+            .background--black
+              i.icon--arrow--gradient data-icon="arrow-down"
+          span = page.cta
+        
 
   .flex__item.lap-6-12.lap-pull-6-12
     figure.hero--homepage__image
