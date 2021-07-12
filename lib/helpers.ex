@@ -31,8 +31,8 @@ defmodule Helpers do
               slug
               cta
               imageHero {
-                responsiveImage(sizes: "(min-width: 1600px) 100vw, 100vw",
-                imgixParams: {auto: [compress,format], fit: crop, w: "2545"}) {
+                responsiveImage(sizes: "(min-width: 1024px) 45vw, 100vw",
+                imgixParams: {auto: [compress,format], fit: crop, w: "1100", h: "1300"}) {
                   #{responsive_image_fragment()}
                 }
                 blurUpThumb  
@@ -70,6 +70,7 @@ defmodule Helpers do
                     id
                     icon {
                       url
+                      alt
                     }
                     position
                     title
@@ -81,7 +82,7 @@ defmodule Helpers do
                   _modelApiKey
                   direction
                   image {
-                    responsiveImage(sizes: "(min-width: 1600px) 50vw, 100vw",
+                    responsiveImage(sizes: "(min-width: 1024px) 50vw, 100vw",
                     imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
                       #{responsive_image_fragment()}
                     }
