@@ -1,6 +1,7 @@
 - block = params.block
 - locale = params.locale
 - info = info(locale)
+- faq_page = faq_page(locale)
 
 section.background--light
 
@@ -21,7 +22,7 @@ section.background--light
 
           .check-anim
             .action [data-animation="from-bottom-to-up"]
-              = link_to "mailto:#{info.email}",
+              = link_to page_path(faq_page, locale),
                 class: "button--lowercase" do
 
                 .button--rounded-gradient
