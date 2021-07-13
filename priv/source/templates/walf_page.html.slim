@@ -5,6 +5,9 @@
 - blocks_bottom = page.bodyBottom
 - blocks_footer = page.bodyFooter
 
+- content_for(:head)
+  = dato_meta_tags(params.page)
+
 header.hero
   .wrap
     = partial("partials/hero",

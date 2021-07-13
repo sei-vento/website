@@ -1,0 +1,11 @@
+{
+    "urls": [
+        "http://localhost:4001/",
+        "http://localhost:4001/program",
+        "http://localhost:4001/application",
+        "http://localhost:4001/we-are-looking-for",
+        "http://localhost:4001/about-us",
+        "http://localhost:4001/network",
+        "http://localhost:4001/faq"
+    ]
+}

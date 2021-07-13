@@ -5,6 +5,8 @@
 - ball = image_ball.responsiveImage
 - blocks = page.body
 
+- content_for(:head)
+  = dato_meta_tags(params.page)
 
 .ball--top.js-move-on-scroll
   img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
