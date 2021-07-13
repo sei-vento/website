@@ -11,12 +11,19 @@
   align-items: center
   height: $canvas-mobile-topbar-height
   +horizontal-padding(5vw)
-  // background: $background-l
   +at-breakpoint(tab)
     height: $canvas-desk-topbar-height
     +horizontal-padding(6vw)
   +at-breakpoint(full)
-    +horizontal-padding(8vw)    
+    +horizontal-padding(8vw)
+  &::after
+    background: linear-gradient(180deg, $black-color 30%, rgba($black-color, 0) 90%)
+    content: ""
+    height: 100px
+    +position(fixed, 0 0 null 0)
+    z-index: -1
+    +at-breakpoint(tab)
+      height: 200px
 
 .canvas__header__logo
   display: block
