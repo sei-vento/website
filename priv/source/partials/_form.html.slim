@@ -1,6 +1,11 @@
+- locale = params.locale
+- homepage = home_page(locale)
+- thanks_page = thanks_page(locale)
+- thanks_page_url = page_path(thanks_page, locale)
 - access_key = "2697d88d-7bee-49a2-8fd2-e3d5893dca01"
 - ccmail = "g.squillace@cantierecreativo.net"
 - customer_mail = "g.squillace@cantierecreativo.net"
+- base_url = System.fetch_env!("BASE_URL")
 
 form.form action="https://api.web3forms.com/submit" method="POST"
   
@@ -13,7 +18,7 @@ form.form action="https://api.web3forms.com/submit" method="POST"
   input type="hidden" name="replyto" value="#{customer_mail}"
 
   / Required: if submitting without Javascript (because by default web3form outputs json)
-  input type="hidden" name="redirect" value="/thanks-page"
+  input type="hidden" name="redirect" value="#{base_url}#{thanks_page_url}"
 
   / Optional: But Recommended: To Prevent SPAM Submission. Make sure its hidden by default
   input type="checkbox" name="botcheck" id="" style="display: none;"

@@ -115,7 +115,7 @@ defmodule Vento do
             id: "faq_page"}
         )
 
-        apply_page = apply_page(locale) 
+        apply_page = apply_page(locale)
         apply_page_path = page_path(apply_page, locale)
         config = page(
           config,
@@ -124,6 +124,17 @@ defmodule Vento do
           %{page: apply_page(locale),
             locale: locale,
             id: "apply_page"}
+        )
+
+        thanks_page = thanks_page(locale)
+        thanks_page_path = page_path(thanks_page, locale)
+        config = page(
+          config,
+          "/templates/thanks_page.html.slim",
+          Fermo.Paths.path_to_target(thanks_page_path),
+          %{page: thanks_page(locale),
+            locale: locale,
+            id: "thanks_page"}
         )
 
       end

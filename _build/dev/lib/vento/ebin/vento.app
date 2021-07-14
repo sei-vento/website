@@ -57,6 +57,7 @@
                         'Elixir.Fermo.Template.Templates.NetworkPage.Html Copy.Slim',
                         'Elixir.Fermo.Template.Templates.ProgramPage',
                         'Elixir.Fermo.Template.Templates.Thanks',
+                        'Elixir.Fermo.Template.Templates.ThanksPage',
                         'Elixir.Fermo.Template.Templates.WalfPage',
                         'Elixir.Helpers','Elixir.Vento','Elixir.Vento.Paths']},
               {registered,[]},

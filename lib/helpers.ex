@@ -403,6 +403,25 @@ defmodule Helpers do
         result[:applyPage]
       end
     
+      defmemo thanks_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            thanksPage(locale: $locale) {
+              _modelApiKey
+              id
+              title
+              slug
+              messaggeSuccess
+              menuLabel
+              titleHero
+              #{seo_meta_tags_fragment()}                                                                                     
+            }
+          }
+          """, %{locale: locale})
+        
+        result[:thanksPage]
+      end
+    
       defmemo faq_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
