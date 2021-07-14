@@ -2,6 +2,7 @@
 - locale = params.locale
 - info = info(locale)
 - blocks_top = page.bodyTop
+- apply_page = apply_page(locale)
 - blocks_bottom = page.bodyBottom
 - blocks_footer = page.bodyFooter
 
@@ -51,7 +52,7 @@ section.section--standard
 
       .flex__item.lap-4-12.check-anim
         .align--right-on-lap data-animation="from-bottom-to-up"
-          = link_to "#{info.applyLink}",
+          = link_to page_path(apply_page, locale),
             class: "button--rounded-gradient--fill",
             target: "_blank",
             title: t("nav.apply", locale) do

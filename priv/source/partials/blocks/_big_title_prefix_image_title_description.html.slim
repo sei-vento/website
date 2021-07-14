@@ -3,6 +3,7 @@
 - info = info(locale)
 - image = block.image
 - image_responsive = image.responsiveImage
+- apply_page = apply_page(locale)
 - image_ball = info.ball
 - ball = image_ball.responsiveImage
 
@@ -45,7 +46,7 @@ section.block-numbered.wrap
 
       = if block.buttonApply == true do
         .check-anim
-          = link_to "#{info.applyLink}",
+          = link_to page_path(apply_page, locale),
             class: "button--rounded-gradient--fill",
             target: "_blank",
             title: t("nav.apply", locale) do
@@ -55,5 +56,8 @@ section.block-numbered.wrap
     .flex__item.lap-4-12.lap-pull-7-12
       figure.image--standard--vectorial.margin--top-6-on-lte-tab
         img.lazyload.img--contain src=image.blurUpThumb data-srcset=image_responsive.srcSet data-src=image_responsive.src data-sizes=image_responsive.sizes alt=image_responsive.alt title=image_responsive.title
+
+
+lt title=image_responsive.title
 
 

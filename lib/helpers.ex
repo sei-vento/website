@@ -481,7 +481,6 @@ defmodule Helpers do
               tertiaryColor {
                 hex
               }
-              applyLink
               ball {
                 responsiveImage(sizes: "(min-width: 600px) 50vw, 100vw",
                 imgixParams: {auto: [compress,format], fit: crop, w: "960"}) {

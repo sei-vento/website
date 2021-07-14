@@ -2,7 +2,7 @@
 - homepage = home_page(locale)
 - info = info(locale)
 - program_page = program_page(locale)
-- application_page = application_page(locale)
+- apply_page = apply_page(locale)
 - walf_page = walf_page(locale)
 - about_page = about_page(locale)
 - network_page = network_page(locale)
@@ -20,7 +20,7 @@ header.canvas__header data-datocms-noindex=true
 
     .canvas__header__top__right
 
-      = link_to "#{info.applyLink}",
+      = link_to page_path(apply_page, locale),
         class: "button--rounded",
         target: "_blank",
         title: t("nav.apply", locale) do
