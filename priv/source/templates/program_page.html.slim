@@ -4,6 +4,7 @@
 - image_ball = info.ball
 - ball = image_ball.responsiveImage
 - blocks = page.body
+- walf_page = walf_page(locale)
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -23,3 +24,17 @@ header.hero
   = if block._modelApiKey == "contact_block" do    
     = partial("partials/blocks/contact_block",
       %{block: block})
+
+.padding--both-6.padding--both-12-on-lap
+  .wrap
+    .flex      
+      .flex__item.margin--bottom-3-on-lte-tab.lap-8-12.check-anim
+        .title--small data-animation="from-bottom-to-up"
+          = walf_page.textApply
+      .flex__item.lap-4-12.check-anim
+        .align--right-on-lap data-animation="from-bottom-to-up"
+          = link_to "#{info.applyLink}",
+            class: "button--rounded-gradient--fill",
+            target: "_blank",
+            title: t("nav.apply", locale) do
+            = "Apply"     
