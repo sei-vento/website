@@ -2,6 +2,8 @@
 - body = page.body
 - blocks = page.body
 - locale = params.locale
+- apply_page = apply_page(locale)
+- locale = params.locale
 - all_accordions = accordion(locale)
 - info = info(locale)
 
@@ -32,7 +34,7 @@ section.background--light
               = page.titleApply
           .check-anim
             .action data-animation="from-bottom-to-up"
-              = link_to info.applyLink,
+              = link_to page_path(apply_page, locale),
                 class: "button--lowercase" do
                 .button--rounded-gradient--fill
                   span = page.ctaApply
