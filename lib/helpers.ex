@@ -414,6 +414,10 @@ defmodule Helpers do
               messaggeSuccess
               menuLabel
               titleHero
+              icon {
+                url
+                alt
+              }
               #{seo_meta_tags_fragment()}                                                                                     
             }
           }

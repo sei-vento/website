@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Rectangle-Copy_1_);}
+	.st1{fill:#FFFFFF;}
+</style>
+<linearGradient id="Rectangle-Copy_1_" gradientUnits="userSpaceOnUse" x1="-489.2087" y1="999.9826" x2="-484.7565" y2="999.9826" gradientTransform="matrix(115 0 0 -115 56259 115254)">
+	<stop  offset="0" style="stop-color:#00FFFF"/>
+	<stop  offset="0.4564" style="stop-color:#00FF6C"/>
+	<stop  offset="1" style="stop-color:#FFFF00"/>
+</linearGradient>
+<path id="Rectangle-Copy" class="st0" d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z
+	 M256,4.5c138.9,0,251.5,112.6,251.5,251.5S394.9,507.5,256,507.5S4.5,394.9,4.5,256S117.1,4.5,256,4.5z"/>
+<path class="st1" d="M235.2,359.8c2.6,0,5.1-1.2,7.4-3.5l0,0L503.4,95.4c1.7-1.7,2.6-4.1,2.6-7c0-2.9-0.9-5.5-2.6-7.8l0,0L493,71.1
+	c-1.7-2.3-4.1-3.5-7-3.5c-2.9,0-5.2,1.2-7,3.5l0,0L234.7,314.6l-86.1-86.1c-1.7-2.3-4.1-3.5-7-3.5c-2.9,0-5.2,1.2-7,3.5l0,0
+	l-10.4,9.6c-1.7,2.3-2.6,4.9-2.6,7.8s0.9,5.2,2.6,7l0,0l103.5,103.5C230.1,358.6,232.6,359.8,235.2,359.8z"/>
+</svg>

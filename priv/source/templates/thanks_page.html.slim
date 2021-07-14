@@ -3,6 +3,7 @@
 - info = info(locale)
 - image_ball = info.ball
 - ball = image_ball.responsiveImage
+- icon = page.icon
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -17,13 +18,12 @@ section.section--light
     .wrap
       .flex--justify-center.align--center
         .flex__item.lap-8-12
-          i.icon--xl data-icon="check"
-
+          img.icon--xl src="#{icon.url}" alt="#{icon.alt}"
+          
           .title--small.margin--both-3
             = page.messaggeSuccess
           
           = link_to "/",
             title: "Back to home",
             class: "button--rounded-gradient" do
-
             span = "Back to home"
