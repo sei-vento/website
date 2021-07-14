@@ -385,6 +385,24 @@ defmodule Helpers do
         result[:networkPage]
       end
     
+      defmemo apply_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            applyPage(locale: $locale) {
+              _modelApiKey
+              id
+              title
+              slug
+              menuLabel
+              titleHero
+              #{seo_meta_tags_fragment()}                                                                                     
+            }
+          }
+          """, %{locale: locale})
+        
+        result[:applyPage]
+      end
+    
       defmemo faq_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {

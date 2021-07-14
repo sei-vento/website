@@ -71,22 +71,24 @@
     +padding-left(2)
 
   .input__label::before
-    +position(absolute, 3px null null 0)
+    +position(absolute, 5px null null 0)
     border: 1px solid $border-color
     border-radius: 100%
     content: ""
     display: inline-block
     height: 16px
     width: 16px
+    +at-breakpoint(desk)
+      top: 8px
 
   .input__label::after
-    +position(absolute, 7px null null 4px)
+    +position(absolute, 9px null null 4px)
     content: ""
     display: inline-block
     height: 8px
     width: 8px
     border-radius: 8px
-    background-color: $green-color
+    background-color: $yellow-color
     opacity: 0
     transition: all 0.2s ease
 
@@ -116,4 +118,8 @@
 
 .input__label--small
   @extend .input__label
-  +font-size(smallprint)
+  +font-size(milli)
+  letter-spacing: 0.7px
+  color: $gray-l-color
+  a
+    color: $gray-l-color

@@ -1,0 +1,20 @@
+- page = params.page
+- locale = params.locale
+- info = info(locale)
+- image_ball = info.ball
+- ball = image_ball.responsiveImage
+
+- content_for(:head)
+  = dato_meta_tags(params.page)
+
+header.hero
+  .wrap 
+    = partial("partials/hero",
+      %{page: page})
+
+section.section--light
+  .padding--both-6
+    .wrap
+      .flex--justify-center
+        .flex__item.lap-6-12
+          = partial("partials/form", %{page: page})
