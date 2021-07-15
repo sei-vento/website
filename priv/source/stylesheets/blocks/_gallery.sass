@@ -10,10 +10,20 @@
   border: 1px solid rgba($border-color, .5)
   width: calc(50% - 12px)
   height: 100px
+  position: relative
   +at-breakpoint(tab)
     width: calc(33.33% - 20px)
     height: 120px
   +at-breakpoint(lap)
     height: 15vw
     +margin-bottom(3)
+
+  img
+    +center
+    width: 60%
+    height: 60%
+    +at-breakpoint(desk)
+      width: 50%
+      height: 50%
+
   
