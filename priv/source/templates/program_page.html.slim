@@ -5,7 +5,7 @@
 - apply_page = apply_page(locale)
 - ball = image_ball.responsiveImage
 - blocks = page.body
-- walf_page = walf_page(locale)
+- faq_page = faq_page(locale)
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -31,7 +31,7 @@ header.hero
     .flex      
       .flex__item.margin--bottom-3-on-lte-tab.lap-8-12.check-anim
         .title--small data-animation="from-bottom-to-up"
-          = walf_page.textApply
+          = faq_page.titleApply
       .flex__item.lap-4-12.check-anim
         .align--right-on-lap data-animation="from-bottom-to-up"
           = link_to page_path(apply_page, locale),
