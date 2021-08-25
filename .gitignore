@@ -1,5 +1,5 @@
-build/
-_build/
-deps/
-.envrc.private
-.netlify
+/build/
+/_build/
+/deps/
+/.envrc.private
+/.netlify
