@@ -25,6 +25,7 @@ defmodule Vento do
     config = Fermo.Config.add_static(config, "netlify.toml", "netlify.toml")
     config = Fermo.Config.add_static(config, "site.webmanifest", "site.webmanifest")
     config = Fermo.Config.add_static(config, "browserconfig.xml", "browserconfig.xml")
+    config = Fermo.add_static(config, "redirects.txt", "_redirects")
 
     config = page(
       config,
