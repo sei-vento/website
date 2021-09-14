@@ -1,8 +1,13 @@
+- page = params.page
+- locale = params.locale
+
 meta charset="utf-8"
 meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
 meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=5"
 meta name="mobile-web-app-capable" content="yes"
 meta name="apple-mobile-web-app-capable" content="yes"
+= if page == application_page(locale) do
+  meta http-equiv="refresh" content="0; url=https://vento.surveysparrow.com/s/joinvento/tt-59ecaf"
 
 link rel="preconnect" href="https://cdn.iubenda.com"
 link rel="preconnect" href="https://www.google-analytics.com"

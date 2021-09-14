@@ -1,11 +1,12 @@
 - content = params.content
 - locale = params.locale
+- page = params.page
 
 |
   <!DOCTYPE html>
   
 html lang=locale 
-  head = partial "partials/head"
+  head = partial("partials/head", %{page: page})
   body.resize-animation-stopper
     #get-scroll
     div data-datocms-noindex=true
