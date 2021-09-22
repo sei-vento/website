@@ -5,12 +5,11 @@ defmodule Helpers do
     quote do
       import I18n.Helpers
       import FermoHelpers.Links
-      import Fermo.DatoCMS.GraphQLClient 
+      import Fermo.DatoCMS.GraphQLClient
       import DatoCMS.GraphQLClient.MetaTagHelpers
       import DatoCMS.GraphQLClient.ImageHelpers
       import DatoCMS.StructuredText
       import Enum
-      
       import Vento.Paths
       def environment, do: System.get_env("BUILD_ENV")
       use Memoize
@@ -22,7 +21,7 @@ defmodule Helpers do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
             homePage(locale: $locale) {
-              #{seo_meta_tags_fragment()}                                                                                  
+              #{seo_meta_tags_fragment()}
               _modelApiKey
               _updatedAt
               id
@@ -35,7 +34,7 @@ defmodule Helpers do
                 imgixParams: {auto: [compress,format], fit: crop, w: "1100", h: "1300"}) {
                   #{responsive_image_fragment()}
                 }
-                blurUpThumb  
+                blurUpThumb
               }
               titleHero
               service {
@@ -86,7 +85,7 @@ defmodule Helpers do
                     imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
                       #{responsive_image_fragment()}
                     }
-                    blurUpThumb  
+                    blurUpThumb
                   }
                   prefix
                   title
@@ -105,7 +104,7 @@ defmodule Helpers do
                     }
                   }
                   cta
-                }                
+                }
               }
             }
           }
@@ -113,7 +112,7 @@ defmodule Helpers do
 
         result[:homePage]
       end
-    
+
       defmemo program_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -141,7 +140,7 @@ defmodule Helpers do
                     imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
                       #{responsive_image_fragment()}
                     }
-                    blurUpThumb  
+                    blurUpThumb
                   }
                 }
                 ... on ContactBlockRecord {
@@ -151,15 +150,35 @@ defmodule Helpers do
                   prefix
                   text
                 }
-              }              
-              #{seo_meta_tags_fragment()}                                                                                     
+              }
+              bigTitleWhere
+              titleWhere
+              textWhere
+              titleAddress
+              address
+              linkGoogleMaps
+              coverVideo {
+                responsiveImage(sizes: "(min-width: 1600px) 100vw, 100vw",
+                imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
+                  #{responsive_image_fragment()}
+                }
+                blurUpThumb
+              }
+              video {
+                video {
+                  streamingUrl
+                  thumbnailUrl
+                  mp4Url
+                }
+              }
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:programPage]
       end
-    
+
       defmemo application_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -187,7 +206,7 @@ defmodule Helpers do
                     imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
                       #{responsive_image_fragment()}
                     }
-                    blurUpThumb  
+                    blurUpThumb
                   }
                 }
                 ... on ContactBlockRecord {
@@ -197,15 +216,15 @@ defmodule Helpers do
                   prefix
                   text
                 }
-              }              
-              #{seo_meta_tags_fragment()}                                                                                     
+              }
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:applicationPage]
       end
-    
+
       defmemo walf_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -236,7 +255,7 @@ defmodule Helpers do
                   imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
                     #{responsive_image_fragment()}
                   }
-                  blurUpThumb    
+                  blurUpThumb
                 }
               }
               bigTitleFounder
@@ -250,7 +269,7 @@ defmodule Helpers do
                   imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
                     #{responsive_image_fragment()}
                   }
-                  blurUpThumb    
+                  blurUpThumb
                 }
                 title
                 description
@@ -262,15 +281,15 @@ defmodule Helpers do
                 cta
                 prefix
                 text
-              }                                          
-              #{seo_meta_tags_fragment()}                                                                                     
+              }
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:walfPage]
       end
-    
+
       defmemo about_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -307,7 +326,7 @@ defmodule Helpers do
                   imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
                     #{responsive_image_fragment()}
                   }
-                  blurUpThumb  
+                  blurUpThumb
                 }
               }
               titleAdvisor
@@ -323,18 +342,18 @@ defmodule Helpers do
                   imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
                     #{responsive_image_fragment()}
                   }
-                  blurUpThumb  
+                  blurUpThumb
                 }
               }
               titleTeam
-              #{seo_meta_tags_fragment()}                                                                                     
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:aboutPage]
       end
-    
+
       defmemo network_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -355,7 +374,7 @@ defmodule Helpers do
               titleHero
               titleStake
               blockStake {
-                _modelApiKey                
+                _modelApiKey
                 id
                 image {
                   url
@@ -368,23 +387,35 @@ defmodule Helpers do
               titleEco
               blockEco {
                 _modelApiKey
-                id                
+                id
                 image {
                   responsiveImage(sizes: "(min-width: 1024px) 33vw, 50vw",
                   imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
                     #{responsive_image_fragment()}
                   }
-                  blurUpThumb  
-                }        
+                  blurUpThumb
+                }
               }
-              #{seo_meta_tags_fragment()}                                                                                     
+              titlePartner
+              blockPartner {
+                _modelApiKey
+                id
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 33vw, 50vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb
+                }
+              }
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:networkPage]
       end
-    
+
       defmemo apply_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -395,14 +426,14 @@ defmodule Helpers do
               slug
               menuLabel
               titleHero
-              #{seo_meta_tags_fragment()}                                                                                     
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:applyPage]
       end
-    
+
       defmemo thanks_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -418,14 +449,14 @@ defmodule Helpers do
                 url
                 alt
               }
-              #{seo_meta_tags_fragment()}                                                                                     
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:thanksPage]
       end
-    
+
       defmemo faq_page(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -448,14 +479,14 @@ defmodule Helpers do
                   answer
                 }
               }
-              #{seo_meta_tags_fragment()}                                                                                     
+              #{seo_meta_tags_fragment()}
             }
           }
           """, %{locale: locale})
-        
+
         result[:faqPage]
       end
-        
+
       defmemo info(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -486,15 +517,15 @@ defmodule Helpers do
                 imgixParams: {auto: [compress,format], fit: crop, w: "960"}) {
                   #{responsive_image_fragment()}
                 }
-                blurUpThumb  
-              }              
+                blurUpThumb
+              }
             }
           }
-          """, %{locale: locale})    
-        
+          """, %{locale: locale})
+
         result[:info]
       end
-    
+
       defmemo accordion(locale) do
         result = query!("""
           query MyQuery($locale: SiteLocale!) {
@@ -503,8 +534,8 @@ defmodule Helpers do
               answer
             }
           }
-          """, %{locale: locale})    
-        
+          """, %{locale: locale})
+
         result[:allAccordions]
       end
 
@@ -614,7 +645,7 @@ defmodule Helpers do
         else
           ""
         end
-      end      
+      end
 
       def page_parent(page) do
         if page_has_parent?(page) do
@@ -685,7 +716,7 @@ defmodule Helpers do
         deduped = String.replace(stripped, ~r/\-\-+/u, "-")
         String.slice(deduped, 0, max_text)
       end
-      
+
     end
   end
 end

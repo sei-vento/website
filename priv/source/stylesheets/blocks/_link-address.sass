@@ -1,0 +1,34 @@
+.link-address__link
+  border: 1px solid rgba(white, .3)
+  border-radius: 60px
+  color: white
+  display: flex
+  align-items: center
+  transition: .3s
+  +vertical-padding(1)
+  +horizontal-padding(2)
+  +at-breakpoint(lap)
+    +vertical-padding(2)
+    +horizontal-padding(3)
+    +font-size(20px)
+  +hover
+    border: 1px solid white
+
+.link-address
+  +margin-top(2)
+  +at-breakpoint(tab)
+    display: inline-block
+  +at-breakpoint(lap)
+    +margin-top(4)
+  .icon--green
+    width: 2rem
+    height: 2rem
+
+.link-address__title
+  +horizontal-padding(2)
+  +heading-font-family
+  color: white
+  // font-weight: bold
+
+.link-address__address
+  +horizontal-padding(2)

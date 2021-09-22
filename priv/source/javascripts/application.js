@@ -4,6 +4,8 @@ import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import Swiper from 'swiper/bundle';
 
+const videoJs = require('video.js/dist/video.js')
+
 const isMotionReduced = () => {
   if ('matchMedia' in window && window.matchMedia('(prefers-reduced-motion)').matches) {
     return true;
@@ -157,3 +159,39 @@ window.onload = function() {
     body.classList.add("body-loaded");
   }, 1000);
 };
+
+const handleVideoFull = () => {
+  const video = document.querySelector('#video-home')
+  const videoFullTogglers = document.querySelectorAll('.js-video-toggler')
+  const videoContainer = document.querySelector('.js-video-dialog')
+  const videoCloser = document.querySelector('.js-video-close')
+
+  if (video === null) {
+    return null
+  }
+
+  videoJs('video-home', {fluid: true})
+  const videoPlayer = video.player
+
+  videoFullTogglers.forEach(videoFullToggler => {
+    videoFullToggler.addEventListener('click', e => {
+      e.preventDefault()
+      videoContainer.classList.toggle('is-active')
+      videoPlayer.play()
+      if (touchDevice()) {
+        videoPlayer.requestFullscreen()
+      }
+    })
+  })
+
+  videoCloser.addEventListener('click', e => {
+    e.preventDefault()
+    videoContainer.classList.toggle('is-active')
+    videoPlayer.pause()
+  })
+
+  return null
+}
+
+handleVideoFull()
+

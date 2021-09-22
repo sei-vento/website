@@ -23,7 +23,7 @@
   left: 50%
   max-height: 90%
   max-width: 60rem
-  overflow-y: auto
+  // overflow-y: auto
   top: 50%
   width: 90%
   z-index: 1002
@@ -41,13 +41,15 @@
       @supports (--css: variables)
         background-color: var(--color-#{$color})
 
-.dialog__body
-  +horizontal-padding(2)
-
 .dialog__footer
   +padding(2)
   text-align: center
 
 .dialog__close
-  +position(absolute, 0 0 null null)
-  +padding(2)
+  +position(absolute, -1rem 0 null null)
+  +at-breakpoint(desk)
+    top: -2rem
+
+  i
+    width: 20px
+    height: 20px

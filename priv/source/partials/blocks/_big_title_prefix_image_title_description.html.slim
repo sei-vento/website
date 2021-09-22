@@ -11,11 +11,11 @@ section.block-numbered.wrap
   = if block.id == "44980141" do
     .ball--right.js-move-on-scroll
       img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
-    
+
   = if block.id == "44980159" do
     .ball--left.js-move-on-scroll
       img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
-  
+
   .check-anim.check-anim--inline
     h2.title--gradient--big.margin--bottom-4.margin--bottom-6-on-lap data-animation="from-right-to-left"
       = block.bigTitle
@@ -27,9 +27,9 @@ section.block-numbered.wrap
         = if block.where != "" do
           .check-anim
             .prefix.margin--bottom-1.margin--bottom-2-on-lap data-animation="from-bottom-to-up"
-              i.icon--white data-icon="pin" 
+              i.icon--white data-icon="pin"
               = block.where
-      
+
         = if block.when != "" do
           .check-anim
             .prefix data-animation="from-bottom-to-up"
@@ -50,7 +50,7 @@ section.block-numbered.wrap
             class: "button--rounded-gradient--fill",
             target: "_blank",
             title: t("nav.apply", locale) do
-            span= "Apply"      
+            span= "Apply"
 
     .flex__item.lap-4-12.lap-pull-7-12
       figure.image--standard--vectorial.margin--top-6-on-lte-tab

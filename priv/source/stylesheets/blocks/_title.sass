@@ -46,7 +46,18 @@
   +at-breakpoint(lap)
     +font-size(gamma)
 
-.title--gradient--big    
+.title--big--white
+  @extend .title
+  +heading-font-family
+  +font-size(epsilon)
+  text-transform: uppercase
+  letter-spacing: 4px
+  color: white
+  display: inline-block
+  +at-breakpoint(lap)
+    +font-size(gamma)
+
+.title--gradient--big
   @extend .title--gradient
 
   .block-numbered &

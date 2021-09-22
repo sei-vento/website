@@ -6,9 +6,11 @@
 - ball = image_ball.responsiveImage
 - blocks = page.body
 - faq_page = faq_page(locale)
+- cover_video = page.coverVideo
 
 - content_for(:head)
   = dato_meta_tags(params.page)
+  link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet"
 
 .ball--top.js-move-on-scroll
   img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
@@ -19,16 +21,44 @@ header.hero
       %{page: page})
 
 = Enum.map blocks, fn block ->
-  = if block._modelApiKey == "big_title_prefix_image_title_description" do    
+  = if block._modelApiKey == "big_title_prefix_image_title_description" do
     = partial("partials/blocks/big_title_prefix_image_title_description",
       %{block: block})
-  = if block._modelApiKey == "contact_block" do    
+
+section.padding--both-6
+  .wrap
+    .check-anim
+      h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
+        = page.bigTitleWhere
+    .flex
+      .flex__item.lap-5-12.margin--bottom-2.margin--bottom-4-on-lap.check-anim
+        .title--white data-animation="from-bottom-to-up"
+          = page.titleWhere
+      .flex__item.lap-6-12.lap-push-1-12.check-anim.padding--top-1-on-lap
+        .text--gray-l data-animation="from-bottom-to-up"
+          = page.textWhere
+        .link-address data-animation="from-bottom-to-up"
+          = link_to page.linkGoogleMaps,
+            title: "Link to open new window, Go to Google Maps",
+            target: "_blank",
+            class: "link-address__link" do
+            i.icon--green data-icon="pin"
+            div
+              .link-address__title = page.titleAddress
+              .link-address__address = page.address
+
+  = partial("partials/video-section", %{html_class: ''})
+
+= Enum.map blocks, fn block ->
+  = if block._modelApiKey == "contact_block" do
     = partial("partials/blocks/contact_block",
       %{block: block})
 
+
+
 .padding--both-6.padding--both-12-on-lap
   .wrap
-    .flex      
+    .flex
       .flex__item.margin--bottom-3-on-lte-tab.lap-8-12.check-anim
         .title--small data-animation="from-bottom-to-up"
           = faq_page.titleApply
@@ -38,4 +68,4 @@ header.hero
             class: "button--rounded-gradient--fill",
             target: "_blank",
             title: t("nav.apply", locale) do
-            = "Apply"     
+            = "Apply"

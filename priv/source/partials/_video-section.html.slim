@@ -1,0 +1,27 @@
+- locale = params.locale
+- program_page = program_page(locale)
+- image = program_page.coverVideo.responsiveImage
+- video = program_page.video.video
+
+section.check-anim
+  .wrap
+    .padding--both-3.padding--both-5-on-desk
+      header.big-sign--center.big-sign--blue
+        .big-sign__text data-animation="from-bottom-to-up"
+          = link_to "#",
+            class: "video-curtain js-video-toggler" do
+            img.video-curtain__background.lazyload.img--cover src=program_page.coverVideo.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title
+
+            .video-curtain__handle
+              .video-curtain__handle__icon
+              .video-curtain__handle__text
+                = "Play video"
+
+.dialog.js-video-dialog
+  .dialog__frame
+    a.dialog__close.js-video-close href="#"
+      i.icon--white data-icon="close"
+
+    .dialog__body
+      video#video-home.video-js width="800" height="450" controls=true poster=image.src
+        source src=video.mp4Url type="video/mp4"

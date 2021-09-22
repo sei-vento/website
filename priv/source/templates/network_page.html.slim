@@ -3,6 +3,7 @@
 - info = info(locale)
 - blocks_stake = page.blockStake
 - blocks_eco = page.blockEco
+- blocks_partner = page.blockPartner
 - image_ball = info.ball
 - ball = image_ball.responsiveImage
 
@@ -10,7 +11,7 @@
   = dato_meta_tags(params.page)
 
 header.hero
-  .wrap 
+  .wrap
     = partial("partials/hero-with-image",
       %{page: page})
 
@@ -22,8 +23,20 @@ section.section--standard
 section
   .wrap
     = Enum.map blocks_stake, fn block ->
-      = if block._modelApiKey == "prefix_image_description_when_number" do    
+      = if block._modelApiKey == "prefix_image_description_when_number" do
         = partial("partials/blocks/prefix_image_description_when_number",
+          %{block: block})
+
+section.section--standard
+  .wrap.check-anim
+    .margin--bottom-4.margin--bottom-8-on-lap
+      h2.title--gradient--big data-animation="from-right-to-left"
+        = page.titlePartner
+
+  .wrap
+    = Enum.map blocks_partner, fn block ->
+      = if block._modelApiKey == "gallery_block" do
+        = partial("partials/blocks/gallery_block",
           %{block: block})
 
 section.section--standard
@@ -34,6 +47,6 @@ section.section--standard
 
   .wrap
     = Enum.map blocks_eco, fn block ->
-      = if block._modelApiKey == "gallery_block" do    
+      = if block._modelApiKey == "gallery_block" do
         = partial("partials/blocks/gallery_block",
           %{block: block})

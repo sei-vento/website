@@ -1,0 +1,46 @@
+.video-curtain
+  display: block
+  position: relative
+  border-radius: 0 0 3rem 0
+  overflow: hidden
+  +at-breakpoint(lap)
+    +margin-top(4)
+    border-radius: 0 0 10rem 0
+    height: 40vw
+  +at-breakpoint(full)
+    height: 35vw
+
+  &:hover
+    .video-curtain__handle
+      i
+        color: $black-color
+
+.video-curtain__handle
+  +base-transition("ease-in-out", "base")
+  +center
+  text-align: center
+
+.video-curtain__handle__icon
+  background-color: rgba($black-color, .5)
+  border-radius: 100%
+  width: 70px
+  height: 70px
+  border: 1px solid white
+  margin: 0 auto
+  &::after
+    content: ""
+    width: 0
+    height: 0
+    +center
+    margin-top: -16px
+    border-style: solid
+    border-width: 7.5px 0 7.5px 13.0px
+    border-color: transparent transparent transparent white
+    +at-breakpoint(full)
+      margin-top: -18px
+
+.video-curtain__handle__text
+  +heading-font-family
+  color: white
+  padding-top: 10px
+  text-transform: uppercase
