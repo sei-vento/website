@@ -37,7 +37,7 @@ section.section--standard
 
 
 = Enum.map blocks_bottom, fn block ->
-  = if block._modelApiKey == "image_title_description" do    
+  = if block._modelApiKey == "image_title_description" do
     = partial("partials/blocks/image_title_description",
       %{block: block})
 
@@ -45,18 +45,18 @@ section.section--standard
 .padding--both-6.padding--both-12-on-lap
   .wrap
     .flex
-      
+
       .flex__item.margin--bottom-3-on-lte-tab.lap-8-12.check-anim
         .title--small data-animation="from-bottom-to-up"
           = page.textApply
 
       .flex__item.lap-4-12.check-anim
         .align--right-on-lap data-animation="from-bottom-to-up"
-          = link_to "https://vento.surveysparrow.com/s/joinvento/tt-59ecaf",
+          = link_to page_path(apply_page, locale),
             class: "button--rounded-gradient--fill",
             target: "_blank",
             title: t("nav.apply", locale) do
-            = "Apply"      
+            = "Apply"
 
 = Enum.map blocks_footer, fn block ->
   = if block._modelApiKey == "contact_block" do
