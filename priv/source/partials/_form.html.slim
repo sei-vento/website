@@ -2,17 +2,13 @@
 - homepage = home_page(locale)
 - thanks_page = thanks_page(locale)
 - thanks_page_url = page_path(thanks_page, locale)
-- access_key = "2697d88d-7bee-49a2-8fd2-e3d5893dca01"
-- ccmail = "info@sei.it"
+- access_key = "e28b735f-fc03-446a-9266-6e2047ad30cd"
 - customer_mail = "info@sei.it"
 - base_url = System.fetch_env!("BASE_URL")
 
 form.form action="https://api.web3forms.com/submit" method="POST"
-  
-  input type="hidden" name="apikey" value="#{access_key}"
 
-  / Optional: To send the form submission as CC email
-  input type="hidden" name="ccemail" value="#{ccmail}"
+  input type="hidden" name="apikey" value="#{access_key}"
 
   / Optional: default replyto will be "email" (if available), you may overwrite here
   input type="hidden" name="replyto" value="#{customer_mail}"
