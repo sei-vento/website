@@ -17,4 +17,14 @@ section.section--light
     .wrap
       .flex--justify-center
         .flex__item.lap-6-12
-          = partial("partials/form", %{page: page})
+          = if page.link != "" do
+            = link_to page.link,
+              class: "button--rounded-gradient--fill",
+              title: "Link to form (open in new window)",
+              rel: "noopener noreferrer",
+              target: "_blank" do
+
+              span= page.cta
+
+          - else
+            = partial("partials/form", %{page: page})

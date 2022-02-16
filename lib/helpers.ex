@@ -426,6 +426,8 @@ defmodule Helpers do
               slug
               menuLabel
               titleHero
+              cta
+              link
               #{seo_meta_tags_fragment()}
             }
           }
