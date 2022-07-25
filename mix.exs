@@ -26,7 +26,8 @@ defmodule Vento.MixProject do
       {:fermo_helpers, ">= 0.0.0"},
       {:datocms_graphql_client, ">= 0.0.0"},
       {:fermo_datocms_graphql_client, ">= 0.0.0"},
-      {:memoize, "~> 1.3"}      
+      {:memoize, "~> 1.3"}      ,
+      {:neotoma, "~> 1.7.3", manager: :rebar3, override: true}
     ]
   end
 end
