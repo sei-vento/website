@@ -5,19 +5,19 @@
   border-radius: 100px 0
   overflow: hidden
   position: relative
-  +at-breakpoint(lap)
-    min-height: 420px
-  +at-breakpoint(desk)
-    min-height: 26vw
-  +at-breakpoint(monitor)
-    min-height: 22vw
+  // +at-breakpoint(lap)
+  //   min-height: 420px
+  // +at-breakpoint(desk)
+  //   min-height: 26vw
+  // +at-breakpoint(monitor)
+  //   min-height: 22vw
 
 .widget__body
   +at-breakpoint(tab)
     +padding-right(4)
   +at-breakpoint(lap)
-    +position(absolute, null null 0 null)
-    +bottom(2)
+    // +position(absolute, null null 0 null)
+    // +bottom(2)
 
 .widget--black-l
   @extend .widget
@@ -69,8 +69,9 @@
     +margin-top(8)
 
 .widget__header
-  height: 90px
+  // height: 90px
   position: relative
+  +padding-top(3)
 
   img
     height: 50px
@@ -121,5 +122,32 @@
     .widget__advisor__image
       mix-blend-mode: multiply
 
-    
+.widget--small
+  @extend .widget
+  +vertical-margin(3)
+  min-height: 100px
+  +horizontal-padding(3)
+  +padding-bottom(4)
+  border-radius: 60px 0
+  +at-breakpoint(lap)
+    .widget__body
+      position: relative
+      bottom: auto
+    +horizontal-padding(4)
+    +vertical-margin(1)
 
+
+.widget__header--flex
+  display: flex
+  justify-content: space-between
+  align-items: center
+  +padding-top(2)
+  +padding-bottom(1)
+
+.widget__header__number
+  opacity: .6
+
+.widget__text
+  em
+    color: white
+    font-style: normal

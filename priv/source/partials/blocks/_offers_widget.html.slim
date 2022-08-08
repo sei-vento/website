@@ -1,0 +1,13 @@
+- block = params.block
+- n = params.n
+
+.check-anim
+  .widget--small data-animation="from-bottom-to-up"
+    .widget__header--flex
+      .prefix--green
+        = block.title
+      .widget__header__number
+        = "0 #{n + 1}"
+    .widget__body
+      h3.widget__text
+        = block.text

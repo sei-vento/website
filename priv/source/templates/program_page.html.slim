@@ -7,6 +7,8 @@
 - blocks = page.body
 - faq_page = faq_page(locale)
 - cover_video = page.coverVideo
+- offers_title = page.offersTitle
+- offers_blocks = page.offersBlocks
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -24,6 +26,18 @@ header.hero
   = if block._modelApiKey == "big_title_prefix_image_title_description" do
     = partial("partials/blocks/big_title_prefix_image_title_description",
       %{block: block})
+
+= if length(offers_blocks) > 0 do
+  section.section--light.padding--both-6.padding--both-10-on-lap
+    .wrap
+      .check-anim
+        h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
+          = offers_title
+      .flex
+        = Enum.map Enum.with_index(offers_blocks), fn {block, n} ->
+          .flex__item.lap-6-12
+            = partial("partials/blocks/offers_widget",
+              %{block: block, n: n})
 
 section.padding--both-6
   .wrap
