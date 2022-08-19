@@ -11,7 +11,7 @@
 - phones = info.phone
 
 header.canvas__header data-datocms-noindex=true
-  
+
   .canvas__header__top
     = link_to "",
       locale_url_prefix(locale),
@@ -20,22 +20,27 @@ header.canvas__header data-datocms-noindex=true
 
     .canvas__header__top__right
 
-      = link_to page_path(apply_page, locale),
-        class: "button--rounded",
-        title: t("nav.apply", locale) do
-
-        span= "Apply now"
+      = if apply_page.link != nil do
+        = link_to apply_page.link,
+          class: "button--rounded",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          title: t("nav.apply", locale) do
+          span= "Apply now"
+      - else
+        = link_to page_path(apply_page, locale),
+          class: "button--rounded",
+          title: t("nav.apply", locale) do
+          span= "Apply now"
 
       .button--menu
         nav.canvas__header__top__right__hamburger
           button#menu-open.site-nav__toggler.js-nav-toggler rel="noopener noreferrer" aria-label="#{t("main_nav_toggler_label", locale)}" aria-expanded="false" aria-controls="menu"
             span
             span
-        
         .button--menu__label
           = "menu"
 
   nav.overlay-nav.js-nav-menu.is-hidden aria-hidden="true" aria-label=t("main_nav_label", locale) role="navigation" data-datocms-noindex=true
     = partial("partials/layout/overlay-nav")
 
-  
