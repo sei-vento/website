@@ -51,10 +51,18 @@ section.section--standard
 
       .flex__item.lap-4-12.check-anim
         .align--right-on-lap data-animation="from-bottom-to-up"
-          = link_to page_path(apply_page, locale),
-            class: "button--rounded-gradient--fill",
-            title: t("nav.apply", locale) do
-            = "Apply"
+          = if apply_page.link != nil do
+            = link_to apply_page.link,
+              class: "button--rounded-gradient--fill",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              title: t("nav.apply", locale) do
+              span= "Apply now"
+          - else
+            = link_to page_path(apply_page, locale),
+              class: "button--rounded-gradient--fill",
+              title: t("nav.apply", locale) do
+              = "Apply"
 
 = Enum.map blocks_footer, fn block ->
   = if block._modelApiKey == "contact_block" do
