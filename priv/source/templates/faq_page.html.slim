@@ -34,7 +34,15 @@ section.background--light
               = page.titleApply
           .check-anim
             .action data-animation="from-bottom-to-up"
-              = link_to page_path(apply_page, locale),
-                class: "button--lowercase" do
-                .button--rounded-gradient--fill
-                  span = page.ctaApply
+              = if apply_page.link != nil do
+                = link_to apply_page.link,
+                  class: "button--rounded-gradient--fill",
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  title: t("nav.apply", locale) do
+                  span= "Apply now"
+              - else
+                = link_to page_path(apply_page, locale),
+                  class: "button--rounded-gradient--fill",
+                  title: t("nav.apply", locale) do
+                  = "Apply"
