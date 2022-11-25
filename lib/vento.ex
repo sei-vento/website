@@ -21,7 +21,7 @@ defmodule Vento do
     config = initial_config()
     {:ok} = Fermo.I18n.load()
     DatoCMS.GraphQLClient.configure()
-  
+
     config = Fermo.Config.add_static(config, "netlify.toml", "netlify.toml")
     config = Fermo.Config.add_static(config, "site.webmanifest", "site.webmanifest")
     config = Fermo.Config.add_static(config, "browserconfig.xml", "browserconfig.xml")
@@ -94,6 +94,39 @@ defmodule Vento do
             id: "about_page"}
         )
 
+        investments_program_page = investments_program_page(locale)
+        investments_program_page_path = page_path(investments_program_page, locale)
+        config = page(
+          config,
+          "/templates/investments_program_page.html.slim",
+          Fermo.Paths.path_to_target(investments_program_page_path),
+          %{page: investments_program_page(locale),
+            locale: locale,
+            id: "investments_program_page"}
+        )
+
+        investments_selection_program_page = investments_selection_program_page(locale)
+        investments_selection_program_page_path = page_path(investments_selection_program_page, locale)
+        config = page(
+          config,
+          "/templates/investments_selection_program_page.html.slim",
+          Fermo.Paths.path_to_target(investments_selection_program_page_path),
+          %{page: investments_selection_program_page(locale),
+            locale: locale,
+            id: "investments_selection_program_page"}
+        )
+
+        contact_page = contact_page(locale)
+        contact_page_path = page_path(contact_page, locale)
+        config = page(
+          config,
+          "/templates/contact_page.html.slim",
+          Fermo.Paths.path_to_target(contact_page_path),
+          %{page: contact_page(locale),
+            locale: locale,
+            id: "contact_page"}
+        )
+
         network_page = network_page(locale)
         network_page_path = page_path(network_page, locale)
         config = page(
@@ -143,5 +176,5 @@ defmodule Vento do
 
     {:ok, config}
   end
-  
+
 end
