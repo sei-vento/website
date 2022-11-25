@@ -5,6 +5,7 @@
 - blocks_advisor = page.blockAdvisor
 - blocks_team = page.blockTeam
 - blocks_program = page.programBlock
+- blocks_eco = page.blockEco
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -60,5 +61,18 @@ section.padding--both-6.padding--both-10-on-lap
       = Enum.map blocks_program, fn block ->
         = if block._modelApiKey == "prefix_image_description_when_number" do
           = partial("partials/blocks/prefix_image_description_when_number",
+            %{block: block})
+
+section.section--standard
+  .wrap.check-anim
+    .margin--bottom-4.margin--bottom-8-on-lap
+      h2.title--gradient--big data-animation="from-right-to-left"
+        = page.titleEco
+
+  .wrap
+    = Enum.map blocks_eco, fn block ->
+      = if length(block.image) > 0 do
+        = if block._modelApiKey == "gallery_block" do
+          = partial("partials/blocks/gallery_block",
             %{block: block})
 

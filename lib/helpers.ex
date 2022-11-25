@@ -433,6 +433,18 @@ defmodule Helpers do
                 when
                 description
               }
+              titleEco
+              blockEco {
+                _modelApiKey
+                id
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 33vw, 50vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb
+                }
+              }
               #{seo_meta_tags_fragment()}
             }
           }
