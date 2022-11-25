@@ -161,6 +161,19 @@ defmodule Helpers do
                     }
                   }
                 }
+                ... on PortfolioRecord {
+                  id
+                  title
+                  description
+                  _modelApiKey
+                  image {
+                    responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
+                    imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
+                      #{responsive_image_fragment()}
+                    }
+                  blurUpThumb
+                }
+                }
               }
             }
           }

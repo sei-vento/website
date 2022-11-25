@@ -2,21 +2,42 @@
   display: flex
   flex-wrap: wrap
   justify-content: flex-start
+  margin-right: -20px
+  +at-breakpoint(tab)
+    margin-right: -30px
   +at-breakpoint(lap)
     +margin-bottom(8)
-  
+    margin-right: -40px
+  +at-breakpoint(full)
+    margin-right: -50px
+
 .gallery__image
   +margin-bottom(2)
-  border: 1px solid rgba($border-color, .5)
-  width: calc(50% - 12px)
+  background: $gray-d-color
+  width: calc(50% - 20px)
   height: 100px
   position: relative
+  margin-right: 20px
+  border-radius: 50px 0 50px 0
+
   +at-breakpoint(tab)
-    width: calc(33.33% - 20px)
-    height: 120px
-    margin-right: 20px
+    width: calc(33.334% - 30px)
+    height: 150px
+    margin-right: 30px
+    +margin-bottom(3)
+    border-radius: 75px 0 75px
+
   +at-breakpoint(lap)
-    height: 15vw
+    width: calc(33.334% - 40px)
+    height: 200px
+    margin-right: 40px
+    +margin-bottom(3)
+    border-radius: 100px 0 100px 0
+
+  +at-breakpoint(full)
+    width: calc(25% - 50px)
+    height: 300px
+    margin-right: 50px
     +margin-bottom(3)
 
   img
@@ -27,4 +48,3 @@
       width: 50%
       height: 50%
 
-  

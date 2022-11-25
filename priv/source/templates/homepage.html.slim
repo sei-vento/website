@@ -22,5 +22,8 @@ header.hero--homepage
   = if block._modelApiKey == "internal_link" do
     = partial("partials/blocks/internal_link",
       %{block: block})
+  = if block._modelApiKey == "portfolio" do
+    = partial("partials/blocks/portfolio",
+      %{block: block})
 
 .margin--bottom-5.margin--bottom-8-on-lap
