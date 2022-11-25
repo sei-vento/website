@@ -61,7 +61,7 @@ input[type="button"]
   +font-size(mini)
   +at-breakpoint(lap)
     +font-size(smallprint)
-  
+
 .button--rounded
   @extend .button
   background-color: $white-color
@@ -90,6 +90,32 @@ input[type="button"]
 
   &.background-with-gradient
     background: $gradient
+
+.button--cta
+  @extend .button--rounded
+  text-transform: uppercase
+  font-size: 20px
+  line-height: 1
+  +horizontal-padding(4)
+  +vertical-padding(1)
+  display: inline-flex
+  align-items: center
+
+.button--blue
+  @extend .button--rounded
+  text-transform: uppercase
+  background-color: $blue-color
+  font-weight: 400
+  &::after
+    display: none
+
+.button--green
+  @extend .button--rounded
+  text-transform: uppercase
+  background-color: $green-color
+  font-weight: 400
+  &::after
+    display: none
 
 .button--uppercase
   @extend .button

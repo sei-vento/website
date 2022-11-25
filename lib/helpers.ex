@@ -29,6 +29,7 @@ defmodule Helpers do
               menuLabel
               slug
               cta
+              cta2
               imageHero {
                 responsiveImage(sizes: "(min-width: 1024px) 45vw, 100vw",
                 imgixParams: {auto: [compress,format], fit: crop, w: "1100", h: "1300"}) {
@@ -53,6 +54,7 @@ defmodule Helpers do
                   subtitle
                   description
                   cta
+                  internalOrExternal
                   link {
                     ... on ApplicationPageRecord {
                       id
@@ -65,6 +67,8 @@ defmodule Helpers do
                       title
                     }
                   }
+                  externalLinkLabel
+                  externalLinkUrl
                   widget {
                     id
                     icon {
@@ -104,6 +108,58 @@ defmodule Helpers do
                     }
                   }
                   cta
+                }
+                ... on InternalLinkRecord {
+                  id
+                  _modelApiKey
+                  label
+                  link {
+                    ... on AboutPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ContactPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on FaqPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on HomePageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsSelectionProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on NetworkPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on WalfPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                  }
                 }
               }
             }

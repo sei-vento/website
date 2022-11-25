@@ -13,11 +13,14 @@ header.hero--homepage
   = if block._modelApiKey == "date_title_subtitle_cta_description" do
     = partial("partials/blocks/date_title_subtitle_cta_description",
       %{block: block})
-  = if block._modelApiKey == "prefix_title_link_image" do    
+  = if block._modelApiKey == "prefix_title_link_image" do
     = partial("partials/blocks/prefix_title_link_image",
       %{block: block})
-  = if block._modelApiKey == "contact_block" do    
+  = if block._modelApiKey == "contact_block" do
     = partial("partials/blocks/contact_block",
+      %{block: block})
+  = if block._modelApiKey == "internal_link" do
+    = partial("partials/blocks/internal_link",
       %{block: block})
 
 .margin--bottom-5.margin--bottom-8-on-lap

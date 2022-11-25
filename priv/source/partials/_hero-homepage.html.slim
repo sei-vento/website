@@ -5,20 +5,23 @@
 .flex--align-center
 
   .flex__item.lap-6-12.lap-push-6-12
-    h1.hero__title 
+    h1.hero__title
       = page.titleHero
     .hero__action
       .margin--top-2.margin--top-4-on-lap
-        = link_to "/#content-page",
-          class: "button__with-arrow",
-          title: "Go to content of page" do
-          .background--gradient 
-            .background--black
-              i.icon--arrow--gradient data-icon="arrow-down"
+        = link_to "/#investments",
+          class: "button--blue",
+          title: "Go to content investments" do
           span = page.cta
-        
+
+      .margin--top-2.margin--top-4-on-lap
+        = link_to "/#venture-building",
+          class: "button--green",
+          title: "Go to content venture building" do
+          span = page.cta2
+
 
   .flex__item.lap-6-12.lap-pull-6-12
     figure.hero--homepage__image
       img.lazyload.img--cover src=hero.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title
-    
+

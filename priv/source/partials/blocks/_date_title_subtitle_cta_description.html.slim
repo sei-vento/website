@@ -6,22 +6,23 @@
 - image_ball = info.ball
 - ball = image_ball.responsiveImage
 
-section class="section--standard" id="#{ if block.id == "44979949", do: "content-page"}"
+section class="section--standard" id="#{ if block.id == "44979949", do: "investments"} #{ if block.id == "44979950", do: "venture-building"}"
 
   = if block.id == "44979949" do
     .ball--right.js-move-on-scroll
       img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
-    
+
   = if block.id == "44979950" do
     .ball--left.js-move-on-scroll
       img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
-    
+
 
   .wrap
-  
-    .margin--bottom-1.check-anim 
-      .prefix data-animation="from-bottom-to-up"
-        = block.date
+
+    = if block.date do
+      .margin--bottom-1.check-anim
+        .prefix data-animation="from-bottom-to-up"
+          = block.date
 
     .flex
       .flex__item--relative.lap-5-12
@@ -33,22 +34,27 @@ section class="section--standard" id="#{ if block.id == "44979949", do: "content
           .check-anim
             h3.title--big.margin--bottom-2 data-animation="from-bottom-to-up"
               = block.description
-        
-        .flex__item--footer.check-anim
+
+        .check-anim
           .text.margin--bottom-2 data-animation="from-bottom-to-up"
             = block.subtitle
 
           .check-anim
             div data-animation="from-bottom-to-up"
-              = link_to "/#{block_link.slug}",
-                class: "button--lowercase" do
+              = if block.internalOrExternal == "internal_link" do
+                = link_to "/#{block_link.slug}",
+                  class: "button--lowercase" do
+                  .button--rounded-gradient
+                    span = block.cta
 
-                .button--rounded-gradient
-                  span = block.cta
+              = if block.internalOrExternal == "external_link" do
+                a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"
+                  .button--rounded-gradient
+                    span = block.externalLinkLabel
 
       .flex__item.lap-5-12.lap-push-2-12
         .hidden--on-lte-tab.check-anim
-          h3.title--big.margin--bottom-2 data-animation="from-bottom-to-up"
+          h3.title.margin--bottom-2 data-animation="from-bottom-to-up"
             = block.description
 
 
@@ -62,8 +68,8 @@ section class="section--standard" id="#{ if block.id == "44979949", do: "content
                 img src="#{icon.url}" alt="#{icon.alt}"
 
               .widget__body
-              
-                h2.widget__title 
+
+                h2.widget__title
                   = widget.title
 
                 .widget__text
