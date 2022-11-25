@@ -421,6 +421,18 @@ defmodule Helpers do
                 }
               }
               titleTeam
+              programTitle
+              programBlock {
+                _modelApiKey
+                id
+                image {
+                  url
+                }
+                numberText
+                prefix
+                when
+                description
+              }
               #{seo_meta_tags_fragment()}
             }
           }
