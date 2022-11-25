@@ -5,10 +5,12 @@
 - info = info(locale)
 - image_ball = info.ball
 - ball = image_ball.responsiveImage
-- section_id = if block.id == "44979949", do: "investments"; if block.id == "44979950", do: "venture-building"
+- inv_id = if block.id == "44979949", do: "investments", else: ""
+- vb_id = if block.id == "44979950", do: "venture-building", else: ""
 
 
-section class="section--standard" id="#{section_id}"
+
+section class="section--standard" id="#{inv_id}#{vb_id}"
 
   = if block.id == "44979949" do
     .ball--right.js-move-on-scroll
