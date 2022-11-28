@@ -673,6 +673,31 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              areas {
+                title
+                id
+                description
+                buttonColor
+                externalLink
+                image {
+                  url
+                  alt
+                  responsiveImage(sizes: "(min-width: 600px) 50vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "960"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb
+                }
+              }
+              blocks {
+                ... on ContactBlockRecord {
+                  id
+                  _modelApiKey
+                  prefix
+                  text
+                  cta
+                }
+              }
               #{seo_meta_tags_fragment()}
             }
           }

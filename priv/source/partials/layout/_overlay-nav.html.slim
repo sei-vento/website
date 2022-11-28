@@ -25,6 +25,8 @@
         li.overlay-nav__menu__item
           .overlay-nav__menu__label
             span= "Vento"
+
+        li.overlay-nav__menu__item
           = link_to locale_url_prefix(locale),
             class: "overlay-nav__menu__link #{if params.id == "home_page", do: "is-active"}" do
             span= "Homepage"

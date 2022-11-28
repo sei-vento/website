@@ -1,14 +1,41 @@
-/ - page = params.page
-/ - locale = params.locale
+- page = params.page
+- locale = params.locale
 / - info = info(locale)
-/ - blocks_manifesto = page.blockManifesto
-/ - blocks_advisor = page.blockAdvisor
-/ - blocks_team = page.blockTeam
+- areas = page.areas
+- blocks = page.blocks
+
 
 - content_for(:head)
   = dato_meta_tags(params.page)
 
 header.hero
   .wrap
-    = "contact page"
+    .hero__inner
+      .prefix--with-gradient
+        = page.title
 
+section
+  .wrap.check-anim
+    .flex.margin--bottom-4.margin--bottom-6-on-lap
+      = Enum.map Enum.with_index(areas), fn {area, i} ->
+        .flex__item.lap-6-12.margin--bottom-1
+          .widget--contacts data-animation="from-bottom-to-up"
+            .widget__image
+              - current_image = area.image.responsiveImage
+                figure data-animation="from-bottom-to-up" data-delay="delay-#{i}"
+                  img.lazyload src=area.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
+
+            .widget__text
+              = area.description
+
+            .margin--top-4.margin--top-6-on-lap
+              = link_to area.externalLink,
+                class: "button--#{area.buttonColor}",
+                title: "Apply now" do
+                span = "Apply now"
+
+section
+  = Enum.map blocks, fn block ->
+    = if block._modelApiKey == "contact_block" do
+      = partial("partials/blocks/contact_block",
+        %{block: block})
