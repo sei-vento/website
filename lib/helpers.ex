@@ -663,23 +663,23 @@ defmodule Helpers do
       #   result[:investmentsSelectionProgramPage]
       # end
 
-      defmemo contact_page(locale) do
-        result = query!("""
-          query MyQuery($locale: SiteLocale!) {
-            contactPage(locale: $locale) {
-              _modelApiKey
-              _updatedAt
-              id
-              title
-              slug
-              menuLabel
-              #{seo_meta_tags_fragment()}
-            }
-          }
-          """, %{locale: locale})
+      # defmemo contact_page(locale) do
+      #   result = query!("""
+      #     query MyQuery($locale: SiteLocale!) {
+      #       contactPage(locale: $locale) {
+      #         _modelApiKey
+      #         _updatedAt
+      #         id
+      #         title
+      #         slug
+      #         menuLabel
+      #         #{seo_meta_tags_fragment()}
+      #       }
+      #     }
+      #     """, %{locale: locale})
 
-        result[:contactPage]
-      end
+      #   result[:contactPage]
+      # end
 
       defmemo accordion(locale) do
         result = query!("""

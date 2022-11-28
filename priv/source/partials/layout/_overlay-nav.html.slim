@@ -8,7 +8,7 @@
 - about_page = about_page(locale)
 / - network_page = network_page(locale)
 - faq_page = faq_page(locale)
-- contact_page = contact_page(locale)
+/ - contact_page = contact_page(locale)
 - current_page = params.page
 - info = info(locale)
 - socials = info.social
@@ -39,10 +39,10 @@
             class: "overlay-nav__menu__link #{if params.id == "faq_page", do: "is-active"}" do
             span= faq_page.menuLabel
 
-        li.overlay-nav__menu__item
-          = link_to page_path(contact_page, locale),
-            class: "overlay-nav__menu__link #{if params.id == "contact_page", do: "is-active"}" do
-            span= contact_page.menuLabel
+        / li.overlay-nav__menu__item
+        /   = link_to page_path(contact_page, locale),
+        /     class: "overlay-nav__menu__link #{if params.id == "contact_page", do: "is-active"}" do
+        /     span= contact_page.menuLabel
 
 
     .flex__item.lap-6-12

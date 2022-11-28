@@ -116,16 +116,16 @@ defmodule Vento do
         #     id: "investments_selection_program_page"}
         # )
 
-        contact_page = contact_page(locale)
-        contact_page_path = page_path(contact_page, locale)
-        config = page(
-          config,
-          "/templates/contact_page.html.slim",
-          Fermo.Paths.path_to_target(contact_page_path),
-          %{page: contact_page(locale),
-            locale: locale,
-            id: "contact_page"}
-        )
+        # contact_page = contact_page(locale)
+        # contact_page_path = page_path(contact_page, locale)
+        # config = page(
+        #   config,
+        #   "/templates/contact_page.html.slim",
+        #   Fermo.Paths.path_to_target(contact_page_path),
+        #   %{page: contact_page(locale),
+        #     locale: locale,
+        #     id: "contact_page"}
+        # )
 
         network_page = network_page(locale)
         network_page_path = page_path(network_page, locale)
