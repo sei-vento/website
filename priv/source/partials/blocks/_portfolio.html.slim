@@ -1,0 +1,24 @@
+- block = params.block
+- images = block.image
+/ - image_responsive = image.responsiveImage
+
+section.section--standard
+
+  .wrap
+    .flex
+      div class="flex__item lap-6-12"
+        .check-anim
+          h2.title--gradient [data-animation="from-bottom-to-up" data-transition="transition--xl"]
+            = block.title
+
+      div class="flex__item lap-6-12"
+        .check-anim
+          h3.title--small.margin--bottom-2 data-animation="from-bottom-to-up"
+            = block.description
+
+
+    .portfolio.check-anim
+      = Enum.map Enum.with_index(images), fn {image, i} ->
+        - current_image = image.responsiveImage
+        figure class="portfolio__image" data-animation="from-bottom-to-up" data-delay="delay-#{i}"
+          img.lazyload.img--contain src=image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
