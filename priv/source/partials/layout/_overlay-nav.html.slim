@@ -1,14 +1,14 @@
 - locale = params.locale
-/ - homepage = home_page(locale)
+- homepage = home_page(locale)
 - program_page = program_page(locale)
-/ - investments_program_page = investments_program_page(locale)
-/ - investments_selection_program_page = investments_selection_program_page(locale)
+- investments_program_page = investments_program_page(locale)
+- investments_selection_program_page = investments_selection_program_page(locale)
 - application_page = application_page(locale)
 - walf_page = walf_page(locale)
 - about_page = about_page(locale)
 / - network_page = network_page(locale)
 - faq_page = faq_page(locale)
-/ - contact_page = contact_page(locale)
+- contact_page = contact_page(locale)
 - current_page = params.page
 - info = info(locale)
 - socials = info.social
@@ -25,9 +25,9 @@
         li.overlay-nav__menu__item
           .overlay-nav__menu__label
             span= "Vento"
-          / = link_to locale_url_prefix(locale),
-          /   class: "overlay-nav__menu__link #{if params.id == "home_page", do: "is-active"}" do
-          /   span= "Homepage"
+          = link_to locale_url_prefix(locale),
+            class: "overlay-nav__menu__link #{if params.id == "home_page", do: "is-active"}" do
+            span= "Homepage"
 
         li.overlay-nav__menu__item
           = link_to page_path(about_page, locale),
@@ -39,10 +39,10 @@
             class: "overlay-nav__menu__link #{if params.id == "faq_page", do: "is-active"}" do
             span= faq_page.menuLabel
 
-        / li.overlay-nav__menu__item
-        /   = link_to page_path(contact_page, locale),
-        /     class: "overlay-nav__menu__link #{if params.id == "contact_page", do: "is-active"}" do
-        /     span= contact_page.menuLabel
+        li.overlay-nav__menu__item
+          = link_to page_path(contact_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "contact_page", do: "is-active"}" do
+            span= contact_page.menuLabel
 
 
     .flex__item.lap-6-12
@@ -71,15 +71,15 @@
           .overlay-nav__menu__label
             span= "Investments"
 
-        / li.overlay-nav__menu__item
-        /   = link_to page_path(investments_program_page, locale),
-        /     class: "overlay-nav__menu__link #{if params.id == "investments_program_page", do: "is-active"}" do
-        /     span= investments_program_page.menuLabel
+        li.overlay-nav__menu__item
+          = link_to page_path(investments_program_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "investments_program_page", do: "is-active"}" do
+            span= investments_program_page.menuLabel
 
-        / li.overlay-nav__menu__item
-        /   = link_to page_path(investments_selection_program_page, locale),
-        /     class: "overlay-nav__menu__link #{if params.id == "investments_selection_program_page", do: "is-active"}" do
-        /     span= investments_selection_program_page.menuLabel
+        li.overlay-nav__menu__item
+          = link_to page_path(investments_selection_program_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "investments_selection_program_page", do: "is-active"}" do
+            span= investments_selection_program_page.menuLabel
 
         / li.overlay-nav__menu__item
         /   = link_to page_path(network_page, locale),
