@@ -105,16 +105,16 @@ defmodule Vento do
         #     id: "investments_program_page"}
         # )
 
-        investments_selection_program_page = investments_selection_program_page(locale)
-        investments_selection_program_page_path = page_path(investments_selection_program_page, locale)
-        config = page(
-          config,
-          "/templates/investments_selection_program_page.html.slim",
-          Fermo.Paths.path_to_target(investments_selection_program_page_path),
-          %{page: investments_selection_program_page(locale),
-            locale: locale,
-            id: "investments_selection_program_page"}
-        )
+        # investments_selection_program_page = investments_selection_program_page(locale)
+        # investments_selection_program_page_path = page_path(investments_selection_program_page, locale)
+        # config = page(
+        #   config,
+        #   "/templates/investments_selection_program_page.html.slim",
+        #   Fermo.Paths.path_to_target(investments_selection_program_page_path),
+        #   %{page: investments_selection_program_page(locale),
+        #     locale: locale,
+        #     id: "investments_selection_program_page"}
+        # )
 
         contact_page = contact_page(locale)
         contact_page_path = page_path(contact_page, locale)
