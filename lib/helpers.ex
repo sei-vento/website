@@ -627,23 +627,23 @@ defmodule Helpers do
         result[:info]
       end
 
-      defmemo investments_program_page(locale) do
-        result = query!("""
-          query MyQuery($locale: SiteLocale!) {
-            investmentsProgramPage(locale: $locale) {
-              _modelApiKey
-              _updatedAt
-              id
-              title
-              slug
-              menuLabel
-              #{seo_meta_tags_fragment()}
-            }
-          }
-          """, %{locale: locale})
+      # defmemo investments_program_page(locale) do
+      #   result = query!("""
+      #     query MyQuery($locale: SiteLocale!) {
+      #       investmentsProgramPage(locale: $locale) {
+      #         _modelApiKey
+      #         _updatedAt
+      #         id
+      #         title
+      #         slug
+      #         menuLabel
+      #         #{seo_meta_tags_fragment()}
+      #       }
+      #     }
+      #     """, %{locale: locale})
 
-        result[:investmentsProgramPage]
-      end
+      #   result[:investmentsProgramPage]
+      # end
 
       defmemo investments_selection_program_page(locale) do
         result = query!("""

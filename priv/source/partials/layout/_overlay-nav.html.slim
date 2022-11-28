@@ -1,7 +1,7 @@
 - locale = params.locale
 / - homepage = home_page(locale)
 - program_page = program_page(locale)
-- investments_program_page = investments_program_page(locale)
+/ - investments_program_page = investments_program_page(locale)
 - investments_selection_program_page = investments_selection_program_page(locale)
 - application_page = application_page(locale)
 - walf_page = walf_page(locale)
@@ -71,10 +71,10 @@
           .overlay-nav__menu__label
             span= "Investments"
 
-        li.overlay-nav__menu__item
-          = link_to page_path(investments_program_page, locale),
-            class: "overlay-nav__menu__link #{if params.id == "investments_program_page", do: "is-active"}" do
-            span= investments_program_page.menuLabel
+        / li.overlay-nav__menu__item
+        /   = link_to page_path(investments_program_page, locale),
+        /     class: "overlay-nav__menu__link #{if params.id == "investments_program_page", do: "is-active"}" do
+        /     span= investments_program_page.menuLabel
 
         li.overlay-nav__menu__item
           = link_to page_path(investments_selection_program_page, locale),
