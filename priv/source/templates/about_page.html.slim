@@ -12,22 +12,21 @@
 
 header.hero
   .wrap
-    = partial("partials/hero-with-image",
+    = partial("partials/hero",
       %{page: page})
 
-section.section--light.padding--both-6.padding--both-10-on-lap
-  .wrap
-    .margin--bottom-4.margin--bottom-6-on-lap.check-anim
-      .title--gradient data-animation="from-right-to-left"
-        = page.titleManifesto
+= if length(blocks_program) > 0 do
+  section.section--standard
+    .wrap.margin--bottom-8-on-lap.check-anim
+      h2.title--gradient--big data-animation="from-right-to-left"
+        = page.programTitle
 
-    = partial("partials/swiper_manifesto",
-      %{page: page})
-
-    .visible--on-lap
-      = Enum.map blocks_manifesto, fn block ->
-        = partial("partials/row_with_border",
-          %{block: block})
+  section
+    .wrap
+      = Enum.map blocks_program, fn block ->
+        = if block._modelApiKey == "prefix_image_description_when_number" do
+          = partial("partials/blocks/prefix_image_description_when_number",
+            %{block: block})
 
 section.padding--bottom-6.padding--bottom-10-on-lap
   .wrap
@@ -50,18 +49,19 @@ section.padding--both-6.padding--both-10-on-lap
         = partial("partials/widget_advisor",
           %{block: block, i: i})
 
-= if length(blocks_program) > 0 do
-  section.section--standard
-    .wrap.margin--bottom-8-on-lap.check-anim
-      h2.title--gradient--big data-animation="from-right-to-left"
-        = page.programTitle
+section.section--light.padding--both-6.padding--both-10-on-lap
+  .wrap
+    .margin--bottom-4.margin--bottom-6-on-lap.check-anim
+      .title--gradient data-animation="from-right-to-left"
+        = page.titleManifesto
 
-  section
-    .wrap
-      = Enum.map blocks_program, fn block ->
-        = if block._modelApiKey == "prefix_image_description_when_number" do
-          = partial("partials/blocks/prefix_image_description_when_number",
-            %{block: block})
+    = partial("partials/swiper_manifesto",
+      %{page: page})
+
+    .visible--on-lap
+      = Enum.map blocks_manifesto, fn block ->
+        = partial("partials/row_with_border",
+          %{block: block})
 
 section.section--standard
   .wrap.check-anim
