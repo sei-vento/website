@@ -678,6 +678,7 @@ defmodule Helpers do
                 id
                 description
                 buttonColor
+                buttonLabel
                 externalLink
                 image {
                   url

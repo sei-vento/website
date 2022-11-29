@@ -10,7 +10,7 @@
 
 header.hero
   .wrap
-    .hero__inner
+    .padding--top-10.padding--top-14-on-lap.padding--bottom-2
       .prefix--with-gradient
         = page.title
 
@@ -32,7 +32,7 @@ section
               = link_to area.externalLink,
                 class: "button--#{area.buttonColor}",
                 title: "Apply now" do
-                span = "Apply now"
+                span = "#{area.buttonLabel}"
 
 section
   = Enum.map blocks, fn block ->
