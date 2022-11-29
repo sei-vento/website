@@ -1,14 +1,30 @@
 - page = params.page
-/ - locale = params.locale
-/ - info = info(locale)
-/ - blocks_manifesto = page.blockManifesto
-/ - blocks_advisor = page.blockAdvisor
-/ - blocks_team = page.blockTeam
+- locale = params.locale
+- blocks = page.body
 
 - content_for(:head)
   = dato_meta_tags(params.page)
 
 header.hero
   .wrap
-    = "selection program investments page"
+    = partial("partials/hero",
+      %{page: page})
 
+= Enum.map blocks, fn block ->
+  = if block._modelApiKey == "big_title_prefix_image_description" do
+    = partial("partials/blocks/big_title_prefix_image_description",
+      %{block: block})
+
+
+section.margin--bottom-2.margin--bottom-10-on-lap
+  .wrap
+    .check-anim
+      .margin--bottom-2.align--center [data-animation="from-bottom-to-up"]
+        = link_to "#{page.ctaLink}",
+          target: "_blank",
+          title: "#{page.ctaLabel}",
+          class: "button--lowercase" do
+
+          .button--cta
+            div = "#{page.ctaLabel}"
+            i.icon data-icon="arrow-right"

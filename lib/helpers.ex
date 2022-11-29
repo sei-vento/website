@@ -655,6 +655,27 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              titleHero
+              ctaLink
+              ctaLabel
+              body {
+                ... on BigTitlePrefixImageDescriptionRecord {
+                  id
+                  _modelApiKey
+                  bigTitle
+                  createdAt
+                  description
+                  when
+                  where
+                  image {
+                    responsiveImage(sizes: "(min-width: 1600px) 50vw, 100vw",
+                    imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
+                      #{responsive_image_fragment()}
+                    }
+                    blurUpThumb
+                  }
+                }
+              }
               #{seo_meta_tags_fragment()}
             }
           }
