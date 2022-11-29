@@ -1,0 +1,13 @@
+- block = params.block
+- n = params.n
+
+.check-anim
+  div data-animation="from-bottom-to-up" data-delay="delay-#{n}"
+
+    h3.title--big--white
+      = block.number
+
+    .text-label
+      = block.label
+
+    .divider

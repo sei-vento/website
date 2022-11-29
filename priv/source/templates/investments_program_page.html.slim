@@ -1,14 +1,50 @@
 - page = params.page
-/ - locale = params.locale
-/ - info = info(locale)
-/ - blocks_manifesto = page.blockManifesto
-/ - blocks_advisor = page.blockAdvisor
-/ - blocks_team = page.blockTeam
+- locale = params.locale
+- blocks_top = page.bodyTop
+- offers_title = page.offersTitle
+- offers_blocks = page.offersBlocks
+- our_figures_title = page.ourFiguresTitle
+- numbers_blocks = page.numbers
 
 - content_for(:head)
   = dato_meta_tags(params.page)
 
 header.hero
   .wrap
-    = "program investments page"
+    = partial("partials/hero",
+      %{page: page})
 
+= Enum.map blocks_top, fn block ->
+  = if block._modelApiKey == "image_title_text_direction" do
+    = partial("partials/blocks/image_title_text_direction",
+      %{block: block})
+
+= if length(offers_blocks) > 0 do
+  section.padding--both-6.padding--both-10-on-lap
+    .wrap
+      .check-anim
+        h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
+          = offers_title
+      .flex
+        = Enum.map Enum.with_index(offers_blocks), fn {block, n} ->
+          .flex__item.lap-6-12
+            = partial("partials/blocks/offers_widget",
+              %{block: block, n: n})
+
+= if length(numbers_blocks) > 0 do
+  section.section--light.padding--both-6.padding--both-10-on-lap
+    .wrap
+      .flex
+        .flex__item.lap-6-12
+          .check-anim
+            h2.title--big--white.margin--bottom-6 data-animation="from-bottom-to-up"
+              = our_figures_title
+
+        .flex__item.lap-1-12
+        .flex__item.lap-4-12
+          = Enum.map Enum.with_index(numbers_blocks), fn {block, n} ->
+              .align--center
+                = partial("partials/blocks/numbers_widget",
+                  %{block: block, n: n})
+
+        .flex__item.lap-1-12

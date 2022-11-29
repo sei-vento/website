@@ -14,12 +14,17 @@
 
     .flex
       .flex__item.lap-5-12
-        .hero__text 
+        .hero__text
           = page.descriptionHero
 
   .hero__action
     .button__with-arrow
       .background--gradient
-        .background--black      
+        .background--black
           i.icon--arrow--gradient data-icon="arrow-down"
+
+
+  / = if page.heroCtaLabel do
+  /   = if page.heroCtaLabel != nil do
+  /     = page.heroCtaLabel
 

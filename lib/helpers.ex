@@ -637,6 +637,35 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              titleHero
+              heroCtaLabel
+              heroCtaLink
+              bodyTop {
+                _modelApiKey
+                id
+                title
+                direction
+                description
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb
+                }
+              }
+              offersTitle
+              offersBlocks {
+                _modelApiKey
+                text
+                title
+              }
+              ourFiguresTitle
+              numbers {
+                id
+                label
+                number
+              }
               #{seo_meta_tags_fragment()}
             }
           }
