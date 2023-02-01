@@ -4,6 +4,7 @@ en:
   switch_locale: ita
   nav:
     home: Homepage Vento
+    payoff: Funded by Exor Ventures
     apply: "External Link to Apply (open in new window)"
     search: Search
     menu: Menu
@@ -29,7 +30,7 @@ en:
   fermo_aria_label: "Link to Fermo website (opens in a new window)"
   datocms_aria_label: "Link to DatoCMS website (opens in a new window)"
 
-  not-found: 
+  not-found:
     title: "Page not found"
     text: "The address may be misspelled or may not exist."
     button: "Go to the homepage"

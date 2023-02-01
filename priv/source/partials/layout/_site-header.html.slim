@@ -13,25 +13,37 @@
 header.canvas__header data-datocms-noindex=true
 
   .canvas__header__top
-    = link_to "",
-      locale_url_prefix(locale),
-      class: "canvas__header__logo",
-      title: t("nav.home", locale)
+    div
+      = link_to "",
+        locale_url_prefix(locale),
+        class: "canvas__header__logo",
+        title: t("nav.home", locale)
+      .canvas__header__payoff = t("nav.payoff", locale)
 
     .canvas__header__top__right
 
-      = if apply_page.link != nil do
-        = link_to apply_page.link,
-          class: "button--rounded",
+      = if info.linkApplyInvestments != nil do
+        = link_to info.linkApplyInvestments,
+          class: "canvas__header__cta",
           target: "_blank",
           rel: "noopener noreferrer",
           title: t("nav.apply", locale) do
-          span= "Apply now"
-      - else
-        = link_to page_path(apply_page, locale),
-          class: "button--rounded",
+          .canvas__header__cta__label--investments = "Investments"
+          .canvas__header__cta__link
+            div = "Apply now"
+            i.icon--small data-icon="arrow-right"
+
+      = if info.linkApplyVentureBuilding != nil do
+        = link_to info.linkApplyVentureBuilding,
+          class: "canvas__header__cta",
+          target: "_blank",
+          rel: "noopener noreferrer",
           title: t("nav.apply", locale) do
-          span= "Apply now"
+          .canvas__header__cta__label--venture = "Venture building"
+          .canvas__header__cta__link
+            div = "Apply now"
+            i.icon--small data-icon="arrow-right"
+
 
       .button--menu
         nav.canvas__header__top__right__hamburger

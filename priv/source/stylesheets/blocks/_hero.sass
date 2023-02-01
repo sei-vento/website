@@ -68,7 +68,7 @@
 .hero__action
   display: none
   +at-breakpoint(lap)
-    display: flex
+    display: block
     +margin-top(4)
   i
     width: 16px
@@ -83,8 +83,11 @@
     opacity: 1
     transform: translateY(0px)
 
-  & > div + div
-    +margin-left(2)
+  a
+    display: flex
+    justify-content: center
+    margin-right: 25%
+    text-align: center
 
 .hero--homepage__image
   +margin-top(4)

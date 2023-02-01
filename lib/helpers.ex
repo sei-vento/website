@@ -596,6 +596,8 @@ defmodule Helpers do
               email
               address
               emailForm
+              linkApplyInvestments
+              linkApplyVentureBuilding
               phone {
                 number
                 label

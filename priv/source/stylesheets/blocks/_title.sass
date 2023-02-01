@@ -21,8 +21,13 @@
     +font-size(delta)
 
 .hero__title
-  color: $white-color
   @extend .title
+  color: $white-color
+  +heading-font-family
+  text-transform: uppercase
+  +at-breakpoint(lap)
+    +font-size(delta)
+
   strong
     font-weight: bold
 
