@@ -44,7 +44,19 @@ body
   -moz-osx-font-smoothing: grayscale
   overflow-x: hidden
   height: 100%
-  background-image: url('https://www.datocms-assets.com/50154/1624886121-pattern.jpeg')
+  transition: background-color 1s
+  position: relative
+  z-index: 0
+
+  &:after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-image: image-url("pattern-transparent.png")
+    z-index: -1
 
 .body--light
   background-color: $white-color

@@ -7,22 +7,20 @@
 - ball = image_ball.responsiveImage
 - inv_id = if block.id == "44979949", do: "investments", else: ""
 - vb_id = if block.id == "44979950", do: "venture-building", else: ""
-
-
+- bg_color = if block.bgColor != "", do: block.bgColor, else: "#000"
 
 section class="section--standard" id="#{inv_id}#{vb_id}"
 
-  = if block.id == "44979949" do
-    .ball--right.js-move-on-scroll
-      img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+  / = if block.id == "44979949" do
+  /   .ball--right.js-move-on-scroll
+  /     img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
 
-  = if block.id == "44979950" do
-    .ball--left.js-move-on-scroll
-      img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+  / = if block.id == "44979950" do
+  /   .ball--left.js-move-on-scroll
+  /     img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
 
 
   .wrap
-
     = if block.date do
       .margin--bottom-1.check-anim
         .prefix data-animation="from-bottom-to-up"
@@ -31,7 +29,7 @@ section class="section--standard" id="#{inv_id}#{vb_id}"
     .flex
       .flex__item--relative.lap-5-12
         .margin--bottom-2.check-anim
-          h2.title--gradient data-animation="from-bottom-to-up"
+          h2.title--black.check-view data-animation="from-bottom-to-up" data-bg=bg_color
             = block.title
 
         .hidden--on-lap

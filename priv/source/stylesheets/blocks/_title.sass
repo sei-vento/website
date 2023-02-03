@@ -92,3 +92,14 @@
 .title--white
   @extend .title
   color: $white-color
+  +heading-font-family
+  text-transform: uppercase
+
+.title--black
+  @extend .title
+  color: $black-color
+  +heading-font-family
+  text-transform: uppercase
+
+  b, strong
+    color: $white-color
