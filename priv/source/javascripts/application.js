@@ -201,16 +201,17 @@ function checkViewport() {
   const partialViewportHeight = viewportHeight - 100  /*reduce area to check*/
 
   const isInViewport = function (elem) {
-    const bounding = elem.getBoundingClientRect();
+    var start = window.scrollY - elem.offsetTop + partialViewportHeight;
+    var stop = window.scrollY - elem.offsetTop - elem.clientHeight;
     return (
-      bounding.top >= 0 && bounding.bottom <= partialViewportHeight
+      start > 0 && stop < 0
     );
   };
   for (i = 0; i < bgElements.length; i++) {
-    if (isInViewport(bgElements[i])) {
+    const section = bgElements[i].closest(".section--standard, .hero--homepage")
+    if (isInViewport(section)) {
       bg = bgElements[i].dataset.bg ? bgElements[i].dataset.bg : "black"
       container.style.backgroundColor = bg;
-      console.log('is', bg)
     }
   }
 }
