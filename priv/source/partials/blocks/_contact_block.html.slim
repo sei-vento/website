@@ -17,7 +17,7 @@ section.background--light
               = block.prefix
 
           .margin--bottom-3.margin--bottom-6-on-lap.check-anim
-            .title [data-animation="from-bottom-to-up"]
+            .title.color--gray-l [data-animation="from-bottom-to-up"]
               = block.text
 
           .check-anim
@@ -25,5 +25,6 @@ section.background--light
               = link_to page_path(faq_page, locale),
                 class: "button--lowercase" do
 
-                .button--rounded-gradient
-                  span = block.cta  
+                .button--white
+                  span = block.cta
+                  i.icon data-icon="arrow-right"

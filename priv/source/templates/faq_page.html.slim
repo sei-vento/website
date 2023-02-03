@@ -30,13 +30,13 @@ section.background--light
             .prefix data-animation="from-bottom-to-up"
               = page.prefixApply
           .margin--bottom-3.margin--bottom-6-on-lap.check-anim
-            .title data-animation="from-bottom-to-up"
+            .title.color--gray-l data-animation="from-bottom-to-up"
               = page.titleApply
           .check-anim
             .action data-animation="from-bottom-to-up"
               = if apply_page.link != nil do
                 = link_to apply_page.link,
-                  class: "button--rounded-gradient--fill",
+                  class: "button--white",
                   target: "_blank",
                   rel: "noopener noreferrer",
                   title: t("nav.apply", locale) do

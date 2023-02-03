@@ -1,9 +1,12 @@
 .title
-  color: $gray-l-color
+  color: $black-color
+  // color: $gray-l-color
+
   strong,
   a
-    font-weight: 100
-    color: $white-color
+    // font-weight: 100
+    color: $black-color
+    // color: $white-color
   a
     +hover
       +gradient-text
@@ -71,9 +74,9 @@
 
 .title--big
   @extend .title
-  color: $gray-l-color
+  // color: $gray-l-color
   strong
-    color: $white-color
+    // color: $white-color
     font-weight: 100
 
   +font-size(delta)
@@ -103,3 +106,27 @@
 
   b, strong
     color: $white-color
+
+.color--gray-l
+  color: $gray-l-color
+  a, b, strong
+    color: $white-color
+    font-weight: 100
+  a
+    font-weight: bold
+
+.pretitle--investment
+  display: block
+  background-image: image-url("investment_white.svg")
+  background-repeat: no-repeat
+  background-size: contain
+  width: 180px
+  height: 25px
+
+.pretitle--venture
+  display: block
+  background-image: image-url("venture_building_white.svg")
+  background-repeat: no-repeat
+  background-size: contain
+  width: 260px
+  height: 36px

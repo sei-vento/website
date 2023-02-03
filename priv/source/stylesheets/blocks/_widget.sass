@@ -2,16 +2,11 @@
   border: 1px solid rgba($border-color, .5)
   width: 99.9%
   background: #000
-  +padding(2)
+  +padding(4)
   border-radius: 100px 0
   overflow: hidden
   position: relative
-  +at-breakpoint(lap)
-    min-height: 420px
-  +at-breakpoint(desk)
-    min-height: 26vw
-  +at-breakpoint(monitor)
-    min-height: 22vw
+
 
 .widget__body
   +at-breakpoint(tab)
@@ -85,9 +80,11 @@
   letter-spacing: 1.5px
   max-width: 70%
   +margin-bottom(2)
+  text-transform: uppercase
 
 .widget__text
-  color: $gray-l-color
+  // color: $gray-l-color
+  color: $white-color
   letter-spacing: 0.75px
 
 .widget__name

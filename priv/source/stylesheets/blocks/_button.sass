@@ -68,7 +68,7 @@ input[type="button"]
   border-radius: 36px
   color: $black-color
   letter-spacing: 0.85px
-  padding: .5rem 1.5rem
+  padding: 1rem 2.5rem
   z-index: 0
   position: relative
   overflow: hidden
@@ -113,6 +113,14 @@ input[type="button"]
   @extend .button--rounded
   text-transform: uppercase
   background-color: $green-color
+  font-weight: 400
+  &::after
+    display: none
+
+.button--white
+  @extend .button--rounded
+  text-transform: uppercase
+  background-color: $white-color
   font-weight: 400
   &::after
     display: none

@@ -208,7 +208,7 @@ function checkViewport() {
     );
   };
   for (i = 0; i < bgElements.length; i++) {
-    const section = bgElements[i].closest(".section--standard, .hero--homepage")
+    const section = bgElements[i].closest('[class*="section"], [class*="hero"]')
     if (isInViewport(section)) {
       bg = bgElements[i].dataset.bg ? bgElements[i].dataset.bg : "black"
       container.style.backgroundColor = bg;

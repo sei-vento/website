@@ -68,7 +68,6 @@ defmodule Helpers do
                       title
                     }
                   }
-                  externalLinkLabel
                   externalLinkUrl
                   widget {
                     id
@@ -167,13 +166,67 @@ defmodule Helpers do
                   title
                   description
                   _modelApiKey
-                  image {
-                    responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
-                    imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
-                      #{responsive_image_fragment()}
+                  images {
+                    label
+                    image {
+                      responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
+                      imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
+                        #{responsive_image_fragment()}
+                      }
+                      blurUpThumb
                     }
-                  blurUpThumb
-                }
+                  }
+                  ctaText
+                  ctaLink {
+                    label
+                    link {
+                      ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                    }
+                  }
                 }
               }
             }
