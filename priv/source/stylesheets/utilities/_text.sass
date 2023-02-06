@@ -13,6 +13,12 @@
   color: $black-color
 
 
+.text--black-big
+  @extend .text--black
+  +font-size(20px)
+  +at-breakpoint(lap)
+    +font-size(35px)
+
 .text--gray-l-big
   @extend .text--gray-l
   +font-size(30px)

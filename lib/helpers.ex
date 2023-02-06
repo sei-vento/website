@@ -46,6 +46,62 @@ defmodule Helpers do
                   text
                   cta
                 }
+                ... on CtaMultipleRecord {
+                  _modelApiKey
+                  id
+                  title
+                  cta {
+                    id
+                    label
+                    link {
+                      ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                    }
+                  }
+                }
                 ... on DateTitleSubtitleCtaDescriptionRecord {
                   id
                   _modelApiKey

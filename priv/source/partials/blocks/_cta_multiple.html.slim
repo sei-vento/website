@@ -1,0 +1,22 @@
+- block = params.block
+
+section.section--standard
+  .flex
+    .flex__item.lap-1-12
+
+    .flex__item.lap-5-12
+      .check-anim.align--center.margin--bottom-3
+        h3.text--black-big.margin--bottom-2 data-animation="from-bottom-to-up"
+          = block.title
+
+    .flex__item.lap-6-12.align--center.align--left-on-lap
+      .check-anim.margin--bottom-10
+        div data-animation="from-bottom-to-up"
+          = Enum.map Enum.with_index(block.cta), fn {cta, i} ->
+            - label = if(cta.label != "", do: cta.label, else: cta.link.title)
+            .margin--bottom-1.margin--bottom-2-on-lap
+              = link_to "/#{cta.link.slug}",
+                class: "" do
+                .button--cta
+                  span = label
+                  i.icon data-icon="arrow-right"

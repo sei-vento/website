@@ -22,6 +22,9 @@ header.hero--homepage
   = if block._modelApiKey == "internal_link" do
     = partial("partials/blocks/internal_link",
       %{block: block})
+  = if block._modelApiKey == "cta_multiple" do
+    = partial("partials/blocks/cta_multiple",
+      %{block: block})
   = if block._modelApiKey == "portfolio" do
     = partial("partials/blocks/portfolio",
       %{block: block})

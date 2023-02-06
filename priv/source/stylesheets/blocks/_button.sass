@@ -65,10 +65,10 @@ input[type="button"]
 .button--rounded
   @extend .button
   background-color: $white-color
-  border-radius: 36px
+  border-radius: 50px
   color: $black-color
   letter-spacing: 0.85px
-  padding: 1rem 2.5rem
+  padding: 1.5rem 2.5rem
   z-index: 0
   position: relative
   overflow: hidden
@@ -94,12 +94,16 @@ input[type="button"]
 .button--cta
   @extend .button--rounded
   text-transform: uppercase
-  font-size: 20px
+  font-size: 13px
   line-height: 1
-  +horizontal-padding(4)
+  +horizontal-padding(2)
   +vertical-padding(1)
   display: inline-flex
   align-items: center
+
+  +at-breakpoint(lap)
+    font-size: 20px
+    +horizontal-padding(4)
 
 .button--blue
   @extend .button--rounded
