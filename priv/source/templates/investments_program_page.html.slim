@@ -5,6 +5,7 @@
 - offers_blocks = page.offersBlocks
 - our_figures_title = page.ourFiguresTitle
 - numbers_blocks = page.numbers
+- link = page.heroCtaLink
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -42,4 +43,4 @@ header.hero
               %{block: block, n: n})
 
 section.section--standard.margin--both-6.margin--both-10-on-lap
-  = partial("partials/blocks/apply_loop",%{color: "blue"})
+  = partial("partials/blocks/apply_loop",%{color: "blue", link: link})
