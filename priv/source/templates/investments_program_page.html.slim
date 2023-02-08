@@ -18,7 +18,7 @@ header.hero
 = Enum.map blocks_top, fn block ->
   = if block._modelApiKey == "image_title_text_direction" do
     = partial("partials/blocks/image_title_text_direction",
-      %{block: block})
+      %{block: block, color: "#43AAFF"})
 
 = if length(offers_blocks) > 0 do
   section.padding--both-6.padding--both-10-on-lap

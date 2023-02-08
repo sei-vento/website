@@ -14,11 +14,11 @@
 header.hero
   .wrap
     = partial("partials/hero",
-      %{page: page, color: ""})
+      %{page: page, color: "green"})
 
 
 section.section--standard
-  .check-view data-bg="#43AAFF"
+  .check-view data-bg="#00EA74"
     = Enum.map blocks, fn block ->
       = if block._modelApiKey == "big_title_prefix_image_title_description" do
         = partial("partials/blocks/big_title_prefix_image_title_description",

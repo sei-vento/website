@@ -12,15 +12,11 @@
     .flex__item.lap-6-12
       h1.title__hero
         = page.titleHero
-
-  / .ball-html.js-move-on-scroll
-
-  = if Map.has_key?(page, :descriptionHero) do
-
-    .flex
-      .flex__item.lap-5-12
+      = if Map.has_key?(page, :descriptionHero) do
         .hero__text
           = page.descriptionHero
+
+  / .ball-html.js-move-on-scroll
 
   .hero__action
     .button__with-arrow

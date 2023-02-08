@@ -436,7 +436,6 @@ defmodule Helpers do
                 _modelApiKey
                 id
                 direction
-                bgColor
                 title
                 description
                 image {
@@ -765,7 +764,6 @@ defmodule Helpers do
                 id
                 title
                 direction
-                bgColor
                 description
                 image {
                   responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
