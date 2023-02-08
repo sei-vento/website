@@ -8,38 +8,51 @@
 - faq_page = faq_page(locale)
 - offers_title = page.offersTitle
 - offers_blocks = page.offersBlocks
+- link = info.linkApplyVentureBuilding
 
 - content_for(:head)
   = dato_meta_tags(params.page)
   link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet"
 
-.ball--top.js-move-on-scroll
-  img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
+/ .ball--top.js-move-on-scroll
+/   img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
 
 header.hero
   .wrap
     = partial("partials/hero",
-    %{page: page, color: ""})
+    %{page: page, color: "green"})
 
-= Enum.map blocks, fn block ->
-  = if block._modelApiKey == "big_title_prefix_image_title_description" do
-    = partial("partials/blocks/big_title_prefix_image_title_description",
-      %{block: block})
+section.section--standard
+  .check-view data-bg="#00EA74"
+    = Enum.map blocks, fn block ->
+      = if block._modelApiKey == "big_title_prefix_image_title_description" do
+        = partial("partials/blocks/big_title_prefix_image_description",
+          %{block: block})
+
+/ = if length(offers_blocks) > 0 do
+/   section.section--light.padding--both-6.padding--both-10-on-lap
+/     .wrap
+/       .check-anim
+/         h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
+/           = offers_title
+/       .flex
+/         = Enum.map Enum.with_index(offers_blocks), fn {block, n} ->
+/           .flex__item.lap-6-12
+/             = partial("partials/blocks/offers_widget",
+/               %{block: block, n: n, color: ""})
 
 = if length(offers_blocks) > 0 do
-  section.section--light.padding--both-6.padding--both-10-on-lap
-    .wrap
+  section.padding--both-6.padding--both-10-on-lap
+    .wrap.check-view data-bg=""
       .check-anim
-        h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
+        h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap.align--center data-animation="from-bottom-to-up"
           = offers_title
-      .flex
-        = Enum.map Enum.with_index(offers_blocks), fn {block, n} ->
-          .flex__item.lap-6-12
-            = partial("partials/blocks/offers_widget",
-              %{block: block, n: n, color: ""})
+      = Enum.map Enum.with_index(offers_blocks), fn {block, n} ->
+        = partial("partials/blocks/offers_widget",
+          %{block: block, n: n, color: "green"})
 
 section.padding--both-6
-  .wrap
+  .wrap.check-view data-bg="#00EA74"
     .check-anim
       h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
         = page.bigTitleWhere
@@ -71,22 +84,13 @@ section.padding--both-6
 
 .padding--both-6.padding--both-12-on-lap
   .wrap
-    .flex
-      .flex__item.margin--bottom-3-on-lte-tab.lap-8-12.check-anim
-        .title--small data-animation="from-bottom-to-up"
+    .flex.flex--justify-center
+      .flex__item.margin--bottom-3-on-lte-tab.lap-8-12.check-anim.align--center
+        .margin--bottom-3.margin--bottom-6-on-lap
+            .prefix [style="color: #00EA74" data-animation="from-bottom-to-up"]
+              = "Venture Building"
+        .title.color--gray-l data-animation="from-bottom-to-up"
           = faq_page.titleApply
-      .flex__item.lap-4-12.check-anim
-        .align--right-on-lap data-animation="from-bottom-to-up"
 
-          = if apply_page.link != nil do
-            = link_to apply_page.link,
-              class: "button--rounded-gradient--fill",
-              target: "_blank",
-              rel: "noopener noreferrer",
-              title: t("nav.apply", locale) do
-              span= "Apply now"
-          - else
-            = link_to page_path(apply_page, locale),
-              class: "button--rounded-gradient--fill",
-              title: t("nav.apply", locale) do
-              = "Apply"
+section.section--standard.margin--both-6.margin--both-10-on-lap
+  = partial("partials/blocks/apply_loop",%{color: "green", link: link})

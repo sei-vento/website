@@ -5,12 +5,19 @@
   white-space: nowrap
   text-transform: uppercase
 
-.loop-holder--blue
+.loop-holder--blue,
   @extend .loop-holder
   transition: .25s
 
   span, &:hover
     color: $blue-color
+
+.loop-holder--green
+  @extend .loop-holder
+  transition: .25s
+
+  span, &:hover
+    color: $green-color
 
 .loop-holder__text
   animation: textLoop 15s linear infinite
