@@ -26,7 +26,7 @@ section.section--standard
   .check-view data-bg="#00EA74"
     = Enum.map blocks, fn block ->
       = if block._modelApiKey == "big_title_prefix_image_title_description" do
-        = partial("partials/blocks/big_title_prefix_image_description",
+        = partial("partials/blocks/big_title_prefix_image_title_description",
           %{block: block})
 
 / = if length(offers_blocks) > 0 do
@@ -54,14 +54,14 @@ section.section--standard
 section.padding--both-6
   .wrap.check-view data-bg="#00EA74"
     .check-anim
-      h2.title--big--white.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
+      h2.title--big--white.color--black.margin--bottom-2.margin--bottom-6-on-lap data-animation="from-bottom-to-up"
         = page.bigTitleWhere
     .flex
       .flex__item.lap-5-12.margin--bottom-2.margin--bottom-4-on-lap.check-anim
-        .title--white data-animation="from-bottom-to-up"
+        .title--black data-animation="from-bottom-to-up"
           = page.titleWhere
       .flex__item.lap-6-12.lap-push-1-12.check-anim.padding--top-1-on-lap
-        .text--gray-l data-animation="from-bottom-to-up"
+        .text--black data-animation="from-bottom-to-up"
           = page.textWhere
         .link-address data-animation="from-bottom-to-up"
           = link_to page.linkGoogleMaps,
