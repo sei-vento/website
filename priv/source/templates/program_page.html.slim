@@ -19,7 +19,7 @@
 header.hero
   .wrap
     = partial("partials/hero",
-      %{page: page})
+    %{page: page, color: ""})
 
 = Enum.map blocks, fn block ->
   = if block._modelApiKey == "big_title_prefix_image_title_description" do
@@ -36,7 +36,7 @@ header.hero
         = Enum.map Enum.with_index(offers_blocks), fn {block, n} ->
           .flex__item.lap-6-12
             = partial("partials/blocks/offers_widget",
-              %{block: block, n: n})
+              %{block: block, n: n, color: ""})
 
 section.padding--both-6
   .wrap

@@ -13,7 +13,7 @@
 header.hero
   .wrap
     = partial("partials/hero",
-      %{page: page})
+      %{page: page, color: ""})
 
 = if length(blocks_program) > 0 do
   section.section--standard

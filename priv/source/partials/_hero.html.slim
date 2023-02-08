@@ -1,14 +1,19 @@
 - page = params.page
+/ - title = page.title
+- title = if page.titleSection != "", do: page.titleSection, else: page.title
+- color = if params.color != "", do: "--#{params.color}", else: ""
 
-.hero__inner
+.hero__inner.check-view
+  .flex
+    .flex__item.lap-6-12
+      .margin--bottom-2 class="hero__title#{color}"
+        = title
 
-  .prefix--with-gradient.margin--bottom-2
-    = page.title
+    .flex__item.lap-6-12
+      h1.title__hero
+        = page.titleHero
 
-  h1.title__hero
-    = page.titleHero
-
-  .ball-html.js-move-on-scroll
+  / .ball-html.js-move-on-scroll
 
   = if Map.has_key?(page, :descriptionHero) do
 

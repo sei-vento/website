@@ -9,9 +9,9 @@
   = dato_meta_tags(params.page)
 
 header.hero
-  .wrap 
+  .wrap
     = partial("partials/hero",
-      %{page: page})
+      %{page: page, color: ""})
 
 section.section--light
   .padding--both-6
@@ -19,10 +19,10 @@ section.section--light
       .flex--justify-center.align--center
         .flex__item.lap-8-12
           img.icon--xl src="#{icon.url}" alt="#{icon.alt}"
-          
+
           .title--small.margin--both-3
             = page.messaggeSuccess
-          
+
           = link_to "/",
             title: "Back to home",
             class: "button--rounded-gradient" do

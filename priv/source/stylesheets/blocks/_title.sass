@@ -33,6 +33,19 @@
 
   strong
     font-weight: bold
+    color: $white-color
+
+.hero__title--blue
+  @extend .hero__title
+  strong
+    font-weight: normal
+    color: $blue-color
+
+.hero__title--green
+  @extend .hero__title
+  strong
+    font-weight: normal
+    color: $green-color
 
 .title__hero--small
   @extend .title__hero
@@ -61,9 +74,12 @@
   text-transform: uppercase
   letter-spacing: 4px
   color: white
-  display: inline-block
+  // display: inline-block
   +at-breakpoint(lap)
     +font-size(gamma)
+
+  &.align--center
+    text-align: center
 
 .title--gradient--big
   @extend .title--gradient

@@ -1,13 +1,16 @@
 - block = params.block
 - n = params.n
+- theme_color = if params.color != nil, do: params.color, else: "white"
 
-.check-anim
-  .widget--small data-animation="from-bottom-to-up"
-    .widget__header--flex
-      .prefix--green
-        = block.title
-      .widget__header__number
+.stripe
+  .flex
+    .flex__item.lap-2-12
+      .stripe__number
         = "0 #{n + 1}"
-    .widget__body
-      h3.widget__text
-        = block.text
+    .flex__item.lap-4-12
+      .stripe__title class="#{theme_color}"
+        = block.title
+    .flex__item.lap-6-12
+      .stripe__body
+        h3.stripe__text
+          = block.text

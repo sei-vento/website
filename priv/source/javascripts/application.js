@@ -201,6 +201,7 @@ function checkViewport() {
   const partialViewportHeight = viewportHeight - 100  /*reduce area to check*/
 
   const isInViewport = function (elem) {
+    console.log('elem',elem)
     var start = window.scrollY - elem.offsetTop + partialViewportHeight;
     var stop = window.scrollY - elem.offsetTop - elem.clientHeight;
     return (
@@ -208,7 +209,7 @@ function checkViewport() {
     );
   };
   for (i = 0; i < bgElements.length; i++) {
-    const section = bgElements[i].closest('[class*="section"], [class*="hero"]')
+    const section = bgElements[i].closest('section, [class*="hero"]')
     if (isInViewport(section)) {
       bg = bgElements[i].dataset.bg ? bgElements[i].dataset.bg : "black"
       container.style.backgroundColor = bg;

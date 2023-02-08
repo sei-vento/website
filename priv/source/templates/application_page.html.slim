@@ -14,13 +14,13 @@
 header.hero
   .wrap
     = partial("partials/hero",
-      %{page: page})
+      %{page: page, color: ""})
 
 = Enum.map blocks, fn block ->
-  = if block._modelApiKey == "big_title_prefix_image_title_description" do    
+  = if block._modelApiKey == "big_title_prefix_image_title_description" do
     = partial("partials/blocks/big_title_prefix_image_title_description",
       %{block: block})
-  = if block._modelApiKey == "contact_block" do    
+  = if block._modelApiKey == "contact_block" do
     = partial("partials/blocks/contact_block",
       %{block: block})
 

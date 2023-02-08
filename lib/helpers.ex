@@ -302,6 +302,7 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              titleSection
               titleHero
               body {
                 ... on BigTitlePrefixImageTitleDescriptionRecord {
@@ -374,6 +375,7 @@ defmodule Helpers do
               slug
               menuLabel
               id
+              titleSection
               titleHero
               body {
                 ... on BigTitlePrefixImageTitleDescriptionRecord {
@@ -427,6 +429,7 @@ defmodule Helpers do
                 }
                 blurUpThumb
               }
+              titleSection
               titleHero
               descriptionHero
               bodyTop {
@@ -493,6 +496,7 @@ defmodule Helpers do
                 }
                 blurUpThumb
               }
+              titleSection
               titleHero
               blockManifesto {
                 _modelApiKey
@@ -581,6 +585,7 @@ defmodule Helpers do
                 }
                 blurUpThumb
               }
+              titleSection
               titleHero
               titleStake
               blockStake {
@@ -656,6 +661,7 @@ defmodule Helpers do
               slug
               messaggeSuccess
               menuLabel
+              titleSection
               titleHero
               icon {
                 url
@@ -750,6 +756,7 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              titleSection
               titleHero
               heroCtaLabel
               heroCtaLink
@@ -798,6 +805,7 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              titleSection
               titleHero
               ctaLink
               ctaLabel

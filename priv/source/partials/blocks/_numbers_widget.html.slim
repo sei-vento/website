@@ -2,12 +2,12 @@
 - n = params.n
 
 .check-anim
-  div data-animation="from-bottom-to-up" data-delay="delay-#{n}"
+  .flex.flex--justify-center
+    .flex__item.lap-6-12
+      .widget.margin--bottom-2 data-animation="from-bottom-to-up" data-delay="delay-#{n}"
 
-    h3.title--big--white
-      = block.number
+        h3.title--big--white
+          = block.number
 
-    .text-label
-      = block.label
-
-    .divider
+        .text-label
+          = block.label

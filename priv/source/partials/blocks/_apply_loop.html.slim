@@ -1,0 +1,14 @@
+
+- color = params.color
+- items = [1,1,1]
+
+
+.check-view
+  = link_to "/#",
+    class: "button--lowercase" do
+      div class="loop-holder--#{color}"
+        = Enum.map items, fn item ->
+          .loop-holder__text
+            = Enum.map items, fn a ->
+              = "Apply now "
+              span = "•"
