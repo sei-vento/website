@@ -304,6 +304,8 @@ defmodule Helpers do
               menuLabel
               titleSection
               titleHero
+              heroCtaLabel
+              heroCtaLink
               body {
                 ... on BigTitlePrefixImageTitleDescriptionRecord {
                   id
@@ -710,6 +712,7 @@ defmodule Helpers do
             info(locale: $locale) {
               copyFooter
               email
+              emailInvestments
               address
               emailForm
               linkApplyInvestments
@@ -785,6 +788,9 @@ defmodule Helpers do
                 label
                 number
               }
+              prefix
+              text
+              cta
               #{seo_meta_tags_fragment()}
             }
           }

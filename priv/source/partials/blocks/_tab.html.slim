@@ -4,8 +4,8 @@
 
 .tab
   .tab__item__container
-    .tab__item
-      a class="tab__item__link is-active" href="#tab"
+    .tab__item.is-active
+      a class="tab__item__link" href="#tab"
         = "All"
     = Enum.map Enum.with_index(blocks), fn {block, i} ->
       .tab__item

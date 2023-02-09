@@ -23,19 +23,25 @@ $tab-border-color: $white-color
   +margin-bottom(1)
   border: 1px solid rgba($border-color, .5)
   border-radius: 50px
+  background: $white-color
+  &.is-active
+    background: transparent
+
   +at-breakpoint(lap)
     +margin-right(2)
 
 .tab__item__link
   width: 100%
   +heading-font-family
-  color: $white-color
+  color: $black-color
   text-transform: uppercase
   letter-spacing: 1.33px
   +font-size(milli)
   +at-breakpoint(lap)
     +font-size(smallprint)
-  &.is-active
+
+  .is-active &
+    color: $white-color
     &::after
       border-radius: 50px
       content: ""
@@ -58,5 +64,5 @@ $tab-border-color: $white-color
   display: none
   &.is-active
     display: block
-    
+
 

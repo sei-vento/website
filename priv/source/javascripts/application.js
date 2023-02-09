@@ -106,12 +106,12 @@ for (i = 0; i < links.length; i++) {
     e.preventDefault();
     var tab_id = this.getAttribute("href");
     for (i = 0; i < links.length; i++) {
-      links[i].classList.remove('is-active');
+      links[i].closest('.tab__item').classList.remove('is-active');
     }
     for (i = 0; i < contents.length; i++) {
       contents[i].classList.remove('is-active');
     }
-    this.classList.add('is-active');
+    this.closest('.tab__item').classList.add('is-active');
     var thisContent = document.querySelectorAll(tab_id)
     for (i = 0; i < thisContent.length; i++) {
       thisContent[i].classList.add('is-active');

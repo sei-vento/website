@@ -1,7 +1,10 @@
 .stripe
-  +horizontal-padding(6)
-  +vertical-padding(5)
+  +horizontal-padding(1)
+  +vertical-padding(3)
   border-top: 1px dashed $white-color
+  +at-breakpoint(lap)
+    +horizontal-padding(6)
+    +vertical-padding(5)
 
   &:last-child
     border-bottom: 1px dashed $white-color

@@ -4,6 +4,7 @@
 - image_ball = info.ball
 - ball = image_ball.responsiveImage
 - blocks = page.body
+- link = info.linkApplyVentureBuilding
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -17,7 +18,7 @@ header.hero
       %{page: page, color: "green"})
 
 
-section.section--standard
+section.section--standard.margin--bottom-4.margin--bottom-8-on-lap
   .check-view data-bg="#00EA74"
     = Enum.map blocks, fn block ->
       = if block._modelApiKey == "big_title_prefix_image_title_description" do
@@ -30,4 +31,5 @@ section.section--standard
       %{block: block})
 
 
-
+section.section--standard.margin--both-6.margin--both-10-on-lap
+  = partial("partials/blocks/apply_loop",%{color: "green", link: link})

@@ -9,7 +9,10 @@ $size: 50px
   .block-numbered-counter
     position: absolute
     top: 20px
-    right: 20px
+    right: 30px
+    +at-breakpoint(lap)
+      top: 35px
+      right: 50px
 
     &::before
       content: "0"counter(my-awesome-counter)
@@ -20,7 +23,7 @@ $size: 50px
       display: block
       text-align: center
       line-height: $size
-
+      +font-size(epsilon)
 
 
     &:nth-child(odd)

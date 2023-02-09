@@ -3,6 +3,7 @@
 / - info = info(locale)
 - areas = page.areas
 - blocks = page.blocks
+- info = info(locale)
 
 
 - content_for(:head)
@@ -10,32 +11,53 @@
 
 header.hero
   .wrap
-    .padding--top-10.padding--top-14-on-lap.padding--bottom-2
-      .prefix--with-gradient
-        = page.title
+    .flex.padding--top-10.padding--top-14-on-lap.padding--bottom-2
+      .flex__item.lap-6-12
+        .title--white
+          = page.title
+      .flex__item.lap-6-12
+        .prefix.margin--bottom-1
+          = "investments"
 
-section
+        = link_to "mailto:#{info.email}",
+          class: "overlay-nav__menu__link--small",
+          title: "Send email",
+          rel: "noopener noreferrer" do
+
+          span= info.email
+
+        .divider
+        .prefix.margin--bottom-1
+          = "venture buiilding"
+        = link_to "mailto:#{info.emailInvestments}",
+          class: "overlay-nav__menu__link--small",
+          title: "Send email",
+          rel: "noopener noreferrer" do
+
+          span= info.emailInvestments
+
+section.margin--top-6
   .wrap.check-anim
-    .flex.margin--bottom-4.margin--bottom-6-on-lap
+    .flex.flex--align-stretch.margin--bottom-4.margin--bottom-6-on-lap
       = Enum.map Enum.with_index(areas), fn {area, i} ->
-        .flex__item.lap-6-12.margin--bottom-1
+        .flex__item.lap-6-12.margin--bottom-4
           .widget--contacts data-animation="from-bottom-to-up"
             .widget__image
               - current_image = area.image.responsiveImage
                 figure data-animation="from-bottom-to-up" data-delay="delay-#{i}"
                   img.lazyload src=area.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
 
-            .widget__text
+            .widget__text.margin--bottom-3
               = area.description
 
-            .margin--top-4.margin--top-6-on-lap
+            .widget__actions
               = link_to area.externalLink,
-                class: "button--#{area.buttonColor}",
+                class: "button--white",
                 title: "Apply now" do
                 span = "#{area.buttonLabel}"
 
 section
   = Enum.map blocks, fn block ->
     = if block._modelApiKey == "contact_block" do
-      = partial("partials/blocks/contact_block",
-        %{block: block})
+        = partial("partials/blocks/contact_block",
+          %{block: block})

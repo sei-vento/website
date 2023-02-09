@@ -19,7 +19,7 @@ section.block-numbered.wrap
   .flex
     .flex__item.lap-7-12.lap-push-5-12
 
-      .margin--bottom-2.margin--bottom-4-on-lap
+      .margin--bottom-1
         = if block.where != "" do
           .check-anim
             .prefix.color--black.margin--bottom-1.margin--bottom-2-on-lap data-animation="from-bottom-to-up"
@@ -32,10 +32,10 @@ section.block-numbered.wrap
               = block.when
 
       .check-anim.check-anim--inline
-        h2.title--black.margin--bottom-4.margin--bottom-6-on-lap data-animation="from-right-to-left"
+        h2.title--black data-animation="from-right-to-left"
           = block.bigTitle
 
-      .margin--bottom-2.margin--bottom-4-on-lap.check-anim
+      .margin--bottom-2.check-anim
         .text--black data-animation="from-bottom-to-up"
           = block.title
 
