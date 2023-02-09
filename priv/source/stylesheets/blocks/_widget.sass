@@ -36,7 +36,7 @@
   img
     +center
     max-width: 220px
-    max-height: 100px
+    max-height: 200px
 
 .widget--gradient
   @extend .widget--black-l
@@ -61,6 +61,12 @@
 .widget--no-padding
   @extend .widget
   padding: 0
+
+.widget--padding-big
+  @extend .widget
+  +padding(5)
+  +at-breakpoint(lap)
+    +padding(7)
 
 .widget--no-margin-bottom
   @extend .widget

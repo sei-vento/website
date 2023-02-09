@@ -25,10 +25,11 @@ section class="section--spaced" id="#{inv_id}#{vb_id}"
 
         .margin--bottom-2.check-anim
           = if block.id == "44979949" do
-            .pretitle--investment data-animation="from-bottom-to-up"
+            .pretitle--investment.margin--bottom-2 data-animation="from-bottom-to-up"
 
           = if block.id == "44979950" do
-            .pretitle--venture data-animation="from-bottom-to-up"
+            .pretitle--venture.margin--bottom-2 data-animation="from-bottom-to-up"
+
           h2.title--black.check-view data-animation="from-bottom-to-up" data-bg=bg_color
             = block.title
 
@@ -70,7 +71,7 @@ section class="section--spaced" id="#{inv_id}#{vb_id}"
     .flex
       = Enum.map widgets, fn widget ->
         .flex__item.margin--bottom-2.check-anim
-          .widget data-animation="from-bottom-to-up"
+          .widget--padding-big data-animation="from-bottom-to-up"
             .flex--justify-center
               .flex__item.lap-5-12
                 .flex

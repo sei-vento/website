@@ -65,17 +65,20 @@ input[type="button"]
 .button--rounded
   @extend .button
   background-color: $white-color
-  border-radius: 50px
+  border-radius: 100px
   color: $black-color
   letter-spacing: 0.85px
-  padding: 1.5rem 2.5rem
+  padding: 1rem 2rem
   z-index: 0
   position: relative
   overflow: hidden
   border: none
+  +at-breakpoint(lap)
+    padding: 1.5rem 2.5rem
   +hover
     &::after
       right: 0
+
 
   span
     white-space: nowrap
@@ -126,8 +129,7 @@ input[type="button"]
   text-transform: uppercase
   background-color: $white-color
   font-weight: 400
-  &::after
-    display: none
+
 
 .button--uppercase
   @extend .button

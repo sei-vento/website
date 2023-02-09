@@ -5,16 +5,16 @@
 section.section--standard
 
   .wrap
-    .check-anim.align--center.margin--bottom-2
+    .check-anim.margin--bottom-2.align--center
       h2.title--white.check-view [data-animation="from-bottom-to-up" data-transition="transition--xl"]
         = block.title
 
-    .check-anim.align--center.margin--bottom-10
+    .check-anim.align--center.margin--bottom-3.margin--bottom-10-on-lap
       h3.margin--bottom-2 data-animation="from-bottom-to-up"
         = block.description
 
 
-    .portfolio.check-anim
+    .portfolio.check-anim.margin--bottom-3
       = Enum.map Enum.with_index(block.images), fn {item, i} ->
         - current_image = item.image.responsiveImage
         - color_class = if item.label == "Investments", do: "investments", else: "venture"
@@ -25,11 +25,11 @@ section.section--standard
           div class="portfolio__label"
             = item.label
 
-    .check-anim.align--center.margin--bottom-3
-      h3.title.color--gray-l.margin--bottom-2 data-animation="from-bottom-to-up"
+    .check-anim.margin--bottom-3
+      h3.title.center-desk-left-mobile.color--gray-l.margin--bottom-2 data-animation="from-bottom-to-up"
         = block.ctaText
 
-    .check-anim.align--center.margin--bottom-10
+    .check-anim.center-desk-left-mobile.margin--bottom-10
       div data-animation="from-bottom-to-up"
         = Enum.map Enum.with_index(block.ctaLink), fn {cta, i} ->
           = link_to "/#{cta.link.slug}",
