@@ -98,7 +98,7 @@ document.addEventListener('scroll', function(e) {
 });
 
 // tab
-var links = document.querySelectorAll('.tab__item__link');
+var links = document.querySelectorAll('[class*=tab__item__link]');
 var contents = document.querySelectorAll('.tab__content__item');
 var i = 0;
 for (i = 0; i < links.length; i++) {

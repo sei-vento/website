@@ -692,6 +692,7 @@ defmodule Helpers do
               prefixApply
               body {
                 titleAccordion
+                tabColor
                 accordion {
                   _modelApiKey
                   id

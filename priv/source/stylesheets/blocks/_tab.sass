@@ -16,14 +16,14 @@ $tab-border-color: $white-color
   position: relative
   text-align: center
   width: auto
-  min-width: 160px
-  +horizontal-padding(2)
-  height: 40px
-  line-height: 38px
+  // min-width: 160px
+  // +horizontal-padding(2)
+  // height: 40px
+  // line-height: 38px
   +margin-bottom(1)
-  border: 1px solid rgba($border-color, .5)
-  border-radius: 50px
-  background: $white-color
+  // border: 1px solid rgba($border-color, .5)
+  // border-radius: 50px
+  // background: $white-color
   &.is-active
     background: transparent
 
@@ -33,15 +33,25 @@ $tab-border-color: $white-color
 .tab__item__link
   width: 100%
   +heading-font-family
+  +font-size(milli)
+  +horizontal-padding(2)
   color: $black-color
+  background: $white-color
+  border-radius: 50px
+  height: 40px
+  line-height: 38px
+  min-width: 160px
   text-transform: uppercase
   letter-spacing: 1.33px
-  +font-size(milli)
+  display: inline-block
+  text-align: center
   +at-breakpoint(lap)
     +font-size(smallprint)
+    line-height: 38px
 
   .is-active &
     color: $white-color
+    background: $black-color
     &::after
       border-radius: 50px
       content: ""
@@ -54,6 +64,16 @@ $tab-border-color: $white-color
       +position(absolute, 0)
       background-color: $black-color
       z-index: -1
+
+.tab__item__link--blue
+  @extend .tab__item__link
+  color: $black-color
+  background-color: $blue-color
+
+.tab__item__link--green
+  @extend .tab__item__link
+  color: $black-color
+  background-color: $green-color
 
 
 .tab__content
