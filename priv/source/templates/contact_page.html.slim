@@ -15,26 +15,26 @@ header.hero
       .flex__item.lap-6-12
         .title--white
           = page.title
-      .flex__item.lap-6-12
-        .prefix.margin--bottom-1
-          = "investments"
+      / .flex__item.lap-6-12
+      /   .prefix.margin--bottom-1
+      /     = "investments"
 
-        = link_to "mailto:#{info.email}",
-          class: "overlay-nav__menu__link--small",
-          title: "Send email",
-          rel: "noopener noreferrer" do
+      /   = link_to "mailto:#{info.email}",
+      /     class: "overlay-nav__menu__link--mail",
+      /     title: "Send email",
+      /     rel: "noopener noreferrer" do
 
-          span= info.email
+      /     span= info.emailInvestments
 
-        .divider
-        .prefix.margin--bottom-1
-          = "venture buiilding"
-        = link_to "mailto:#{info.emailInvestments}",
-          class: "overlay-nav__menu__link--small",
-          title: "Send email",
-          rel: "noopener noreferrer" do
+      /   .divider
+      /   .prefix.margin--bottom-1
+      /     = "venture buiilding"
+      /   = link_to "mailto:#{info.emailInvestments}",
+      /     class: "overlay-nav__menu__link--mail",
+      /     title: "Send email",
+      /     rel: "noopener noreferrer" do
 
-          span= info.emailInvestments
+      /     span= info.email
 
 section.margin--top-6
   .wrap.check-anim
@@ -49,6 +49,31 @@ section.margin--top-6
 
             .widget__text.margin--bottom-3
               = area.description
+
+            .widget__mail
+              = if area.buttonColor == "blue" do
+                .prefix.margin--bottom-1
+                  = "investments"
+
+                = link_to "mailto:#{info.email}",
+                  class: "overlay-nav__menu__link--mail",
+                  title: "Send email",
+                  rel: "noopener noreferrer" do
+
+                  span= info.emailInvestments
+
+              = if area.buttonColor == "green" do
+                .prefix.margin--bottom-1
+                  = "venture buiilding"
+
+                = link_to "mailto:#{info.email}",
+                  class: "overlay-nav__menu__link--mail",
+                  title: "Send email",
+                  rel: "noopener noreferrer" do
+
+                  span= info.email
+
+              .divider
 
             .widget__actions
               = link_to area.externalLink,
