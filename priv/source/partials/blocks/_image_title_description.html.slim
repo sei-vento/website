@@ -12,6 +12,11 @@ section.section--standard.margin--bottom-15
         .flex__item.lap-7-12.lap-push-5-12.desk-5-12.desk-push-6-12
           .prefix--big.color--black.margin--top-4-on-lte-tab
             = block.title
+
+          = if block.subtitle != '' do
+            .title.color--black.margin--top-4-on-lte-tab
+              = block.subtitle
+
           .text--black.margin--top-1.margin--top-2-on-lap
             = block.description
 

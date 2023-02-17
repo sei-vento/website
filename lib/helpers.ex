@@ -462,6 +462,7 @@ defmodule Helpers do
                   blurUpThumb
                 }
                 title
+                subtitle
                 description
               }
               textApply
