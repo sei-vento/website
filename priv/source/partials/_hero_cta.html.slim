@@ -17,9 +17,14 @@
 
       = if page.heroCtaLabel do
         = if page.heroCtaLabel != nil do
-          .margin--top-3 class="button#{color}"
-            = page.heroCtaLabel
-            i.icon data-icon="arrow-right"
+          .margin--top-3
+            = link_to page.heroCtaLink,
+              class: "button#{color}",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              title: page.heroCtaLabel do
+              span = page.heroCtaLabel
+              i.icon data-icon="arrow-right"
 
   .ball-html.js-move-on-scroll
 
