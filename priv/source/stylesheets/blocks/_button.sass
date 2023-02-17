@@ -113,6 +113,9 @@ input[type="button"]
   text-transform: uppercase
   background-color: $blue-color
   font-weight: 400
+  padding: 0.5rem 1rem
+  +at-breakpoint(lap)
+    padding: 1rem 2rem
   &:hover
     background-color: darken($blue-color, 10%)
   &::after
@@ -123,6 +126,9 @@ input[type="button"]
   text-transform: uppercase
   background-color: $green-color
   font-weight: 400
+  padding: 0.5rem 1rem
+  +at-breakpoint(lap)
+    padding: 1rem 2rem
   &:hover
     background-color: darken($green-color, 10%)
   &::after
