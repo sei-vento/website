@@ -12,7 +12,7 @@
 header.hero
   .wrap
     = partial("partials/hero",
-      %{page: page, color: ""})
+      %{page: page, color: "green"})
 
 = Enum.map blocks_top, fn block ->
   = if block._modelApiKey == "image_title_text_direction" do
