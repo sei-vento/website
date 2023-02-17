@@ -36,6 +36,7 @@
             class: "overlay-nav__menu__link #{if params.id == "about_page", do: "is-active"}" do
             span= about_page.menuLabel
 
+
         li.overlay-nav__menu__item
           = link_to page_path(faq_page, locale),
             class: "overlay-nav__menu__link #{if params.id == "faq_page", do: "is-active"}" do
@@ -48,25 +49,6 @@
 
 
     .flex__item.lap-5-12
-      ul.overlay-nav__menu
-        li.overlay-nav__menu__item
-          .overlay-nav__menu__label
-            span= "Venture building"
-
-        li.overlay-nav__menu__item
-          = link_to page_path(program_page, locale),
-            class: "overlay-nav__menu__link #{if params.id == "program_page", do: "is-active"}" do
-            span= program_page.menuLabel
-
-        li.overlay-nav__menu__item
-          = link_to page_path(application_page, locale),
-            class: "overlay-nav__menu__link #{if params.id == "application_page", do: "is-active"}" do
-            span= application_page.menuLabel
-
-        li.overlay-nav__menu__item
-          = link_to page_path(walf_page, locale),
-            class: "overlay-nav__menu__link #{if params.id == "walf_page", do: "is-active"}" do
-            span= walf_page.menuLabel
 
       ul.overlay-nav__menu
         li.overlay-nav__menu__item
@@ -75,12 +57,12 @@
 
         li.overlay-nav__menu__item
           = link_to page_path(investments_program_page, locale),
-            class: "overlay-nav__menu__link #{if params.id == "investments_program_page", do: "is-active"}" do
+            class: "overlay-nav__menu__link--investment #{if params.id == "investments_program_page", do: "is-active"}" do
             span= investments_program_page.menuLabel
 
         li.overlay-nav__menu__item
           = link_to page_path(investments_selection_program_page, locale),
-            class: "overlay-nav__menu__link #{if params.id == "investments_selection_program_page", do: "is-active"}" do
+            class: "overlay-nav__menu__link--investment #{if params.id == "investments_selection_program_page", do: "is-active"}" do
             span= investments_selection_program_page.menuLabel
 
         / li.overlay-nav__menu__item
@@ -89,12 +71,33 @@
 
         /     span= network_page.menuLabel
 
+      ul.overlay-nav__menu
+        li.overlay-nav__menu__item
+          .overlay-nav__menu__label
+            span= "Venture building"
+
+        li.overlay-nav__menu__item
+          = link_to page_path(program_page, locale),
+            class: "overlay-nav__menu__link--venture #{if params.id == "program_page", do: "is-active"}" do
+            span= program_page.menuLabel
+
+        li.overlay-nav__menu__item
+          = link_to page_path(application_page, locale),
+            class: "overlay-nav__menu__link--venture #{if params.id == "application_page", do: "is-active"}" do
+            span= application_page.menuLabel
+
+        li.overlay-nav__menu__item
+          = link_to page_path(walf_page, locale),
+            class: "overlay-nav__menu__link--venture #{if params.id == "walf_page", do: "is-active"}" do
+            span= walf_page.menuLabel
+
     .flex__item.lap-3-12
 
       .flex
         .flex__item
-          .overlay-nav__menu__title
-            = "Social media"
+          .overlay-nav__menu
+            .overlay-nav__menu__title
+              = "Social media"
 
           ul.overlay-nav__menu--small
             = Enum.map socials, fn social ->
@@ -108,13 +111,14 @@
                   span= social.title
 
         .flex__item
-          .overlay-nav__menu__title
-            = "Contact"
+          .overlay-nav__menu
+            .overlay-nav__menu__title
+              = "Contact"
 
           ul.overlay-nav__menu--small
             li.overlay-nav__menu__item--small
               = link_to "mailto:#{info.email}",
-                class: "overlay-nav__menu__link--small",
+                class: "overlay-nav__menu__link--mail",
                 title: "Send email",
                 rel: "noopener noreferrer" do
 

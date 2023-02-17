@@ -2,6 +2,8 @@
 - info = info(locale)
 - phones = info.phone
 - homepage = home_page(locale)
+- investments_program_page = investments_program_page(locale)
+- investments_selection_program_page = investments_selection_program_page(locale)
 - program_page = program_page(locale)
 - application_page = application_page(locale)
 - walf_page = walf_page(locale)
@@ -55,39 +57,43 @@ footer#footer.site-footer
                 span= "Homepage"
 
             li.footer-nav__menu__item
+              = link_to page_path(investments_program_page, locale),
+                class: "footer-nav__menu__link" do
+                span= investments_program_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(investments_selection_program_page, locale),
+                class: "footer-nav__menu__link" do
+                span= investments_selection_program_page.menuLabel
+
+            li.footer-nav__menu__item
               = link_to page_path(program_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= program_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(application_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= application_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(walf_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= walf_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(about_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= about_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(network_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= network_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(faq_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= faq_page.menuLabel
 
         .flex__item.tab-6-12.lap-3-12.margin--top-3-on-lte-palm
