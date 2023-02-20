@@ -1,4 +1,5 @@
 - block = params.block
+- block_link = block.link
 - locale = params.locale
 - info = info(locale)
 - faq_page = faq_page(locale)
@@ -20,9 +21,14 @@ section.background--light
 
           .check-anim
             .action [data-animation="from-bottom-to-up"]
-              = link_to page_path(faq_page, locale),
-                class: "button--lowercase" do
+              = if block.internalOrExternal == "internal_link" do
+                = link_to "/#{block_link.slug}",
+                  class: "button--lowercase" do
+                  .button--white
+                    span = block.cta
 
-                .button--white
-                  span = block.cta
-                  i.icon data-icon="arrow-right"
+              = if block.internalOrExternal == "external_link" do
+                a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"
+                  .button--white
+                    span = block.cta
+                    i.icon data-icon="arrow-right"

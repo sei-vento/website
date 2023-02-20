@@ -45,6 +45,60 @@ defmodule Helpers do
                   prefix
                   text
                   cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
                 }
                 ... on CtaMultipleRecord {
                   _modelApiKey
@@ -90,6 +144,11 @@ defmodule Helpers do
                         slug
                       }
                       ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
                         id
                         title
                         slug
