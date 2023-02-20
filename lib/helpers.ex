@@ -383,6 +383,60 @@ defmodule Helpers do
                   prefix
                   text
                   cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
                 }
                 ... on PortfolioRecord {
                   id
@@ -495,9 +549,63 @@ defmodule Helpers do
                 ... on ContactBlockRecord {
                   id
                   _modelApiKey
-                  cta
                   prefix
                   text
+                  cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
                 }
               }
               bigTitleWhere
@@ -570,9 +678,63 @@ defmodule Helpers do
                 ... on ContactBlockRecord {
                   id
                   _modelApiKey
-                  cta
                   prefix
                   text
+                  cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
                 }
               }
               #{seo_meta_tags_fragment()}
@@ -640,9 +802,63 @@ defmodule Helpers do
               bodyFooter {
                 _modelApiKey
                 id
-                cta
                 prefix
                 text
+                cta
+                internalOrExternal
+                link {
+                  ... on AboutPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ContactPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on FaqPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on HomePageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsSelectionProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on NetworkPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ApplicationPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on WalfPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                }
+                externalLinkUrl
               }
               #{seo_meta_tags_fragment()}
             }
@@ -1048,6 +1264,60 @@ defmodule Helpers do
                   prefix
                   text
                   cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
                 }
               }
               #{seo_meta_tags_fragment()}
