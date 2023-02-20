@@ -81,6 +81,14 @@
   &.align--center
     text-align: center
 
+.title--huge--white
+  @extend .title--big--white
+  +heading-font-family
+  +font-size(delta)
+
+  +at-breakpoint(lap)
+    +font-size(beta)
+
 .title--gradient--big
   @extend .title--gradient
 
