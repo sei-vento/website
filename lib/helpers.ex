@@ -256,6 +256,11 @@ defmodule Helpers do
                         title
                         slug
                       }
+                      ... on PortfolioPageRecord {
+                        id
+                        title
+                        slug
+                      }
                       ... on InvestmentsProgramPageRecord {
                         id
                         title
@@ -290,6 +295,109 @@ defmodule Helpers do
           """, %{locale: locale})
 
         result[:homePage]
+      end
+
+      defmemo portfolio_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            portfolioPage(locale: $locale) {
+              #{seo_meta_tags_fragment()}
+              _modelApiKey
+              _updatedAt
+              id
+              title
+              menuLabel
+              slug
+              imageHero {
+                responsiveImage(sizes: "(min-width: 1024px) 45vw, 100vw",
+                imgixParams: {auto: [compress,format], fit: crop, w: "1100", h: "1300"}) {
+                  #{responsive_image_fragment()}
+                }
+                blurUpThumb
+              }
+              titleSection
+              titleHero
+              service {
+                ... on ContactBlockRecord {
+                  id
+                  _modelApiKey
+                  prefix
+                  text
+                  cta
+                }
+                ... on PortfolioRecord {
+                  id
+                  title
+                  description
+                  _modelApiKey
+                  images {
+                    label
+                    image {
+                      responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
+                      imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
+                        #{responsive_image_fragment()}
+                      }
+                      blurUpThumb
+                    }
+                  }
+                  ctaText
+                  ctaLink {
+                    label
+                    link {
+                      ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          """, %{locale: locale})
+
+        result[:portfolioPage]
       end
 
       defmemo program_page(locale) do

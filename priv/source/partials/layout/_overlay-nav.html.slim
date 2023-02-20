@@ -6,6 +6,7 @@
 - application_page = application_page(locale)
 - walf_page = walf_page(locale)
 - about_page = about_page(locale)
+- portfolio_page = portfolio_page(locale)
 / - network_page = network_page(locale)
 - faq_page = faq_page(locale)
 - contact_page = contact_page(locale)
@@ -36,6 +37,10 @@
             class: "overlay-nav__menu__link #{if params.id == "about_page", do: "is-active"}" do
             span= about_page.menuLabel
 
+        li.overlay-nav__menu__item
+          = link_to page_path(portfolio_page, locale),
+            class: "overlay-nav__menu__link #{if params.id == "portfolio_page", do: "is-active"}" do
+            span= portfolio_page.menuLabel
 
         li.overlay-nav__menu__item
           = link_to page_path(faq_page, locale),

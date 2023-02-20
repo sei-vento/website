@@ -8,6 +8,7 @@
 - application_page = application_page(locale)
 - walf_page = walf_page(locale)
 - about_page = about_page(locale)
+- portfolio_page = portfolio_page(locale)
 - network_page = network_page(locale)
 - faq_page = faq_page(locale)
 - socials = info.social
@@ -59,6 +60,11 @@ footer#footer.site-footer
               = link_to page_path(about_page, locale),
                 class: "footer-nav__menu__link" do
                 span= about_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(portfolio_page, locale),
+                class: "footer-nav__menu__link" do
+                span= portfolio_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(network_page, locale),

@@ -5,13 +5,14 @@
 section.section--standard
 
   .wrap
-    .check-anim.margin--bottom-2.align--center
-      h2.title--white.check-view [data-animation="from-bottom-to-up" data-transition="transition--xl"]
-        = block.title
+    = if params.showTitle do
+      .check-anim.margin--bottom-2.align--center
+        h2.title--white.check-view [data-animation="from-bottom-to-up" data-transition="transition--xl"]
+          = block.title
 
-    .check-anim.align--center.margin--bottom-3.margin--bottom-10-on-lap
-      h3.margin--bottom-2 data-animation="from-bottom-to-up"
-        = block.description
+      .check-anim.align--center.margin--bottom-3.margin--bottom-10-on-lap
+        h3.margin--bottom-2 data-animation="from-bottom-to-up"
+          = block.description
 
 
     .portfolio.check-anim.margin--bottom-3

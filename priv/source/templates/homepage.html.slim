@@ -27,6 +27,6 @@ header.hero--homepage
       %{block: block})
   = if block._modelApiKey == "portfolio" do
     = partial("partials/blocks/portfolio",
-      %{block: block})
+      %{block: block, showTitle: true})
 
 .margin--bottom-5.margin--bottom-8-on-lap

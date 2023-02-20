@@ -116,6 +116,17 @@ defmodule Vento do
             id: "investments_selection_program_page"}
         )
 
+        portfolio_page = portfolio_page(locale)
+        portfolio_page_path = page_path(portfolio_page, locale)
+        config = page(
+          config,
+          "/templates/portfolio_page.html.slim",
+          Fermo.Paths.path_to_target(portfolio_page_path),
+          %{page: portfolio_page(locale),
+            locale: locale,
+            id: "portfolio_page"}
+        )
+
         contact_page = contact_page(locale)
         contact_page_path = page_path(contact_page, locale)
         config = page(
