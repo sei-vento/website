@@ -487,6 +487,8 @@ defmodule Helpers do
               id
               titleSection
               titleHero
+              heroCtaLabel
+              heroCtaLink
               body {
                 ... on BigTitlePrefixImageTitleDescriptionRecord {
                   id
@@ -541,6 +543,8 @@ defmodule Helpers do
               }
               titleSection
               titleHero
+              heroCtaLabel
+              heroCtaLink
               descriptionHero
               bodyTop {
                 _modelApiKey
@@ -921,6 +925,8 @@ defmodule Helpers do
               menuLabel
               titleSection
               titleHero
+              heroCtaLabel
+              heroCtaLink
               ctaLink
               ctaLabel
               body {

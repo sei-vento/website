@@ -41,6 +41,16 @@
     background: $gradient
     animation: moveX 16s linear 0s infinite alternate, moveY 8s linear 0s infinite alternate
 
+.ball-html--blue
+  @extend .ball-html
+  +at-breakpoint(lap)
+    background: linear-gradient(0deg, $blue-color, darken($blue-color, 30%) 90%)
+
+.ball-html--green
+  @extend .ball-html
+  +at-breakpoint(lap)
+    background: linear-gradient(0deg, $green-color, darken($green-color, 30%) 90%)
+
 
 @keyframes moveX
   from
