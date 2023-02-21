@@ -10,7 +10,7 @@
     class: "button--lowercase" do
       div class="loop-holder--#{color}"
         = Enum.map items, fn item ->
-          .loop-holder__text
+          .loop-holder__text class="#{item}"
             = Enum.map items, fn a ->
               = "Apply now "
-              span = "•"
+              span class="#{a}" = "•"

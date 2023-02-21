@@ -32,7 +32,7 @@ section.section--standard
 
     .check-anim.center-desk-left-mobile.margin--bottom-10
       div data-animation="from-bottom-to-up"
-        = Enum.map Enum.with_index(block.ctaLink), fn {cta, i} ->
+        = Enum.map block.ctaLink, fn cta ->
           = link_to "/#{cta.link.slug}",
             class: "button--lowercase" do
             .button--white

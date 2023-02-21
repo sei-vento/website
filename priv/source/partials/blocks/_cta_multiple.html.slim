@@ -12,7 +12,7 @@ section.section--standard
     .flex__item.lap-6-12.align--center.align--left-on-lap
       .check-anim.margin--bottom-10
         div data-animation="from-bottom-to-up"
-          = Enum.map Enum.with_index(block.cta), fn {cta, i} ->
+          = Enum.map block.cta, fn cta ->
             - label = if(cta.label != "", do: cta.label, else: cta.link.title)
             .margin--bottom-1.margin--bottom-2-on-lap
               = link_to "/#{cta.link.slug}",
