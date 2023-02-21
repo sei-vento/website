@@ -81,7 +81,10 @@
   img
     height: 80px
     position: absolute
-    right: 30px
+    left: 0
+    +at-breakpoint(lap)
+      left: auto
+      right: 30px
 
 .widget__title
   +heading-font-family
