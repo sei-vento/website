@@ -17,19 +17,22 @@ section.block-numbered.wrap
   /     img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
 
   .flex
-    .flex__item.lap-7-12.lap-push-5-12
+    .flex__item.tab-7-12.tab-push-5-12
 
-      .margin--bottom-1
-        = if block.where != "" do
-          .check-anim
-            .prefix.color--black.margin--bottom-1.margin--bottom-2-on-lap data-animation="from-bottom-to-up"
-              i.icon--black data-icon="pin"
-              = block.where
+      = if block.where != "" ||  block.when != "" do
+        .flex.margin--bottom-1.margin--bottom-2-on-lap
+          = if block.where != "" do
+            .check-anim
+              .flex.flex--justify-start.prefix.color--black.margin--right-2 data-animation="from-bottom-to-up"
+                .flex__item.lap-1-12
+                  i.icon--black data-icon="pin"
+                .flex__item--auto
+                  span = block.where
 
-        = if block.when != "" do
-          .check-anim
-            .prefix.color--black data-animation="from-bottom-to-up"
-              = block.when
+          = if block.when != "" do
+            .check-anim
+              .prefix.color--black data-animation="from-bottom-to-up"
+                = block.when
 
       .check-anim.check-anim--inline
         h2.title--black data-animation="from-right-to-left"
@@ -59,7 +62,7 @@ section.block-numbered.wrap
               title: t("nav.apply", locale) do
               span= "Apply"
 
-    .flex__item.lap-4-12.lap-pull-7-12
+    .flex__item.tab-5-12.tab-pull-7-12
       .widget
         .block-numbered-counter
         figure.image--standard--vectorial.margin--top-6-on-lte-tab

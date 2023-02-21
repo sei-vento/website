@@ -16,21 +16,23 @@ section.block-numbered.wrap
   /     img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
 
   .flex
-    .flex__item.lap-7-12.lap-push-5-12
-      .margin--bottom-2.margin--bottom-4-on-lap
-        = if block.where != "" do
-          .check-anim
-            .prefix.margin--bottom-1.margin--bottom-2-on-lap data-animation="from-bottom-to-up"
-              i.icon--white data-icon="pin"
-              = block.where
+    .flex__item.tab-7-12.tab-push-5-12
 
-        = if block.when != "" do
-          .check-anim
-            .prefix data-animation="from-bottom-to-up"
-              = block.when
+      = if block.where != "" ||  block.when != "" do
+        .margin--bottom-2.margin--bottom-4-on-lap
+          = if block.where != "" do
+            .check-anim
+              .prefix data-animation="from-bottom-to-up"
+                i.icon--white data-icon="pin"
+                = block.where
+
+          = if block.when != "" do
+            .check-anim
+              .prefix data-animation="from-bottom-to-up"
+                = block.when
 
       .check-anim.check-anim--inline
-        h2.title--black.margin--bottom-4.margin--bottom-6-on-lap data-animation="from-right-to-left"
+        h2.title--black.margin--bottom-1.margin--bottom-2-on-lap data-animation="from-right-to-left"
           = block.bigTitle
 
       = if block.description != "" do
@@ -39,7 +41,7 @@ section.block-numbered.wrap
             = block.description
 
 
-    .flex__item.lap-4-12.lap-pull-7-12
+    .flex__item.tab-5-12.tab-pull-7-12
       .widget
         .block-numbered-counter
         figure.image--standard--vectorial.margin--top-6-on-lte-tab
