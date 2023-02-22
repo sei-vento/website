@@ -17,22 +17,30 @@ section.block-numbered.wrap
   /     img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
 
   .flex
-    .flex__item.tab-7-12.tab-push-5-12
+    .flex__item.tab-7-12.tab-push-5-12.padding--left-3-on-tab.padding--left-8-on-lap
 
       = if block.where != "" ||  block.when != "" do
-        .flex.margin--bottom-1.margin--bottom-2-on-lap
+        .margin--bottom-2.margin--bottom-3-on-lap
+
           = if block.where != "" do
-            .check-anim
-              .flex.flex--justify-start.prefix.color--black.margin--right-2 data-animation="from-bottom-to-up"
-                .flex__item.lap-1-12
-                  i.icon--black data-icon="pin"
-                .flex__item--auto
-                  span = block.where
+            .inline-block
+              .check-anim
+                .prefix.color--black.margin--right-2 data-animation="from-bottom-to-up"
+                  .inline-block
+                    i.icon--black data-icon="pin"
+                  .inline-block
+                    span = block.where
+
+          = if block.where != "" && block.when != "" do
+            span.color--black = " - "
 
           = if block.when != "" do
-            .check-anim
-              .prefix.color--black data-animation="from-bottom-to-up"
-                = block.when
+            .inline-block
+              .check-anim
+                .prefix.color--black data-animation="from-bottom-to-up"
+                  = block.when
+
+        hr.margin--bottom-2.margin--bottom-3-on-lap
 
       .check-anim.check-anim--inline
         h2.title--black data-animation="from-right-to-left"
