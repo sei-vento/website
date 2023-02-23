@@ -291,11 +291,11 @@ defmodule Helpers do
                       blurUpThumb
                     }
                   }
+                  cta
                   ctaText
-                  ctaLink {
-                    label
-                    link {
-                      ... on AboutPageRecord {
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
                         id
                         title
                         slug
@@ -311,11 +311,6 @@ defmodule Helpers do
                         slug
                       }
                       ... on HomePageRecord {
-                        id
-                        title
-                        slug
-                      }
-                      ... on PortfolioPageRecord {
                         id
                         title
                         slug
@@ -340,13 +335,18 @@ defmodule Helpers do
                         title
                         slug
                       }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
                       ... on WalfPageRecord {
                         id
                         title
                         slug
                       }
-                    }
                   }
+                  externalLinkUrl
                 }
               }
             }
@@ -453,11 +453,11 @@ defmodule Helpers do
                       blurUpThumb
                     }
                   }
+                  cta
                   ctaText
-                  ctaLink {
-                    label
-                    link {
-                      ... on AboutPageRecord {
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
                         id
                         title
                         slug
@@ -497,13 +497,18 @@ defmodule Helpers do
                         title
                         slug
                       }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
                       ... on WalfPageRecord {
                         id
                         title
                         slug
                       }
-                    }
                   }
+                  externalLinkUrl
                 }
               }
             }

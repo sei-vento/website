@@ -1,4 +1,5 @@
 - block = params.block
+- block_link = block.link
 / - images = block.image
 / - image_responsive = image.responsiveImage
 
@@ -32,9 +33,14 @@ section.section--standard
 
     .check-anim.center-desk-left-mobile.margin--bottom-10
       div data-animation="from-bottom-to-up"
-        = Enum.map block.ctaLink, fn cta ->
-          = link_to "/#{cta.link.slug}",
+        = if block.internalOrExternal == "internal_link" do
+          = link_to "/#{block_link.slug}",
             class: "button--lowercase" do
             .button--white
-              span = cta.label
+              span = block.cta
+
+        = if block.internalOrExternal == "external_link" do
+          a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"
+            .button--white
+              span = block.cta
               i.icon data-icon="arrow-right"
