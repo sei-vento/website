@@ -8,16 +8,13 @@
       = page.titleHero
     .hero__action
       .margin--top-2.margin--top-4-on-lap
-        = link_to "/#investments",
-          class: "button--blue",
-          title: "Go to content investments" do
+
+        a.button--blue.js-anchor data-target="#investments" title="Go to content investments"
           span = page.cta
           i.icon data-icon="arrow-right"
 
       .margin--top-2
-        = link_to "/#venture-building",
-          class: "button--green",
-          title: "Go to content venture building" do
+        a.button--green.js-anchor data-target="#venture-building" title="Go to content venture building"
           span = page.cta2
           i.icon data-icon="arrow-right"
 

@@ -143,7 +143,7 @@ function checkAnim () {
     }
   }
 }
-checkAnim();
+// checkAnim();
 document.addEventListener('scroll', function(e) {
   checkAnim();
 });
@@ -192,16 +192,33 @@ const handleVideoFull = () => {
 
   return null
 }
+// set top to anchor point
+const anchorElements = document.querySelectorAll(".js-anchor");
 
+for (i = 0; i < anchorElements.length; i++) {
+  let target = anchorElements[i].dataset.target;
+  let section = document.querySelector(target)
+
+  anchorElements[i].addEventListener('click', function (e) {
+    e.preventDefault;
+    console.log('section', section.offsetTop)
+    window.scrollTo({
+      top: section.offsetTop - 300,
+      left: 0,
+      behavior: "smooth"});
+  })
+}
+
+
+//check viewport for change background
 const container = document.querySelector("body");
 const bgElements = document.querySelectorAll(".check-view");
 let bg = "black"
 function checkViewport() {
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight
-  const partialViewportHeight = viewportHeight - 100  /*reduce area to check*/
+  const partialViewportHeight = viewportHeight - 150  /*reduce area to check*/
 
   const isInViewport = function (elem) {
-    console.log('elem',elem)
     var start = window.scrollY - elem.offsetTop + partialViewportHeight;
     var stop = window.scrollY - elem.offsetTop - elem.clientHeight;
     return (
