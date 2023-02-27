@@ -3,41 +3,39 @@
 / - images = block.image
 / - image_responsive = image.responsiveImage
 
-section.section--standard
+.wrap
+  = if params.showTitle do
+    .check-anim.margin--bottom-2.align--center
+      h2.title--white.check-view [data-animation="from-bottom-to-up" data-transition="transition--xl"]
+        = block.title
 
-  .wrap
-    = if params.showTitle do
-      .check-anim.margin--bottom-2.align--center
-        h2.title--white.check-view [data-animation="from-bottom-to-up" data-transition="transition--xl"]
-          = block.title
-
-      .check-anim.align--center.margin--bottom-3.margin--bottom-10-on-lap
-        h3.margin--bottom-2 data-animation="from-bottom-to-up"
-          = block.description
+    .check-anim.align--center.margin--bottom-3.margin--bottom-10-on-lap
+      h3.margin--bottom-2 data-animation="from-bottom-to-up"
+        = block.description
 
 
-    .portfolio.check-anim.margin--bottom-3
-      = Enum.map Enum.with_index(block.images), fn {item, i} ->
-        - current_image = item.image.responsiveImage
-        - color_class = if item.label == "Investments", do: "investments", else: "venture"
-        .portfolio__item class="#{color_class}" data-animation="from-bottom-to-up" data-delay="delay-#{i}"
-          figure class="portfolio__image"
-            img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
+  .portfolio.check-anim.margin--bottom-3
+    = Enum.map Enum.with_index(block.images), fn {item, i} ->
+      - current_image = item.image.responsiveImage
+      - color_class = if item.label == "Investments", do: "investments", else: "venture"
+      .portfolio__item class="#{color_class}" data-animation="from-bottom-to-up" data-delay="delay-#{i}"
+        figure class="portfolio__image"
+          img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
 
-          div class="portfolio__label"
-            = item.label
+        div class="portfolio__label"
+          = item.label
 
-    .check-anim.margin--bottom-3
-      h3.title.center-desk-left-mobile.color--gray-l.margin--bottom-2 data-animation="from-bottom-to-up"
-        = block.ctaText
+  .check-anim.margin--bottom-3
+    h3.title.center-desk-left-mobile.color--gray-l.margin--bottom-2 data-animation="from-bottom-to-up"
+      = block.ctaText
 
-    .check-anim.center-desk-left-mobile.margin--bottom-10
-      div data-animation="from-bottom-to-up"
-        = if block.internalOrExternal == "internal_link" do
-          = link_to "/#{block_link.slug}",
-            class: "button--lowercase" do
-            .button--white
-              span = block.cta
+  .check-anim.center-desk-left-mobile.margin--bottom-10
+    div data-animation="from-bottom-to-up"
+      = if block.internalOrExternal == "internal_link" do
+        = link_to "/#{block_link.slug}",
+          class: "button--lowercase" do
+          .button--white
+            span = block.cta
 
         = if block.internalOrExternal == "external_link" do
           a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"

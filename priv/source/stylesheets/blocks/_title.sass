@@ -47,6 +47,11 @@
     font-weight: normal
     color: $green-color
 
+.hero__title--gradient
+  p
+    @extend .hero__title
+    +gradient-text
+
 .title__hero--small
   @extend .title__hero
   +font-size(zeta)

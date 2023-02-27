@@ -70,11 +70,18 @@ $tab-border-color: $white-color
   color: $black-color
   background-color: $blue-color
 
+  .is-active &
+    &::after
+      background: $blue-color
+
 .tab__item__link--green
   @extend .tab__item__link
   color: $black-color
   background-color: $green-color
 
+  .is-active &
+    &::after
+      background: $green-color
 
 .tab__content
   display: block

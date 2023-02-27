@@ -127,7 +127,7 @@ var getScroll = document.getElementById("get-scroll");
 var elements = document.querySelectorAll(".check-anim");
 var row = document.querySelectorAll(".service--list li")
 function checkAnim () {
-  var getScrollHeight = getScroll.offsetHeight;
+  var getScrollHeight = getScroll.offsetHeight + 100;
   for (i = 0; i < elements.length; i++) {
     if (elements[i].getBoundingClientRect().top < getScrollHeight) {
       elements[i].classList.add("anim")
@@ -143,7 +143,7 @@ function checkAnim () {
     }
   }
 }
-// checkAnim();
+checkAnim();
 document.addEventListener('scroll', function(e) {
   checkAnim();
 });
@@ -233,7 +233,7 @@ function checkViewport() {
     }
   }
 }
-checkViewport();
+// checkViewport();
 document.addEventListener('scroll', function (e) {
   checkViewport();
 });

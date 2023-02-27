@@ -26,7 +26,8 @@ header.hero--homepage
     = partial("partials/blocks/cta_multiple",
       %{block: block})
   = if block._modelApiKey == "portfolio" do
-    = partial("partials/blocks/portfolio",
-      %{block: block, showTitle: true})
+    section.section--spaced
+      = partial("partials/blocks/portfolio",
+        %{block: block, showTitle: true})
 
 .margin--bottom-5.margin--bottom-8-on-lap

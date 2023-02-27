@@ -1,12 +1,14 @@
 - page = params.page
 - title = if page.titleSection != "", do: page.titleSection, else: page.title
 - color = if params.color != "", do: "--#{params.color}", else: ""
+- heroColor = if params.color != "", do: "hero__title--#{params.color}", else: "hero__title--gradient"
 
 .hero__inner.check-view
   .flex
     .flex__item.lap-6-12
-      .margin--bottom-2 class="hero__title#{color}"
+      .margin--bottom-2 class="#{heroColor}"
         = title
+      / .margin--bottom-2 class="hero__title#{color}"
 
     .flex__item.lap-6-12
       h1.title__hero
