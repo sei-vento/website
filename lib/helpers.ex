@@ -377,6 +377,7 @@ defmodule Helpers do
               }
               titleSection
               titleHero
+              descriptionHero
               service {
                 ... on ContactBlockRecord {
                   id
@@ -532,6 +533,7 @@ defmodule Helpers do
               menuLabel
               titleSection
               titleHero
+              descriptionHero
               heroCtaLabel
               heroCtaLink
               body {
@@ -661,6 +663,7 @@ defmodule Helpers do
               id
               titleSection
               titleHero
+              descriptionHero
               heroCtaLabel
               heroCtaLink
               body {
@@ -894,6 +897,7 @@ defmodule Helpers do
               }
               titleSection
               titleHero
+              descriptionHero
               blockManifesto {
                 _modelApiKey
                 id
@@ -1156,6 +1160,7 @@ defmodule Helpers do
               menuLabel
               titleSection
               titleHero
+              descriptionHero
               heroCtaLabel
               heroCtaLink
               bodyTop {
@@ -1207,6 +1212,7 @@ defmodule Helpers do
               menuLabel
               titleSection
               titleHero
+              descriptionHero
               heroCtaLabel
               heroCtaLink
               ctaLink
