@@ -1,5 +1,9 @@
 - block = params.block
 - block_link = block.link
+- link_portfolio_label = block.linkPortfolioLabel
+- locale = params.locale
+- link_page = portfolio_page(locale)
+- margin_portfolio = if link_portfolio_label != "", do: "margin--bottom-1", else: "margin--bottom-6"
 / - images = block.image
 / - image_responsive = image.responsiveImage
 
@@ -14,7 +18,7 @@
         = block.description
 
 
-  .portfolio.check-anim.margin--bottom-3
+  .portfolio.check-anim class="#{margin_portfolio}"
     = Enum.map Enum.with_index(block.images), fn {item, i} ->
       - current_image = item.image.responsiveImage
       - color_class = if item.label == "Investments", do: "investments", else: "venture"
@@ -24,6 +28,15 @@
 
         div class="portfolio__label"
           = item.label
+
+
+  = if link_portfolio_label != "" do
+    .check-anim.margin--bottom-6.text-center
+      = link_to page_path(link_page, locale),
+        class: "button" do
+        .button--white
+          span = link_portfolio_label
+          i.icon data-icon="arrow-right"
 
   .check-anim.margin--bottom-3
     h3.title.center-desk-left-mobile.color--gray-l.margin--bottom-2 data-animation="from-bottom-to-up"
@@ -37,8 +50,8 @@
           .button--white
             span = block.cta
 
-        = if block.internalOrExternal == "external_link" do
-          a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"
-            .button--white
-              span = block.cta
-              i.icon data-icon="arrow-right"
+      = if block.internalOrExternal == "external_link" do
+        a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"
+          .button--white
+            span = block.cta
+            i.icon data-icon="arrow-right"

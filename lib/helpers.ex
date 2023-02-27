@@ -291,6 +291,7 @@ defmodule Helpers do
                       blurUpThumb
                     }
                   }
+                  linkPortfolioLabel
                   cta
                   ctaText
                   internalOrExternal
@@ -453,6 +454,7 @@ defmodule Helpers do
                       blurUpThumb
                     }
                   }
+                  linkPortfolioLabel
                   cta
                   ctaText
                   internalOrExternal
