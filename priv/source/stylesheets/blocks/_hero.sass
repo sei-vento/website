@@ -25,9 +25,10 @@
 .hero--homepage
   @extend .hero
   // background: $background-l
-  min-height: 100vh
   overflow-y: hidden
   +padding-top(8)
+  +at-breakpoint(desk)
+    min-height: 100vh
 
 .hero__inner
   min-height: 80vh
@@ -45,8 +46,8 @@
   strong
     font-weight: bold
   +at-breakpoint(lap)
-    +font-size(50px)
-    line-height: 90px
+    +font-size(gamma)
+    // line-height: 90px
   // +at-breakpoint(desk)
   //   // +margin-top(4)
   //   line-height: 90px
@@ -94,8 +95,8 @@
   +margin-top(4)
   +at-breakpoint(lap)
     +margin-top(0)
-  +at-breakpoint(desk)
-    height: calc(100vh - 6rem)
+  +at-breakpoint(lap)
+    height: 80vh
     position: relative
 
 .hero__image
