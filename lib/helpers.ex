@@ -283,6 +283,7 @@ defmodule Helpers do
                   _modelApiKey
                   images {
                     label
+                    externalLink
                     image {
                       responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
                       imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
@@ -447,6 +448,7 @@ defmodule Helpers do
                   _modelApiKey
                   images {
                     label
+                    externalLink
                     image {
                       responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
                       imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {

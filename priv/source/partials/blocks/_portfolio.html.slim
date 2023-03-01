@@ -23,11 +23,19 @@
       - current_image = item.image.responsiveImage
       - color_class = if item.label == "Investments", do: "investments", else: "venture"
       .portfolio__item class="#{color_class}" data-animation="from-bottom-to-up" data-delay="delay-#{i}"
-        figure class="portfolio__image"
-          img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
+        = if item.externalLink != "" do
+          a href="#{item.externalLink}" target="_blank"
+            figure class="portfolio__image"
+              img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
 
-        div class="portfolio__label"
-          = item.label
+            div class="portfolio__label"
+              = item.label
+        = if item.externalLink == "" do
+          figure class="portfolio__image"
+            img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
+
+          div class="portfolio__label"
+            = item.label
 
 
   = if link_portfolio_label != "" do

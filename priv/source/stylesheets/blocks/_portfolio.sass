@@ -38,6 +38,23 @@
     margin-right: 50px
     +margin-bottom(3)
 
+  &.investments
+  border-color: $blue-color
+  .portfolio__label
+    &:before,
+    &:after
+      background: $blue-color
+
+  &.venture
+    border-color: $green-color
+    .portfolio__label
+      &:before,
+      &:after
+        background: $green-color
+
+  & a:hover .portfolio__image
+    transform: scale(1.15)
+
 .portfolio__label
   overflow: hidden
   +heading-font-family
@@ -68,24 +85,10 @@
     left: 75%
     right: -200%
 
-
-.portfolio__item.investments
-  border-color: $blue-color
-  .portfolio__label
-    &:before,
-    &:after
-      background: $blue-color
-
-.portfolio__item.venture
-  border-color: $green-color
-  .portfolio__label
-    &:before,
-    &:after
-      background: $green-color
-
 .portfolio__image
   width: 100%
   height: 100%
+  transition: .35s
 
   img
     +center
@@ -94,4 +97,3 @@
     +at-breakpoint(desk)
       width: 50%
       height: 50%
-
