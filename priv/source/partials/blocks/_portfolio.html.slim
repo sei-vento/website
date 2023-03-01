@@ -30,6 +30,7 @@
 
             div class="portfolio__label"
               = item.label
+
         = if item.externalLink == "" do
           figure class="portfolio__image"
             img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
