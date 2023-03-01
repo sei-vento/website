@@ -1191,9 +1191,6 @@ defmodule Helpers do
                 label
                 number
               }
-              prefix
-              text
-              cta
               #{seo_meta_tags_fragment()}
             }
           }

@@ -43,29 +43,5 @@ header.hero
             = partial("partials/blocks/numbers_widget",
               %{block: block, n: n})
 
-section.background--light
-
-  .wrap.check-view data-bg=""
-
-    .flex--justify-center
-      .flex__item.lap-10-12
-        .center-desk-left-mobile
-          .margin--bottom-3.margin--bottom-6-on-lap.check-anim
-            .prefix.center-desk-left-mobile [data-animation="from-bottom-to-up"]
-              = page.prefix
-
-          .margin--bottom-3.margin--bottom-6-on-lap.check-anim
-            .title.center-desk-left-mobile.color--gray-l [data-animation="from-bottom-to-up"]
-              = page.text
-
-          .check-anim
-            .action [data-animation="from-bottom-to-up"]
-              = link_to page_path(link_page, locale),
-                class: "button--lowercase" do
-
-                .button--white
-                  span = page.cta
-                  i.icon data-icon="arrow-right"
-
 section.section--standard.margin--both-6.margin--both-10-on-lap
   = partial("partials/blocks/apply_loop",%{color: "blue", link: link})
