@@ -1,5 +1,9 @@
 - page = params.page
 - block_service = page.service
+- locale = params.locale
+- portfolio_page = portfolio_page(locale)
+- block_service_portfolio = portfolio_page.service
+- model_page = page._modelApiKey
 
 - content_for(:head)
   = dato_meta_tags(params.page)
@@ -25,9 +29,15 @@ header.hero--homepage
   = if block._modelApiKey == "cta_multiple" do
     = partial("partials/blocks/cta_multiple",
       %{block: block})
+  / = if block._modelApiKey == "portfolio" do
+  /   section.section--spaced
+  /     = partial("partials/blocks/portfolio",
+  /       %{block: block, showTitle: true})
+
+= Enum.map block_service_portfolio, fn block ->
   = if block._modelApiKey == "portfolio" do
     section.section--spaced
       = partial("partials/blocks/portfolio",
-        %{block: block, showTitle: true})
+        %{block: block, model: model_page})
 
 .margin--bottom-5.margin--bottom-8-on-lap

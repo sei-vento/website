@@ -3,12 +3,15 @@
 - link_portfolio_label = block.linkPortfolioLabel
 - locale = params.locale
 - link_page = portfolio_page(locale)
-- margin_portfolio = if link_portfolio_label != "", do: "margin--bottom-1", else: "margin--bottom-6"
+- model = params.model
+- margin_portfolio = if model == "portfolio_page", do: "margin--bottom-6", else: "margin--bottom-2"
+- limit = if model == "home_page", do: 7, else: 200
 / - images = block.image
 / - image_responsive = image.responsiveImage
 
+
 .wrap
-  = if params.showTitle do
+  = if model == "home_page" do
     .check-anim.margin--bottom-2.align--center
       h2.title--white.check-view [data-animation="from-bottom-to-up" data-transition="transition--xl"]
         = block.title
@@ -17,29 +20,29 @@
       h3.margin--bottom-2 data-animation="from-bottom-to-up"
         = block.description
 
-
   .portfolio.check-anim class="#{margin_portfolio}"
     = Enum.map Enum.with_index(block.images), fn {item, i} ->
       - current_image = item.image.responsiveImage
       - color_class = if item.label == "Investments", do: "investments", else: "venture"
-      .portfolio__item class="#{color_class}" data-animation="from-bottom-to-up" data-delay="delay-#{i}"
-        = if item.externalLink != "" do
-          a href="#{item.externalLink}" target="_blank"
+      = if i <= limit do
+        .portfolio__item class="#{color_class}" data-animation="from-bottom-to-up" data-delay="delay-#{i}"
+          = if item.externalLink != "" do
+            a href="#{item.externalLink}" target="_blank"
+              figure class="portfolio__image"
+                img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
+
+              div class="portfolio__label"
+                = item.label
+
+          = if item.externalLink == "" do
             figure class="portfolio__image"
               img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
 
             div class="portfolio__label"
               = item.label
 
-        = if item.externalLink == "" do
-          figure class="portfolio__image"
-            img.lazyload.img--contain src=item.image.blurUpThumb data-srcset=current_image.srcSet data-src=current_image.src data-sizes=current_image.sizes alt=current_image.alt title=current_image.title
 
-          div class="portfolio__label"
-            = item.label
-
-
-  = if link_portfolio_label != "" do
+  = if model == "home_page" do
     .check-anim.margin--bottom-6.text-center
       = link_to page_path(link_page, locale),
         class: "button" do
