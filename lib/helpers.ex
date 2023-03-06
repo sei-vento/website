@@ -1041,6 +1041,7 @@ defmodule Helpers do
               copyFooter
               email
               emailInvestments
+              emailVentureBuilding
               address
               emailForm
               linkApplyInvestments

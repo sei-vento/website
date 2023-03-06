@@ -20,9 +20,9 @@ header.hero--homepage
   = if block._modelApiKey == "prefix_title_link_image" do
     = partial("partials/blocks/prefix_title_link_image",
       %{block: block})
-  = if block._modelApiKey == "contact_block" do
-    = partial("partials/blocks/contact_block",
-      %{block: block})
+  / = if block._modelApiKey == "contact_block" do
+  /   = partial("partials/blocks/contact_block",
+  /     %{block: block})
   = if block._modelApiKey == "internal_link" do
     = partial("partials/blocks/internal_link",
       %{block: block})
@@ -39,5 +39,10 @@ header.hero--homepage
     section.section--spaced
       = partial("partials/blocks/portfolio",
         %{block: block, model: model_page})
+
+= Enum.map block_service, fn block ->
+  = if block._modelApiKey == "contact_block" do
+    = partial("partials/blocks/contact_block",
+      %{block: block})
 
 .margin--bottom-5.margin--bottom-8-on-lap
