@@ -7,6 +7,7 @@
   text-align: center
   +vertical-padding(4)
   transition: all 0.3s ease
+  overflow: auto
 
   &.is-hidden
     opacity: 0
@@ -14,19 +15,20 @@
 
 .overlay-nav__menu
   text-align: left
-  +at-breakpoint(lte-lap)
-    +vertical-padding(4)
+  +margin-top(3)
+  +at-breakpoint(lap)
+    +margin-top(6)
 
 .overlay-nav__menu--small
   @extend .overlay-nav__menu
-  +vertical-padding(1)
-  +at-breakpoint(lap)
-    +vertical-padding(3)
-
-.overlay-nav__menu__item
-  +vertical-margin(1.2)
+  +vertical-margin(1)
   +at-breakpoint(lap)
     +vertical-margin(3)
+
+.overlay-nav__menu__item
+  +margin-bottom(1)
+  +at-breakpoint(lap)
+    +margin-bottom(2)
 
 .overlay-nav__menu__item--small
   @extend .overlay-nav__menu__item
@@ -38,21 +40,65 @@
   color: $gray-l-color
   text-transform: uppercase
   letter-spacing: 3.43px
-  transition: .6s
+  transition: .4s
   +hover
     +gradient-text
   +at-breakpoint(lap)
     +font-size(epsilon)
   +at-breakpoint(desk)
-    +font-size(35px)
+    +font-size(28px)
 
   &.is-active
     color: $white-color
     font-weight: 600
 
+.overlay-nav__menu__link--investment,
+.overlay-nav__menu__link--venture
+  color: $gray-l-color
+  text-transform: uppercase
+  letter-spacing: 3.43px
+  transition: .4s
+  +at-breakpoint(lap)
+    +font-size(epsilon)
+  +at-breakpoint(desk)
+    +font-size(28px)
+  &.is-active,
+  &.is-active:hover
+    color: $white-color
+    font-weight: 600
+
+.overlay-nav__menu__link--investment
+  &:hover
+    color: $blue-color
+
+.overlay-nav__menu__link--venture
+  &:hover
+    color: $green-color
+
+.overlay-nav__menu__label
+  +heading-font-family
+  color: $white-color
+  text-transform: uppercase
+  letter-spacing: 3.43px
+  font-weight: 600
+
+  +at-breakpoint(lap)
+    +font-size(epsilon)
+  +at-breakpoint(desk)
+    +font-size(28px)
+
+
 .overlay-nav__menu__link--small
   @extend .overlay-nav__menu__link
-  +font-size(mini)
+  +font-size(milli)
+  letter-spacing: 2.14px
+  +at-breakpoint(lap)
+    +font-size(regular)
+
+.overlay-nav__menu__link--mail
+  @extend .overlay-nav__menu__link
+  text-transform: none
+  +font-size(smallprint)
   letter-spacing: 2.14px
   +at-breakpoint(lap)
     +font-size(regular)
@@ -63,6 +109,7 @@
   +font-size(mini)
   letter-spacing: 2.5px
   text-transform: uppercase
+  // +margin-top(6)
   +at-breakpoint(lap)
     +font-size(smallprint)
     letter-spacing: 3px

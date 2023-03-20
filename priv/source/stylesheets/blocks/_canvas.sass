@@ -10,6 +10,7 @@
   justify-content: space-between
   align-items: center
   height: $canvas-mobile-topbar-height
+  +margin-top(1)
   +horizontal-padding(5vw)
   +at-breakpoint(tab)
     height: $canvas-desk-topbar-height
@@ -31,32 +32,40 @@
   background-repeat: no-repeat
   background-size: contain
   text-indent: 100%
-  width: 130px
-  height: 40px
+  width: 70px
+  height: 20px
   white-space: nowrap
   overflow: hidden
   transition: none
-  +at-breakpoint(tab)
-    width: 150px
-    height: 60px
+
   +at-breakpoint(lap)
-    width: 190px
-    height: 80px
+    width: 140px
+    height: 40px
+
+.canvas__header__payoff
+  margin-top: 4px
+  font-size: 5px
+  +heading-font-family
+  color: white
+
+  +at-breakpoint(lap)
+    font-size: 10px
+    margin-top: 10px
 
 .canvas__header__top__right
   display: flex
   justify-content: space-between
   align-items: center
-  width: 50vw
-  +at-breakpoint(tab)
-    width: 30vw
-  +at-breakpoint(lap)
-    width: 33.3333%
-    +horizontal-padding(1)
-  +at-breakpoint(lap)
-    width: 350px
-  +at-breakpoint(monitor)
-    width: 24%
+  // width: 50vw
+  // +at-breakpoint(tab)
+  //   width: 30vw
+  // +at-breakpoint(lap)
+  //   width: 33.3333%
+  //   +horizontal-padding(1)
+  // +at-breakpoint(lap)
+  //   width: 350px
+  // +at-breakpoint(monitor)
+  //   width: 24%
 
 .canvas__header__top-nav
   display: none
@@ -75,7 +84,43 @@
 
   &:first-child
     border: none
-    
+
+.canvas__header__cta
+  margin-right: 10px
+
+  +at-breakpoint(lap)
+    margin-right: 50px
+
+.canvas__header__cta__label
+  +heading-font-family
+  text-align: center
+  text-transform: uppercase
+  font-size: 7px
+  +at-breakpoint(lap)
+    font-size: 12px
+
+.canvas__header__cta__label--investments
+  @extend .canvas__header__cta__label
+  color: $blue-color
+.canvas__header__cta__label--venture
+  @extend .canvas__header__cta__label
+  color: $green-color
+
+.canvas__header__cta__link
+  +heading-font-family
+  display: flex
+  justify-content: center
+  align-items: center
+  color: white
+  text-transform: uppercase
+  font-size: 10px
+
+  +at-breakpoint(lap)
+    font-size: 16px
+
+  & > div
+    margin-right: 8px
+
 .canvas__main
   overflow-x: hidden
   main

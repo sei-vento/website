@@ -33,7 +33,7 @@ const handleNavOverlayToggle = () => {
       }
     })
   }
-  
+
   button_menu.forEach(button => {
     button.addEventListener('click', () => {
       if (menu.getAttribute('aria-hidden') === 'true') {
@@ -72,7 +72,7 @@ const swiper = new Swiper('.swiper-program', {
       initialSlide: 1,
       allowTouchMove: false
     }
-  }  
+  }
 });
 
 const swiper_manifesto = new Swiper('.swiper-manifesto', {
@@ -89,7 +89,7 @@ function move(elements) {
   var movement = window.scrollY/3
   movement = movement + 1
   var i = 0
-  for (i = 0; i < elements.length; i++) {  
+  for (i = 0; i < elements.length; i++) {
     elements[i].style.transform = "translateY(-"+ movement +"px)"
   }
 }
@@ -98,25 +98,25 @@ document.addEventListener('scroll', function(e) {
 });
 
 // tab
-var links = document.querySelectorAll('.tab__item__link');
+var links = document.querySelectorAll('[class*=tab__item__link]');
 var contents = document.querySelectorAll('.tab__content__item');
 var i = 0;
-for (i = 0; i < links.length; i++) {  
+for (i = 0; i < links.length; i++) {
   links[i].addEventListener('click', function (e) {
     e.preventDefault();
-    var tab_id = this.getAttribute("href");    
+    var tab_id = this.getAttribute("href");
     for (i = 0; i < links.length; i++) {
-      links[i].classList.remove('is-active');
+      links[i].closest('.tab__item').classList.remove('is-active');
     }
     for (i = 0; i < contents.length; i++) {
       contents[i].classList.remove('is-active');
     }
-    this.classList.add('is-active');
+    this.closest('.tab__item').classList.add('is-active');
     var thisContent = document.querySelectorAll(tab_id)
     for (i = 0; i < thisContent.length; i++) {
       thisContent[i].classList.add('is-active');
     }
-  })  
+  })
 }
 
 isMotionReduced();
@@ -127,15 +127,15 @@ var getScroll = document.getElementById("get-scroll");
 var elements = document.querySelectorAll(".check-anim");
 var row = document.querySelectorAll(".service--list li")
 function checkAnim () {
-  var getScrollHeight = getScroll.offsetHeight;
-  for (i = 0; i < elements.length; i++) {    
+  var getScrollHeight = getScroll.offsetHeight + 100;
+  for (i = 0; i < elements.length; i++) {
     if (elements[i].getBoundingClientRect().top < getScrollHeight) {
       elements[i].classList.add("anim")
     } else{
       elements[i].classList.remove("anim")
     }
   }
-  for (i = 0; i < row.length; i++) {    
+  for (i = 0; i < row.length; i++) {
     if (row[i].getBoundingClientRect().top < getScrollHeight) {
       row[i].classList.add("anim")
     } else{
@@ -192,6 +192,54 @@ const handleVideoFull = () => {
 
   return null
 }
+// set top to anchor point
+const anchorElements = document.querySelectorAll(".js-anchor");
+
+for (i = 0; i < anchorElements.length; i++) {
+  let target = anchorElements[i].dataset.target;
+  let section = document.querySelector(target)
+
+  anchorElements[i].addEventListener('click', function (e) {
+    e.preventDefault;
+    console.log('section', section.offsetTop)
+    window.scrollTo({
+      top: section.offsetTop - 300,
+      left: 0,
+      behavior: "smooth"});
+  })
+}
+
+
+//check viewport for change background
+const container = document.querySelector("body");
+const bgElements = document.querySelectorAll(".check-view");
+let bg = "black"
+function checkViewport() {
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+  const partialViewportHeight = viewportHeight - 150  /*reduce area to check*/
+
+  const isInViewport = function (elem) {
+    var start = window.scrollY - elem.offsetTop + partialViewportHeight;
+    var stop = window.scrollY - elem.offsetTop - elem.clientHeight;
+    return (
+      start > 0 && stop < 0
+    );
+  };
+  for (i = 0; i < bgElements.length; i++) {
+    const section = bgElements[i].closest('section, [class*="hero"]')
+    if (isInViewport(section)) {
+      bg = bgElements[i].dataset.bg ? bgElements[i].dataset.bg : "black"
+      container.style.backgroundColor = bg;
+    }
+  }
+}
+// checkViewport();
+document.addEventListener('scroll', function (e) {
+  checkViewport();
+});
+window.addEventListener('resize', function (e) {
+  checkViewport();
+});
 
 handleVideoFull()
 

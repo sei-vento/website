@@ -1,0 +1,24 @@
+- page = params.page
+/ - locale = params.locale
+- blocks = page.body
+- link = page.ctaLink
+
+- content_for(:head)
+  = dato_meta_tags(params.page)
+
+header.hero
+  .wrap
+    = partial("partials/hero_cta",
+      %{page: page, color: "blue"})
+
+section.section--standard
+  .check-view data-bg="#43AAFF"
+    = Enum.map blocks, fn block ->
+      = if block._modelApiKey == "big_title_prefix_image_description" do
+        = partial("partials/blocks/big_title_prefix_image_description",
+          %{block: block})
+
+
+
+section.section--standard.margin--both-6.margin--both-10-on-lap
+  = partial("partials/blocks/apply_loop",%{color: "blue", link: link })

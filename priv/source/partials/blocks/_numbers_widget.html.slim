@@ -1,0 +1,13 @@
+- block = params.block
+- n = params.n
+
+.check-anim
+  .flex.flex--justify-center
+    .flex__item.lap-6-12
+      .widget.margin--bottom-2 data-animation="from-bottom-to-up" data-delay="delay-#{n}"
+
+        h3.title--huge--white
+          = block.number
+
+        .text-label
+          = block.label

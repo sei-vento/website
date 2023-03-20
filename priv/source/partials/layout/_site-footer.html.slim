@@ -1,11 +1,14 @@
 - locale = params.locale
 - info = info(locale)
-- phones = info.phone
-- homepage = home_page(locale)
+/ - phones = info.phone
+/ - homepage = home_page(locale)
+- investments_program_page = investments_program_page(locale)
+- investments_selection_program_page = investments_selection_program_page(locale)
 - program_page = program_page(locale)
 - application_page = application_page(locale)
 - walf_page = walf_page(locale)
 - about_page = about_page(locale)
+- portfolio_page = portfolio_page(locale)
 - network_page = network_page(locale)
 - faq_page = faq_page(locale)
 - socials = info.social
@@ -45,65 +48,67 @@ footer#footer.site-footer
 
         .flex__item.tab-6-12.lap-3-12.margin--top-3-on-lte-palm
           .prefix--small.margin--bottom-2
-            = "Sitemap"
+            = "Vento"
 
           ul.footer-nav__menu
-
             li.footer-nav__menu__item
               = link_to locale_url_prefix(locale),
                 class: "footer-nav__menu__link" do
                 span= "Homepage"
 
             li.footer-nav__menu__item
-              = link_to page_path(program_page, locale),
-                class: "footer-nav__menu__link" do
-
-                span= program_page.menuLabel
-
-            li.footer-nav__menu__item
-              = link_to page_path(application_page, locale),
-                class: "footer-nav__menu__link" do
-
-                span= application_page.menuLabel
-
-            li.footer-nav__menu__item
-              = link_to page_path(walf_page, locale),
-                class: "footer-nav__menu__link" do
-
-                span= walf_page.menuLabel
-
-            li.footer-nav__menu__item
               = link_to page_path(about_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= about_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(portfolio_page, locale),
+                class: "footer-nav__menu__link" do
+                span= portfolio_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(network_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= network_page.menuLabel
 
             li.footer-nav__menu__item
               = link_to page_path(faq_page, locale),
                 class: "footer-nav__menu__link" do
-
                 span= faq_page.menuLabel
 
         .flex__item.tab-6-12.lap-3-12.margin--top-3-on-lte-palm
           .prefix--small.margin--bottom-2
-            = "Social"
+            = "Investments"
 
           ul.footer-nav__menu
-            = Enum.map socials, fn social ->
-              li.footer-nav__menu__item
-                = link_to social.link,
-                  class: "footer-nav__menu__link",
-                  title: "Link to #{social.title} (open in new window)",
-                  rel: "noopener noreferrer",
-                  target: "_blank" do
+            li.footer-nav__menu__item
+              = link_to page_path(investments_program_page, locale),
+                class: "footer-nav__menu__link" do
+                span= investments_program_page.menuLabel
 
-                  span= social.title
+            li.footer-nav__menu__item
+              = link_to page_path(investments_selection_program_page, locale),
+                class: "footer-nav__menu__link" do
+                span= investments_selection_program_page.menuLabel
+
+          .prefix--small.margin--top-4.margin--bottom-2
+            = "Venture building"
+
+          ul.footer-nav__menu
+            li.footer-nav__menu__item
+              = link_to page_path(program_page, locale),
+                class: "footer-nav__menu__link" do
+                span= program_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(application_page, locale),
+                class: "footer-nav__menu__link" do
+                span= application_page.menuLabel
+
+            li.footer-nav__menu__item
+              = link_to page_path(walf_page, locale),
+                class: "footer-nav__menu__link" do
+                span= walf_page.menuLabel
 
         .flex__item.tab-6-12.lap-3-12.margin--top-3-on-lte-palm
           .prefix--small.margin--bottom-2
@@ -123,9 +128,23 @@ footer#footer.site-footer
                 class: "footer-nav__menu__link" do
                 span= "Cookie Policy"
 
+          .prefix--small.margin--top-4.margin--bottom-2
+            = "Social media"
+
+          ul.footer-nav__menu
+          = Enum.map socials, fn social ->
+            li.footer-nav__menu__item
+              = link_to social.link,
+                class: "footer-nav__menu__link",
+                title: "Link to #{social.title} (open in new window)",
+                rel: "noopener noreferrer",
+                target: "_blank" do
+
+                span= social.title
 
 
-  .site-footer__copy
-    .wrap
-      p = "®#{DateTime.utc_now().year} -"
-      = info.copyFooter
+
+.site-footer__copy
+  .wrap
+    p = "®#{DateTime.utc_now().year} -"
+    = info.copyFooter

@@ -1,0 +1,29 @@
+.stripe
+  +horizontal-padding(1)
+  +vertical-padding(3)
+  border-top: 1px dashed $white-color
+  +at-breakpoint(lap)
+    +horizontal-padding(6)
+    +vertical-padding(5)
+
+  &:last-child
+    border-bottom: 1px dashed $white-color
+
+.stripe__number
+  +heading-font-family
+  +font-size(zeta)
+
+.stripe__title
+  +vertical-margin(2)
+  +heading-font-family
+  +font-size(zeta)
+  text-transform: uppercase
+  +at-breakpoint(lap)
+    +margin(0)
+    +font-size(epsilon)
+
+.stripe__title.blue
+  color: $blue-color
+
+.stripe__title.green
+  color: $green-color

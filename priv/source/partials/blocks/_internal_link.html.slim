@@ -1,0 +1,16 @@
+- block = params.block
+- block_label = block.label
+- block_link = block.link
+
+
+section.section--standard
+  .wrap
+    .check-anim
+      .margin--bottom-2.align--center [data-animation="from-bottom-to-up"]
+        = link_to "/#{block_link.slug}",
+          class: "button--lowercase" do
+
+          .button--cta
+            div = block_label
+            i.icon data-icon="arrow-right"
+

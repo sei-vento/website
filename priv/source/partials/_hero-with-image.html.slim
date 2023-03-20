@@ -17,14 +17,15 @@
 
   h1.title__hero--small
     = page.titleHero
+  = if Map.has_key?(page, :descriptionHero) do
+        .hero__text
+          = page.descriptionHero
 
   .ball-html.js-move-on-scroll
 
   .hero__action
-    .button__with-arrow      
-      .background--gradient
-        .background--black      
-          i.icon--arrow--gradient data-icon="arrow-down"
+    .button__with-arrow--down
+      i.icon--arrow--gradient data-icon="arrow-down"
 
 figure.hero__image
   img.lazyload.img--auto src=hero.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title

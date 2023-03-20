@@ -1,9 +1,12 @@
 .title
-  color: $gray-l-color
+  color: $black-color
+  // color: $gray-l-color
+
   strong,
   a
-    font-weight: 100
-    color: $white-color
+    // font-weight: 100
+    color: $black-color
+    // color: $white-color
   a
     +hover
       +gradient-text
@@ -21,10 +24,33 @@
     +font-size(delta)
 
 .hero__title
-  color: $white-color
   @extend .title
+  color: $white-color
+  +heading-font-family
+  text-transform: uppercase
+  +at-breakpoint(lap)
+    +font-size(delta)
+
   strong
     font-weight: bold
+    color: $white-color
+
+.hero__title--blue
+  @extend .hero__title
+  strong
+    font-weight: normal
+    color: $blue-color
+
+.hero__title--green
+  @extend .hero__title
+  strong
+    font-weight: normal
+    color: $green-color
+
+.hero__title--gradient
+  p
+    @extend .hero__title
+    +gradient-text
 
 .title__hero--small
   @extend .title__hero
@@ -53,9 +79,20 @@
   text-transform: uppercase
   letter-spacing: 4px
   color: white
-  display: inline-block
+  // display: inline-block
   +at-breakpoint(lap)
     +font-size(gamma)
+
+  &.align--center
+    text-align: center
+
+.title--huge--white
+  @extend .title--big--white
+  +heading-font-family
+  +font-size(delta)
+
+  +at-breakpoint(lap)
+    +font-size(beta)
 
 .title--gradient--big
   @extend .title--gradient
@@ -66,9 +103,9 @@
 
 .title--big
   @extend .title
-  color: $gray-l-color
+  // color: $gray-l-color
   strong
-    color: $white-color
+    // color: $white-color
     font-weight: 100
 
   +font-size(delta)
@@ -87,3 +124,44 @@
 .title--white
   @extend .title
   color: $white-color
+  +heading-font-family
+  text-transform: uppercase
+
+.title--white-mid
+  @extend .title--white
+  +font-size(epsilon)
+  line-height: 45px
+
+
+.title--black
+  @extend .title
+  color: $black-color
+  +heading-font-family
+  text-transform: uppercase
+
+  b, strong
+    color: $white-color
+
+.color--gray-l
+  color: $gray-l-color
+  a, b, strong
+    color: $white-color
+    font-weight: 100
+  a
+    font-weight: bold
+
+.pretitle--investment
+  display: block
+  background-image: image-url("investment_white.svg")
+  background-repeat: no-repeat
+  background-size: contain
+  width: 180px
+  height: 25px
+
+.pretitle--venture
+  display: block
+  background-image: image-url("venture_building_white.svg")
+  background-repeat: no-repeat
+  background-size: contain
+  width: 260px
+  height: 36px

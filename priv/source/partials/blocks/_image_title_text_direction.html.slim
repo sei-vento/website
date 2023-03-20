@@ -2,19 +2,20 @@
 - image = block.image
 - image_responsive = image.responsiveImage
 - direction = block.direction
+- color = if params.color != "", do: params.color, else: "#000"
 
-section.section--light.padding--top-6
-  .wrap
-    .flex--align-center
+section.section--standard.margin--bottom-15
+  .wrap.check-view data-bg=color
+    .widget--no-padding.flex--align-center
 
-      div class="flex__item check-anim lap-6-12 desk-4-12 #{if direction == false, do: "lap-push-6-12", else: "desk-push-1-12"}"
-        
-        .margin--bottom-2.margin--bottom-3-on-desk          
-          h2.title--small data-animation="#{if direction == false, do: "from-right-to-left", else: "from-left-to-right"}"
+      div class="flex__item check-anim lap-6-12 desk-4-12 padding--all-4 #{if direction == false, do: "lap-push-6-12", else: "desk-push-1-12"}"
+
+        .margin--bottom-2.margin--bottom-3-on-desk
+          h2.title.color--white data-animation="#{if direction == false, do: "from-right-to-left", else: "from-left-to-right"}"
             = block.title
 
-        .margin--bottom-4-on-lte-tab          
-          .text--gray-l data-animation="#{if direction == false, do: "from-right-to-left", else: "from-left-to-right"}"
+        .margin--bottom-4-on-lte-tab
+          .text--white data-animation="#{if direction == false, do: "from-right-to-left", else: "from-left-to-right"}"
             = block.description
 
       div class="flex__item check-anim lap-6-12 desk-5-12 #{if direction == false, do: "lap-pull-6-12 desk-pull-3-12", else: "desk-push-2-12"}"

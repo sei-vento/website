@@ -3,7 +3,7 @@
 
 section.tiles.tiles--rotated
   .tiles__wrap
-    = Enum.map Enum.with_index(rows), fn {row, index} ->
+    = Enum.map rows, fn row ->
 
       .tiles__line
         - images = row.images

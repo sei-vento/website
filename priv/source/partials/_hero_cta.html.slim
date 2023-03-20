@@ -1,0 +1,37 @@
+- page = params.page
+- title = if page.titleSection != "", do: page.titleSection, else: page.title
+- color = if params.color != "", do: "--#{params.color}", else: ""
+
+.hero__inner.check-view
+  .flex
+    .flex__item.lap-6-12
+      .margin--bottom-2 class="hero__title#{color}"
+        = title
+
+    .flex__item.lap-6-12
+      h1.title__hero
+        = page.titleHero
+      = if Map.has_key?(page, :descriptionHero) do
+        .hero__text
+          = page.descriptionHero
+
+      = if page.heroCtaLabel do
+        = if page.heroCtaLabel != "" do
+          .margin--top-3
+            = link_to page.heroCtaLink,
+              class: "button#{color}",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              title: page.heroCtaLabel do
+              span = page.heroCtaLabel
+              i.icon data-icon="arrow-right"
+
+  .js-move-on-scroll class="ball-html#{color}"
+
+  / .hero__action
+  /   .button__with-arrow--down
+  /     i.icon--arrow--gradient data-icon="arrow-down"
+
+
+
+

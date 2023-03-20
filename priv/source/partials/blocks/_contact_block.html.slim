@@ -1,29 +1,34 @@
 - block = params.block
-- locale = params.locale
-- info = info(locale)
-- faq_page = faq_page(locale)
+- block_link = block.link
+/ - locale = params.locale
+/ - info = info(locale)
+/ - faq_page = faq_page(locale)
 
 section.background--light
 
-  .wrap
+  .wrap.check-view data-bg=""
 
     .flex--justify-center
       .flex__item.lap-10-12
-
-        .align--center
-
+        .center-desk-left-mobile
           .margin--bottom-3.margin--bottom-6-on-lap.check-anim
-            .prefix [data-animation="from-bottom-to-up"]
+            .prefix.center-desk-left-mobile [data-animation="from-bottom-to-up"]
               = block.prefix
 
           .margin--bottom-3.margin--bottom-6-on-lap.check-anim
-            .title [data-animation="from-bottom-to-up"]
+            .title.center-desk-left-mobile.color--gray-l [data-animation="from-bottom-to-up"]
               = block.text
 
           .check-anim
             .action [data-animation="from-bottom-to-up"]
-              = link_to page_path(faq_page, locale),
-                class: "button--lowercase" do
+              = if block.internalOrExternal == "internal_link" do
+                = link_to "/#{block_link.slug}",
+                  class: "button--lowercase" do
+                  .button--white
+                    span = block.cta
 
-                .button--rounded-gradient
-                  span = block.cta  
+              = if block.internalOrExternal == "external_link" do
+                a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"
+                  .button--white
+                    span = block.cta
+                    i.icon data-icon="arrow-right"

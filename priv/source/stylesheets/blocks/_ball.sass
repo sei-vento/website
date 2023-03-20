@@ -1,6 +1,6 @@
 .ball
   +position(absolute, null)
-  background-image: url('https://www.datocms-assets.com/50154/1624886121-pattern.jpeg')
+  // background-image: url('https://www.datocms-assets.com/50154/1624886121-pattern.jpeg')
   width: 50vw
   height: 50vw
   z-index: -1
@@ -8,7 +8,7 @@
     width: 80vw
     height: 80vw
   //   display: none
-  
+
   img
     mix-blend-mode: lighten
 
@@ -41,19 +41,29 @@
     background: $gradient
     animation: moveX 16s linear 0s infinite alternate, moveY 8s linear 0s infinite alternate
 
+.ball-html--blue
+  @extend .ball-html
+  +at-breakpoint(lap)
+    background: linear-gradient(0deg, $blue-color, darken($blue-color, 30%) 90%)
+
+.ball-html--green
+  @extend .ball-html
+  +at-breakpoint(lap)
+    background: linear-gradient(0deg, $green-color, darken($green-color, 30%) 90%)
+
 
 @keyframes moveX
-  from 
+  from
     left: -20vw
     transform: rotate(0deg)
-  to 
+  to
     transform: rotate(360deg)
     left: 95vw
 
-@keyframes moveY 
-  from 
+@keyframes moveY
+  from
     transform: rotate(0deg)
     top: -250px
-  to 
+  to
     transform: rotate(360deg)
     top: 50vh

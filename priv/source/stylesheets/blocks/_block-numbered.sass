@@ -1,34 +1,37 @@
-$size: 73px
-  
+$size: 50px
+
 .block-numbered
   +vertical-padding(3)
-  +at-breakpoint(lap)
-    +vertical-padding(12)
+  // +at-breakpoint(lap)
+  //   +vertical-padding(12)
   counter-increment: my-awesome-counter
 
-  &::before
-    content: "0"counter(my-awesome-counter)
-    +heading-font-family
-    letter-spacing: 2px
-    width: $size
-    height: $size
-    border-radius: $size
-    border: 1px solid $border-color
-    display: block
-    text-align: center
-    line-height: $size
-    +margin-bottom(2)
+  .block-numbered-counter
+    position: absolute
+    top: 20px
+    right: 30px
     +at-breakpoint(lap)
-      display: inline-block
-      transform: translateY(-10px)
-      +margin-right(6)
+      top: 35px
+      right: 50px
 
-  &:nth-child(odd)
-    .image--standard
-      +at-breakpoint(lte-tab)
-        transform: translateX(-20%)
+    &::before
+      content: "0"counter(my-awesome-counter)
+      +heading-font-family
+      letter-spacing: 2px
+      width: $size
+      height: $size
+      display: block
+      text-align: center
+      line-height: $size
+      +font-size(epsilon)
 
-  &:nth-child(even)
-    .image--standard
-      +at-breakpoint(lte-tab)
-        transform: translateX(20%)
+
+    &:nth-child(odd)
+      .image--standard
+        +at-breakpoint(lte-tab)
+          transform: translateX(-20%)
+
+    &:nth-child(even)
+      .image--standard
+        +at-breakpoint(lte-tab)
+          transform: translateX(20%)

@@ -1,0 +1,37 @@
+.loop-holder
+  display: flex
+  overflow: hidden
+  +heading-font-family
+  white-space: nowrap
+  text-transform: uppercase
+
+.loop-holder--blue,
+  @extend .loop-holder
+  transition: .25s
+
+  span, &:hover
+    color: $blue-color
+
+.loop-holder--green
+  @extend .loop-holder
+  transition: .25s
+
+  span, &:hover
+    color: $green-color
+
+.loop-holder__text
+  animation: textLoop 15s linear infinite
+  font-size: 10vw
+  padding-right: .5em
+  +at-breakpoint(lap)
+    font-size: 6vw
+
+@keyframes textLoop
+  0%
+    -webkit-transform: translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0)
+
+  100%
+    -webkit-transform: translate3d(-100%, 0, 0)
+    transform: translate3d(-100%, 0, 0)
+

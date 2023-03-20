@@ -3,3 +3,5 @@
 /deps/
 /.envrc.private
 /.netlify
+# Local Netlify folder
+.netlify

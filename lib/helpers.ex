@@ -29,6 +29,7 @@ defmodule Helpers do
               menuLabel
               slug
               cta
+              cta2
               imageHero {
                 responsiveImage(sizes: "(min-width: 1024px) 45vw, 100vw",
                 imgixParams: {auto: [compress,format], fit: crop, w: "1100", h: "1300"}) {
@@ -44,15 +45,132 @@ defmodule Helpers do
                   prefix
                   text
                   cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
+                }
+                ... on CtaMultipleRecord {
+                  _modelApiKey
+                  id
+                  title
+                  cta {
+                    id
+                    label
+                    link {
+                      ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                    }
+                  }
                 }
                 ... on DateTitleSubtitleCtaDescriptionRecord {
                   id
                   _modelApiKey
                   date
+                  bgColor
                   title
                   subtitle
                   description
                   cta
+                  internalOrExternal
                   link {
                     ... on ApplicationPageRecord {
                       id
@@ -65,6 +183,7 @@ defmodule Helpers do
                       title
                     }
                   }
+                  externalLinkUrl
                   widget {
                     id
                     icon {
@@ -105,12 +224,229 @@ defmodule Helpers do
                   }
                   cta
                 }
+                ... on InternalLinkRecord {
+                  id
+                  _modelApiKey
+                  label
+                  link {
+                    ... on AboutPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ContactPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on FaqPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on HomePageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsSelectionProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on NetworkPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on WalfPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                  }
+                }
               }
             }
           }
           """, %{locale: locale})
 
         result[:homePage]
+      end
+
+      defmemo portfolio_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            portfolioPage(locale: $locale) {
+              #{seo_meta_tags_fragment()}
+              _modelApiKey
+              _updatedAt
+              id
+              title
+              menuLabel
+              slug
+              imageHero {
+                responsiveImage(sizes: "(min-width: 1024px) 45vw, 100vw",
+                imgixParams: {auto: [compress,format], fit: crop, w: "1100", h: "1300"}) {
+                  #{responsive_image_fragment()}
+                }
+                blurUpThumb
+              }
+              titleSection
+              titleHero
+              descriptionHero
+              service {
+                ... on ContactBlockRecord {
+                  id
+                  _modelApiKey
+                  prefix
+                  text
+                  cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
+                }
+                ... on PortfolioRecord {
+                  id
+                  title
+                  description
+                  _modelApiKey
+                  images {
+                    label
+                    externalLink
+                    image {
+                      responsiveImage(sizes: "(min-width: 1024px) 25vw, 90vw",
+                      imgixParams: {auto: [compress,format], fit: crop, w: "600"}) {
+                        #{responsive_image_fragment()}
+                      }
+                      blurUpThumb
+                    }
+                  }
+                  linkPortfolioLabel
+                  cta
+                  ctaText
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
+                }
+              }
+            }
+          }
+          """, %{locale: locale})
+
+        result[:portfolioPage]
       end
 
       defmemo program_page(locale) do
@@ -123,7 +459,11 @@ defmodule Helpers do
               title
               slug
               menuLabel
+              titleSection
               titleHero
+              descriptionHero
+              heroCtaLabel
+              heroCtaLink
               body {
                 ... on BigTitlePrefixImageTitleDescriptionRecord {
                   id
@@ -146,9 +486,63 @@ defmodule Helpers do
                 ... on ContactBlockRecord {
                   id
                   _modelApiKey
-                  cta
                   prefix
                   text
+                  cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
                 }
               }
               bigTitleWhere
@@ -195,7 +589,11 @@ defmodule Helpers do
               slug
               menuLabel
               id
+              titleSection
               titleHero
+              descriptionHero
+              heroCtaLabel
+              heroCtaLink
               body {
                 ... on BigTitlePrefixImageTitleDescriptionRecord {
                   id
@@ -218,9 +616,63 @@ defmodule Helpers do
                 ... on ContactBlockRecord {
                   id
                   _modelApiKey
-                  cta
                   prefix
                   text
+                  cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
                 }
               }
               #{seo_meta_tags_fragment()}
@@ -248,7 +700,10 @@ defmodule Helpers do
                 }
                 blurUpThumb
               }
+              titleSection
               titleHero
+              heroCtaLabel
+              heroCtaLink
               descriptionHero
               bodyTop {
                 _modelApiKey
@@ -278,15 +733,70 @@ defmodule Helpers do
                   blurUpThumb
                 }
                 title
+                subtitle
                 description
               }
               textApply
               bodyFooter {
                 _modelApiKey
                 id
-                cta
                 prefix
                 text
+                cta
+                internalOrExternal
+                link {
+                  ... on AboutPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ContactPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on FaqPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on HomePageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on InvestmentsSelectionProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on NetworkPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ProgramPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on ApplicationPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                    ... on WalfPageRecord {
+                      id
+                      title
+                      slug
+                    }
+                }
+                externalLinkUrl
               }
               #{seo_meta_tags_fragment()}
             }
@@ -313,7 +823,9 @@ defmodule Helpers do
                 }
                 blurUpThumb
               }
+              titleSection
               titleHero
+              descriptionHero
               blockManifesto {
                 _modelApiKey
                 id
@@ -352,6 +864,30 @@ defmodule Helpers do
                 }
               }
               titleTeam
+              programTitle
+              programBlock {
+                _modelApiKey
+                id
+                image {
+                  url
+                }
+                numberText
+                prefix
+                when
+                description
+              }
+              titleEco
+              blockEco {
+                _modelApiKey
+                id
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 33vw, 50vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "800"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb
+                }
+              }
               #{seo_meta_tags_fragment()}
             }
           }
@@ -377,6 +913,7 @@ defmodule Helpers do
                 }
                 blurUpThumb
               }
+              titleSection
               titleHero
               titleStake
               blockStake {
@@ -452,6 +989,7 @@ defmodule Helpers do
               slug
               messaggeSuccess
               menuLabel
+              titleSection
               titleHero
               icon {
                 url
@@ -480,6 +1018,7 @@ defmodule Helpers do
               prefixApply
               body {
                 titleAccordion
+                tabColor
                 accordion {
                   _modelApiKey
                   id
@@ -501,8 +1040,12 @@ defmodule Helpers do
             info(locale: $locale) {
               copyFooter
               email
+              emailInvestments
+              emailVentureBuilding
               address
               emailForm
+              linkApplyInvestments
+              linkApplyVentureBuilding
               phone {
                 number
                 label
@@ -532,6 +1075,196 @@ defmodule Helpers do
           """, %{locale: locale})
 
         result[:info]
+      end
+
+      defmemo investments_program_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            investmentsProgramPage(locale: $locale) {
+              _modelApiKey
+              _updatedAt
+              id
+              title
+              slug
+              menuLabel
+              titleSection
+              titleHero
+              descriptionHero
+              heroCtaLabel
+              heroCtaLink
+              bodyTop {
+                _modelApiKey
+                id
+                title
+                direction
+                description
+                image {
+                  responsiveImage(sizes: "(min-width: 1024px) 60vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "1024"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb
+                }
+              }
+              offersTitle
+              offersBlocks {
+                _modelApiKey
+                text
+                title
+              }
+              ourFiguresTitle
+              numbers {
+                id
+                label
+                number
+              }
+              #{seo_meta_tags_fragment()}
+            }
+          }
+          """, %{locale: locale})
+
+        result[:investmentsProgramPage]
+      end
+
+      defmemo investments_selection_program_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            investmentsSelectionProgramPage(locale: $locale) {
+              _modelApiKey
+              _updatedAt
+              id
+              title
+              slug
+              menuLabel
+              titleSection
+              titleHero
+              descriptionHero
+              heroCtaLabel
+              heroCtaLink
+              ctaLink
+              ctaLabel
+              body {
+                ... on BigTitlePrefixImageDescriptionRecord {
+                  id
+                  _modelApiKey
+                  bigTitle
+                  createdAt
+                  description
+                  when
+                  where
+                  image {
+                    responsiveImage(sizes: "(min-width: 1600px) 50vw, 100vw",
+                    imgixParams: {auto: [compress,format], fit: crop, w: "1055"}) {
+                      #{responsive_image_fragment()}
+                    }
+                    blurUpThumb
+                  }
+                }
+              }
+              #{seo_meta_tags_fragment()}
+            }
+          }
+          """, %{locale: locale})
+
+        result[:investmentsSelectionProgramPage]
+      end
+
+      defmemo contact_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            contactPage(locale: $locale) {
+              _modelApiKey
+              _updatedAt
+              id
+              title
+              slug
+              menuLabel
+              areas {
+                title
+                id
+                description
+                buttonColor
+                buttonLabel
+                externalLink
+                image {
+                  url
+                  alt
+                  responsiveImage(sizes: "(min-width: 600px) 50vw, 100vw",
+                  imgixParams: {auto: [compress,format], fit: crop, w: "960"}) {
+                    #{responsive_image_fragment()}
+                  }
+                  blurUpThumb
+                }
+              }
+              blocks {
+                ... on ContactBlockRecord {
+                  id
+                  _modelApiKey
+                  prefix
+                  text
+                  cta
+                  internalOrExternal
+                  link {
+                    ... on AboutPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ContactPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on FaqPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on HomePageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on InvestmentsSelectionProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on NetworkPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ProgramPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on ApplicationPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                      ... on WalfPageRecord {
+                        id
+                        title
+                        slug
+                      }
+                  }
+                  externalLinkUrl
+                }
+              }
+              #{seo_meta_tags_fragment()}
+            }
+          }
+          """, %{locale: locale})
+
+        result[:contactPage]
       end
 
       defmemo accordion(locale) do

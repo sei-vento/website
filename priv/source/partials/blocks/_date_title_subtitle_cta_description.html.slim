@@ -1,72 +1,89 @@
 - block = params.block
 - block_link = block.link
 - widgets = block.widget
-- locale = params.locale
-- info = info(locale)
-- image_ball = info.ball
-- ball = image_ball.responsiveImage
+/ - locale = params.locale
+/ - info = info(locale)
+/ - image_ball = info.ball
+/ - ball = image_ball.responsiveImage
+- inv_id = if block.id == "44979949", do: "investments", else: ""
+- vb_id = if block.id == "44979950", do: "venture-building", else: ""
+- bg_color = if block.bgColor != "", do: block.bgColor, else: "#000"
 
-section class="section--standard" id="#{ if block.id == "44979949", do: "content-page"}"
+section class="section--spaced" id="#{inv_id}#{vb_id}"
 
-  = if block.id == "44979949" do
-    .ball--right.js-move-on-scroll
-      img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
-    
-  = if block.id == "44979950" do
-    .ball--left.js-move-on-scroll
-      img.lazyload.image--cover src=image_ball.blurUpThumb data-srcset=ball.srcSet data-src=ball.src data-sizes=ball.sizes alt=ball.alt title=ball.title
-    
+
+
 
   .wrap
-  
-    .margin--bottom-1.check-anim 
-      .prefix data-animation="from-bottom-to-up"
-        = block.date
+    = if block.date != "" do
+      .margin--bottom-1.check-anim
+        .prefix data-animation="from-bottom-to-up"
+          = block.date
 
-    .flex
+    .flex.margin--bottom-4
       .flex__item--relative.lap-5-12
+
         .margin--bottom-2.check-anim
-          h2.title--gradient data-animation="from-bottom-to-up"
+          = if block.id == "44979949" do
+            .pretitle--investment.margin--bottom-2 data-animation="from-bottom-to-up"
+
+          = if block.id == "44979950" do
+            .pretitle--venture.margin--bottom-2 data-animation="from-bottom-to-up"
+
+          h2.title--black.check-view data-animation="from-bottom-to-up" data-bg=bg_color
             = block.title
 
         .hidden--on-lap
           .check-anim
             h3.title--big.margin--bottom-2 data-animation="from-bottom-to-up"
               = block.description
-        
-        .flex__item--footer.check-anim
-          .text.margin--bottom-2 data-animation="from-bottom-to-up"
-            = block.subtitle
+            .check-anim
+              .text--black.margin--bottom-2 data-animation="from-bottom-to-up"
+                = block.subtitle
 
-          .check-anim
-            div data-animation="from-bottom-to-up"
+          / .check-anim
+          /   .text.margin--bottom-2 data-animation="from-bottom-to-up"
+          /     = block.subtitle
+
+        .check-anim
+          div data-animation="from-bottom-to-up"
+            = if block.internalOrExternal == "internal_link" do
               = link_to "/#{block_link.slug}",
                 class: "button--lowercase" do
-
-                .button--rounded-gradient
+                .button--white
                   span = block.cta
+
+            = if block.internalOrExternal == "external_link" do
+              a.button--lowercase href="#{block.externalLinkUrl}" target="_blank"
+                .button--white
+                  span = block.cta
+                  i.icon data-icon="arrow-right"
 
       .flex__item.lap-5-12.lap-push-2-12
         .hidden--on-lte-tab.check-anim
-          h3.title--big.margin--bottom-2 data-animation="from-bottom-to-up"
+          h3.title.margin--bottom-2 data-animation="from-bottom-to-up"
             = block.description
+          .check-anim
+            .text--black.margin--bottom-2 data-animation="from-bottom-to-up"
+              = block.subtitle
 
 
-    .swiper-program.swiper-container
-      .swiper-wrapper
-        = Enum.map widgets, fn widget ->
-          .swiper-slide.check-anim
-            .widget data-animation="from-bottom-to-up"
-              .widget__header
-                - icon = widget.icon
-                img src="#{icon.url}" alt="#{icon.alt}"
+    .flex
+      = Enum.map widgets, fn widget ->
+        .flex__item.margin--bottom-2.check-anim
+          .widget--padding-big data-animation="from-bottom-to-up"
+            .flex--justify-center
+              .flex__item.lap-6-12
+                .flex
+                  .flex__item.lap-2-12
+                    .widget__header
+                      - icon = widget.icon
+                      img src="#{icon.url}" alt="#{icon.alt}"
 
-              .widget__body
-              
-                h2.widget__title 
-                  = widget.title
+                  .flex__item.lap-10-12
+                    h2.widget__title
+                      = widget.title
 
+              .flex__item.lap-6-12
                 .widget__text
                   = widget.description
-
-      .swiper-pagination--program.swiper-pagination

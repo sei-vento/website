@@ -24,12 +24,14 @@
 
 .hero--homepage
   @extend .hero
-  background: $background-l
-  height: 100vh
+  // background: $background-l
   overflow-y: hidden
   +padding-top(8)
+  +at-breakpoint(desk)
+    min-height: 100vh
 
 .hero__inner
+  min-height: 80vh
   z-index: 2
   position: relative
   +vertical-padding(8)
@@ -37,58 +39,64 @@
     +padding-top(16)
 
 .title__hero
-  +margin-top(2)
+  // +margin-top(2)
   +font-size(epsilon)
   +font-size(35px)
   font-weight: normal
   strong
     font-weight: bold
   +at-breakpoint(lap)
-    +font-size(80px)
-    line-height: 70px
-  +at-breakpoint(desk)
-    +margin-top(4)
-    line-height: 90px
-  +at-breakpoint(full)
-    +margin-top(4)
-    line-height: 100px
-  +at-breakpoint(monitor)
-    +margin-top(5)
-    line-height: 120px
+    +font-size(gamma)
+    // line-height: 90px
+  // +at-breakpoint(desk)
+  //   // +margin-top(4)
+  //   line-height: 90px
+  // +at-breakpoint(full)
+  //   // +margin-top(4)
+  //   line-height: 100px
+  // +at-breakpoint(monitor)
+  //   // +margin-top(5)
+  //   line-height: 120px
 
-  opacity: 0
-  transform: translateY(100px)
-  transition: all 1s .5s linear
+  // opacity: 0
+  // transform: translateY(100px)
+  // transition: all 1s .5s linear
 
-  .body-loaded .hero &
-    opacity: 1
-    transform: translateY(0px)
+  // .body-loaded .hero &
+  //   opacity: 1
+  //   transform: translateY(0px)
 
 
 .hero__action
-  display: none
+  // display: none
+  +margin-top(4)
   +at-breakpoint(lap)
     display: block
-    +margin-top(4)
   i
     width: 16px
     height: 16px
 
-  opacity: 0
-  transform: translateY(100px)
-  transition: all 1s 1s linear
+  // opacity: 0
+  // transform: translateY(100px)
+  // transition: all 1s 1s linear
 
-  .body-loaded .hero--homepage &,
-  .body-loaded .hero &,
-    opacity: 1
-    transform: translateY(0px)
+  // .body-loaded .hero--homepage &,
+  // .body-loaded .hero &,
+  //   opacity: 1
+  //   transform: translateY(0px)
+
+  a
+    display: flex
+    justify-content: center
+    margin-right: 25%
+    text-align: center
 
 .hero--homepage__image
   +margin-top(4)
   +at-breakpoint(lap)
     +margin-top(0)
-  +at-breakpoint(desk)
-    height: calc(100vh - 6rem)
+  +at-breakpoint(lap)
+    height: 80vh
     position: relative
 
 .hero__image
@@ -105,18 +113,18 @@
   +at-breakpoint(desk)
     +margin-top(4)
 
-  opacity: 0
-  transform: translateY(100px)
-  transition: all 1s .75s linear
+  // opacity: 0
+  // transform: translateY(100px)
+  // transition: all 1s .75s linear
 
-  .body-loaded .hero &
-    opacity: 1
-    transform: translateY(0px)
+  // .body-loaded .hero &
+  //   opacity: 1
+  //   transform: translateY(0px)
 
 .hero__title
-  opacity: 0
-  transform: translateY(100px)
-  transition: all 1s linear
-  .body-loaded &
-    opacity: 1
-    transform: translateY(0px)
+  // opacity: 0
+  // transform: translateY(100px)
+  // transition: all 1s linear
+  // .body-loaded &
+  //   opacity: 1
+  //   transform: translateY(0px)

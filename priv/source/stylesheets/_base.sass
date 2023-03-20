@@ -12,7 +12,7 @@ html, body
 html
   scroll-behavior: smooth
   @media screen and (prefers-reduced-motion: reduce)
-    scroll-behavior: auto  
+    scroll-behavior: auto
   +rem-html-reset(1)
   -webkit-tap-highlight-color: transparent
   font-size: 4.3vw
@@ -44,7 +44,19 @@ body
   -moz-osx-font-smoothing: grayscale
   overflow-x: hidden
   height: 100%
-  background-image: url('https://www.datocms-assets.com/50154/1624886121-pattern.jpeg')
+  transition: background-color 1s
+  position: relative
+  z-index: 0
+
+  &:after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-image: image-url("pattern-transparent.png")
+    z-index: -1
 
 .body--light
   background-color: $white-color
@@ -137,8 +149,9 @@ pre, code
 
 hr
   border: none
-  border-bottom-style: solid
+  border-bottom-style: dashed
   border-bottom-width: 1px
+  color: $black-color
 
 table
   table-layout: fixed
@@ -159,3 +172,17 @@ legend
 summary
   &::-webkit-details-marker
     display: none
+
+.divider
+  +padding-bottom(2)
+  +margin-bottom(2)
+  border-bottom: 1px solid #666
+
+.center-desk-left-mobile
+  text-align: left
+  +at-breakpoint(lap)
+    text-align: center!important
+    justify-items: center
+
+.text-center
+  text-align: center

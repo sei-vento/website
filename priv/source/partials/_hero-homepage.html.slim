@@ -3,22 +3,22 @@
 - image = hero.responsiveImage
 
 .flex--align-center
-
   .flex__item.lap-6-12.lap-push-6-12
-    h1.hero__title 
+    h1.hero__title.check-view
       = page.titleHero
     .hero__action
       .margin--top-2.margin--top-4-on-lap
-        = link_to "/#content-page",
-          class: "button__with-arrow",
-          title: "Go to content of page" do
-          .background--gradient 
-            .background--black
-              i.icon--arrow--gradient data-icon="arrow-down"
+
+        a.button--blue.js-anchor data-target="#investments" title="Go to content investments"
           span = page.cta
-        
+          i.icon data-icon="arrow-right"
+
+      .margin--top-2
+        a.button--green.js-anchor data-target="#venture-building" title="Go to content venture building"
+          span = page.cta2
+          i.icon data-icon="arrow-right"
+
 
   .flex__item.lap-6-12.lap-pull-6-12
-    figure.hero--homepage__image
+    figure.hero--homepage__image.widget__photo
       img.lazyload.img--cover src=hero.blurUpThumb data-srcset=image.srcSet data-src=image.src data-sizes=image.sizes alt=image.alt title=image.title
-    

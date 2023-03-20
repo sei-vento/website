@@ -1,25 +1,27 @@
 - page = params.page
+- title = if page.titleSection != "", do: page.titleSection, else: page.title
+- color = if params.color != "", do: "--#{params.color}", else: ""
+- heroColor = if params.color != "", do: "hero__title--#{params.color}", else: "hero__title--gradient"
 
-.hero__inner
+.hero__inner.check-view
+  .flex
+    .flex__item.lap-6-12
+      .margin--bottom-2 class="#{heroColor}"
+        = title
 
-  .prefix--with-gradient.margin--bottom-2
-    = page.title
-
-  h1.title__hero
-    = page.titleHero
-
-  .ball-html.js-move-on-scroll
-
-  = if Map.has_key?(page, :descriptionHero) do
-
-    .flex
-      .flex__item.lap-5-12
-        .hero__text 
+    .flex__item.lap-6-12
+      h1.title__hero
+        = page.titleHero
+      = if Map.has_key?(page, :descriptionHero) do
+        .hero__text
           = page.descriptionHero
 
+  .js-move-on-scroll class="ball-html#{color}"
+
   .hero__action
-    .button__with-arrow
-      .background--gradient
-        .background--black      
-          i.icon--arrow--gradient data-icon="arrow-down"
+    .button__with-arrow--down
+      i.icon--arrow--gradient data-icon="arrow-down"
+
+
+
 

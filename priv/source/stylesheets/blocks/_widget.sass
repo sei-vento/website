@@ -1,16 +1,12 @@
 .widget
   border: 1px solid rgba($border-color, .5)
   width: 99.9%
-  +padding(2)
+  background: #000
+  +padding(4)
   border-radius: 100px 0
   overflow: hidden
   position: relative
-  +at-breakpoint(lap)
-    min-height: 420px
-  +at-breakpoint(desk)
-    min-height: 26vw
-  +at-breakpoint(monitor)
-    min-height: 22vw
+
 
 .widget__body
   +at-breakpoint(tab)
@@ -40,7 +36,7 @@
   img
     +center
     max-width: 220px
-    max-height: 100px
+    max-height: 200px
 
 .widget--gradient
   @extend .widget--black-l
@@ -49,7 +45,7 @@
   +at-breakpoint(lap)
     min-height: 300px
   +at-breakpoint(full)
-    min-height: 25vw    
+    min-height: 25vw
   &::after
     content: ""
     background: $gradient
@@ -62,6 +58,16 @@
   transition: .3s
   z-index: 1
 
+.widget--no-padding
+  @extend .widget
+  padding: 0
+
+.widget--padding-big
+  @extend .widget
+  +padding(5)
+  +at-breakpoint(lap)
+    +padding(7)
+
 .widget--no-margin-bottom
   @extend .widget
   padding-bottom: 0
@@ -73,9 +79,12 @@
   position: relative
 
   img
-    height: 50px
+    height: 80px
     position: absolute
-    right: 0
+    left: 0
+    +at-breakpoint(lap)
+      left: auto
+      right: 30px
 
 .widget__title
   +heading-font-family
@@ -84,9 +93,11 @@
   letter-spacing: 1.5px
   max-width: 70%
   +margin-bottom(2)
+  text-transform: uppercase
 
 .widget__text
-  color: $gray-l-color
+  // color: $gray-l-color
+  color: $white-color
   letter-spacing: 0.75px
 
 .widget__name
@@ -150,3 +161,45 @@
   em
     color: white
     font-style: normal
+
+.widget--contacts
+  @extend .widget
+  +padding(4)
+  height: 100%
+  min-height: 500px
+  display: flex
+  flex-direction: column
+
+  +at-breakpoint(tab)
+    +padding(6)
+
+  +at-breakpoint(desk)
+    +padding(6)
+
+.widget__image
+  +margin-bottom(4)
+
+  figure, img
+    max-height: 30px
+
+    +at-breakpoint(lap)
+      max-height: 40px
+
+    +at-breakpoint(desk)
+      max-height: 60px
+
+.widget__mail
+  margin-top: auto
+
+.widget__actions
+  margin-top: 0
+
+.widget__photo
+  @extend .widget
+  border: 0
+  width: 100%
+  +padding(0)
+  min-height: 100%
+  background: #000
+  position: relative
+  z-index: 1

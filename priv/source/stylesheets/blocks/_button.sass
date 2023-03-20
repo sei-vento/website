@@ -61,21 +61,24 @@ input[type="button"]
   +font-size(mini)
   +at-breakpoint(lap)
     +font-size(smallprint)
-  
+
 .button--rounded
   @extend .button
   background-color: $white-color
-  border-radius: 36px
+  border-radius: 100px
   color: $black-color
   letter-spacing: 0.85px
-  padding: .5rem 1.5rem
+  padding: 1rem 2rem
   z-index: 0
   position: relative
   overflow: hidden
   border: none
+  +at-breakpoint(lap)
+    padding: 1.5rem 2.5rem
   +hover
     &::after
       right: 0
+
 
   span
     white-space: nowrap
@@ -90,6 +93,53 @@ input[type="button"]
 
   &.background-with-gradient
     background: $gradient
+
+.button--cta
+  @extend .button--rounded
+  text-transform: uppercase
+  font-size: 13px
+  line-height: 1
+  +horizontal-padding(2)
+  +vertical-padding(1)
+  display: inline-flex
+  align-items: center
+
+  +at-breakpoint(lap)
+    font-size: 20px
+    +horizontal-padding(4)
+
+.button--blue
+  @extend .button--rounded
+  text-transform: uppercase
+  background-color: $blue-color
+  font-weight: 400
+  padding: 0.5rem 1rem
+  +at-breakpoint(lap)
+    padding: 1rem 2rem
+  &:hover
+    background-color: darken($blue-color, 10%)
+  &::after
+    display: none
+
+.button--green
+  @extend .button--rounded
+  text-transform: uppercase
+  background-color: $green-color
+  font-weight: 400
+  padding: 0.5rem 1rem
+  +at-breakpoint(lap)
+    padding: 1rem 2rem
+  &:hover
+    background-color: darken($green-color, 10%)
+  &::after
+    display: none
+
+.button--white
+  @extend .button--rounded
+  text-transform: uppercase
+  background-color: $white-color
+  font-weight: 400
+
 
 .button--uppercase
   @extend .button
@@ -107,10 +157,23 @@ input[type="button"]
   +at-breakpoint(lap)
     +font-size(smallprint)
   span
-    +margin-left(1)
+    +margin-right(1)
   +hover
     span
       +gradient-text
+
+
+.button__with-arrow--down
+  color: $white-color
+  +font-size(50px)
+  width: 50px
+  height: 50px
+  border-radius: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  transition: .3s
+  box-shadow: 0 0 0 1px $white-color
 
 .button--menu
   display: flex
