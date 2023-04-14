@@ -182,6 +182,28 @@ defmodule Vento do
             id: "thanks_page"}
         )
 
+        privacy_page = privacy_page(locale)
+        privacy_page_path = page_path(privacy_page, locale)
+        config = page(
+          config,
+          "/templates/privacy_page.html.slim",
+          Fermo.Paths.path_to_target(privacy_page_path),
+          %{page: privacy_page(locale),
+            locale: locale,
+            id: "privacy_page"}
+        )
+
+        cookie_page = cookie_page(locale)
+        cookie_page_path = page_path(cookie_page, locale)
+        config = page(
+          config,
+          "/templates/cookie_page.html.slim",
+          Fermo.Paths.path_to_target(cookie_page_path),
+          %{page: cookie_page(locale),
+            locale: locale,
+            id: "cookie_page"}
+        )
+
       end
     )
 

@@ -13,7 +13,8 @@
 - faq_page = faq_page(locale)
 - socials = info.social
 - phones = info.phone
-
+- privacy_page = privacy_page(locale)
+- cookie_page = cookie_page(locale)
 
 footer#footer.site-footer
 
@@ -117,14 +118,12 @@ footer#footer.site-footer
           ul.footer-nav__menu
 
             li.footer-nav__menu__item
-              = link_to "https://www.datocms-assets.com/50154/1631518775-05082021informativa-privacy-docx.pdf",
-                target: "_blank",
+              = link_to page_path(privacy_page, locale),
                 class: "footer-nav__menu__link" do
                 span= "Privacy Policy"
 
             li.footer-nav__menu__item
-              = link_to "https://www.datocms-assets.com/50154/1631518777-cookie-policy-vento-docx.pdf",
-                target: "_blank",
+              = link_to page_path(cookie_page, locale),
                 class: "footer-nav__menu__link" do
                 span= "Cookie Policy"
 
@@ -148,3 +147,42 @@ footer#footer.site-footer
   .wrap
     p = "®#{DateTime.utc_now().year} -"
     = info.copyFooter
+
+    = "Credits: "
+
+    = link_to "https://www.cantierecreativo.net/",
+      class: "site-footer__copy",
+      title: "Link to Cantiere Creativo (open in new window)",
+      rel: "noopener noreferrer",
+      target: "_blank" do
+        span= "Cantiere Creativo"
+
+    = " - Made with "
+
+    = link_to "https://www.datocms.com/",
+      class: "site-footer__copy",
+      title: "Link to DatoCMS (open in new window)",
+      rel: "noopener noreferrer",
+      target: "_blank" do
+        span= "DatoCMS"
+
+    =  "- Built with "
+
+    = link_to "https://www.getfermo.com/",
+      class: "site-footer__copy",
+      title: "Link to Fermo (open in new window)",
+      rel: "noopener noreferrer",
+      target: "_blank" do
+        span= "Fermo"
+
+    =  " - "
+
+    = link_to page_path(privacy_page, locale),
+      class: "site-footer__copy" do
+      span= "Privacy Policy"
+
+    =  " - "
+
+    = link_to page_path(cookie_page, locale),
+      class: "site-footer__copy" do
+      span= "Cookie Policy"

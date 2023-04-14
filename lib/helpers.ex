@@ -1280,6 +1280,42 @@ defmodule Helpers do
         result[:allAccordions]
       end
 
+      defmemo privacy_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            privacyPage(locale: $locale) {
+              _modelApiKey
+              id
+              title
+              slug
+              text
+              menuLabel
+              #{seo_meta_tags_fragment()}
+            }
+          }
+          """, %{locale: locale})
+
+        result[:privacyPage]
+      end
+
+      defmemo cookie_page(locale) do
+        result = query!("""
+          query MyQuery($locale: SiteLocale!) {
+            cookiePage(locale: $locale) {
+              _modelApiKey
+              id
+              title
+              slug
+              text
+              menuLabel
+              #{seo_meta_tags_fragment()}
+            }
+          }
+          """, %{locale: locale})
+
+        result[:cookiePage]
+      end
+
       def render_link_to_record(item, node) do
         [~s(<a href="/items/#{item.slug}">#{hd(node.children).value}</a>)]
       end

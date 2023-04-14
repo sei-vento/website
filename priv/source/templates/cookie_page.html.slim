@@ -1,0 +1,15 @@
+- page = params.page
+
+
+- content_for(:head)
+  = dato_meta_tags(params.page)
+
+header.hero
+  .wrap
+    = partial("partials/hero-only-title",
+      %{page: page})
+
+section.section--light
+  .wrap.margin--both-3
+    .formatted-content
+      = page.text
