@@ -27,7 +27,7 @@ defmodule Vento.MixProject do
       {:datocms_graphql_client, ">= 0.0.0"},
       {:fermo_datocms_graphql_client, ">= 0.0.0"},
       {:memoize, "~> 1.3"}      ,
-      {:neotoma, "~> 1.7.3", manager: :rebar3, override: true}
+      {:slime, github: "populimited/slime", ref: "no-compile", override: true}
     ]
   end
 end
