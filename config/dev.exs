@@ -1,4 +1,5 @@
-import Mix.Config
+# import Mix.Config
+import Config
 
 alias DatoCMS.GraphQLClient.Backends.StandardClient
 
