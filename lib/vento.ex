@@ -4,7 +4,7 @@ defmodule Vento do
   """
 
   use Fermo, %{
-    base_url: Application.fetch_env!(:fermo, :base_url),
+    base_url: Application.compile_env!(:fermo, :base_url),
     i18n: [:en],
     path_map: true,
     exclude: ["templates/*", "layouts/*", "javascripts/*", "stylesheets/*"],
@@ -55,7 +55,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/program_page.html.slim",
-          Fermo.Paths.path_to_target(program_page_path),
+          Fermo.Paths.path_to_filename(program_page_path),
           %{page: program_page(locale),
             locale: locale,
             id: "program_page"}
@@ -66,7 +66,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/application_page.html.slim",
-          Fermo.Paths.path_to_target(application_page_path),
+          Fermo.Paths.path_to_filename(application_page_path),
           %{page: application_page(locale),
             locale: locale,
             id: "application_page"}
@@ -77,7 +77,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/walf_page.html.slim",
-          Fermo.Paths.path_to_target(walf_page_path),
+          Fermo.Paths.path_to_filename(walf_page_path),
           %{page: walf_page(locale),
             locale: locale,
             id: "walf_page"}
@@ -88,7 +88,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/about_page.html.slim",
-          Fermo.Paths.path_to_target(about_page_path),
+          Fermo.Paths.path_to_filename(about_page_path),
           %{page: about_page(locale),
             locale: locale,
             id: "about_page"}
@@ -99,7 +99,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/investments_program_page.html.slim",
-          Fermo.Paths.path_to_target(investments_program_page_path),
+          Fermo.Paths.path_to_filename(investments_program_page_path),
           %{page: investments_program_page(locale),
             locale: locale,
             id: "investments_program_page"}
@@ -110,7 +110,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/investments_selection_program_page.html.slim",
-          Fermo.Paths.path_to_target(investments_selection_program_page_path),
+          Fermo.Paths.path_to_filename(investments_selection_program_page_path),
           %{page: investments_selection_program_page(locale),
             locale: locale,
             id: "investments_selection_program_page"}
@@ -121,7 +121,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/portfolio_page.html.slim",
-          Fermo.Paths.path_to_target(portfolio_page_path),
+          Fermo.Paths.path_to_filename(portfolio_page_path),
           %{page: portfolio_page(locale),
             locale: locale,
             id: "portfolio_page"}
@@ -132,7 +132,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/contact_page.html.slim",
-          Fermo.Paths.path_to_target(contact_page_path),
+          Fermo.Paths.path_to_filename(contact_page_path),
           %{page: contact_page(locale),
             locale: locale,
             id: "contact_page"}
@@ -143,7 +143,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/network_page.html.slim",
-          Fermo.Paths.path_to_target(network_page_path),
+          Fermo.Paths.path_to_filename(network_page_path),
           %{page: network_page(locale),
             locale: locale,
             id: "network_page"}
@@ -154,7 +154,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/faq_page.html.slim",
-          Fermo.Paths.path_to_target(faq_page_path),
+          Fermo.Paths.path_to_filename(faq_page_path),
           %{page: faq_page(locale),
             locale: locale,
             id: "faq_page"}
@@ -165,7 +165,7 @@ defmodule Vento do
         # config = page(
         #   config,
         #   "/templates/apply_page.html.slim",
-        #   Fermo.Paths.path_to_target(apply_page_path),
+        #   Fermo.Paths.path_to_filename(apply_page_path),
         #   %{page: apply_page(locale),
         #     locale: locale,
         #     id: "apply_page"}
@@ -176,7 +176,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/thanks_page.html.slim",
-          Fermo.Paths.path_to_target(thanks_page_path),
+          Fermo.Paths.path_to_filename(thanks_page_path),
           %{page: thanks_page(locale),
             locale: locale,
             id: "thanks_page"}
@@ -187,7 +187,7 @@ defmodule Vento do
         config = page(
           config,
           "/templates/privacy_page.html.slim",
-          Fermo.Paths.path_to_target(privacy_page_path),
+          Fermo.Paths.path_to_filename(privacy_page_path),
           %{page: privacy_page(locale),
             locale: locale,
             id: "privacy_page"}
@@ -198,12 +198,13 @@ defmodule Vento do
         config = page(
           config,
           "/templates/cookie_page.html.slim",
-          Fermo.Paths.path_to_target(cookie_page_path),
+          Fermo.Paths.path_to_filename(cookie_page_path),
           %{page: cookie_page(locale),
             locale: locale,
             id: "cookie_page"}
         )
 
+        config
       end
     )
 

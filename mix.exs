@@ -7,7 +7,7 @@ defmodule Vento.MixProject do
     [
       app: :vento,
       version: "0.1.0",
-      elixir: "~> 1.11",
+      elixir: "~> 1.14",
       compilers: Mix.compilers() ++ [:fermo],
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -22,11 +22,11 @@ defmodule Vento.MixProject do
 
   defp deps do
     [
-      {:fermo, ">= 0.0.0"},
-      {:fermo_helpers, ">= 0.0.0"},
       {:datocms_graphql_client, ">= 0.0.0"},
       {:fermo_datocms_graphql_client, ">= 0.0.0"},
-      {:memoize, "~> 1.3"}      ,
+      {:fermo_helpers, ">= 0.0.0"},
+      {:fermo, "0.16.1"},
+      {:memoize, ">= 0.0.0"},
       {:slime, github: "populimited/slime", ref: "no-compile", override: true}
     ]
   end

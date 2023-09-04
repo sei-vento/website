@@ -1,3 +1,14 @@
+/node_modules
+/_build/
+/.direnv/
+/.elixir_ls/
+/.elixir-tools/
+/.nix/
+/.data/
+/.ops/.overmind.sock
+.overmind.sock
+/.env
+
 /build/
 /_build/
 /deps/
