@@ -10,7 +10,7 @@ $ yarn # ...or npm install
 # Development
 
 ```sh
-$ mix fermo.live
+$ NODE_OPTIONS=--openssl-legacy-provider mix fermo.live
 ```
 
 The site is available at `http://localhost:4001`
@@ -18,5 +18,5 @@ The site is available at `http://localhost:4001`
 # Build
 
 ```sh
-$ mix fermo.build
+$ NODE_OPTIONS=--openssl-legacy-provider mix fermo.live
 ```

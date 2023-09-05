@@ -10,5 +10,6 @@ Setup commands:
     mix deps.get
     mix compile
     NODE_OPTIONS=--openssl-legacy-provider mix fermo.build
+    NODE_OPTIONS=--openssl-legacy-provider mix fermo.live
 
 ---
