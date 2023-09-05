@@ -18,30 +18,27 @@ if (mode === 'production') {
 }
 
 module.exports = {
-  context: __dirname + '/priv/source',
+  context: __dirname + "/priv/source",
   entry: {
-    application: './javascripts/application.js',
-    style: './stylesheets/application.sass'
+    application: "./javascripts/application.js",
+    style: "./stylesheets/application.sass",
   },
   resolve: {
-    modules: [
-      'javascripts',
-      __dirname + '/node_modules'
-    ]
+    modules: ["javascripts", __dirname + "/node_modules"],
   },
   output: {
-    path: __dirname + '/build',
-    publicPath: '/', // prepend '/' to image paths resolved from 'url()' in SASS
-    filename: jsFilenameTemplate
+    path: __dirname + "/build",
+    publicPath: "/", // prepend '/' to image paths resolved from 'url()' in SASS
+    filename: jsFilenameTemplate,
   },
   mode,
   optimization: {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: 'styles',
+          name: "styles",
           test: /\.css$/,
-          chunks: 'all',
+          chunks: "all",
           enforce: true,
         },
       },
@@ -51,65 +48,65 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: [
-          {loader: 'import-glob-loader'}
-        ]
+        use: [{ loader: "import-glob-loader" }],
       },
       {
         test: /\.(gif|ico|jpg|png|svg|eot|ttf|woff|woff2)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
               name: assetNaming,
               esModule: false,
-              sourceMap: false
-            }
-          }
-        ]
+              sourceMap: false,
+            },
+          },
+        ],
       },
       {
         test: /.*\.sass$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {loader: 'css-loader'},
-          {loader: 'postcss-loader'},
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
             options: {
               sassOptions: {
-                includePaths: ['node_modules/normalize-scss/sass']
-              }
-            }
+                includePaths: ["node_modules/normalize-scss/sass"],
+              },
+            },
           },
-          {loader: 'import-glob-loader'}
-        ]
+          { loader: "import-glob-loader" },
+        ],
       },
       {
         test: /favicons\/(site\.webmanifest|browserconfig\.xml)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[path][name]-[chunkhash:6].[ext]'
-            }
+              name: "[path][name]-[chunkhash:6].[ext]",
+            },
           },
           {
-            loader: 'app-manifest-loader'
-          }
-        ]
-      }
-    ]
+            loader: "app-manifest-loader",
+          },
+        ],
+      },
+    ],
   },
   devServer: {
     headers: {
-      "Access-Control-Allow-Origin": "*"
-    }
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
+    },
   },
   plugins: [
-    new WebpackManifestPlugin({writeToFileEmit: true}),
+    new WebpackManifestPlugin({ writeToFileEmit: true }),
     new MiniCssExtractPlugin({
-      filename: cssFilenameTemplate
-    })
-  ]
-}
+      filename: cssFilenameTemplate,
+    }),
+  ],
+};
