@@ -27,7 +27,7 @@ defmodule Vento.MixProject do
       {:fermo_helpers, ">= 0.0.0"},
       {:fermo, "0.16.1"},
       {:memoize, ">= 0.0.0"},
-      {:slime, github: "populimited/slime", ref: "no-compile", override: true}
+      {:slime, "1.2.1"}
     ]
   end
 end
