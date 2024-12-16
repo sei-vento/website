@@ -7,7 +7,7 @@ defmodule Vento.MixProject do
     [
       app: :vento,
       version: "0.1.0",
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       compilers: Mix.compilers() ++ [:fermo],
       start_permanent: Mix.env() == :prod,
       deps: deps()
