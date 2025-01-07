@@ -25,7 +25,7 @@ defmodule Vento.MixProject do
       {:datocms_graphql_client, ">= 0.0.0"},
       {:fermo_datocms_graphql_client, ">= 0.0.0"},
       {:fermo_helpers, ">= 0.0.0"},
-      {:fermo, "0.16.1"},
+      {:fermo, "0.18.1"},
       {:memoize, ">= 0.0.0"},
       {:slime, github: "populimited/slime", ref: "no-compile", override: true}
     ]
